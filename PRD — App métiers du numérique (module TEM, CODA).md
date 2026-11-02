@@ -54,7 +54,7 @@ L'app compte cinq écrans : nuage, fiche, quiz, roadmap, sources.
 
 ### 3. Quiz
 
-- Questions à choix (nombre à fixer, une quinzaine proposée) ; chaque réponse pondère une ou plusieurs macro-branches.
+- 16 questions à choix ; chaque réponse pondère une ou plusieurs des 8 macro-branches.
 - Résultat : un top 3 de branches, présenté comme un point de départ, pas un verdict.
 - Le résultat est gardé dans le navigateur ; le quiz peut être refait.
 
@@ -74,15 +74,17 @@ L'app compte cinq écrans : nuage, fiche, quiz, roadmap, sources.
 
 ## Données
 
-Toutes les données viennent d'un seul fichier, `metiers.json` (version 1.0, 02/11/2026), embarqué dans l'app : 68 métiers, 17 catégories, 175 liens, 6 sources. Aucun appel réseau à l'exécution.
+Toutes les données viennent d'un seul fichier, `metiers.json` (version 1.1, 02/11/2026), embarqué dans l'app : 68 métiers, 17 catégories, 175 liens, 6 sources. Aucun appel réseau à l'exécution.
 
 | Clé | Contenu |
 | --- | --- |
 | `meta` | version, unités des salaires, texte de mentions |
 | `categories[]` | `id`, `libelle`, `nb` |
+| `macro_branches[]` | `id`, `libelle`, `categories[]` (les 8 branches du quiz, qui regroupent les 17 catégories) |
+| `quiz.questions[]` | `id`, `intitule`, `reponses[]` → `id`, `texte`, `poids` (macro-branche → 1 ou 2) |
 | `metiers[]` | `id`, `categorie`, `titre`, `type` (`entree` / `evolution`), `depuis[]`, `rome`, `brief`, `missions`, `competences[]`, `a_eviter_si`, `parcours` |
-| `metiers[].salaires.silkhom` | `grilles[]` → `ligne`, `niveaux[]` → `niveau`, `annees_min`, `annees_max`, `paris` / `grandes_villes` / `regions` en `[min, max]` k€ ; `moyenne_keur`, `variation_pct`, `moyenne_verifiee` ; ou `null` |
-| `metiers[].salaires.apec` | `famille`, `mediane`, `d1`, `d9`, `idf`, `autres_regions`, `moins_35_ans` ; ou `null` |
+| `metiers[].salaires.silkhom` | `grilles[]` → `ligne`, `niveaux[]` → `niveau`, `annees_min`, `annees_max`, `paris` / `grandes_villes` / `regions` en `[min, max]` k€ ; `moyenne_keur`, `variation_pct`, `moyenne_verifiee`, `rapprochement` ; ou `null` |
+| `metiers[].salaires.apec` | `famille`, `mediane`, `d1`, `d9`, `idf`, `autres_regions`, `moins_35_ans`, `rapprochement` ; ou `null` |
 | `metiers[]` (suite) | `fiabilite`, `fiabilite_note`, `source_texte`, `a_relire`, `voisins_meme_categorie[]`, `voisins_autres_categories[]`, `roadmap_url` |
 | `sources[]` | `titre`, `editeur`, `date`, `url`, `usage`, `licence` |
 
@@ -90,14 +92,14 @@ Règles d'affichage :
 
 - Silkhom est en brut annuel fixe, l'Apec en fixe + variable pour des cadres : jamais sur un même graphique ni dans une même colonne.
 - Les tranches d'expérience varient d'une ligne Silkhom à l'autre ; les afficher telles qu'elles sont dans les données.
+- `rapprochement` vaut `null` ou `{de, raison}`. Quand il est renseigné, les chiffres viennent d'un métier voisin : l'app l'affiche avec sa `raison` (« données de … »), sous le bloc de salaires concerné.
 - `a_relire` n'est pas affiché. Il sert à suivre la relecture des 36 fiches concernées avant la mise en ligne.
-- `roadmap_url` est vide pour l'instant ; l'app doit tolérer son absence.
+- `roadmap_url` est renseigné pour 31 fiches sur 68 ; l'app doit tolérer son absence.
 
 ## Contraintes techniques
 
 - **100 % statique**, hébergé sur GitHub Pages et laissé en ligne après la journée. Pas de backend, pas de compte, pas de tracking.
 - **Stockage** : résultat du quiz et roadmap dans le `localStorage` du navigateur, lectures et écritures protégées. L'app reste fonctionnelle si le stockage est vide ou indisponible.
-- **Hors ligne** (proposé) : un build qui s'ouvre aussi depuis un zip, sans serveur. Il sert à envoyer le support à la scolarité au plus tard le 21/05/2027, et de secours si le Wi-Fi du campus lâche.
 - **Cible** : ordinateurs portables des étudiants et vidéoprojecteur. Desktop d'abord, lisible sur mobile.
 - **Impression** : feuille de style dédiée pour la roadmap, une année par bloc, sans navigation ni couleurs de fond.
 - **Accessibilité** : contrastes suffisants, navigation clavier, et une vue liste comme alternative au graphe.
@@ -113,15 +115,15 @@ Règles d'affichage :
 
 ## Décisions ouvertes et critères de fin
 
-Le nuage, les fiches et la roadmap peuvent être développés dès maintenant. Le quiz attend la décision sur les macro-branches.
+Le nuage, les fiches et la roadmap peuvent être développés dès maintenant. Les macro-branches sont validées : le quiz peut être développé à son tour, une fois ses questions relues.
 
 | Décision | État | Bloque |
 | --- | --- | --- |
-| Regrouper les 17 catégories en 7–8 macro-branches pour le quiz ; la règle « hors top 3 » porte sur ces macro-branches | Proposé, à valider | Quiz, mise en évidence du top 3 |
-| Questions et pondérations du quiz | À écrire, une fois les macro-branches fixées | Quiz |
+| Regrouper les 17 catégories en macro-branches pour le quiz ; la règle « hors top 3 » porte sur ces macro-branches | Validé (8 branches) | Rien |
+| Questions et pondérations du quiz | Rédigées (16 questions), à relire | Quiz |
 | Pile technique | À décider | Démarrage du code |
 | Licence des textes propres (CC BY 4.0 proposée) | À décider | Mise en ligne |
-| Liens roadmap.sh par fiche (`roadmap_url`) | À remplir | Rien, affichage conditionnel |
+| Liens roadmap.sh par fiche (`roadmap_url`) | Remplis pour 31 fiches sur 68 | Rien, affichage conditionnel |
 | Seuil de 12 élèves (article 8) et absence du groupe B2-I : question à Yoan | À poser | Maintien de la session |
 | Relecture des 36 fiches marquées `a_relire` (`relecture.md`) | À faire | Mise en ligne |
 
@@ -130,6 +132,6 @@ Critères de fin :
 - [ ] Les 68 métiers sont accessibles depuis le nuage et la vue liste.
 - [ ] Le quiz produit un top 3, et le nuage le met en évidence.
 - [ ] Une roadmap 2027–2031 se crée, se sauvegarde, se réimporte et s'imprime en A4 lisible.
-- [ ] L'app tourne sur GitHub Pages et depuis un zip hors ligne.
+- [ ] L'app tourne sur GitHub Pages.
 - [ ] Tous les `a_relire` sont passés à `false`.
-- [ ] Le support est envoyé à scolarite-orleans@coda.school au plus tard le 21/05/2027.
+- [ ] Le lien GitHub Pages est envoyé à scolarite-orleans@coda.school au plus tard le 21/05/2027.
