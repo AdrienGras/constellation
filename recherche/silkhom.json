@@ -1,0 +1,1095 @@
+{
+  "chantier": "silkhom",
+  "sources_ajoutees": [],
+  "modifications": [
+    {
+      "metier": "dev-legacy-cobol",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Développeur Cobol » : 42,2 k€, -5,8 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "dev-legacy-cobol",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Développeur Cobol » : 42,2 k€, -5,8 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "dev-bdd",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Développeur Base de Données » : 47,9 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "dev-bdd",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Développeur Base de Données » : 47,9 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "dev-fullstack",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Développeur Fullstack JS » : 47,4 k€, 0,2 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "dev-fullstack",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Développeur Fullstack JS » : 47,4 k€, 0,2 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "dev-fullstack",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": 0.2,
+      "source": "silkhom-it-2026, ligne « Développeur Fullstack JS » : 47,4 k€, 0,2 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "dev-frontend",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Développeur Frontend JS » : 41,9 k€, -1,9 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "dev-frontend",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Développeur Frontend JS » : 41,9 k€, -1,9 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "dev-jeu-video",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Développeur Unity » : 41,9 k€, -4,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "dev-jeu-video",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Développeur Unity » : 41,9 k€, -4,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "ingenieur-qa-automatisation",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Ingénieur QA » : 44,2 k€, -5,8 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "ingenieur-qa-automatisation",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Ingénieur QA » : 44,2 k€, -5,8 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "testeur-fonctionnel",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Testeur Fonctionnel » : 34,4 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "testeur-fonctionnel",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Testeur Fonctionnel » : 34,4 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "testeur-fonctionnel",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -0.6,
+      "source": "silkhom-it-2026, ligne « Testeur Fonctionnel » : 34,4 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "cloud-finops",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Cloud FinOps » : 52,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "cloud-finops",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Cloud FinOps » : 52,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-devops",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Ingénieur DevOps » : 52,8 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-devops",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Ingénieur DevOps » : 52,8 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-devops",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -0.6,
+      "source": "silkhom-it-2026, ligne « Ingénieur DevOps » : 52,8 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-cloud",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Ingénieur Cloud » : 52,8 k€, -3,5 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-cloud",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Ingénieur Cloud » : 52,8 k€, -3,5 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-cloud",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 52.8,
+      "source": "silkhom-it-2026, ligne « Ingénieur Cloud » : 52,8 k€, -3,5 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "platform-engineer",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Platform Engineer / Ingénieur Kubernetes » : 52,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "platform-engineer",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Platform Engineer / Ingénieur Kubernetes » : 52,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "sre",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Site Reliability Engineer (SRE) » : 52,8 k€, -2,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "sre",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Site Reliability Engineer (SRE) » : 52,8 k€, -2,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "sre",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 52.8,
+      "source": "silkhom-it-2026, ligne « Site Reliability Engineer (SRE) » : 52,8 k€, -2,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "dba",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Administrateur Base de Données » : 50,6 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "dba",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Administrateur Base de Données » : 50,6 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-reseaux",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Ingénieur Réseaux » : 54,4 k€, -1,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-reseaux",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Ingénieur Réseaux » : 54,4 k€, -1,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-reseaux",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -1.6,
+      "source": "silkhom-it-2026, ligne « Ingénieur Réseaux » : 54,4 k€, -1,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-systemes-linux",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Ingénieur Système Linux » : 52,0 k€, -1,5 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-systemes-linux",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Ingénieur Système Linux » : 52,0 k€, -1,5 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-systemes-linux",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -1.5,
+      "source": "silkhom-it-2026, ligne « Ingénieur Système Linux » : 52,0 k€, -1,5 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "technicien-systemes-reseaux",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Technicien Systèmes & Réseaux » : 33,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "technicien-systemes-reseaux",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Technicien Systèmes & Réseaux » : 33,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "architecte-entreprise",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Architecte d'entreprise / Urbanisme SI » : 77,5 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "architecte-entreprise",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Architecte d'entreprise / Urbanisme SI » : 77,5 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "lead-developer",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Lead Developer » : 53,4 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "lead-developer",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Lead Developer » : 53,4 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "chef-projet-technique",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Chef de projet Technique » : 48,8 k€, -1,8 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "chef-projet-technique",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Chef de projet Technique » : 48,8 k€, -1,8 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "chef-projet-technique",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -1.8,
+      "source": "silkhom-it-2026, ligne « Chef de projet Technique » : 48,8 k€, -1,8 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "product-owner",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Product Owner » : 49,3 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "product-owner",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Product Owner » : 49,3 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "product-owner",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -0.6,
+      "source": "silkhom-it-2026, ligne « Product Owner » : 49,3 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "ingenieur-support-applicatif",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Ingénieur Support » : 44,9 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "ingenieur-support-applicatif",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Ingénieur Support » : 44,9 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "responsable-support-it",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Responsable Support IT » : 50,0 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "responsable-support-it",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Responsable Support IT » : 50,0 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "technicien-support",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Technicien Support » : 33,1 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "technicien-support",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Technicien Support » : 33,1 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 99)"
+    },
+    {
+      "metier": "technical-writer",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Technical Writer » : 52,6 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "technical-writer",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Technical Writer » : 52,6 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "engineering-manager",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Engineering Manager » : 89,9 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "engineering-manager",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Engineering Manager » : 89,9 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "dev-embarque",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Ingénieur Logiciel Embarqué » : 47,2 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 199)"
+    },
+    {
+      "metier": "dev-embarque",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Ingénieur Logiciel Embarqué » : 47,2 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 199)"
+    },
+    {
+      "metier": "dev-embarque",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 47.2,
+      "source": "silkhom-it-2026, ligne « Ingénieur Logiciel Embarqué » : 47,2 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 199)"
+    },
+    {
+      "metier": "rssi",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Responsable Sécurité des SI (RSSI) » : 88,3 k€, -3,2 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "rssi",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Responsable Sécurité des SI (RSSI) » : 88,3 k€, -3,2 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "rssi",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 88.3,
+      "source": "silkhom-it-2026, ligne « Responsable Sécurité des SI (RSSI) » : 88,3 k€, -3,2 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "rssi",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -3.2,
+      "source": "silkhom-it-2026, ligne « Responsable Sécurité des SI (RSSI) » : 88,3 k€, -3,2 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "dev-bi",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Développeur BI » : 40,8 k€, -0,7 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "dev-bi",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Développeur BI » : 40,8 k€, -0,7 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "dev-bi",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 40.8,
+      "source": "silkhom-it-2026, ligne « Développeur BI » : 40,8 k€, -0,7 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "dev-bi",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -0.7,
+      "source": "silkhom-it-2026, ligne « Développeur BI » : 40,8 k€, -0,7 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "business-analyst-amoa",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Business Analyst / Key User » : 48,4 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "business-analyst-amoa",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Business Analyst / Key User » : 48,4 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "business-analyst-amoa",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 48.4,
+      "source": "silkhom-it-2026, ligne « Business Analyst / Key User » : 48,4 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "directeur-projet",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Directeur de projet (ERP/CRM/WMS/TMS/MES) » : 70,2 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "directeur-projet",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Directeur de projet (ERP/CRM/WMS/TMS/MES) » : 70,2 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "directeur-projet",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 70.2,
+      "source": "silkhom-it-2026, ligne « Directeur de projet (ERP/CRM/WMS/TMS/MES) » : 70,2 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 14)"
+    },
+    {
+      "metier": "ui-designer",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « UI / UX Designer » : 43,5 k€, 3,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 254)"
+    },
+    {
+      "metier": "ui-designer",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « UI / UX Designer » : 43,5 k€, 3,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 254)"
+    },
+    {
+      "metier": "ui-designer",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 43.5,
+      "source": "silkhom-it-2026, ligne « UI / UX Designer » : 43,5 k€, 3,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 254)"
+    },
+    {
+      "metier": "ui-designer",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": 3.1,
+      "source": "silkhom-it-2026, ligne « UI / UX Designer » : 43,5 k€, 3,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 254)"
+    },
+    {
+      "metier": "ux-designer",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « UI / UX Designer » : 43,5 k€, 3,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 254)"
+    },
+    {
+      "metier": "ux-designer",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « UI / UX Designer » : 43,5 k€, 3,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 254)"
+    },
+    {
+      "metier": "ux-designer",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 43.5,
+      "source": "silkhom-it-2026, ligne « UI / UX Designer » : 43,5 k€, 3,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 254)"
+    },
+    {
+      "metier": "ux-designer",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": 3.1,
+      "source": "silkhom-it-2026, ligne « UI / UX Designer » : 43,5 k€, 3,1 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 254)"
+    },
+    {
+      "metier": "consultant-erp",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Chef de projet / Consultant ERP/CRM/WMS/TMS » : 52,5 k€, 0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "consultant-erp",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Chef de projet / Consultant ERP/CRM/WMS/TMS » : 52,5 k€, 0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "consultant-erp",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 52.5,
+      "source": "silkhom-it-2026, ligne « Chef de projet / Consultant ERP/CRM/WMS/TMS » : 52,5 k€, 0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "consultant-erp",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": 0.6,
+      "source": "silkhom-it-2026, ligne « Chef de projet / Consultant ERP/CRM/WMS/TMS » : 52,5 k€, 0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "ingenieur-affaires-it",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Ingénieur Commercial » : 47,2 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "ingenieur-affaires-it",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Ingénieur Commercial » : 47,2 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "ingenieur-affaires-it",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 47.2,
+      "source": "silkhom-it-2026, ligne « Ingénieur Commercial » : 47,2 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "ingenieur-affaires-it",
+      "champ": "salaires.silkhom.variation_pct",
+      "valeur": -0.6,
+      "source": "silkhom-it-2026, ligne « Ingénieur Commercial » : 47,2 k€, -0,6 % (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "formateur-informatique",
+      "champ": "salaires.silkhom.moyenne_verifiee",
+      "valeur": true,
+      "source": "silkhom-it-2026, ligne « Formateur Applicatif » : 42,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "formateur-informatique",
+      "champ": "salaires.silkhom.moyenne_source",
+      "valeur": "silkhom-it-2026",
+      "source": "silkhom-it-2026, ligne « Formateur Applicatif » : 42,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "formateur-informatique",
+      "champ": "salaires.silkhom.moyenne_keur",
+      "valeur": 42.8,
+      "source": "silkhom-it-2026, ligne « Formateur Applicatif » : 42,8 k€, stable ou nouveau poste, pas de pourcentage (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "integrateur-web",
+      "champ": "salaires.silkhom",
+      "valeur": {
+        "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+        "ligne": "Développeur Frontend",
+        "grilles": [
+          {
+            "ligne": "Développeur Frontend",
+            "niveaux": [
+              {
+                "niveau": "junior",
+                "annees_min": 0,
+                "annees_max": 2,
+                "paris": [
+                  36,
+                  40
+                ],
+                "grandes_villes": [
+                  32,
+                  38
+                ],
+                "regions": [
+                  28,
+                  32
+                ]
+              },
+              {
+                "niveau": "confirme",
+                "annees_min": 2,
+                "annees_max": 5,
+                "paris": [
+                  40,
+                  48
+                ],
+                "grandes_villes": [
+                  38,
+                  45
+                ],
+                "regions": [
+                  32,
+                  40
+                ]
+              },
+              {
+                "niveau": "senior",
+                "annees_min": 5,
+                "annees_max": null,
+                "paris": [
+                  48,
+                  62
+                ],
+                "grandes_villes": [
+                  45,
+                  60
+                ],
+                "regions": [
+                  40,
+                  50
+                ]
+              }
+            ]
+          }
+        ],
+        "moyenne_keur": 41.9,
+        "variation_pct": -1.9,
+        "moyenne_verifiee": true,
+        "moyenne_source": "silkhom-it-2026",
+        "rapprochement": {
+          "de": "Développeur Frontend",
+          "raison": "Silkhom n'a pas de ligne pour l'intégrateur web : la plus proche est celle du développeur frontend, qui construit aussi l'interface des sites, avec davantage de JavaScript."
+        }
+      },
+      "source": "silkhom-it-2026, grille « Développeur Frontend » de la page (relevée le 02/11/2026) ; moyenne et variation de la ligne « Développeur Frontend JS » (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "ingenieur-informatique-industrielle",
+      "champ": "salaires.silkhom",
+      "valeur": {
+        "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+        "ligne": "Développeur (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH)",
+        "grilles": [
+          {
+            "ligne": "Développeur (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH)",
+            "niveaux": [
+              {
+                "niveau": "junior",
+                "annees_min": 0,
+                "annees_max": 2,
+                "paris": [
+                  40,
+                  45
+                ],
+                "grandes_villes": [
+                  38,
+                  42
+                ],
+                "regions": [
+                  35,
+                  40
+                ]
+              },
+              {
+                "niveau": "confirme",
+                "annees_min": 2,
+                "annees_max": 5,
+                "paris": [
+                  45,
+                  60
+                ],
+                "grandes_villes": [
+                  42,
+                  48
+                ],
+                "regions": [
+                  40,
+                  45
+                ]
+              },
+              {
+                "niveau": "senior",
+                "annees_min": 5,
+                "annees_max": null,
+                "paris": [
+                  60,
+                  70
+                ],
+                "grandes_villes": [
+                  48,
+                  60
+                ],
+                "regions": [
+                  45,
+                  55
+                ]
+              }
+            ]
+          }
+        ],
+        "moyenne_keur": 47.7,
+        "variation_pct": 0.6,
+        "moyenne_verifiee": true,
+        "moyenne_source": "silkhom-it-2026",
+        "rapprochement": {
+          "de": "Développeur (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH)",
+          "raison": "Silkhom n'a pas de ligne informatique industrielle : la plus proche est celle des développeurs de logiciels de gestion, qui couvre le MES, le logiciel qui suit la production."
+        }
+      },
+      "source": "silkhom-it-2026, grille « Développeur (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH) » de la page (relevée le 02/11/2026) ; moyenne et variation de la ligne « Développeur ERP/CRM/WMS/TMS/MES » (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "test-manager",
+      "champ": "salaires.silkhom",
+      "valeur": {
+        "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+        "ligne": "Ingénieur QA",
+        "grilles": [
+          {
+            "ligne": "Ingénieur QA",
+            "niveaux": [
+              {
+                "niveau": "junior",
+                "annees_min": 0,
+                "annees_max": 2,
+                "paris": [
+                  35,
+                  42
+                ],
+                "grandes_villes": [
+                  32,
+                  38
+                ],
+                "regions": [
+                  30,
+                  35
+                ]
+              },
+              {
+                "niveau": "confirme",
+                "annees_min": 2,
+                "annees_max": 5,
+                "paris": [
+                  42,
+                  52
+                ],
+                "grandes_villes": [
+                  38,
+                  48
+                ],
+                "regions": [
+                  35,
+                  45
+                ]
+              },
+              {
+                "niveau": "senior",
+                "annees_min": 5,
+                "annees_max": null,
+                "paris": [
+                  52,
+                  65
+                ],
+                "grandes_villes": [
+                  48,
+                  58
+                ],
+                "regions": [
+                  45,
+                  55
+                ]
+              }
+            ]
+          }
+        ],
+        "moyenne_keur": 44.2,
+        "variation_pct": -5.8,
+        "moyenne_verifiee": true,
+        "moyenne_source": "silkhom-it-2026",
+        "rapprochement": {
+          "de": "Ingénieur QA",
+          "raison": "Silkhom n'a pas de grille pour le test manager : on reprend celle de l'ingénieur QA, dont la fiche Silkhom inclut l'encadrement de l'équipe de test."
+        }
+      },
+      "source": "silkhom-it-2026, grille « Ingénieur QA » de la page (relevée le 02/11/2026) ; moyenne et variation de la ligne « Ingénieur QA » (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "ingenieur-avant-vente",
+      "champ": "salaires.silkhom",
+      "valeur": {
+        "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+        "ligne": "Ingénieur Commercial",
+        "grilles": [
+          {
+            "ligne": "Ingénieur Commercial",
+            "niveaux": [
+              {
+                "niveau": "junior",
+                "annees_min": 0,
+                "annees_max": 2,
+                "paris": [
+                  35,
+                  40
+                ],
+                "grandes_villes": [
+                  35,
+                  40
+                ],
+                "regions": [
+                  35,
+                  40
+                ]
+              },
+              {
+                "niveau": "confirme",
+                "annees_min": 2,
+                "annees_max": 5,
+                "paris": [
+                  45,
+                  55
+                ],
+                "grandes_villes": [
+                  40,
+                  50
+                ],
+                "regions": [
+                  40,
+                  50
+                ]
+              },
+              {
+                "niveau": "senior",
+                "annees_min": 5,
+                "annees_max": null,
+                "paris": [
+                  55,
+                  70
+                ],
+                "grandes_villes": [
+                  50,
+                  60
+                ],
+                "regions": [
+                  50,
+                  60
+                ]
+              }
+            ]
+          }
+        ],
+        "moyenne_keur": 47.2,
+        "variation_pct": -0.6,
+        "moyenne_verifiee": true,
+        "moyenne_source": "silkhom-it-2026",
+        "rapprochement": {
+          "de": "Ingénieur Commercial",
+          "raison": "Silkhom n'a pas de ligne avant-vente : sa ligne Ingénieur commercial décrit justement l'ingénieur qui épaule les commerciaux sur la partie technique."
+        }
+      },
+      "source": "silkhom-it-2026, grille « Ingénieur Commercial » de la page (relevée le 02/11/2026) ; moyenne et variation de la ligne « Ingénieur Commercial » (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 162)"
+    },
+    {
+      "metier": "devrel",
+      "champ": "salaires.silkhom",
+      "valeur": {
+        "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+        "ligne": "Technical Writer",
+        "grilles": [
+          {
+            "ligne": "Technical Writer",
+            "niveaux": [
+              {
+                "niveau": "junior",
+                "annees_min": 0,
+                "annees_max": 3,
+                "paris": [
+                  36,
+                  50
+                ],
+                "grandes_villes": [
+                  32,
+                  45
+                ],
+                "regions": [
+                  29,
+                  42
+                ]
+              },
+              {
+                "niveau": "confirme",
+                "annees_min": 3,
+                "annees_max": 7,
+                "paris": [
+                  50,
+                  68
+                ],
+                "grandes_villes": [
+                  45,
+                  58
+                ],
+                "regions": [
+                  42,
+                  55
+                ]
+              },
+              {
+                "niveau": "senior",
+                "annees_min": 7,
+                "annees_max": null,
+                "paris": [
+                  68,
+                  80
+                ],
+                "grandes_villes": [
+                  58,
+                  70
+                ],
+                "regions": [
+                  55,
+                  64
+                ]
+              }
+            ]
+          }
+        ],
+        "moyenne_keur": 52.6,
+        "variation_pct": null,
+        "moyenne_verifiee": true,
+        "moyenne_source": "silkhom-it-2026",
+        "rapprochement": {
+          "de": "Technical Writer",
+          "raison": "Silkhom n'a pas de ligne DevRel : la plus proche est celle du rédacteur technique (technical writer), qui explique lui aussi un produit à des développeurs."
+        }
+      },
+      "source": "silkhom-it-2026, grille « Technical Writer » de la page (relevée le 02/11/2026) ; moyenne et variation de la ligne « Technical Writer » (étude complète PDF liée depuis la page (Barometre_des_salaires_2026_SILKHOM.pdf), tableau de synthèse p. 45)"
+    },
+    {
+      "metier": "directeur-projet",
+      "champ": "salaires.silkhom.rapprochement",
+      "valeur": {
+        "de": "Directeur de projet (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH)",
+        "raison": "Silkhom ne publie que la grille des directeurs de projet sur les logiciels de gestion (ERP, CRM…), reprise ici pour un directeur de projets en général."
+      },
+      "source": "silkhom-it-2026, fiche « Directeur de projet (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH) » de la page : son objectif ne correspond pas exactement au métier"
+    },
+    {
+      "metier": "ingenieur-affaires-it",
+      "champ": "salaires.silkhom.rapprochement",
+      "valeur": {
+        "de": "Ingénieur Commercial",
+        "raison": "Silkhom n'a pas de ligne ingénieur d'affaires : sa ligne Ingénieur commercial est la plus proche, mais elle décrit surtout le soutien technique apporté aux commerciaux."
+      },
+      "source": "silkhom-it-2026, fiche « Ingénieur Commercial » de la page : son objectif ne correspond pas exactement au métier"
+    },
+    {
+      "metier": "formateur-informatique",
+      "champ": "salaires.silkhom.rapprochement",
+      "valeur": {
+        "de": "Formateur Applicatif",
+        "raison": "Silkhom ne publie que la grille du formateur applicatif, qui apprend aux salariés à se servir d'un logiciel, et non celle du formateur qui enseigne l'informatique."
+      },
+      "source": "silkhom-it-2026, fiche « Formateur Applicatif » de la page : son objectif ne correspond pas exactement au métier"
+    },
+    {
+      "metier": "ingenieur-support-applicatif",
+      "champ": "salaires.silkhom.rapprochement",
+      "valeur": {
+        "de": "Ingénieur Support",
+        "raison": "Silkhom n'a pas de ligne support applicatif : on reprend celle de l'ingénieur support, qui aide aussi les utilisateurs en niveau 1 et 2, mais sur tout le poste informatique."
+      },
+      "source": "silkhom-it-2026, fiche « Ingénieur Support » de la page : son objectif ne correspond pas exactement au métier"
+    },
+    {
+      "metier": "integrateur-web",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché du développeur frontend, faute de ligne intégrateur web",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "ingenieur-informatique-industrielle",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché du développeur ERP / MES, faute de ligne informatique industrielle",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "test-manager",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché de l'ingénieur QA, faute de grille test manager dédiée",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "ingenieur-avant-vente",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché de la ligne « Ingénieur commercial », faute de ligne avant-vente",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "devrel",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché du technical writer, faute de ligne DevRel",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "directeur-projet",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché du directeur de projet ERP / CRM",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "ingenieur-affaires-it",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché de la ligne « Ingénieur commercial », plutôt tournée vers l'avant-vente",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "formateur-informatique",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché du formateur applicatif",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "ingenieur-support-applicatif",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Silkhom rapproché de l'ingénieur support, faute de ligne support applicatif",
+      "source": "silkhom-it-2026 : rapprochement déclaré dans salaires.silkhom.rapprochement"
+    },
+    {
+      "metier": "cloud-finops",
+      "champ": "fiabilite_note",
+      "valeur": "métier récent, nouvelle ligne Silkhom 2026 alignée sur DevOps",
+      "source": "note v1.0 sur Silkhom conservée telle quelle (silkhom-it-2026)"
+    },
+    {
+      "metier": "platform-engineer",
+      "champ": "fiabilite_note",
+      "valeur": "nouvelle ligne Silkhom 2026, même grille que DevOps",
+      "source": "note v1.0 sur Silkhom conservée telle quelle (silkhom-it-2026)"
+    },
+    {
+      "metier": "admin-systemes-reseaux",
+      "champ": "fiabilite_note",
+      "valeur": "pas d'écart Paris/régions chez Silkhom",
+      "source": "note v1.0 sur Silkhom conservée telle quelle (silkhom-it-2026)"
+    },
+    {
+      "metier": "analyste-soc",
+      "champ": "fiabilite_note",
+      "valeur": "pas d'écart Paris/régions chez Silkhom",
+      "source": "note v1.0 sur Silkhom conservée telle quelle (silkhom-it-2026)"
+    },
+    {
+      "metier": "ingenieur-reseaux",
+      "champ": "fiabilite_note",
+      "valeur": "junior mieux payé en régions qu'à Paris dans la grille Silkhom : c'est bien ce que publie la source",
+      "source": "note v1.0 sur Silkhom conservée telle quelle (silkhom-it-2026)"
+    },
+    {
+      "metier": "devsecops",
+      "champ": "fiabilite_note",
+      "valeur": "salaire en net recul (−9,4 %)",
+      "source": "note v1.0 sur Silkhom conservée telle quelle (silkhom-it-2026)"
+    },
+    {
+      "metier": "ingenieur-iam",
+      "champ": "fiabilite_note",
+      "valeur": "nouvelle ligne Silkhom 2026",
+      "source": "note v1.0 sur Silkhom conservée telle quelle (silkhom-it-2026)"
+    },
+    {
+      "metier": "scrum-master",
+      "champ": "fiabilite_note",
+      "valeur": "salaire en recul net",
+      "source": "note v1.0 sur Silkhom conservée telle quelle (silkhom-it-2026)"
+    },
+    {
+      "metier": "ingenieur-avant-vente",
+      "champ": "fiabilite",
+      "valeur": "moyenne",
+      "source": "silkhom-it-2026 : salaire obtenu par rapprochement, badge plafonné à moyenne"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "chantier": "roadmap",
+  "sources_ajoutees": [],
+  "modifications": [
+    {
+      "metier": "dev-rust-systeme",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/rust",
+      "source": "roadmap.sh/rust, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dev-backend",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/backend",
+      "source": "roadmap.sh/backend, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dev-bdd",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/sql",
+      "source": "roadmap.sh/sql, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dev-fullstack",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/full-stack",
+      "source": "roadmap.sh/full-stack, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dev-frontend",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/frontend",
+      "source": "roadmap.sh/frontend, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dev-android",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/android",
+      "source": "roadmap.sh/android, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dev-mobile-multiplateforme",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/flutter",
+      "source": "roadmap.sh/flutter, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dev-ios",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/ios",
+      "source": "roadmap.sh/ios, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dev-jeu-video",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/game-developer",
+      "source": "roadmap.sh/game-developer, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ingenieur-qa-automatisation",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/qa",
+      "source": "roadmap.sh/qa, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "testeur-fonctionnel",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/qa",
+      "source": "roadmap.sh/qa, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ingenieur-cloud",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/cloud-computing",
+      "source": "roadmap.sh/cloud-computing, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ingenieur-devops",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/devops",
+      "source": "roadmap.sh/devops, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "sre",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/devops",
+      "source": "roadmap.sh/devops, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "dba",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/postgresql-dba",
+      "source": "roadmap.sh/postgresql-dba, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ingenieur-systemes-linux",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/linux",
+      "source": "roadmap.sh/linux, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ingenieur-reseaux",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/network-engineer",
+      "source": "roadmap.sh/network-engineer, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "devsecops",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/devsecops",
+      "source": "roadmap.sh/devsecops, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ingenieur-cybersecurite",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/cyber-security",
+      "source": "roadmap.sh/cyber-security, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "data-analyst",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/data-analyst",
+      "source": "roadmap.sh/data-analyst, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "data-engineer",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/data-engineer",
+      "source": "roadmap.sh/data-engineer, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "data-scientist",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/ai-data-scientist",
+      "source": "roadmap.sh/ai-data-scientist, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ingenieur-ia-generative",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/ai-engineer",
+      "source": "roadmap.sh/ai-engineer, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "mlops",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/mlops",
+      "source": "roadmap.sh/mlops, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ml-engineer",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/machine-learning",
+      "source": "roadmap.sh/machine-learning, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "architecte-logiciel",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/software-architect",
+      "source": "roadmap.sh/software-architect, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "product-manager",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/product-manager",
+      "source": "roadmap.sh/product-manager, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "ux-designer",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/ux-design",
+      "source": "roadmap.sh/ux-design, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "devrel",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/devrel",
+      "source": "roadmap.sh/devrel, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "technical-writer",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/technical-writer",
+      "source": "roadmap.sh/technical-writer, vérifiée le 2026-11-02"
+    },
+    {
+      "metier": "engineering-manager",
+      "champ": "roadmap_url",
+      "valeur": "https://roadmap.sh/engineering-manager",
+      "source": "roadmap.sh/engineering-manager, vérifiée le 2026-11-02"
+    }
+  ]
+}

@@ -1,0 +1,600 @@
+{
+  "chantier": "rome-parcours",
+  "sources_ajoutees": [],
+  "modifications": [
+    {
+      "metier": "dev-legacy-cobol",
+      "champ": "rome",
+      "valeur": "M1805",
+      "source": "rome, fiche M1805 « Développeur / Développeuse informatique »"
+    },
+    {
+      "metier": "dev-legacy-cobol",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur informatique) : accessible de bac+2 à bac+5 en informatique ; la fiche est générale et ne décrit pas de parcours propre à Cobol.",
+      "source": "rome, fiche M1805 « Développeur / Développeuse informatique », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-rust-systeme",
+      "champ": "rome",
+      "valeur": "M1805",
+      "source": "rome, fiche M1805 « Développeur / Développeuse informatique »"
+    },
+    {
+      "metier": "dev-rust-systeme",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur informatique) : accessible de bac+2 à bac+5 en informatique ; la fiche est générale et ne décrit pas de parcours propre à Rust ou Go.",
+      "source": "rome, fiche M1805 « Développeur / Développeuse informatique », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-backend",
+      "champ": "rome",
+      "valeur": "M1855",
+      "source": "rome, fiche M1855 « Développeur / Développeuse web »"
+    },
+    {
+      "metier": "dev-bdd",
+      "champ": "rome",
+      "valeur": "M1894",
+      "source": "rome, fiche M1894 « Gestionnaire de base de données »"
+    },
+    {
+      "metier": "dev-bdd",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Gestionnaire de base de données) : bac+3 à bac+5, master ou diplôme d'ingénieur en informatique ; une certification en gestion de bases de données est un atout.",
+      "source": "rome, fiche M1894 « Gestionnaire de base de données », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-fullstack",
+      "champ": "rome",
+      "valeur": "M1855",
+      "source": "rome, fiche M1855 « Développeur / Développeuse web »"
+    },
+    {
+      "metier": "dev-fullstack",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur web, qui couvre les profils back-end, front-end et full-stack) : bac+3 à bac+5, licence pro, master ou diplôme d'ingénieur en informatique.",
+      "source": "rome, fiche M1855 « Développeur / Développeuse web », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-frontend",
+      "champ": "rome",
+      "valeur": "M1855",
+      "source": "rome, fiche M1855 « Développeur / Développeuse web »"
+    },
+    {
+      "metier": "dev-frontend",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur web, qui couvre les profils back-end, front-end et full-stack) : bac+3 à bac+5, licence pro, master ou diplôme d'ingénieur en informatique.",
+      "source": "rome, fiche M1855 « Développeur / Développeuse web », rubrique accès au métier"
+    },
+    {
+      "metier": "integrateur-web",
+      "champ": "rome",
+      "valeur": "M1855",
+      "source": "rome, fiche M1855 « Développeur / Développeuse web »"
+    },
+    {
+      "metier": "integrateur-web",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur web, qui reprend l'appellation d'intégrateur web) : bac+3 à bac+5, licence pro, master ou diplôme d'ingénieur en informatique.",
+      "source": "rome, fiche M1855 « Développeur / Développeuse web », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-android",
+      "champ": "rome",
+      "valeur": "M1861",
+      "source": "rome, fiche M1861 « Développeur / Développeuse logiciel ou d'application »"
+    },
+    {
+      "metier": "dev-android",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur logiciel ou d'application) : de bac+2 à bac+5, du BTS ou du DUT informatique jusqu'au master ou au diplôme d'ingénieur ; la fiche est générale, sans parcours propre à Android.",
+      "source": "rome, fiche M1861 « Développeur / Développeuse logiciel ou d'application », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-mobile-multiplateforme",
+      "champ": "rome",
+      "valeur": "M1861",
+      "source": "rome, fiche M1861 « Développeur / Développeuse logiciel ou d'application »"
+    },
+    {
+      "metier": "dev-mobile-multiplateforme",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur logiciel ou d'application) : de bac+2 à bac+5, du BTS ou du DUT informatique jusqu'au master ou au diplôme d'ingénieur ; la fiche est générale, sans parcours propre à Flutter ou React Native.",
+      "source": "rome, fiche M1861 « Développeur / Développeuse logiciel ou d'application », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-ios",
+      "champ": "rome",
+      "valeur": "M1861",
+      "source": "rome, fiche M1861 « Développeur / Développeuse logiciel ou d'application »"
+    },
+    {
+      "metier": "dev-ios",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur logiciel ou d'application) : de bac+2 à bac+5, du BTS ou du DUT informatique jusqu'au master ou au diplôme d'ingénieur ; la fiche est générale, sans parcours propre à iOS.",
+      "source": "rome, fiche M1861 « Développeur / Développeuse logiciel ou d'application », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-jeu-video",
+      "champ": "rome",
+      "valeur": "M1831",
+      "source": "rome, fiche M1831 « Développeur / Développeuse - jeux vidéo »"
+    },
+    {
+      "metier": "dev-jeu-video",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur jeux vidéo) : de bac+2 à bac+5, du BTS informatique ou de la licence jusqu'au master ou au diplôme d'ingénieur en informatique.",
+      "source": "rome, fiche M1831 « Développeur / Développeuse - jeux vidéo », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-ia-embarquee",
+      "champ": "rome",
+      "valeur": "M1873",
+      "source": "rome, fiche M1873 « Spécialiste IA embarquée »"
+    },
+    {
+      "metier": "dev-ia-embarquee",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Spécialiste IA embarquée) : bac+5 (master ou ingénieur en informatique, robotique ou électronique) ; des certifications en IA ou en systèmes embarqués sont fortement conseillées.",
+      "source": "rome, fiche M1873 « Spécialiste IA embarquée », rubrique accès au métier"
+    },
+    {
+      "metier": "dev-embarque",
+      "champ": "rome",
+      "valeur": "M1892",
+      "source": "rome, fiche M1892 « Ingénieur / Ingénieure en informatique embarquée »"
+    },
+    {
+      "metier": "dev-embarque",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Ingénieur en informatique embarquée) : bac+5 (master ou ingénieur en informatique, électronique ou systèmes embarqués) ; une certification en sécurité des systèmes embarqués est un plus.",
+      "source": "rome, fiche M1892 « Ingénieur / Ingénieure en informatique embarquée », rubrique accès au métier"
+    },
+    {
+      "metier": "ingenieur-informatique-industrielle",
+      "champ": "rome",
+      "valeur": "H1208",
+      "source": "rome, fiche H1208 « Automaticien / Automaticienne en bureau d'études »"
+    },
+    {
+      "metier": "ingenieur-qa-automatisation",
+      "champ": "rome",
+      "valeur": "M1815",
+      "source": "rome, fiche M1815 « Spécialiste test et validation logiciel ou application »"
+    },
+    {
+      "metier": "ingenieur-qa-automatisation",
+      "champ": "parcours",
+      "valeur": "Cigref (profil Testeur, dont relève ce métier) : niveau bac+2/3 ou ingénieur débutant ; en connaissant bien les applications, on peut ensuite évoluer vers l'analyse applicative.",
+      "source": "cigref-2025, profil 3.3 Testeur, p. 108"
+    },
+    {
+      "metier": "test-manager",
+      "champ": "rome",
+      "valeur": "M1815",
+      "source": "rome, fiche M1815 « Spécialiste test et validation logiciel ou application »"
+    },
+    {
+      "metier": "testeur-fonctionnel",
+      "champ": "rome",
+      "valeur": "M1815",
+      "source": "rome, fiche M1815 « Spécialiste test et validation logiciel ou application »"
+    },
+    {
+      "metier": "architecte-cloud",
+      "champ": "rome",
+      "valeur": "M1860",
+      "source": "rome, fiche M1860 « Architecte cloud »"
+    },
+    {
+      "metier": "architecte-cloud",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Architecte cloud) : master en informatique ou diplôme d'ingénieur en systèmes d'information, cybersécurité ou cloud ; les certifications d'architecte AWS ou Azure sont un atout sans être obligatoires.",
+      "source": "rome, fiche M1860 « Architecte cloud », rubrique accès au métier"
+    },
+    {
+      "metier": "cloud-finops",
+      "champ": "rome",
+      "valeur": "M1879",
+      "source": "rome, fiche M1879 « Ingénieur / Ingénieure Cloud computing »"
+    },
+    {
+      "metier": "ingenieur-devops",
+      "champ": "rome",
+      "valeur": "M1827",
+      "source": "rome, fiche M1827 « Ingénieur / Ingénieure DevOps »"
+    },
+    {
+      "metier": "ingenieur-cloud",
+      "champ": "rome",
+      "valeur": "M1879",
+      "source": "rome, fiche M1879 « Ingénieur / Ingénieure Cloud computing »"
+    },
+    {
+      "metier": "ingenieur-cloud",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Ingénieur cloud computing) : bac+5, diplôme d'ingénieur ou master en informatique ou en ingénierie des systèmes ; certaines certifications spécifiques peuvent être exigées.",
+      "source": "rome, fiche M1879 « Ingénieur / Ingénieure Cloud computing », rubrique accès au métier"
+    },
+    {
+      "metier": "platform-engineer",
+      "champ": "rome",
+      "valeur": "M1827",
+      "source": "rome, fiche M1827 « Ingénieur / Ingénieure DevOps »"
+    },
+    {
+      "metier": "sre",
+      "champ": "rome",
+      "valeur": "M1827",
+      "source": "rome, fiche M1827 « Ingénieur / Ingénieure DevOps »"
+    },
+    {
+      "metier": "dba",
+      "champ": "rome",
+      "valeur": "M1894",
+      "source": "rome, fiche M1894 « Gestionnaire de base de données »"
+    },
+    {
+      "metier": "admin-systemes-reseaux",
+      "champ": "rome",
+      "valeur": "M1801",
+      "source": "rome, fiche M1801 « Administrateur / Administratrice de systèmes d'information (SI) »"
+    },
+    {
+      "metier": "ingenieur-production",
+      "champ": "parcours",
+      "valeur": "Cigref (profil Intégrateur d'exploitation) : bac+4 avec 3 à 5 ans d'expérience ; évolution possible vers l'administration, la gestion d'applications ou la chefferie de projet informatique.",
+      "source": "cigref-2025, profil 4.6 Intégrateur d'exploitation, p. 157"
+    },
+    {
+      "metier": "ingenieur-reseaux",
+      "champ": "parcours",
+      "valeur": "Cigref (profil Expert systèmes d'exploitation / réseaux-télécoms) : bac+5 avec au moins 5 ans d'expérience ; évolution possible vers l'architecture, la fonction de RSSI ou la chefferie de projet.",
+      "source": "cigref-2025, profil 4.8 Expert systèmes d'exploitation / réseaux-télécoms, p. 165"
+    },
+    {
+      "metier": "ingenieur-systemes-linux",
+      "champ": "rome",
+      "valeur": "M1802",
+      "source": "rome, fiche M1802 « Expert / Experte systèmes et réseaux informatiques »"
+    },
+    {
+      "metier": "ingenieur-systemes-linux",
+      "champ": "parcours",
+      "valeur": "Cigref (profil Expert systèmes d'exploitation / réseaux-télécoms) : bac+5 avec au moins 5 ans d'expérience ; les rôles d'expert et d'administrateur se confondent parfois selon les organisations.",
+      "source": "cigref-2025, profil 4.8 Expert systèmes d'exploitation / réseaux-télécoms, p. 165"
+    },
+    {
+      "metier": "technicien-systemes-reseaux",
+      "champ": "rome",
+      "valeur": "I1401",
+      "source": "rome, fiche I1401 « Technicien / Technicienne de maintenance en informatique »"
+    },
+    {
+      "metier": "analyste-soc",
+      "champ": "rome",
+      "valeur": "M1883",
+      "source": "rome, fiche M1883 « Analyste SOC (Security Operations Center) »"
+    },
+    {
+      "metier": "analyste-soc",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Analyste SOC) : bac+5 (master ou ingénieur en informatique, sécurité des systèmes ou cybersécurité) ; des certifications de sécurité comme CISSP ou GIAC sont couramment demandées.",
+      "source": "rome, fiche M1883 « Analyste SOC (Security Operations Center) », rubrique accès au métier"
+    },
+    {
+      "metier": "devsecops",
+      "champ": "rome",
+      "valeur": "M1827",
+      "source": "rome, fiche M1827 « Ingénieur / Ingénieure DevOps »"
+    },
+    {
+      "metier": "ingenieur-iam",
+      "champ": "rome",
+      "valeur": "M1817",
+      "source": "rome, fiche M1817 « Administrateur / Administratrice sécurité informatique »"
+    },
+    {
+      "metier": "ingenieur-cybersecurite",
+      "champ": "rome",
+      "valeur": "M1856",
+      "source": "rome, fiche M1856 « Expert / Experte en cybersécurité »"
+    },
+    {
+      "metier": "ingenieur-cybersecurite",
+      "champ": "parcours",
+      "valeur": "Cigref (profil Expert en cybersécurité) : bac+5 avec 4 à 5 ans d'expérience, ou bac+2/3 avec environ 10 ans ; les certifications en cybersécurité sont un plus, et le profil peut se spécialiser (pentests, cryptologie, direction de SOC…).",
+      "source": "cigref-2025, profil 6.1 Expert en cybersécurité, p. 189"
+    },
+    {
+      "metier": "pentester",
+      "champ": "rome",
+      "valeur": "M1866",
+      "source": "rome, fiche M1866 « Pentesteur / Pentesteuse »"
+    },
+    {
+      "metier": "pentester",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Pentesteur) : bac+3 à bac+5 en programmation, systèmes et réseaux ou sécurité, avec des cours de test d'intrusion et de cryptographie ; les certifications OSCP ou CISSP sont un plus.",
+      "source": "rome, fiche M1866 « Pentesteur / Pentesteuse », rubrique accès au métier"
+    },
+    {
+      "metier": "rssi",
+      "champ": "rome",
+      "valeur": "M1812",
+      "source": "rome, fiche M1812 « Responsable de la Sécurité des Systèmes d'Information (RSSI) »"
+    },
+    {
+      "metier": "analytics-engineer",
+      "champ": "rome",
+      "valeur": "M1811",
+      "source": "rome, fiche M1811 « Data engineer »"
+    },
+    {
+      "metier": "data-analyst",
+      "champ": "rome",
+      "valeur": "M1419",
+      "source": "rome, fiche M1419 « Data analyst »"
+    },
+    {
+      "metier": "data-engineer",
+      "champ": "rome",
+      "valeur": "M1811",
+      "source": "rome, fiche M1811 « Data engineer »"
+    },
+    {
+      "metier": "data-scientist",
+      "champ": "rome",
+      "valeur": "M1405",
+      "source": "rome, fiche M1405 « Data scientist »"
+    },
+    {
+      "metier": "dev-bi",
+      "champ": "rome",
+      "valeur": "M1824",
+      "source": "rome, fiche M1824 « Développeur / Développeuse décisionnel - Business Intelligence »"
+    },
+    {
+      "metier": "dev-bi",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Développeur décisionnel - Business Intelligence) : bac+3 à bac+5, licence, master ou diplôme d'ingénieur en informatique.",
+      "source": "rome, fiche M1824 « Développeur / Développeuse décisionnel - Business Intelligence », rubrique accès au métier"
+    },
+    {
+      "metier": "ingenieur-ia-generative",
+      "champ": "rome",
+      "valeur": "M1889",
+      "source": "rome, fiche M1889 « Ingénieur / Ingénieure en Intelligence Artificielle (IA) »"
+    },
+    {
+      "metier": "mlops",
+      "champ": "rome",
+      "valeur": "M1889",
+      "source": "rome, fiche M1889 « Ingénieur / Ingénieure en Intelligence Artificielle (IA) »"
+    },
+    {
+      "metier": "ml-engineer",
+      "champ": "rome",
+      "valeur": "M1889",
+      "source": "rome, fiche M1889 « Ingénieur / Ingénieure en Intelligence Artificielle (IA) »"
+    },
+    {
+      "metier": "ml-engineer",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Ingénieur en intelligence artificielle, qui reprend l'appellation ingénieur machine learning) : bac+5, master ou ingénieur en informatique, mathématiques appliquées ou IA ; Python et Java sont un atout.",
+      "source": "rome, fiche M1889 « Ingénieur / Ingénieure en Intelligence Artificielle (IA) », rubrique accès au métier"
+    },
+    {
+      "metier": "ingenieur-computer-vision",
+      "champ": "rome",
+      "valeur": "M1889",
+      "source": "rome, fiche M1889 « Ingénieur / Ingénieure en Intelligence Artificielle (IA) »"
+    },
+    {
+      "metier": "architecte-entreprise",
+      "champ": "rome",
+      "valeur": "M1838",
+      "source": "rome, fiche M1838 « Urbaniste des systèmes d'information »"
+    },
+    {
+      "metier": "architecte-logiciel",
+      "champ": "rome",
+      "valeur": "M1818",
+      "source": "rome, fiche M1818 « Ingénieur / Ingénieure d'étude informatique »"
+    },
+    {
+      "metier": "lead-developer",
+      "champ": "rome",
+      "valeur": "M1805",
+      "source": "rome, fiche M1805 « Développeur / Développeuse informatique »"
+    },
+    {
+      "metier": "business-analyst-amoa",
+      "champ": "parcours",
+      "valeur": "Cigref (profil Chef de projet maîtrise d'ouvrage) : bac+3 avec expérience ou bac+5 sans expérience ; il représente les utilisateurs et n'est pas un spécialiste de l'informatique ; évolution possible vers directeur de projet ou un poste opérationnel côté métier.",
+      "source": "cigref-2025, profil 2.2 Chef de projet maîtrise d'ouvrage, p. 62"
+    },
+    {
+      "metier": "chef-projet-technique",
+      "champ": "rome",
+      "valeur": "M1859",
+      "source": "rome, fiche M1859 « Chef / Cheffe de projet maîtrise d'œuvre informatique »"
+    },
+    {
+      "metier": "directeur-projet",
+      "champ": "rome",
+      "valeur": "M1870",
+      "source": "rome, fiche M1870 « Directeur / Directrice de projet en informatique »"
+    },
+    {
+      "metier": "product-manager",
+      "champ": "rome",
+      "valeur": "M1703",
+      "source": "rome, fiche M1703 « Chef / Cheffe de produit »"
+    },
+    {
+      "metier": "product-owner",
+      "champ": "rome",
+      "valeur": "M1864",
+      "source": "rome, fiche M1864 « Product Owner »"
+    },
+    {
+      "metier": "product-owner",
+      "champ": "parcours",
+      "valeur": "Cigref : une expérience métier et de maîtrise d'ouvrage est attendue ; évolution possible vers chef de projet, responsable d'une entité métier ou responsable produit.",
+      "source": "cigref-2025, profil 2.6 Product Owner, p. 83"
+    },
+    {
+      "metier": "scrum-master",
+      "champ": "rome",
+      "valeur": "M1814",
+      "source": "rome, fiche M1814 « Scrum Master »"
+    },
+    {
+      "metier": "ui-designer",
+      "champ": "rome",
+      "valeur": "E1206",
+      "source": "rome, fiche E1206 « UX - UI Designer »"
+    },
+    {
+      "metier": "ui-designer",
+      "champ": "parcours",
+      "valeur": "ROME (fiche UX - UI Designer) : bac+2/3 à bac+5, avec une expérience ou des connaissances en conception de logiciels, de sites ou d'applications (ou en psychologie et sociologie) ; il n'existe pas de diplôme spécifique, mais des formations en art numérique, graphisme, informatique ou multimédia.",
+      "source": "rome, fiche E1206 « UX - UI Designer », rubrique accès au métier"
+    },
+    {
+      "metier": "ux-designer",
+      "champ": "rome",
+      "valeur": "E1206",
+      "source": "rome, fiche E1206 « UX - UI Designer »"
+    },
+    {
+      "metier": "ingenieur-support-applicatif",
+      "champ": "parcours",
+      "valeur": "Cigref (profil Assistant fonctionnel) : bac+2 minimum, utilisateur expérimenté attiré par la technique ou développeur qui se rapproche des usages ; évolution possible vers intégrateur sur plateforme ou gestionnaire d'applications.",
+      "source": "cigref-2025, profil 5.1 Assistant fonctionnel, p. 175"
+    },
+    {
+      "metier": "responsable-support-it",
+      "champ": "rome",
+      "valeur": "M1874",
+      "source": "rome, fiche M1874 « Spécialiste support »"
+    },
+    {
+      "metier": "responsable-support-it",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Spécialiste support) : bac+5, master ou diplôme d'ingénieur en informatique.",
+      "source": "rome, fiche M1874 « Spécialiste support », rubrique accès au métier"
+    },
+    {
+      "metier": "technicien-support",
+      "champ": "rome",
+      "valeur": "I1404",
+      "source": "rome, fiche I1404 « Conseiller / Conseillère support technique informatique »"
+    },
+    {
+      "metier": "consultant-erp",
+      "champ": "rome",
+      "valeur": "M1813",
+      "source": "rome, fiche M1813 « Intégrateur / Intégratrice logiciels métiers »"
+    },
+    {
+      "metier": "consultant-erp",
+      "champ": "parcours",
+      "valeur": "Cigref (profil Paramétreur de progiciels) : bac+2 ou bac+3, utilisateur métier qui rejoint la DSI, ou première expérience en développement ou sur un projet de même nature.",
+      "source": "cigref-2025, profil 3.5 Paramétreur de progiciels, p. 117"
+    },
+    {
+      "metier": "ingenieur-avant-vente",
+      "champ": "rome",
+      "valeur": "M1823",
+      "source": "rome, fiche M1823 « Consultant / Consultante avant-vente »"
+    },
+    {
+      "metier": "ingenieur-avant-vente",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Consultant avant-vente) : bac+5, master en ingénierie informatique ou en commerce international, ou diplôme d'ingénieur en informatique.",
+      "source": "rome, fiche M1823 « Consultant / Consultante avant-vente », rubrique accès au métier"
+    },
+    {
+      "metier": "ingenieur-affaires-it",
+      "champ": "rome",
+      "valeur": "D1420",
+      "source": "rome, fiche D1420 « Cadre Technico-commercial / Cadre Technico-commerciale »"
+    },
+    {
+      "metier": "ingenieur-affaires-it",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Cadre technico-commercial, qui reprend l'appellation ingénieur technico-commercial en informatique ; fiche non spécifique à l'informatique) : bac+2 à bac+5 en commerce ou gestion.",
+      "source": "rome, fiche D1420 « Cadre Technico-commercial / Cadre Technico-commerciale », rubrique accès au métier"
+    },
+    {
+      "metier": "formateur-informatique",
+      "champ": "rome",
+      "valeur": "K2111",
+      "source": "rome, fiche K2111 « Formateur / Formatrice »"
+    },
+    {
+      "metier": "formateur-informatique",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Formateur) : licence ou master dans le domaine enseigné (ou en sciences de l'éducation), ou diplôme d'État de formateur d'adultes ; aucune certification n'est obligatoire.",
+      "source": "rome, fiche K2111 « Formateur / Formatrice », rubrique accès au métier"
+    },
+    {
+      "metier": "technical-writer",
+      "champ": "rome",
+      "valeur": "H1207",
+      "source": "rome, fiche H1207 « Rédacteur / Rédactrice technique »"
+    },
+    {
+      "metier": "technical-writer",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Rédacteur technique) : bac+2 à bac+5 en communication technique, design d'information ou rédaction technique.",
+      "source": "rome, fiche H1207 « Rédacteur / Rédactrice technique », rubrique accès au métier"
+    },
+    {
+      "metier": "cto",
+      "champ": "rome",
+      "valeur": "M1803",
+      "source": "rome, fiche M1803 « Directeur / Directrice des systèmes d'information (DSI) »"
+    },
+    {
+      "metier": "cto",
+      "champ": "parcours",
+      "valeur": "ROME (fiche DSI, qui reprend l'appellation CTO) : bac+5, master ou diplôme d'ingénieur en informatique ou génie logiciel ; une certification en gestion de projets informatiques peut être pertinente.",
+      "source": "rome, fiche M1803 « Directeur / Directrice des systèmes d'information (DSI) », rubrique accès au métier"
+    },
+    {
+      "metier": "chief-data-officer",
+      "champ": "rome",
+      "valeur": "M1423",
+      "source": "rome, fiche M1423 « Chief Data Officer »"
+    },
+    {
+      "metier": "chief-data-officer",
+      "champ": "parcours",
+      "valeur": "Cigref : bac+5 ou bac+6 (école d'ingénieur, de commerce, gestion, marketing ou statistiques) avec plusieurs années sur des fonctions transverses ; évolution vers des postes à forte dimension de leadership.",
+      "source": "cigref-2025, profil 8.3 Chief Data Officer, p. 242"
+    },
+    {
+      "metier": "dsi",
+      "champ": "parcours",
+      "valeur": "Cigref : bac+5, manager de haut niveau ayant dirigé de grandes structures (en France et à l'international) ou de grands projets à l'échelle de l'entreprise.",
+      "source": "cigref-2025, profil 7.1 DSI, p. 207"
+    },
+    {
+      "metier": "engineering-manager",
+      "champ": "rome",
+      "valeur": "M1844",
+      "source": "rome, fiche M1844 « Responsable des études et applications informatiques »"
+    },
+    {
+      "metier": "engineering-manager",
+      "champ": "parcours",
+      "valeur": "ROME (fiche Responsable des études et applications informatiques, qui reprend l'appellation responsable des développements informatiques) : bac+5, master ou diplôme d'ingénieur en informatique.",
+      "source": "rome, fiche M1844 « Responsable des études et applications informatiques », rubrique accès au métier"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "developpement",
+    "libelle": "Développement",
+    "categories": ["backend", "frontend", "mobile-jeu", "embarque"]
+  },
+  {
+    "id": "infra-cloud",
+    "libelle": "Infra & cloud",
+    "categories": ["infra", "devops-cloud"]
+  },
+  {
+    "id": "cybersecurite",
+    "libelle": "Cybersécurité",
+    "categories": ["secu"]
+  },
+  {
+    "id": "data-ia",
+    "libelle": "Data & IA",
+    "categories": ["data", "ia"]
+  },
+  {
+    "id": "qualite-archi",
+    "libelle": "Qualité & architecture",
+    "categories": ["qa", "archi"]
+  },
+  {
+    "id": "produit-design",
+    "libelle": "Produit & design",
+    "categories": ["produit-projet", "design"]
+  },
+  {
+    "id": "relation-transmission",
+    "libelle": "Relation & transmission",
+    "categories": ["support", "conseil-vente", "transmission"]
+  },
+  {
+    "id": "management",
+    "libelle": "Management",
+    "categories": ["management"]
+  }
+]
