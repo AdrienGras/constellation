@@ -185,16 +185,16 @@
             "id": "b",
             "texte": "refait le planning de la soirée et dit qui s'occupe de quoi",
             "poids": {
-              "management": 2,
-              "produit-design": 1
+              "produit-design": 2,
+              "management": 1
             }
           },
           {
             "id": "c",
             "texte": "prépare la démo pour mettre en valeur ce qui tourne déjà",
             "poids": {
-              "produit-design": 2,
-              "relation-transmission": 1
+              "relation-transmission": 2,
+              "produit-design": 1
             }
           },
           {
@@ -506,8 +506,7 @@
             "id": "d",
             "texte": "créer tes propres cartes, mods ou skins",
             "poids": {
-              "developpement": 2,
-              "produit-design": 1
+              "developpement": 2
             }
           }
         ]
@@ -641,8 +640,8 @@
             "id": "c",
             "texte": "organiser la soutenance : qui parle, dans quel ordre, combien de temps",
             "poids": {
-              "management": 2,
-              "produit-design": 1
+              "produit-design": 2,
+              "management": 1
             }
           },
           {
@@ -662,7 +661,8 @@
             "id": "a",
             "texte": "lui poses plein de questions, puis l'aides à choisir parmi les solutions toutes prêtes (Shopify, Etsy…) celle qui lui va",
             "poids": {
-              "relation-transmission": 2
+              "relation-transmission": 2,
+              "management": 1
             }
           },
           {
@@ -703,8 +703,8 @@
             "id": "b",
             "texte": "que tout le savoir du projet reste dans la tête d'une seule personne",
             "poids": {
-              "relation-transmission": 2,
-              "management": 1
+              "management": 2,
+              "relation-transmission": 1
             }
           },
           {
