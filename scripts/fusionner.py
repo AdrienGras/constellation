@@ -105,12 +105,42 @@ def _combiner_notes(modifications):
     return SEPARATEUR_NOTES.join(notes), refus
 
 
+def _est_prefixe(court, long):
+    return long.startswith(court + ".")
+
+
+def _conflits_bloc_sous_champ(modifications):
+    """Refuse les modifications de chantiers différents dont un champ contient l'autre.
+
+    Renvoie (modifications sans conflit, refus). Les champs combinés sont exemptés.
+    """
+    en_conflit, refus = set(), []
+    for i, m1 in enumerate(modifications):
+        for j in range(i + 1, len(modifications)):
+            m2 = modifications[j]
+            if m1["metier"] != m2["metier"] or m1["chantier"] == m2["chantier"]:
+                continue
+            if COMBINES & {m1["champ"], m2["champ"]}:
+                continue
+            if _est_prefixe(m1["champ"], m2["champ"]) or _est_prefixe(m2["champ"], m1["champ"]):
+                en_conflit.update((i, j))
+                for m, autre in ((m1, m2), (m2, m1)):
+                    refus.append(
+                        f"{m['metier']} {m['champ']} : conflit entre le chantier {m['chantier']} "
+                        f"({m['champ']}) et le chantier {autre['chantier']} ({autre['champ']}), "
+                        f"l'un des champs contient l'autre"
+                    )
+    restantes = [m for i, m in enumerate(modifications) if i not in en_conflit]
+    return restantes, refus
+
+
 def _resoudre_conflits(modifications):
-    """Renvoie (modifications à appliquer, refus) après la première passe par (metier, champ)."""
+    """Renvoie (modifications à appliquer, refus) après la première passe de conflits."""
+    modifications, refus_prefixes = _conflits_bloc_sous_champ(modifications)
     groupes = {}
     for m in modifications:
         groupes.setdefault((m["metier"], m["champ"]), []).append(m)
-    retenues, refus = [], []
+    retenues, refus = [], refus_prefixes
     for (metier, champ), groupe in groupes.items():
         if champ in COMBINES:
             combiner = _combiner_fiabilite if champ == "fiabilite" else _combiner_notes

@@ -209,6 +209,36 @@ class TestAppliquer(unittest.TestCase):
         self.assertEqual(refus, [])
         self.assertEqual(metier(resultat, "metier-1")["rome"], "M1805")
 
+    def test_conflit_bloc_et_sous_champ_refuse(self):
+        d = donnees_valides()
+        bloc = {"famille": "Données", "mediane": 48, "d1": 36, "d9": 70, "rapprochement": None}
+        a = chantier("a", modification("metier-2", "salaires.apec", bloc))
+        b = chantier("b", modification("metier-2", "salaires.apec.mediane", 50))
+        resultats = []
+        for chantiers in ([a, b], [b, a]):
+            resultat, refus = appliquer(d, chantiers)
+            self.assertEqual(len(refus), 2, refus)
+            for r in refus:
+                self.assertIn("salaires.apec.mediane", r)
+                self.assertIn("salaires.apec", r)
+                self.assertIn("chantier a", r)
+                self.assertIn("chantier b", r)
+            self.assertIsNone(metier(resultat, "metier-2")["salaires"]["apec"])
+            resultats.append((resultat, sorted(refus)))
+        self.assertEqual(resultats[0], resultats[1])
+
+    def test_blocs_voisins_de_chantiers_differents_sans_conflit(self):
+        d = donnees_valides()
+        bloc = {"famille": "Données", "mediane": 48, "rapprochement": None}
+        chantiers = [
+            chantier("a", modification("metier-2", "salaires.apec", bloc)),
+            chantier("b", modification("metier-2", "salaires.apec_bis", 1)),
+        ]
+        resultat, refus = appliquer(d, chantiers)
+        self.assertEqual(refus, [])
+        self.assertEqual(metier(resultat, "metier-2")["salaires"]["apec"], bloc)
+        self.assertEqual(metier(resultat, "metier-2")["salaires"]["apec_bis"], 1)
+
     def test_entree_non_mutee(self):
         d = donnees_valides()
         metier(d, "metier-1")["rome"] = None
