@@ -14,9 +14,9 @@
       "id": "q02",
       "intitule": "Une personne de ta famille t'appelle : son ordinateur rame depuis quelques jours. Une fois chez elle, tu commences par…",
       "reponses": [
-        { "id": "a", "texte": "lui demander ce qui a changé ces derniers jours, puis regarder ce qui se lance au démarrage et faire le ménage", "poids": { "relation-transmission": 2, "infra-cloud": 1 } },
-        { "id": "b", "texte": "sauvegarder ses fichiers, puis tout réinstaller proprement", "poids": { "infra-cloud": 2 } },
-        { "id": "c", "texte": "vérifier qu'aucun programme louche ne s'est installé, et chercher par où il serait entré", "poids": { "cybersecurite": 2 } }
+        { "id": "a", "texte": "lui demander de te montrer ce qu'elle faisait quand ça a commencé à ramer", "poids": { "relation-transmission": 2 } },
+        { "id": "b", "texte": "regarder ce qui se lance au démarrage et faire le ménage", "poids": { "infra-cloud": 2 } },
+        { "id": "c", "texte": "vérifier qu'aucun programme louche ne tourne en douce", "poids": { "cybersecurite": 2 } }
       ]
     },
     {
