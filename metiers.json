@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "1.0",
+    "version": "1.1",
     "genere_le": "2026-11-02",
     "nb_metiers": 68,
     "nb_liens": 175,
@@ -102,6 +102,629 @@
       "nb": 4
     }
   ],
+  "macro_branches": [
+    {
+      "id": "developpement",
+      "libelle": "Développement",
+      "categories": [
+        "backend",
+        "frontend",
+        "mobile-jeu",
+        "embarque"
+      ]
+    },
+    {
+      "id": "infra-cloud",
+      "libelle": "Infra & cloud",
+      "categories": [
+        "infra",
+        "devops-cloud"
+      ]
+    },
+    {
+      "id": "cybersecurite",
+      "libelle": "Cybersécurité",
+      "categories": [
+        "secu"
+      ]
+    },
+    {
+      "id": "data-ia",
+      "libelle": "Data & IA",
+      "categories": [
+        "data",
+        "ia"
+      ]
+    },
+    {
+      "id": "qualite-archi",
+      "libelle": "Qualité & architecture",
+      "categories": [
+        "qa",
+        "archi"
+      ]
+    },
+    {
+      "id": "produit-design",
+      "libelle": "Produit & design",
+      "categories": [
+        "produit-projet",
+        "design"
+      ]
+    },
+    {
+      "id": "relation-transmission",
+      "libelle": "Relation & transmission",
+      "categories": [
+        "support",
+        "conseil-vente",
+        "transmission"
+      ]
+    },
+    {
+      "id": "management",
+      "libelle": "Management",
+      "categories": [
+        "management"
+      ]
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q01",
+        "intitule": "Projet de groupe, la veille du rendu, rien ne marche. Tu es plutôt la personne qui…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "cherche le bug ligne par ligne, jusqu'à le trouver",
+            "poids": {
+              "developpement": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "refait le planning de la soirée et dit qui s'occupe de quoi",
+            "poids": {
+              "produit-design": 2,
+              "management": 1
+            }
+          },
+          {
+            "id": "c",
+            "texte": "prépare la démo pour mettre en valeur ce qui tourne déjà",
+            "poids": {
+              "produit-design": 2,
+              "relation-transmission": 1
+            }
+          },
+          {
+            "id": "d",
+            "texte": "relance tout sur une machine propre pour voir si le souci vient de l'environnement",
+            "poids": {
+              "qualite-archi": 2,
+              "infra-cloud": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "q02",
+        "intitule": "Une personne de ta famille t'appelle : son ordinateur rame depuis quelques jours. Une fois chez elle, tu commences par…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "lui demander de te montrer ce qu'elle faisait quand ça a commencé à ramer",
+            "poids": {
+              "relation-transmission": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "regarder ce qui se lance au démarrage et faire le ménage",
+            "poids": {
+              "infra-cloud": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "vérifier qu'aucun programme louche ne tourne en douce",
+            "poids": {
+              "cybersecurite": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q03",
+        "intitule": "Hackathon de 48 heures. Ton équipe tient son idée, il reste à se répartir les rôles. Tu prends…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "le cœur de l'appli : l'API, la base, la logique",
+            "poids": {
+              "developpement": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "les écrans et le parcours, pour que le jury comprenne l'appli en trois secondes",
+            "poids": {
+              "produit-design": 2,
+              "developpement": 1
+            }
+          },
+          {
+            "id": "c",
+            "texte": "le pitch final devant le jury",
+            "poids": {
+              "relation-transmission": 2,
+              "management": 1
+            }
+          },
+          {
+            "id": "d",
+            "texte": "les données : dénicher un jeu de données ouvert et en tirer quelque chose de parlant",
+            "poids": {
+              "data-ia": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q04",
+        "intitule": "Un week-end sans rendu, tu as envie de bidouiller. Le plus probable, c'est…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "un petit jeu ou une appli pour ton téléphone",
+            "poids": {
+              "developpement": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "monter un serveur chez toi : un Raspberry Pi, un NAS, un serveur de jeu pour tes potes",
+            "poids": {
+              "infra-cloud": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "un script qui récupère des chiffres (stats de ton jeu, prix, météo) et en fait des graphiques",
+            "poids": {
+              "data-ia": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "un CTF, ou une machine à « pirater » sur un site d'entraînement au hacking éthique",
+            "poids": {
+              "cybersecurite": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "intitule": "À la fin d'une journée de cours, ce qui te laisse le plus content·e, c'est d'avoir…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "expliqué un truc à quelqu'un et vu le moment où ça a fait tilt",
+            "poids": {
+              "relation-transmission": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "enfin fait marcher un bout de code qui te résistait depuis des heures",
+            "poids": {
+              "developpement": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "compris pourquoi une solution est mieux construite qu'une autre, même si les deux marchent",
+            "poids": {
+              "qualite-archi": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "remis le groupe sur les rails pour que tout le monde avance",
+            "poids": {
+              "management": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q06",
+        "intitule": "Quelqu'un de ta promo te fait tester l'appli de son projet. Ce qui te saute aux yeux en premier…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "les boutons mal alignés, et le fait qu'on ne sait pas où cliquer",
+            "poids": {
+              "produit-design": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "le formulaire qui accepte n'importe quoi, et les mots de passe stockés en clair",
+            "poids": {
+              "cybersecurite": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "la façon dont le code est rangé (ou pas)",
+            "poids": {
+              "qualite-archi": 2,
+              "developpement": 1
+            }
+          },
+          {
+            "id": "d",
+            "texte": "le fait que ça ne tourne que sur sa machine",
+            "poids": {
+              "infra-cloud": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q07",
+        "intitule": "Pour un projet de groupe, vous partagez un dépôt Git et un petit serveur. Ce qui t'inquiète le plus…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "que quelqu'un pousse un mot de passe ou une clé d'API dans le dépôt, visible de tous",
+            "poids": {
+              "cybersecurite": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "qu'une personne du groupe ne fasse presque rien, et que personne n'ose le lui dire",
+            "poids": {
+              "management": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "que quelqu'un casse la branche principale en poussant sans avoir testé",
+            "poids": {
+              "qualite-archi": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "que le serveur tombe la veille de la soutenance",
+            "poids": {
+              "infra-cloud": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q08",
+        "intitule": "Ton groupe hésite entre deux idées de projet et le débat tourne en rond. Toi…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "tu fais un tableau des pour et des contre, avec des chiffres si possible",
+            "poids": {
+              "data-ia": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "tu défends l'idée qui te parle, et tu trouves les arguments qui font changer d'avis",
+            "poids": {
+              "relation-transmission": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "tu demandes à quelques personnes qui pourraient s'en servir ce qu'elles en pensent",
+            "poids": {
+              "produit-design": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "tu tranches, et tu assumes le choix devant le groupe",
+            "poids": {
+              "management": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q09",
+        "intitule": "Premières semaines d'alternance : on te laisse prendre tes marques dans l'équipe. Tu passes le plus de temps à…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "lire le code existant pour comprendre comment les morceaux s'emboîtent",
+            "poids": {
+              "qualite-archi": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "comprendre comment tout ça est installé, mis en ligne et protégé : serveurs, conteneurs, accès",
+            "poids": {
+              "infra-cloud": 2,
+              "cybersecurite": 1
+            }
+          },
+          {
+            "id": "c",
+            "texte": "discuter avec les collègues qui se servent tous les jours de l'appli de l'équipe, pour savoir ce qui les agace",
+            "poids": {
+              "produit-design": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "fouiller la base de données pour voir ce qui est enregistré et ce qu'on pourrait en apprendre",
+            "poids": {
+              "data-ia": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "intitule": "Dans un jeu vidéo, ce qui te plaît le plus…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "optimiser ton équipement ou ta stratégie à coups de stats et de calculs",
+            "poids": {
+              "data-ia": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "mener ton équipe ou ta guilde : qui joue quel rôle, quelle tactique",
+            "poids": {
+              "management": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "dénicher les failles, les glitches, les raccourcis que les devs n'avaient pas prévus",
+            "poids": {
+              "cybersecurite": 2,
+              "qualite-archi": 1
+            }
+          },
+          {
+            "id": "d",
+            "texte": "créer tes propres cartes, mods ou skins",
+            "poids": {
+              "developpement": 2,
+              "produit-design": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "q11",
+        "intitule": "Le BDE te confie la refonte de son site. Pour toi, le plus important, c'est…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "qu'il soit beau et qu'il donne envie de s'inscrire aux soirées",
+            "poids": {
+              "produit-design": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "qu'il tienne le coup le jour où toute l'école se connecte en même temps pour les inscriptions",
+            "poids": {
+              "infra-cloud": 2,
+              "developpement": 1
+            }
+          },
+          {
+            "id": "c",
+            "texte": "que tout le monde puisse s'en servir, y compris une personne malvoyante avec un lecteur d'écran",
+            "poids": {
+              "developpement": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "savoir combien de personnes le visitent et ce qu'elles y cherchent",
+            "poids": {
+              "data-ia": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "intitule": "TP noté en binôme. Ton binôme a écrit une fonction qui « marche ». Toi, tu…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "écris des tests pour les cas limites : liste vide, nombre négatif, valeur énorme",
+            "poids": {
+              "qualite-archi": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "essaies de la faire planter avec l'entrée la plus tordue possible",
+            "poids": {
+              "cybersecurite": 2,
+              "qualite-archi": 1
+            }
+          },
+          {
+            "id": "c",
+            "texte": "la reprends pour la rendre plus courte et plus rapide",
+            "poids": {
+              "developpement": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "lui fais expliquer sa logique, puis lui montres ta version, pour être prêt·es tous les deux à l'oral",
+            "poids": {
+              "relation-transmission": 2,
+              "management": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "intitule": "Le soir, une vidéo ou un article tech te happe. C'est plutôt sur…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "comment une grosse plateforme tient des millions de personnes connectées en même temps",
+            "poids": {
+              "infra-cloud": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "une IA qui génère des images, ou qui bat des humains à un jeu",
+            "poids": {
+              "data-ia": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "un piratage célèbre raconté de A à Z",
+            "poids": {
+              "cybersecurite": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "comment une personne a fait grandir une petite équipe tech jusqu'à une grosse boîte, et les choix difficiles qu'elle a dû faire",
+            "poids": {
+              "management": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q14",
+        "intitule": "Le projet est fini. Il reste le README et la soutenance. Tu te portes volontaire pour…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "écrire un README si clair qu'une personne extérieure installe le projet sans demander d'aide",
+            "poids": {
+              "relation-transmission": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "dessiner le schéma qui montre comment toutes les briques tiennent ensemble",
+            "poids": {
+              "qualite-archi": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "organiser la soutenance : qui parle, dans quel ordre, combien de temps",
+            "poids": {
+              "produit-design": 2,
+              "management": 1
+            }
+          },
+          {
+            "id": "d",
+            "texte": "sortir quelques chiffres qui montrent que ça marche vraiment",
+            "poids": {
+              "data-ia": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "intitule": "Une amie veut lancer sa boutique en ligne de bijoux faits main et te demande conseil. Tu…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "lui poses plein de questions, puis l'aides à choisir parmi les solutions toutes prêtes (Shopify, Etsy…) celle qui lui va",
+            "poids": {
+              "relation-transmission": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "lui proposes de coder le site toi-même",
+            "poids": {
+              "developpement": 2
+            }
+          },
+          {
+            "id": "c",
+            "texte": "penses tout de suite au paiement sécurisé et à la protection des données de ses acheteur·ses",
+            "poids": {
+              "cybersecurite": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "regardes où l'héberger et comment ne rien perdre si un jour tout plante",
+            "poids": {
+              "infra-cloud": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "q16",
+        "intitule": "Dans un projet de groupe, ce qui t'agace le plus…",
+        "reponses": [
+          {
+            "id": "a",
+            "texte": "que personne ne prenne de décision et qu'on perde une heure à débattre",
+            "poids": {
+              "management": 2
+            }
+          },
+          {
+            "id": "b",
+            "texte": "qu'une personne soit larguée et que personne ne prenne le temps de l'aider",
+            "poids": {
+              "relation-transmission": 2,
+              "management": 1
+            }
+          },
+          {
+            "id": "c",
+            "texte": "que le code devienne un plat de spaghettis que plus personne n'ose toucher",
+            "poids": {
+              "qualite-archi": 2
+            }
+          },
+          {
+            "id": "d",
+            "texte": "qu'on passe des semaines sur une fonctionnalité sans un seul chiffre qui montre que quelqu'un en a besoin",
+            "poids": {
+              "produit-design": 2,
+              "data-ia": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
   "metiers": [
     {
       "id": "dev-legacy-cobol",
@@ -109,7 +732,7 @@
       "titre": "Développeur·se Cobol / mainframe",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1805",
       "brief": "Maintient et modernise les applications historiques des banques, assurances et administrations.",
       "missions": "Faire évoluer et corriger des programmes Cobol, écrire les chaînes de traitement (JCL), travailler sur DB2 et CICS, participer aux projets de migration vers des technologies plus récentes. Surtout dans les grandes DSI.",
       "competences": [
@@ -120,7 +743,7 @@
         "SQL"
       ],
       "a_eviter_si": "Tu veux travailler sur des technologies à la mode.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur informatique) : accessible de bac+2 à bac+5 en informatique ; la fiche est générale et ne décrit pas de parcours propre à Cobol.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -185,8 +808,9 @@
           ],
           "moyenne_keur": 42.2,
           "variation_pct": -5.8,
-          "moyenne_verifiee": false,
-          "moyenne_source": "variation page Silkhom ; moyenne rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Développement informatique",
@@ -205,7 +829,8 @@
           },
           "moins_35_ans": {
             "mediane": 44
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -230,7 +855,7 @@
       "titre": "Développeur·se Rust / Go",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1805",
       "brief": "Écrit des services et des outils très performants et sûrs en mémoire.",
       "missions": "Développer des services critiques en performance, des outils en ligne de commande, des briques d'infrastructure (proxies, bases, agents), en portant une attention forte à la concurrence et à la fiabilité.",
       "competences": [
@@ -241,7 +866,7 @@
         "tests et benchmarks"
       ],
       "a_eviter_si": "Tu cherches une courbe d'apprentissage douce : Rust en particulier demande un investissement important.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur informatique) : accessible de bac+2 à bac+5 en informatique ; la fiche est générale et ne décrit pas de parcours propre à Rust ou Go.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -363,7 +988,8 @@
           "moyenne_keur": 70.8,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM (Rust)"
+          "moyenne_source": "BDM (Rust)",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Développement informatique",
@@ -382,7 +1008,8 @@
           },
           "moins_35_ans": {
             "mediane": 44
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -399,7 +1026,7 @@
         "platform-engineer",
         "pentester"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/rust"
     },
     {
       "id": "dev-backend",
@@ -407,7 +1034,7 @@
       "titre": "Développeur·se back-end",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1855",
       "brief": "Conçoit la partie serveur d'une application : API, logique métier, données.",
       "missions": "Développer des API REST ou GraphQL, modéliser et interroger la base de données, écrire des tests, faire et recevoir des revues de code, mettre en production. En ESN, chez un éditeur ou dans une DSI, souvent en hybride.",
       "competences": [
@@ -623,7 +1250,8 @@
           "moyenne_keur": null,
           "variation_pct": null,
           "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_source": null,
+          "rapprochement": null
         },
         "apec": {
           "famille": "Développement informatique",
@@ -642,7 +1270,8 @@
           },
           "moins_35_ans": {
             "mediane": 44
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -662,7 +1291,7 @@
         "lead-developer",
         "ingenieur-qa-automatisation"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/backend"
     },
     {
       "id": "dev-bdd",
@@ -670,7 +1299,7 @@
       "titre": "Développeur·se base de données",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1894",
       "brief": "Conçoit les schémas de données, les requêtes et les traitements côté base.",
       "missions": "Modéliser les données, écrire des requêtes complexes et des procédures stockées (PL/SQL, PL/pgSQL), optimiser les performances, préparer les migrations de schéma.",
       "competences": [
@@ -681,7 +1310,7 @@
         "optimisation de requêtes"
       ],
       "a_eviter_si": "Tu veux faire des interfaces.",
-      "parcours": null,
+      "parcours": "ROME (fiche Gestionnaire de base de données) : bac+3 à bac+5, master ou diplôme d'ingénieur en informatique ; une certification en gestion de bases de données est un atout.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -746,10 +1375,30 @@
           ],
           "moyenne_keur": 47.9,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "moyenne",
       "fiabilite_note": null,
@@ -765,7 +1414,7 @@
         "data-engineer",
         "dev-bi"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/sql"
     },
     {
       "id": "dev-fullstack",
@@ -773,7 +1422,7 @@
       "titre": "Développeur·se full-stack",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1855",
       "brief": "Développe à la fois l'interface et le serveur d'une application web.",
       "missions": "Réaliser des fonctionnalités de bout en bout, de l'écran à la base de données, intégrer les maquettes, exposer et consommer des API, déployer. Profil très demandé en startup, agence et PME.",
       "competences": [
@@ -785,7 +1434,7 @@
         "CI/CD"
       ],
       "a_eviter_si": "Tu veux devenir expert·e d'un seul domaine plutôt que polyvalent·e.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur web, qui couvre les profils back-end, front-end et full-stack) : bac+3 à bac+5, licence pro, master ou diplôme d'ingénieur en informatique.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -849,9 +1498,10 @@
             }
           ],
           "moyenne_keur": 47.4,
-          "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "variation_pct": 0.2,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Développement informatique",
@@ -870,7 +1520,8 @@
           },
           "moins_35_ans": {
             "mediane": 44
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -887,7 +1538,7 @@
         "dev-mobile-multiplateforme",
         "product-owner"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/full-stack"
     },
     {
       "id": "dev-frontend",
@@ -895,7 +1546,7 @@
       "titre": "Développeur·se front-end",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1855",
       "brief": "Construit les interfaces web avec lesquelles les utilisateurs interagissent.",
       "missions": "Développer des composants et gérer l'état de l'application, intégrer les API, garantir l'accessibilité et la performance, travailler avec les designers.",
       "competences": [
@@ -906,7 +1557,7 @@
         "Figma"
       ],
       "a_eviter_si": "Le souci du détail visuel et les allers-retours avec les designers t'agacent.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur web, qui couvre les profils back-end, front-end et full-stack) : bac+3 à bac+5, licence pro, master ou diplôme d'ingénieur en informatique.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -971,8 +1622,9 @@
           ],
           "moyenne_keur": 41.9,
           "variation_pct": -1.9,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Développement informatique",
@@ -991,7 +1643,8 @@
           },
           "moins_35_ans": {
             "mediane": 44
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -1007,7 +1660,7 @@
         "ui-designer",
         "ux-designer"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/frontend"
     },
     {
       "id": "integrateur-web",
@@ -1015,7 +1668,7 @@
       "titre": "Intégrateur·rice web / accessibilité",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1855",
       "brief": "Transforme des maquettes en pages HTML/CSS accessibles et responsives, souvent sur un CMS.",
       "missions": "Intégrer les maquettes, vérifier la conformité au RGAA, adapter les gabarits d'un CMS (WordPress, Drupal…), maintenir des sites existants.",
       "competences": [
@@ -1026,13 +1679,104 @@
         "bases de SEO"
       ],
       "a_eviter_si": "Tu vises une rémunération élevée rapidement.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur web, qui reprend l'appellation d'intégrateur web) : bac+3 à bac+5, licence pro, master ou diplôme d'ingénieur en informatique.",
       "salaires": {
-        "silkhom": null,
-        "apec": null
+        "silkhom": {
+          "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+          "ligne": "Développeur Frontend",
+          "grilles": [
+            {
+              "ligne": "Développeur Frontend",
+              "niveaux": [
+                {
+                  "niveau": "junior",
+                  "annees_min": 0,
+                  "annees_max": 2,
+                  "paris": [
+                    36,
+                    40
+                  ],
+                  "grandes_villes": [
+                    32,
+                    38
+                  ],
+                  "regions": [
+                    28,
+                    32
+                  ]
+                },
+                {
+                  "niveau": "confirme",
+                  "annees_min": 2,
+                  "annees_max": 5,
+                  "paris": [
+                    40,
+                    48
+                  ],
+                  "grandes_villes": [
+                    38,
+                    45
+                  ],
+                  "regions": [
+                    32,
+                    40
+                  ]
+                },
+                {
+                  "niveau": "senior",
+                  "annees_min": 5,
+                  "annees_max": null,
+                  "paris": [
+                    48,
+                    62
+                  ],
+                  "grandes_villes": [
+                    45,
+                    60
+                  ],
+                  "regions": [
+                    40,
+                    50
+                  ]
+                }
+              ]
+            }
+          ],
+          "moyenne_keur": 41.9,
+          "variation_pct": -1.9,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Développeur Frontend",
+            "raison": "Silkhom n'a pas de ligne pour l'intégrateur web : la plus proche est celle du développeur frontend, qui construit aussi l'interface des sites, avec davantage de JavaScript."
+          }
+        },
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": {
+            "de": "Développement informatique",
+            "raison": "Pas de famille Apec propre à l'intégration web : on reprend celle des développeur·ses, le métier le plus proche."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Développement informatique » ; salaire Silkhom rapproché du développeur frontend, faute de ligne intégrateur web",
       "source_texte": "rapport",
       "source_texte_detail": "rapport-recherche",
       "a_relire": true,
@@ -1051,7 +1795,7 @@
       "titre": "Développeur·se Android",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1861",
       "brief": "Crée des applications natives pour smartphones et tablettes Android.",
       "missions": "Développer les écrans et la logique de l'application, consommer les API, gérer le hors-ligne et les notifications, tester sur de nombreux appareils, publier sur le Play Store.",
       "competences": [
@@ -1063,7 +1807,7 @@
         "Git"
       ],
       "a_eviter_si": "Dépendre des règles et des délais de validation d'un store te frustre.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur logiciel ou d'application) : de bac+2 à bac+5, du BTS ou du DUT informatique jusqu'au master ou au diplôme d'ingénieur ; la fiche est générale, sans parcours propre à Android.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -1129,9 +1873,29 @@
           "moyenne_keur": 45.9,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "bonne",
       "fiabilite_note": null,
@@ -1146,7 +1910,7 @@
         "dev-backend",
         "ui-designer"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/android"
     },
     {
       "id": "dev-mobile-multiplateforme",
@@ -1154,7 +1918,7 @@
       "titre": "Développeur·se Flutter / React Native",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1861",
       "brief": "Développe une seule base de code qui tourne sur iOS et Android.",
       "missions": "Développer les écrans et la logique partagée, intégrer les fonctionnalités natives quand c'est nécessaire, publier sur les deux stores, maintenir l'application dans la durée.",
       "competences": [
@@ -1165,7 +1929,7 @@
         "notions natives iOS et Android"
       ],
       "a_eviter_si": "Tu veux maîtriser à fond une seule plateforme.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur logiciel ou d'application) : de bac+2 à bac+5, du BTS ou du DUT informatique jusqu'au master ou au diplôme d'ingénieur ; la fiche est générale, sans parcours propre à Flutter ou React Native.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -1270,9 +2034,29 @@
           "moyenne_keur": null,
           "variation_pct": null,
           "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_source": null,
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "bonne",
       "fiabilite_note": null,
@@ -1287,7 +2071,7 @@
         "dev-fullstack",
         "dev-frontend"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/flutter"
     },
     {
       "id": "dev-ios",
@@ -1295,7 +2079,7 @@
       "titre": "Développeur·se iOS",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1861",
       "brief": "Crée des applications natives pour iPhone et iPad.",
       "missions": "Développer l'interface et la logique de l'application, intégrer les API et services Apple, optimiser les performances, publier sur l'App Store.",
       "competences": [
@@ -1306,7 +2090,7 @@
         "tests"
       ],
       "a_eviter_si": "Travailler dans un écosystème fermé, avec un Mac obligatoire, te gêne.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur logiciel ou d'application) : de bac+2 à bac+5, du BTS ou du DUT informatique jusqu'au master ou au diplôme d'ingénieur ; la fiche est générale, sans parcours propre à iOS.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -1372,9 +2156,29 @@
           "moyenne_keur": 47.4,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "bonne",
       "fiabilite_note": null,
@@ -1389,7 +2193,7 @@
         "ui-designer",
         "dev-frontend"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/ios"
     },
     {
       "id": "dev-jeu-video",
@@ -1397,7 +2201,7 @@
       "titre": "Développeur·se jeu vidéo (Unity)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1831",
       "brief": "Programme le gameplay, l'interface et les performances de jeux ou d'applications 3D/VR.",
       "missions": "Implémenter les mécaniques de jeu, intégrer assets et animations, optimiser pour les plateformes cibles, travailler avec game designers et artistes. Le moteur sert aussi hors jeu vidéo (simulation, VR industrielle).",
       "competences": [
@@ -1409,7 +2213,7 @@
         "optimisation"
       ],
       "a_eviter_si": "Tu attends des salaires du web et des horaires stables : le secteur paie moins et connaît des rushs.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur jeux vidéo) : de bac+2 à bac+5, du BTS informatique ou de la licence jusqu'au master ou au diplôme d'ingénieur en informatique.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -1474,10 +2278,30 @@
           ],
           "moyenne_keur": 41.9,
           "variation_pct": -4.1,
-          "moyenne_verifiee": false,
-          "moyenne_source": "variation page Silkhom ; moyenne rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "moyenne",
       "fiabilite_note": null,
@@ -1491,7 +2315,7 @@
         "ingenieur-computer-vision",
         "dev-embarque"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/game-developer"
     },
     {
       "id": "dev-ia-embarquee",
@@ -1502,7 +2326,7 @@
         "dev-embarque",
         "ml-engineer"
       ],
-      "rome": null,
+      "rome": "M1873",
       "brief": "Fait tourner des modèles d'IA sur des processeurs contraints (objets connectés, véhicules, caméras).",
       "missions": "Compresser et optimiser des modèles, les porter sur des cibles matérielles spécifiques, mesurer consommation et latence, intégrer dans le logiciel embarqué.",
       "competences": [
@@ -1513,7 +2337,7 @@
         "architecture matérielle"
       ],
       "a_eviter_si": "L'optimisation de bas niveau et les contraintes matérielles ne t'attirent pas.",
-      "parcours": null,
+      "parcours": "ROME (fiche Spécialiste IA embarquée) : bac+5 (master ou ingénieur en informatique, robotique ou électronique) ; des certifications en IA ou en systèmes embarqués sont fortement conseillées.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-ia-et-ml (2026)",
@@ -1579,12 +2403,35 @@
           "moyenne_keur": 67.7,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom IA"
+          "moyenne_source": "page Silkhom IA",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Informatique industrielle et technique",
+          "mediane": 51,
+          "d1": 39,
+          "d9": 71,
+          "idf": {
+            "mediane": 52,
+            "d1": 41,
+            "d9": 73
+          },
+          "autres_regions": {
+            "mediane": 49,
+            "d1": 38,
+            "d9": 69
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": {
+            "de": "Informatique industrielle et technique",
+            "raison": "Pas de famille Apec pour l'IA embarquée : on reprend celle de l'informatique embarquée et industrielle, sans le volet IA."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": "profil très rare",
+      "fiabilite_note": "profil très rare ; salaire Apec rapproché de la famille « Informatique industrielle et technique »",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -1603,7 +2450,7 @@
       "titre": "Développeur·se logiciel embarqué",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1892",
       "brief": "Écrit le logiciel qui fait fonctionner les équipements électroniques (capteurs, véhicules, dispositifs médicaux).",
       "missions": "Développer des pilotes et des fonctions temps réel, travailler au plus près du matériel, tester sur cartes et bancs de test, respecter des normes de sûreté selon le secteur.",
       "competences": [
@@ -1615,7 +2462,7 @@
         "oscilloscope et débogueur"
       ],
       "a_eviter_si": "Le matériel, les contraintes de mémoire et l'électronique ne t'intéressent pas.",
-      "parcours": null,
+      "parcours": "ROME (fiche Ingénieur en informatique embarquée) : bac+5 (master ou ingénieur en informatique, électronique ou systèmes embarqués) ; une certification en sécurité des systèmes embarqués est un plus.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -1678,10 +2525,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
+          "moyenne_keur": 47.2,
           "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Informatique industrielle et technique",
@@ -1700,7 +2548,8 @@
           },
           "moins_35_ans": {
             "mediane": 44
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -1724,7 +2573,7 @@
       "titre": "Ingénieur·e informatique industrielle (automatisme, MES)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "H1208",
       "brief": "Relie les logiciels de l'entreprise aux machines et lignes de production.",
       "missions": "Programmer automates et supervisions, intégrer les données de production dans le SI (MES), mettre en service sur site, diagnostiquer les arrêts de ligne.",
       "competences": [
@@ -1737,7 +2586,76 @@
       "a_eviter_si": "Tu veux du 100 % télétravail : il faut souvent être en usine.",
       "parcours": null,
       "salaires": {
-        "silkhom": null,
+        "silkhom": {
+          "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+          "ligne": "Développeur (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH)",
+          "grilles": [
+            {
+              "ligne": "Développeur (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH)",
+              "niveaux": [
+                {
+                  "niveau": "junior",
+                  "annees_min": 0,
+                  "annees_max": 2,
+                  "paris": [
+                    40,
+                    45
+                  ],
+                  "grandes_villes": [
+                    38,
+                    42
+                  ],
+                  "regions": [
+                    35,
+                    40
+                  ]
+                },
+                {
+                  "niveau": "confirme",
+                  "annees_min": 2,
+                  "annees_max": 5,
+                  "paris": [
+                    45,
+                    60
+                  ],
+                  "grandes_villes": [
+                    42,
+                    48
+                  ],
+                  "regions": [
+                    40,
+                    45
+                  ]
+                },
+                {
+                  "niveau": "senior",
+                  "annees_min": 5,
+                  "annees_max": null,
+                  "paris": [
+                    60,
+                    70
+                  ],
+                  "grandes_villes": [
+                    48,
+                    60
+                  ],
+                  "regions": [
+                    45,
+                    55
+                  ]
+                }
+              ]
+            }
+          ],
+          "moyenne_keur": 47.7,
+          "variation_pct": 0.6,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Développeur (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH)",
+            "raison": "Silkhom n'a pas de ligne informatique industrielle : la plus proche est celle des développeurs de logiciels de gestion, qui couvre le MES, le logiciel qui suit la production."
+          }
+        },
         "apec": {
           "famille": "Informatique industrielle et technique",
           "mediane": 51,
@@ -1755,11 +2673,12 @@
           },
           "moins_35_ans": {
             "mediane": 44
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": "pas de ligne Silkhom équivalente",
+      "fiabilite_note": "salaire Silkhom rapproché du développeur ERP / MES, faute de ligne informatique industrielle",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -1778,7 +2697,7 @@
       "titre": "Ingénieur·e QA / automatisation des tests",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1815",
       "brief": "Code les tests automatisés qui sécurisent chaque livraison.",
       "missions": "Écrire et maintenir des tests automatisés (API, interface, performance), les brancher dans la CI/CD, analyser les échecs, conseiller les développeurs sur la testabilité.",
       "competences": [
@@ -1789,6 +2708,122 @@
         "tests de performance"
       ],
       "a_eviter_si": "Tu veux construire les fonctionnalités visibles plutôt que les vérifier.",
+      "parcours": "Cigref (profil Testeur, dont relève ce métier) : niveau bac+2/3 ou ingénieur débutant ; en connaissant bien les applications, on peut ensuite évoluer vers l'analyse applicative.",
+      "salaires": {
+        "silkhom": {
+          "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+          "ligne": "Ingénieur QA",
+          "grilles": [
+            {
+              "ligne": "Ingénieur QA",
+              "niveaux": [
+                {
+                  "niveau": "junior",
+                  "annees_min": 0,
+                  "annees_max": 2,
+                  "paris": [
+                    35,
+                    42
+                  ],
+                  "grandes_villes": [
+                    32,
+                    38
+                  ],
+                  "regions": [
+                    30,
+                    35
+                  ]
+                },
+                {
+                  "niveau": "confirme",
+                  "annees_min": 2,
+                  "annees_max": 5,
+                  "paris": [
+                    42,
+                    52
+                  ],
+                  "grandes_villes": [
+                    38,
+                    48
+                  ],
+                  "regions": [
+                    35,
+                    45
+                  ]
+                },
+                {
+                  "niveau": "senior",
+                  "annees_min": 5,
+                  "annees_max": null,
+                  "paris": [
+                    52,
+                    65
+                  ],
+                  "grandes_villes": [
+                    48,
+                    58
+                  ],
+                  "regions": [
+                    45,
+                    55
+                  ]
+                }
+              ]
+            }
+          ],
+          "moyenne_keur": 44.2,
+          "variation_pct": -5.8,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
+        },
+        "apec": {
+          "famille": "Tests et recettes informatiques",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 66,
+          "idf": null,
+          "autres_regions": null,
+          "moins_35_ans": null,
+          "rapprochement": null
+        }
+      },
+      "fiabilite": "bonne",
+      "fiabilite_note": null,
+      "source_texte": "cigref",
+      "source_texte_detail": "cigref-2025 (3.3 Testeur)",
+      "a_relire": false,
+      "voisins_meme_categorie": [
+        "testeur-fonctionnel",
+        "test-manager"
+      ],
+      "voisins_autres_categories": [
+        "dev-backend",
+        "ingenieur-devops",
+        "devsecops"
+      ],
+      "roadmap_url": "https://roadmap.sh/qa"
+    },
+    {
+      "id": "test-manager",
+      "categorie": "qa",
+      "titre": "Test manager / lead QA",
+      "type": "evolution",
+      "depuis": [
+        "ingenieur-qa-automatisation",
+        "testeur-fonctionnel"
+      ],
+      "rome": "M1815",
+      "brief": "Organise la stratégie de test d'un projet ou d'un produit et encadre l'équipe qui la met en œuvre.",
+      "missions": "Définir la stratégie et les priorités de test, planifier les campagnes, encadrer testeurs et ingénieurs QA, suivre les indicateurs de qualité, décider avec le projet si une version peut partir en production.",
+      "competences": [
+        "stratégie de test",
+        "ISTQB",
+        "management",
+        "indicateurs qualité",
+        "négociation"
+      ],
+      "a_eviter_si": "Tu ne veux pas avoir à bloquer une mise en production sous pression.",
       "parcours": null,
       "salaires": {
         "silkhom": {
@@ -1854,8 +2889,12 @@
           ],
           "moyenne_keur": 44.2,
           "variation_pct": -5.8,
-          "moyenne_verifiee": false,
-          "moyenne_source": "variation page Silkhom ; moyenne rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Ingénieur QA",
+            "raison": "Silkhom n'a pas de grille pour le test manager : on reprend celle de l'ingénieur QA, dont la fiche Silkhom inclut l'encadrement de l'équipe de test."
+          }
         },
         "apec": {
           "famille": "Tests et recettes informatiques",
@@ -1864,60 +2903,12 @@
           "d9": 66,
           "idf": null,
           "autres_regions": null,
-          "moins_35_ans": null
-        }
-      },
-      "fiabilite": "bonne",
-      "fiabilite_note": null,
-      "source_texte": "cigref",
-      "source_texte_detail": "cigref-2025 (3.3 Testeur)",
-      "a_relire": false,
-      "voisins_meme_categorie": [
-        "testeur-fonctionnel",
-        "test-manager"
-      ],
-      "voisins_autres_categories": [
-        "dev-backend",
-        "ingenieur-devops",
-        "devsecops"
-      ],
-      "roadmap_url": null
-    },
-    {
-      "id": "test-manager",
-      "categorie": "qa",
-      "titre": "Test manager / lead QA",
-      "type": "evolution",
-      "depuis": [
-        "ingenieur-qa-automatisation",
-        "testeur-fonctionnel"
-      ],
-      "rome": null,
-      "brief": "Organise la stratégie de test d'un projet ou d'un produit et encadre l'équipe qui la met en œuvre.",
-      "missions": "Définir la stratégie et les priorités de test, planifier les campagnes, encadrer testeurs et ingénieurs QA, suivre les indicateurs de qualité, décider avec le projet si une version peut partir en production.",
-      "competences": [
-        "stratégie de test",
-        "ISTQB",
-        "management",
-        "indicateurs qualité",
-        "négociation"
-      ],
-      "a_eviter_si": "Tu ne veux pas avoir à bloquer une mise en production sous pression.",
-      "parcours": null,
-      "salaires": {
-        "silkhom": null,
-        "apec": {
-          "famille": "Tests et recettes informatiques",
-          "mediane": 50,
-          "d1": 38,
-          "d9": 66,
-          "idf": null,
-          "autres_regions": null,
-          "moins_35_ans": null
+          "moins_35_ans": null,
+          "rapprochement": null
         }
       },
       "fiabilite": "faible",
-      "fiabilite_note": "pas de ligne Silkhom dédiée",
+      "fiabilite_note": "salaire Silkhom rapproché de l'ingénieur QA, faute de grille test manager dédiée",
       "source_texte": "cigref",
       "source_texte_detail": "cigref-2025 (3.3 Testeur, « certains testeurs peuvent piloter une équipe »)",
       "a_relire": false,
@@ -1937,7 +2928,7 @@
       "titre": "Testeur·se fonctionnel·le",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1815",
       "brief": "Vérifie qu'un logiciel fait bien ce qui a été demandé avant qu'il arrive chez les utilisateurs.",
       "missions": "Rédiger les plans et cas de test à partir des spécifications, exécuter les campagnes, signaler et suivre les anomalies, participer aux recettes avec les utilisateurs.",
       "competences": [
@@ -2013,9 +3004,10 @@
             }
           ],
           "moyenne_keur": 34.4,
-          "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "variation_pct": -0.6,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Tests et recettes informatiques",
@@ -2024,7 +3016,8 @@
           "d9": 66,
           "idf": null,
           "autres_regions": null,
-          "moins_35_ans": null
+          "moins_35_ans": null,
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -2040,7 +3033,7 @@
         "business-analyst-amoa",
         "technicien-support"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/qa"
     },
     {
       "id": "architecte-cloud",
@@ -2051,7 +3044,7 @@
         "ingenieur-cloud",
         "ingenieur-devops"
       ],
-      "rome": null,
+      "rome": "M1860",
       "brief": "Conçoit l'architecture cloud cible d'une organisation et les règles pour y déployer les applications.",
       "missions": "Choisir les services et modèles d'hébergement, définir les standards de sécurité, de résilience et de coûts, valider l'architecture des projets, piloter les migrations importantes.",
       "competences": [
@@ -2063,7 +3056,7 @@
         "communication"
       ],
       "a_eviter_si": "Tu veux mettre les mains dans l'infrastructure tous les jours.",
-      "parcours": null,
+      "parcours": "ROME (fiche Architecte cloud) : master en informatique ou diplôme d'ingénieur en systèmes d'information, cybersécurité ou cloud ; les certifications d'architecte AWS ou Azure sont un atout sans être obligatoires.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -2112,7 +3105,8 @@
           "moyenne_keur": 73.3,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Infrastructures et systèmes informatiques",
@@ -2131,7 +3125,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -2158,7 +3153,7 @@
         "ingenieur-cloud",
         "data-analyst"
       ],
-      "rome": null,
+      "rome": "M1879",
       "brief": "Aide l'entreprise à maîtriser et optimiser ses dépenses cloud.",
       "missions": "Suivre et répartir les coûts cloud par équipe, repérer les ressources inutilisées ou surdimensionnées, négocier les engagements avec les fournisseurs, sensibiliser les équipes techniques au coût de leurs choix.",
       "competences": [
@@ -2234,13 +3229,36 @@
           ],
           "moyenne_keur": 52.8,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Infrastructures et systèmes informatiques",
+          "mediane": 55,
+          "d1": 41,
+          "d9": 85,
+          "idf": {
+            "mediane": 62,
+            "d1": 45,
+            "d9": 87
+          },
+          "autres_regions": {
+            "mediane": 53,
+            "d1": 39,
+            "d9": 76
+          },
+          "moins_35_ans": {
+            "mediane": 47
+          },
+          "rapprochement": {
+            "de": "Infrastructures et systèmes informatiques",
+            "raison": "Pas de famille Apec pour le FinOps : on reprend celle des infrastructures et systèmes, le métier venant du cloud."
+          }
+        }
       },
       "fiabilite": "faible",
-      "fiabilite_note": "métier récent, nouvelle ligne Silkhom 2026 alignée sur DevOps",
+      "fiabilite_note": "salaire Apec rapproché de la famille « Infrastructures et systèmes informatiques » ; métier récent, nouvelle ligne Silkhom 2026 alignée sur DevOps",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -2259,7 +3277,7 @@
       "titre": "Ingénieur·e DevOps",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1827",
       "brief": "Automatise la chaîne qui mène le code jusqu'en production.",
       "missions": "Construire les pipelines d'intégration et de déploiement, écrire l'infrastructure sous forme de code, conteneuriser les applications, superviser la production, faire le lien entre développeurs et exploitation.",
       "competences": [
@@ -2335,9 +3353,10 @@
             }
           ],
           "moyenne_keur": 52.8,
-          "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "variation_pct": -0.6,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Infrastructures et systèmes informatiques",
@@ -2356,7 +3375,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -2375,7 +3395,7 @@
         "devsecops",
         "mlops"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/devops"
     },
     {
       "id": "ingenieur-cloud",
@@ -2383,7 +3403,7 @@
       "titre": "Ingénieur·e cloud",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1879",
       "brief": "Déploie et sécurise des environnements AWS, Azure ou GCP pour les applications de l'entreprise.",
       "missions": "Concevoir et déployer l'infrastructure cloud (réseau, calcul, stockage), l'écrire sous forme de code, gérer les droits d'accès, surveiller les coûts et la sécurité, accompagner les migrations depuis des serveurs physiques.",
       "competences": [
@@ -2395,7 +3415,7 @@
         "conteneurs"
       ],
       "a_eviter_si": "Tu n'aimes pas te former en continu : les offres cloud changent sans arrêt.",
-      "parcours": null,
+      "parcours": "ROME (fiche Ingénieur cloud computing) : bac+5, diplôme d'ingénieur ou master en informatique ou en ingénierie des systèmes ; certaines certifications spécifiques peuvent être exigées.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -2458,10 +3478,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
+          "moyenne_keur": 52.8,
           "variation_pct": -3.5,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Infrastructures et systèmes informatiques",
@@ -2480,7 +3501,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -2498,7 +3520,7 @@
         "ingenieur-systemes-linux",
         "ingenieur-iam"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/cloud-computing"
     },
     {
       "id": "platform-engineer",
@@ -2510,7 +3532,7 @@
         "sre",
         "dev-backend"
       ],
-      "rome": null,
+      "rome": "M1827",
       "brief": "Construit la plateforme interne (outils, environnements, pipelines) que les développeurs utilisent pour livrer en autonomie.",
       "missions": "Administrer les clusters Kubernetes, fournir aux équipes des modèles de déploiement prêts à l'emploi, maintenir les outils internes, recueillir les besoins des équipes de développement, qui sont ses utilisatrices.",
       "competences": [
@@ -2587,10 +3609,30 @@
           ],
           "moyenne_keur": 52.8,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Infrastructures et systèmes informatiques",
+          "mediane": 55,
+          "d1": 41,
+          "d9": 85,
+          "idf": {
+            "mediane": 62,
+            "d1": 45,
+            "d9": 87
+          },
+          "autres_regions": {
+            "mediane": 53,
+            "d1": 39,
+            "d9": 76
+          },
+          "moins_35_ans": {
+            "mediane": 47
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "moyenne",
       "fiabilite_note": "nouvelle ligne Silkhom 2026, même grille que DevOps",
@@ -2613,7 +3655,7 @@
       "titre": "Site Reliability Engineer (SRE)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1827",
       "brief": "Garantit que les services en production restent disponibles et rapides, en traitant l'exploitation comme un problème logiciel.",
       "missions": "Définir des objectifs de fiabilité (SLO), mettre en place la supervision et les alertes, automatiser les tâches répétitives, gérer les incidents et rédiger les post-mortems, participer aux astreintes.",
       "competences": [
@@ -2688,10 +3730,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
+          "moyenne_keur": 52.8,
           "variation_pct": -2.6,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Infrastructures et systèmes informatiques",
@@ -2710,7 +3753,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -2726,7 +3770,7 @@
         "ingenieur-production",
         "dev-rust-systeme"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/devops"
     },
     {
       "id": "dba",
@@ -2734,7 +3778,7 @@
       "titre": "Administrateur·rice de bases de données (DBA)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1894",
       "brief": "Garantit que les bases de données de l'entreprise sont disponibles, performantes, cohérentes et sécurisées.",
       "missions": "Installer et configurer les bases, gérer droits et sauvegardes, optimiser les requêtes et les index, préparer les montées de version, accompagner les équipes de développement.",
       "competences": [
@@ -2811,8 +3855,9 @@
           ],
           "moyenne_keur": 50.6,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Administration de bases de données",
@@ -2821,7 +3866,8 @@
           "d9": 97,
           "idf": null,
           "autres_regions": null,
-          "moins_35_ans": null
+          "moins_35_ans": null,
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -2837,7 +3883,7 @@
         "dev-bdd",
         "data-engineer"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/postgresql-dba"
     },
     {
       "id": "admin-systemes-reseaux",
@@ -2845,7 +3891,7 @@
       "titre": "Administrateur·rice systèmes et réseaux",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1801",
       "brief": "Fait fonctionner au quotidien les serveurs, le réseau et les services de base d'une organisation (annuaire, messagerie, sauvegardes).",
       "missions": "Administrer serveurs et réseau, gérer les comptes et les droits, superviser les performances, assurer les sauvegardes et les mises à jour de sécurité, traiter les incidents de niveau 2.",
       "competences": [
@@ -2923,7 +3969,8 @@
           "moyenne_keur": 43.6,
           "variation_pct": -4.0,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Infrastructures et systèmes informatiques",
@@ -2942,7 +3989,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -2979,7 +4027,7 @@
         "rigueur"
       ],
       "a_eviter_si": "Les procédures, les plannings de mise en production et les astreintes t'ennuient.",
-      "parcours": null,
+      "parcours": "Cigref (profil Intégrateur d'exploitation) : bac+4 avec 3 à 5 ans d'expérience ; évolution possible vers l'administration, la gestion d'applications ou la chefferie de projet informatique.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -3045,7 +4093,8 @@
           "moyenne_keur": null,
           "variation_pct": 3.7,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom"
+          "moyenne_source": "page Silkhom",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Production et maintenance informatique",
@@ -3064,7 +4113,8 @@
           },
           "moins_35_ans": {
             "mediane": 51
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -3100,7 +4150,7 @@
         "certifications (Cisco, Fortinet)"
       ],
       "a_eviter_si": "Tu préfères le logiciel au matériel et aux protocoles.",
-      "parcours": null,
+      "parcours": "Cigref (profil Expert systèmes d'exploitation / réseaux-télécoms) : bac+5 avec au moins 5 ans d'expérience ; évolution possible vers l'architecture, la fonction de RSSI ou la chefferie de projet.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -3164,9 +4214,10 @@
             }
           ],
           "moyenne_keur": 54.4,
-          "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "variation_pct": -1.6,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Réseaux informatiques et télécoms",
@@ -3185,7 +4236,8 @@
           },
           "moins_35_ans": {
             "mediane": 43
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -3201,7 +4253,7 @@
         "ingenieur-cybersecurite",
         "ingenieur-informatique-industrielle"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/network-engineer"
     },
     {
       "id": "ingenieur-systemes-linux",
@@ -3209,7 +4261,7 @@
       "titre": "Ingénieur·e systèmes Linux",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1802",
       "brief": "Conçoit et maintient des parcs de serveurs Linux fiables et automatisés.",
       "missions": "Installer et durcir les serveurs, automatiser leur configuration, optimiser les performances, diagnostiquer les problèmes complexes, participer aux choix d'architecture.",
       "competences": [
@@ -3221,7 +4273,7 @@
         "virtualisation"
       ],
       "a_eviter_si": "La ligne de commande et la lecture de journaux système te rebutent.",
-      "parcours": null,
+      "parcours": "Cigref (profil Expert systèmes d'exploitation / réseaux-télécoms) : bac+5 avec au moins 5 ans d'expérience ; les rôles d'expert et d'administrateur se confondent parfois selon les organisations.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -3285,9 +4337,10 @@
             }
           ],
           "moyenne_keur": 52.0,
-          "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "variation_pct": -1.5,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Infrastructures et systèmes informatiques",
@@ -3306,7 +4359,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -3322,7 +4376,7 @@
         "ingenieur-devops",
         "ingenieur-cloud"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/linux"
     },
     {
       "id": "technicien-systemes-reseaux",
@@ -3330,7 +4384,7 @@
       "titre": "Technicien·ne systèmes et réseaux",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "I1401",
       "brief": "Installe, maintient et dépanne les équipements réseau, serveurs et postes d'une organisation.",
       "missions": "Installer le matériel et les logiciels réseau, traiter les incidents, appliquer les mises à jour, tenir l'inventaire, intervenir sur site si besoin. Accessible en premier poste avec un bac+2.",
       "competences": [
@@ -3390,8 +4444,9 @@
           ],
           "moyenne_keur": 33.8,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": null
       },
@@ -3415,7 +4470,7 @@
       "titre": "Analyste SOC",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1883",
       "brief": "Surveille les systèmes d'une organisation pour détecter et qualifier les attaques.",
       "missions": "Analyser les alertes remontées par les outils de détection, distinguer les vrais incidents des faux positifs, déclencher la réponse, documenter, améliorer les règles de détection. Travail souvent en horaires décalés.",
       "competences": [
@@ -3427,7 +4482,7 @@
         "sang-froid"
       ],
       "a_eviter_si": "Les horaires décalés et l'analyse répétitive d'alertes te découragent.",
-      "parcours": null,
+      "parcours": "ROME (fiche Analyste SOC) : bac+5 (master ou ingénieur en informatique, sécurité des systèmes ou cybersécurité) ; des certifications de sécurité comme CISSP ou GIAC sont couramment demandées.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -3493,7 +4548,8 @@
           "moyenne_keur": null,
           "variation_pct": 3.9,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom"
+          "moyenne_source": "page Silkhom",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Sécurité informatique",
@@ -3512,7 +4568,8 @@
           },
           "moins_35_ans": {
             "mediane": 51
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -3536,7 +4593,7 @@
       "titre": "Ingénieur·e DevSecOps",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1827",
       "brief": "Intègre la sécurité directement dans la chaîne de développement et de déploiement.",
       "missions": "Ajouter des contrôles de sécurité automatiques dans la CI/CD (analyse de code, de dépendances, d'images), gérer les secrets, durcir les environnements, former les développeurs aux bonnes pratiques.",
       "competences": [
@@ -3614,9 +4671,29 @@
           "moyenne_keur": 52.8,
           "variation_pct": -9.4,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM / page Silkhom"
+          "moyenne_source": "BDM / page Silkhom",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Sécurité informatique",
+          "mediane": 60,
+          "d1": 43,
+          "d9": 99,
+          "idf": {
+            "mediane": 63,
+            "d1": 47,
+            "d9": 110
+          },
+          "autres_regions": {
+            "mediane": 57,
+            "d1": 41,
+            "d9": 76
+          },
+          "moins_35_ans": {
+            "mediane": 51
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "moyenne",
       "fiabilite_note": "salaire en net recul (−9,4 %)",
@@ -3632,7 +4709,7 @@
         "ingenieur-qa-automatisation",
         "platform-engineer"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/devsecops"
     },
     {
       "id": "ingenieur-iam",
@@ -3640,7 +4717,7 @@
       "titre": "Ingénieur·e IAM (gestion des identités et des accès)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1817",
       "brief": "Gère qui a accès à quoi dans le système d'information, et comment on le prouve.",
       "missions": "Administrer annuaires et fédération d'identité, mettre en place l'authentification forte et le SSO, automatiser les arrivées et départs des collaborateurs, réaliser les revues d'habilitations.",
       "competences": [
@@ -3717,9 +4794,29 @@
           "moyenne_keur": 56.7,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Sécurité informatique",
+          "mediane": 60,
+          "d1": 43,
+          "d9": 99,
+          "idf": {
+            "mediane": 63,
+            "d1": 47,
+            "d9": 110
+          },
+          "autres_regions": {
+            "mediane": 57,
+            "d1": 41,
+            "d9": 76
+          },
+          "moins_35_ans": {
+            "mediane": 51
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "moyenne",
       "fiabilite_note": "nouvelle ligne Silkhom 2026",
@@ -3742,7 +4839,7 @@
       "titre": "Ingénieur·e cybersécurité",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1856",
       "brief": "Définit et met en place les protections techniques des systèmes d'information.",
       "missions": "Déployer et configurer les outils de sécurité, tenir à jour la cartographie des menaces, accompagner les projets pour y intégrer la sécurité, contribuer aux politiques de sécurité, conseiller et alerter.",
       "competences": [
@@ -3753,7 +4850,7 @@
         "communication"
       ],
       "a_eviter_si": "Tu n'aimes pas jouer le rôle de celui qui dit « non » ou « pas comme ça » aux autres équipes.",
-      "parcours": null,
+      "parcours": "Cigref (profil Expert en cybersécurité) : bac+5 avec 4 à 5 ans d'expérience, ou bac+2/3 avec environ 10 ans ; les certifications en cybersécurité sont un plus, et le profil peut se spécialiser (pentests, cryptologie, direction de SOC…).",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -3819,7 +4916,8 @@
           "moyenne_keur": 55.8,
           "variation_pct": -8.8,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM / page Silkhom"
+          "moyenne_source": "BDM / page Silkhom",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Sécurité informatique",
@@ -3838,7 +4936,8 @@
           },
           "moins_35_ans": {
             "mediane": 51
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -3857,7 +4956,7 @@
         "ingenieur-reseaux",
         "architecte-cloud"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/cyber-security"
     },
     {
       "id": "pentester",
@@ -3865,7 +4964,7 @@
       "titre": "Pentester (auditeur·rice tests d'intrusion)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1866",
       "brief": "Attaque des systèmes avec l'accord de leur propriétaire pour trouver les failles avant les vrais attaquants.",
       "missions": "Réaliser des tests d'intrusion (applications web, réseau, Active Directory), exploiter les vulnérabilités trouvées, rédiger un rapport clair avec des recommandations, restituer au client.",
       "competences": [
@@ -3877,7 +4976,7 @@
         "éthique et cadre légal"
       ],
       "a_eviter_si": "La rédaction de rapports détaillés t'ennuie : c'est une grande partie du métier.",
-      "parcours": null,
+      "parcours": "ROME (fiche Pentesteur) : bac+3 à bac+5 en programmation, systèmes et réseaux ou sécurité, avec des cours de test d'intrusion et de cryptographie ; les certifications OSCP ou CISSP sont un plus.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -3943,7 +5042,8 @@
           "moyenne_keur": 55.0,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Sécurité informatique",
@@ -3962,7 +5062,8 @@
           },
           "moins_35_ans": {
             "mediane": 51
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -3991,7 +5092,7 @@
         "pentester",
         "ingenieur-reseaux"
       ],
-      "rome": null,
+      "rome": "M1812",
       "brief": "Porte la politique de sécurité de l'organisation et veille à son application.",
       "missions": "Définir la politique de sécurité, piloter l'analyse des risques et le plan d'action, sensibiliser et former les équipes, gérer les crises cyber, rendre compte à la direction.",
       "competences": [
@@ -4048,10 +5149,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
-          "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_keur": 88.3,
+          "variation_pct": -3.2,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Sécurité informatique",
@@ -4070,7 +5172,8 @@
           },
           "moins_35_ans": {
             "mediane": 51
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -4094,7 +5197,7 @@
       "titre": "Analytics engineer",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1811",
       "brief": "Fait le lien entre data engineer et data analyst en transformant les données brutes en modèles propres et documentés.",
       "missions": "Écrire et tester les transformations SQL (souvent avec dbt), documenter les modèles de données, fiabiliser les définitions d'indicateurs partagées.",
       "competences": [
@@ -4172,12 +5275,35 @@
           "moyenne_keur": 57.6,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom IA"
+          "moyenne_source": "page Silkhom IA",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Big Data",
+          "mediane": 54,
+          "d1": 40,
+          "d9": 98,
+          "idf": {
+            "mediane": 58,
+            "d1": 42,
+            "d9": 112
+          },
+          "autres_regions": {
+            "mediane": 48,
+            "d1": 36,
+            "d9": 70
+          },
+          "moins_35_ans": {
+            "mediane": 48
+          },
+          "rapprochement": {
+            "de": "Big Data",
+            "raison": "Pas de famille Apec pour l'analytics engineering : on reprend celle du Big Data, qui regroupe data engineers et data analysts."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Big Data »",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -4197,7 +5323,7 @@
       "titre": "Data analyst",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1419",
       "brief": "Transforme les données de l'entreprise en indicateurs et tableaux de bord qui aident à décider.",
       "missions": "Identifier les données utiles à partir des besoins métier, construire les indicateurs, concevoir les tableaux de bord (dataviz), présenter les résultats aux équipes métier. Souvent rattaché à un métier (marketing, finance) ou à un pôle data.",
       "competences": [
@@ -4276,7 +5402,8 @@
           "moyenne_keur": 48.9,
           "variation_pct": 2.7,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM 07/07/2026"
+          "moyenne_source": "BDM 07/07/2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Big Data",
@@ -4295,7 +5422,8 @@
           },
           "moins_35_ans": {
             "mediane": 48
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -4314,7 +5442,7 @@
         "product-owner",
         "cloud-finops"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/data-analyst"
     },
     {
       "id": "data-engineer",
@@ -4322,7 +5450,7 @@
       "titre": "Data engineer",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1811",
       "brief": "Construit et fait tourner les tuyaux qui collectent, stockent et préparent les données.",
       "missions": "Cartographier les sources, développer les pipelines d'ingestion et de transformation, structurer le data lake ou l'entrepôt, garantir la qualité et la sécurité des flux, maintenir les traitements en production.",
       "competences": [
@@ -4401,7 +5529,8 @@
           "moyenne_keur": 57.6,
           "variation_pct": 10.2,
           "moyenne_verifiee": true,
-          "moyenne_source": "moyenne BDM, variation page Silkhom"
+          "moyenne_source": "moyenne BDM, variation page Silkhom",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Big Data",
@@ -4420,7 +5549,8 @@
           },
           "moins_35_ans": {
             "mediane": 48
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -4440,7 +5570,7 @@
         "dba",
         "ingenieur-cloud"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/data-engineer"
     },
     {
       "id": "data-scientist",
@@ -4448,7 +5578,7 @@
       "titre": "Data scientist",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1405",
       "brief": "Exploite des données pour construire des modèles qui expliquent ou prédisent un phénomène métier.",
       "missions": "Explorer et évaluer la qualité des données, travailler sur des cas d'usage ciblés, construire et valider des modèles statistiques ou d'apprentissage, restituer les résultats pour qu'ils soient intégrés au SI.",
       "competences": [
@@ -4526,7 +5656,8 @@
           "moyenne_keur": 56.4,
           "variation_pct": 11.8,
           "moyenne_verifiee": true,
-          "moyenne_source": "moyenne BDM, variation page Silkhom"
+          "moyenne_source": "moyenne BDM, variation page Silkhom",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Big Data",
@@ -4545,7 +5676,8 @@
           },
           "moins_35_ans": {
             "mediane": 48
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -4561,7 +5693,7 @@
         "ml-engineer",
         "ingenieur-ia-generative"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/ai-data-scientist"
     },
     {
       "id": "dev-bi",
@@ -4569,7 +5701,7 @@
       "titre": "Développeur·se BI / décisionnel",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1824",
       "brief": "Construit les entrepôts de données et les rapports qui alimentent le pilotage de l'entreprise.",
       "missions": "Modéliser l'entrepôt (schémas en étoile), développer les flux d'alimentation (ETL), créer les rapports et cubes, maintenir les indicateurs dans la durée.",
       "competences": [
@@ -4581,7 +5713,7 @@
         "notions métier"
       ],
       "a_eviter_si": "Tu veux construire des produits pour des utilisateurs finaux plutôt que des outils internes de reporting.",
-      "parcours": null,
+      "parcours": "ROME (fiche Développeur décisionnel - Business Intelligence) : bac+3 à bac+5, licence, master ou diplôme d'ingénieur en informatique.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -4644,10 +5776,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
-          "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_keur": 40.8,
+          "variation_pct": -0.7,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Business intelligence et décisionnel",
@@ -4666,7 +5799,8 @@
           },
           "moins_35_ans": {
             "mediane": 45
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -4691,7 +5825,7 @@
       "titre": "Ingénieur·e IA générative (LLM, RAG)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1889",
       "brief": "Conçoit des applications qui s'appuient sur des grands modèles de langage.",
       "missions": "Concevoir des assistants et des chaînes RAG, évaluer la qualité des réponses, gérer coûts, sécurité et confidentialité des données envoyées aux modèles.",
       "competences": [
@@ -4807,12 +5941,35 @@
           "moyenne_keur": 74.2,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom IA"
+          "moyenne_source": "page Silkhom IA",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Big Data",
+          "mediane": 54,
+          "d1": 40,
+          "d9": 98,
+          "idf": {
+            "mediane": 58,
+            "d1": 42,
+            "d9": 112
+          },
+          "autres_regions": {
+            "mediane": 48,
+            "d1": 36,
+            "d9": 70
+          },
+          "moins_35_ans": {
+            "mediane": 48
+          },
+          "rapprochement": {
+            "de": "Big Data",
+            "raison": "Pas de famille Apec pour l'IA générative : on reprend celle du Big Data, qui inclut les data scientists."
+          }
+        }
       },
       "fiabilite": "faible",
-      "fiabilite_note": "métier jeune, intitulés instables",
+      "fiabilite_note": "métier jeune, intitulés instables ; salaire Apec rapproché de la famille « Big Data »",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -4825,7 +5982,7 @@
         "dev-fullstack",
         "data-scientist"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/ai-engineer"
     },
     {
       "id": "mlops",
@@ -4837,7 +5994,7 @@
         "data-engineer",
         "ml-engineer"
       ],
-      "rome": null,
+      "rome": "M1889",
       "brief": "Industrialise le cycle de vie des modèles d'IA, de l'entraînement au déploiement et à la surveillance.",
       "missions": "Automatiser l'entraînement et le déploiement, versionner données et modèles, surveiller la dérive des modèles en production, maîtriser les coûts de calcul.",
       "competences": [
@@ -4915,12 +6072,35 @@
           "moyenne_keur": 75.3,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom IA"
+          "moyenne_source": "page Silkhom IA",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Big Data",
+          "mediane": 54,
+          "d1": 40,
+          "d9": 98,
+          "idf": {
+            "mediane": 58,
+            "d1": 42,
+            "d9": 112
+          },
+          "autres_regions": {
+            "mediane": 48,
+            "d1": 36,
+            "d9": 70
+          },
+          "moins_35_ans": {
+            "mediane": 48
+          },
+          "rapprochement": {
+            "de": "Big Data",
+            "raison": "Pas de famille Apec pour le MLOps : on reprend celle du Big Data, qui inclut les data engineers, les plus proches de ce métier."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Big Data »",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -4933,7 +6113,7 @@
         "data-engineer",
         "platform-engineer"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/mlops"
     },
     {
       "id": "ml-engineer",
@@ -4941,7 +6121,7 @@
       "titre": "Ingénieur·e machine learning",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1889",
       "brief": "Transforme des modèles d'apprentissage en composants logiciels fiables, utilisables en production.",
       "missions": "Entraîner et optimiser des modèles, les intégrer dans des applications, mesurer leurs performances dans le temps, collaborer avec data scientists et développeurs.",
       "competences": [
@@ -4953,7 +6133,7 @@
         "mathématiques appliquées"
       ],
       "a_eviter_si": "Tu veux faire uniquement de la recherche, ou uniquement du développement classique.",
-      "parcours": null,
+      "parcours": "ROME (fiche Ingénieur en intelligence artificielle, qui reprend l'appellation ingénieur machine learning) : bac+5, master ou ingénieur en informatique, mathématiques appliquées ou IA ; Python et Java sont un atout.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-ia-et-ml (2026)",
@@ -5019,12 +6199,35 @@
           "moyenne_keur": 67.1,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom IA"
+          "moyenne_source": "page Silkhom IA",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Big Data",
+          "mediane": 54,
+          "d1": 40,
+          "d9": 98,
+          "idf": {
+            "mediane": 58,
+            "d1": 42,
+            "d9": 112
+          },
+          "autres_regions": {
+            "mediane": 48,
+            "d1": 36,
+            "d9": 70
+          },
+          "moins_35_ans": {
+            "mediane": 48
+          },
+          "rapprochement": {
+            "de": "Big Data",
+            "raison": "Pas de famille Apec pour le machine learning : on reprend celle du Big Data, qui inclut les data scientists."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Big Data »",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -5038,7 +6241,7 @@
         "dev-backend",
         "dev-ia-embarquee"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/machine-learning"
     },
     {
       "id": "ingenieur-computer-vision",
@@ -5046,7 +6249,7 @@
       "titre": "Ingénieur·e vision par ordinateur",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1889",
       "brief": "Développe des systèmes qui analysent images et vidéos (détection, reconnaissance, mesure).",
       "missions": "Constituer et annoter des jeux d'images, entraîner des modèles, les optimiser pour du temps réel ou du matériel embarqué.",
       "competences": [
@@ -5124,12 +6327,35 @@
           "moyenne_keur": 55.6,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom IA"
+          "moyenne_source": "page Silkhom IA",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Big Data",
+          "mediane": 54,
+          "d1": 40,
+          "d9": 98,
+          "idf": {
+            "mediane": 58,
+            "d1": 42,
+            "d9": 112
+          },
+          "autres_regions": {
+            "mediane": 48,
+            "d1": 36,
+            "d9": 70
+          },
+          "moins_35_ans": {
+            "mediane": 48
+          },
+          "rapprochement": {
+            "de": "Big Data",
+            "raison": "Pas de famille Apec pour la vision par ordinateur : on reprend celle du Big Data, qui inclut les data scientists."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Big Data »",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -5153,7 +6379,7 @@
         "business-analyst-amoa",
         "chef-projet-technique"
       ],
-      "rome": null,
+      "rome": "M1838",
       "brief": "Veille à la cohérence d'ensemble du système d'information avec la stratégie de l'entreprise.",
       "missions": "Contribuer au plan stratégique SI, définir les principes d'architecture, évaluer les projets au regard de la cible, faire de la veille.",
       "competences": [
@@ -5212,8 +6438,9 @@
           ],
           "moyenne_keur": 77.5,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Maîtrise d'ouvrage et urbanisme informatique",
@@ -5232,7 +6459,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -5260,7 +6488,7 @@
         "dev-backend",
         "ingenieur-devops"
       ],
-      "rome": null,
+      "rome": "M1818",
       "brief": "Définit la structure technique des applications et du SI pour qu'ils restent cohérents et durables.",
       "missions": "Définir l'architecture technique, analyser l'impact des nouvelles solutions sur l'existant, fixer les standards, conseiller les projets.",
       "competences": [
@@ -5338,9 +6566,29 @@
           "moyenne_keur": 75.3,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "moyenne",
       "fiabilite_note": null,
@@ -5356,7 +6604,7 @@
         "platform-engineer",
         "cto"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/software-architect"
     },
     {
       "id": "lead-developer",
@@ -5368,7 +6616,7 @@
         "dev-fullstack",
         "dev-frontend"
       ],
-      "rome": null,
+      "rome": "M1805",
       "brief": "Développeur·se expérimenté·e qui guide techniquement une équipe tout en continuant à coder.",
       "missions": "Cadrer les choix techniques d'une équipe, faire les revues de code, accompagner les juniors, découper les sujets avec le product owner.",
       "competences": [
@@ -5444,10 +6692,30 @@
           ],
           "moyenne_keur": 53.4,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "bonne",
       "fiabilite_note": null,
@@ -5482,7 +6750,7 @@
         "connaissance d'un métier"
       ],
       "a_eviter_si": "Tu veux coder : le business analyst écrit et anime beaucoup plus qu'il ne programme.",
-      "parcours": null,
+      "parcours": "Cigref (profil Chef de projet maîtrise d'ouvrage) : bac+3 avec expérience ou bac+5 sans expérience ; il représente les utilisateurs et n'est pas un spécialiste de l'informatique ; évolution possible vers directeur de projet ou un poste opérationnel côté métier.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -5545,10 +6813,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
+          "moyenne_keur": 48.4,
           "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Maîtrise d'ouvrage et urbanisme informatique",
@@ -5567,7 +6836,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -5592,7 +6862,7 @@
       "titre": "Chef·fe de projet technique (MOE)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1859",
       "brief": "Pilote la réalisation technique d'un projet informatique jusqu'à sa livraison.",
       "missions": "Rédiger les spécifications techniques, organiser et coordonner l'équipe de réalisation, suivre délais, coûts et qualité, préparer les recettes.",
       "competences": [
@@ -5667,9 +6937,10 @@
             }
           ],
           "moyenne_keur": 48.8,
-          "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "variation_pct": -1.8,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Gestion de projets informatiques",
@@ -5688,7 +6959,8 @@
           },
           "moins_35_ans": {
             "mediane": 48
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -5717,7 +6989,7 @@
         "business-analyst-amoa",
         "product-manager"
       ],
-      "rome": null,
+      "rome": "M1870",
       "brief": "Porte la responsabilité globale de projets complexes et à forts enjeux.",
       "missions": "Garantir l'intérêt du projet pour l'entreprise, prendre les décisions importantes, gérer budget et équipes, piloter la conduite du changement.",
       "competences": [
@@ -5774,15 +7046,38 @@
               ]
             }
           ],
-          "moyenne_keur": null,
+          "moyenne_keur": 70.2,
           "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Directeur de projet (ERP / CRM / WMS / TMS / MES / GPAO / GMAO / SIRH)",
+            "raison": "Silkhom ne publie que la grille des directeurs de projet sur les logiciels de gestion (ERP, CRM…), reprise ici pour un directeur de projets en général."
+          }
         },
-        "apec": null
+        "apec": {
+          "famille": "Gestion de projets informatiques",
+          "mediane": 57,
+          "d1": 41,
+          "d9": 79,
+          "idf": {
+            "mediane": 63,
+            "d1": 45,
+            "d9": 87
+          },
+          "autres_regions": {
+            "mediane": 52,
+            "d1": 39,
+            "d9": 73
+          },
+          "moins_35_ans": {
+            "mediane": 48
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Silkhom rapproché du directeur de projet ERP / CRM",
       "source_texte": "cigref",
       "source_texte_detail": "cigref-2025 (2.1 Directeur de projets)",
       "a_relire": false,
@@ -5805,7 +7100,7 @@
         "business-analyst-amoa",
         "chef-projet-technique"
       ],
-      "rome": null,
+      "rome": "M1703",
       "brief": "Définit ce que doit devenir un produit et pourquoi, en lien avec la stratégie de l'entreprise.",
       "missions": "Identifier les besoins prioritaires des clients, porter la vision et la roadmap produit, mesurer la valeur créée, arbitrer les fonctionnalités.",
       "competences": [
@@ -5882,7 +7177,8 @@
           "moyenne_keur": 53.0,
           "variation_pct": -3.8,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Gestion de projets informatiques",
@@ -5901,11 +7197,15 @@
           },
           "moins_35_ans": {
             "mediane": 48
+          },
+          "rapprochement": {
+            "de": "Gestion de projets informatiques",
+            "raison": "Pas de famille Apec pour le product management en informatique : on reprend celle de la gestion de projets informatiques, la plus proche."
           }
         }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Gestion de projets informatiques »",
       "source_texte": "cigref",
       "source_texte_detail": "cigref-2025 (2.8 Product Manager)",
       "a_relire": false,
@@ -5917,7 +7217,7 @@
         "cloud-finops",
         "cto"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/product-manager"
     },
     {
       "id": "product-owner",
@@ -5925,7 +7225,7 @@
       "titre": "Product owner",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1864",
       "brief": "Représente les besoins des utilisateurs auprès de l'équipe de développement et décide des priorités.",
       "missions": "Construire la vision du produit avec le métier, rédiger et prioriser les user stories, valider ce qui est livré à chaque itération, accompagner le changement.",
       "competences": [
@@ -5936,7 +7236,7 @@
         "connaissance du métier"
       ],
       "a_eviter_si": "Dire non et arbitrer entre des demandes contradictoires te met mal à l'aise.",
-      "parcours": null,
+      "parcours": "Cigref : une expérience métier et de maîtrise d'ouvrage est attendue ; évolution possible vers chef de projet, responsable d'une entité métier ou responsable produit.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -6000,9 +7300,10 @@
             }
           ],
           "moyenne_keur": 49.3,
-          "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "variation_pct": -0.6,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Gestion de projets informatiques",
@@ -6021,7 +7322,8 @@
           },
           "moins_35_ans": {
             "mediane": 48
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -6050,7 +7352,7 @@
         "chef-projet-technique",
         "testeur-fonctionnel"
       ],
-      "rome": null,
+      "rome": "M1814",
       "brief": "Aide une équipe agile à bien fonctionner et à s'améliorer.",
       "missions": "Animer les rituels, lever les obstacles, former l'équipe et ses interlocuteurs aux pratiques agiles, suivre l'amélioration continue.",
       "competences": [
@@ -6109,7 +7411,8 @@
           "moyenne_keur": null,
           "variation_pct": -7.0,
           "moyenne_verifiee": true,
-          "moyenne_source": "page Silkhom"
+          "moyenne_source": "page Silkhom",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Gestion de projets informatiques",
@@ -6128,7 +7431,8 @@
           },
           "moins_35_ans": {
             "mediane": 48
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -6152,7 +7456,7 @@
       "titre": "UI designer",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "E1206",
       "brief": "Conçoit l'apparence des interfaces (couleurs, typographie, composants) et leur cohérence.",
       "missions": "Produire les maquettes graphiques, construire et maintenir la bibliothèque de composants, travailler avec les développeurs front-end pour l'intégration.",
       "competences": [
@@ -6164,7 +7468,7 @@
         "bases HTML/CSS"
       ],
       "a_eviter_si": "Tu veux travailler sur la logique et les données plutôt que sur le visuel.",
-      "parcours": null,
+      "parcours": "ROME (fiche UX - UI Designer) : bac+2/3 à bac+5, avec une expérience ou des connaissances en conception de logiciels, de sites ou d'applications (ou en psychologie et sociologie) ; il n'existe pas de diplôme spécifique, mais des formations en art numérique, graphisme, informatique ou multimédia.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -6227,10 +7531,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
-          "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_keur": 43.5,
+          "variation_pct": 3.1,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Art, création et design",
@@ -6239,7 +7544,8 @@
           "d9": 60,
           "idf": null,
           "autres_regions": null,
-          "moins_35_ans": null
+          "moins_35_ans": null,
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -6263,7 +7569,7 @@
       "titre": "UX designer",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "E1206",
       "brief": "Conçoit l'expérience d'un produit pour qu'il soit simple, utile et accessible à ses utilisateurs.",
       "missions": "Étudier les besoins et usages (entretiens, tests utilisateurs), concevoir parcours et maquettes, contribuer au design system, défendre l'accessibilité.",
       "competences": [
@@ -6382,10 +7688,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
-          "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_keur": 43.5,
+          "variation_pct": 3.1,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Art, création et design",
@@ -6394,11 +7701,15 @@
           "d9": 60,
           "idf": null,
           "autres_regions": null,
-          "moins_35_ans": null
+          "moins_35_ans": null,
+          "rapprochement": {
+            "de": "Art, création et design",
+            "raison": "Cette famille de l'Apec regroupe les métiers du design (graphistes, web designers…) mais n'y nomme pas l'UX design."
+          }
         }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Art, création et design »",
       "source_texte": "cigref",
       "source_texte_detail": "cigref-2025 (3.7 UX Designer)",
       "a_relire": false,
@@ -6410,7 +7721,7 @@
         "product-owner",
         "product-manager"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/ux-design"
     },
     {
       "id": "ingenieur-support-applicatif",
@@ -6429,7 +7740,7 @@
         "relation utilisateur"
       ],
       "a_eviter_si": "Tu veux concevoir des solutions neuves plutôt que faire fonctionner l'existant.",
-      "parcours": null,
+      "parcours": "Cigref (profil Assistant fonctionnel) : bac+2 minimum, utilisateur expérimenté attiré par la technique ou développeur qui se rapproche des usages ; évolution possible vers intégrateur sur plateforme ou gestionnaire d'applications.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -6494,13 +7805,39 @@
           ],
           "moyenne_keur": 44.9,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Ingénieur Support",
+            "raison": "Silkhom n'a pas de ligne support applicatif : on reprend celle de l'ingénieur support, qui aide aussi les utilisateurs en niveau 1 et 2, mais sur tout le poste informatique."
+          }
         },
-        "apec": null
+        "apec": {
+          "famille": "Production et maintenance informatique",
+          "mediane": 58,
+          "d1": 37,
+          "d9": 99,
+          "idf": {
+            "mediane": 68,
+            "d1": 39,
+            "d9": 101
+          },
+          "autres_regions": {
+            "mediane": 51,
+            "d1": 37,
+            "d9": 75
+          },
+          "moins_35_ans": {
+            "mediane": 51
+          },
+          "rapprochement": {
+            "de": "Production et maintenance informatique",
+            "raison": "Pas de famille Apec pour le support applicatif : on reprend celle de la production et maintenance informatique, qui couvre la gestion des incidents."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Production et maintenance informatique » ; salaire Silkhom rapproché de l'ingénieur support, faute de ligne support applicatif",
       "source_texte": "cigref",
       "source_texte_detail": "cigref-2025 (5.1 Assistant fonctionnel)",
       "a_relire": false,
@@ -6524,7 +7861,7 @@
         "technicien-support",
         "ingenieur-support-applicatif"
       ],
-      "rome": null,
+      "rome": "M1874",
       "brief": "Organise et encadre l'équipe de support pour garantir la qualité du service rendu aux utilisateurs.",
       "missions": "Encadrer l'équipe, suivre les indicateurs de service, améliorer les processus (gestion des problèmes), piloter les prestataires éventuels.",
       "competences": [
@@ -6534,7 +7871,7 @@
         "communication"
       ],
       "a_eviter_si": "Le management d'équipe ne t'intéresse pas.",
-      "parcours": null,
+      "parcours": "ROME (fiche Spécialiste support) : bac+5, master ou diplôme d'ingénieur en informatique.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -6599,13 +7936,36 @@
           ],
           "moyenne_keur": 50.0,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Production et maintenance informatique",
+          "mediane": 58,
+          "d1": 37,
+          "d9": 99,
+          "idf": {
+            "mediane": 68,
+            "d1": 39,
+            "d9": 101
+          },
+          "autres_regions": {
+            "mediane": 51,
+            "d1": 37,
+            "d9": 75
+          },
+          "moins_35_ans": {
+            "mediane": 51
+          },
+          "rapprochement": {
+            "de": "Production et maintenance informatique",
+            "raison": "Pas de famille Apec pour le support IT : on reprend celle de la production et maintenance informatique, qui inclut les responsables de parc et de production."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Production et maintenance informatique »",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -6625,7 +7985,7 @@
       "titre": "Technicien·ne support utilisateurs (helpdesk)",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "I1404",
       "brief": "Premier contact des utilisateurs en panne : reçoit, diagnostique et résout ou transmet les incidents.",
       "missions": "Prendre les appels et tickets, qualifier et résoudre les incidents de premier niveau, escalader vers les équipes compétentes, documenter les solutions.",
       "competences": [
@@ -6701,8 +8061,9 @@
           ],
           "moyenne_keur": 33.1,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": null
       },
@@ -6728,7 +8089,7 @@
       "titre": "Consultant·e ERP / CRM",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "M1813",
       "brief": "Paramètre et adapte un progiciel de gestion (SAP, Salesforce, Odoo…) aux processus d'une entreprise.",
       "missions": "Analyser les besoins, justifier les écarts avec le standard du logiciel, paramétrer les modules, concevoir les interfaces avec le reste du SI, former les utilisateurs.",
       "competences": [
@@ -6741,7 +8102,7 @@
         "logistique)"
       ],
       "a_eviter_si": "Tu veux écrire du code original : ici, on adapte surtout un produit existant.",
-      "parcours": null,
+      "parcours": "Cigref (profil Paramétreur de progiciels) : bac+2 ou bac+3, utilisateur métier qui rejoint la DSI, ou première expérience en développement ou sur un projet de même nature.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -6804,10 +8165,11 @@
               ]
             }
           ],
-          "moyenne_keur": null,
-          "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_keur": 52.5,
+          "variation_pct": 0.6,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Intégration progicielle",
@@ -6826,7 +8188,8 @@
           },
           "moins_35_ans": {
             "mediane": 47
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -6854,7 +8217,7 @@
         "dev-backend",
         "ingenieur-cloud"
       ],
-      "rome": null,
+      "rome": "M1823",
       "brief": "Expert technique qui accompagne les commerciaux pour convaincre un client et concevoir l'offre.",
       "missions": "Comprendre le besoin du client, concevoir la solution technique, réaliser des démonstrations, répondre aux appels d'offres, chiffrer.",
       "competences": [
@@ -6865,9 +8228,78 @@
         "chiffrage"
       ],
       "a_eviter_si": "Parler en public et travailler avec des objectifs commerciaux te met mal à l'aise.",
-      "parcours": null,
+      "parcours": "ROME (fiche Consultant avant-vente) : bac+5, master en ingénierie informatique ou en commerce international, ou diplôme d'ingénieur en informatique.",
       "salaires": {
-        "silkhom": null,
+        "silkhom": {
+          "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+          "ligne": "Ingénieur Commercial",
+          "grilles": [
+            {
+              "ligne": "Ingénieur Commercial",
+              "niveaux": [
+                {
+                  "niveau": "junior",
+                  "annees_min": 0,
+                  "annees_max": 2,
+                  "paris": [
+                    35,
+                    40
+                  ],
+                  "grandes_villes": [
+                    35,
+                    40
+                  ],
+                  "regions": [
+                    35,
+                    40
+                  ]
+                },
+                {
+                  "niveau": "confirme",
+                  "annees_min": 2,
+                  "annees_max": 5,
+                  "paris": [
+                    45,
+                    55
+                  ],
+                  "grandes_villes": [
+                    40,
+                    50
+                  ],
+                  "regions": [
+                    40,
+                    50
+                  ]
+                },
+                {
+                  "niveau": "senior",
+                  "annees_min": 5,
+                  "annees_max": null,
+                  "paris": [
+                    55,
+                    70
+                  ],
+                  "grandes_villes": [
+                    50,
+                    60
+                  ],
+                  "regions": [
+                    50,
+                    60
+                  ]
+                }
+              ]
+            }
+          ],
+          "moyenne_keur": 47.2,
+          "variation_pct": -0.6,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Ingénieur Commercial",
+            "raison": "Silkhom n'a pas de ligne avant-vente : sa ligne Ingénieur commercial décrit justement l'ingénieur qui épaule les commerciaux sur la partie technique."
+          }
+        },
         "apec": {
           "famille": "Avant-vente et support commercial",
           "mediane": 56,
@@ -6885,11 +8317,12 @@
           },
           "moins_35_ans": {
             "mediane": 43
-          }
+          },
+          "rapprochement": null
         }
       },
-      "fiabilite": "bonne",
-      "fiabilite_note": null,
+      "fiabilite": "moyenne",
+      "fiabilite_note": "salaire Silkhom rapproché de la ligne « Ingénieur commercial », faute de ligne avant-vente",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -6909,7 +8342,7 @@
       "titre": "Ingénieur·e d'affaires IT",
       "type": "entree",
       "depuis": [],
-      "rome": null,
+      "rome": "D1420",
       "brief": "Commercial spécialisé dans la vente de prestations ou de solutions informatiques, souvent en ESN.",
       "missions": "Prospecter, comprendre les besoins des clients, proposer des consultants ou des solutions, négocier, suivre la relation dans la durée.",
       "competences": [
@@ -6920,7 +8353,7 @@
         "organisation"
       ],
       "a_eviter_si": "Les objectifs chiffrés et la rémunération variable te stressent.",
-      "parcours": null,
+      "parcours": "ROME (fiche Cadre technico-commercial, qui reprend l'appellation ingénieur technico-commercial en informatique ; fiche non spécifique à l'informatique) : bac+2 à bac+5 en commerce ou gestion.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -6983,10 +8416,14 @@
               ]
             }
           ],
-          "moyenne_keur": null,
-          "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
+          "moyenne_keur": 47.2,
+          "variation_pct": -0.6,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Ingénieur Commercial",
+            "raison": "Silkhom n'a pas de ligne ingénieur d'affaires : sa ligne Ingénieur commercial est la plus proche, mais elle décrit surtout le soutien technique apporté aux commerciaux."
+          }
         },
         "apec": {
           "famille": "Commerciaux dans l'informatique et autres services",
@@ -6995,11 +8432,12 @@
           "d9": 73,
           "idf": null,
           "autres_regions": null,
-          "moins_35_ans": null
+          "moins_35_ans": null,
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Silkhom rapproché de la ligne « Ingénieur commercial », plutôt tournée vers l'avant-vente",
       "source_texte": "redaction",
       "source_texte_detail": "redaction",
       "a_relire": true,
@@ -7032,168 +8470,6 @@
         "anglais"
       ],
       "a_eviter_si": "Tu n'aimes pas te mettre en avant ni voyager.",
-      "parcours": null,
-      "salaires": {
-        "silkhom": null,
-        "apec": null
-      },
-      "fiabilite": "nd",
-      "fiabilite_note": "aucun chiffre fiable trouvé",
-      "source_texte": "redaction",
-      "source_texte_detail": "redaction",
-      "a_relire": true,
-      "voisins_meme_categorie": [
-        "technical-writer",
-        "formateur-informatique"
-      ],
-      "voisins_autres_categories": [
-        "ingenieur-avant-vente",
-        "product-manager"
-      ],
-      "roadmap_url": null
-    },
-    {
-      "id": "formateur-informatique",
-      "categorie": "transmission",
-      "titre": "Formateur·rice en informatique",
-      "type": "evolution",
-      "depuis": [
-        "dev-backend",
-        "admin-systemes-reseaux",
-        "lead-developer"
-      ],
-      "rome": null,
-      "brief": "Transmet des compétences techniques à des étudiants, des salariés ou des personnes en reconversion.",
-      "missions": "Concevoir des supports et des exercices, animer des sessions, évaluer les apprenants, se tenir à jour techniquement. Souvent en indépendant ou en complément d'une autre activité.",
-      "competences": [
-        "Expertise technique",
-        "pédagogie",
-        "prise de parole",
-        "conception de supports",
-        "évaluation"
-      ],
-      "a_eviter_si": "Répéter les mêmes notions et gérer un groupe hétérogène te fatigue.",
-      "parcours": null,
-      "salaires": {
-        "silkhom": {
-          "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
-          "ligne": "Formateur applicatif",
-          "grilles": [
-            {
-              "ligne": "Formateur applicatif",
-              "niveaux": [
-                {
-                  "niveau": "junior",
-                  "annees_min": 0,
-                  "annees_max": 2,
-                  "paris": [
-                    40,
-                    45
-                  ],
-                  "grandes_villes": [
-                    35,
-                    40
-                  ],
-                  "regions": [
-                    30,
-                    35
-                  ]
-                },
-                {
-                  "niveau": "confirme",
-                  "annees_min": 2,
-                  "annees_max": 5,
-                  "paris": [
-                    45,
-                    50
-                  ],
-                  "grandes_villes": [
-                    40,
-                    45
-                  ],
-                  "regions": [
-                    35,
-                    40
-                  ]
-                },
-                {
-                  "niveau": "senior",
-                  "annees_min": 5,
-                  "annees_max": null,
-                  "paris": [
-                    50,
-                    60
-                  ],
-                  "grandes_villes": [
-                    45,
-                    50
-                  ],
-                  "regions": [
-                    40,
-                    45
-                  ]
-                }
-              ],
-              "note": "Ligne Silkhom « Formateur applicatif » (formation à un logiciel) : approximation."
-            }
-          ],
-          "moyenne_keur": null,
-          "variation_pct": null,
-          "moyenne_verifiee": null,
-          "moyenne_source": null
-        },
-        "apec": {
-          "famille": "Enseignement et formation continue",
-          "mediane": 45,
-          "d1": 31,
-          "d9": 68,
-          "idf": {
-            "mediane": 50,
-            "d1": 38,
-            "d9": 75
-          },
-          "autres_regions": {
-            "mediane": 43,
-            "d1": 30,
-            "d9": 62
-          },
-          "moins_35_ans": {
-            "mediane": 44
-          }
-        }
-      },
-      "fiabilite": "moyenne",
-      "fiabilite_note": "ligne Silkhom « formateur applicatif » et Apec cadres salariés seulement",
-      "source_texte": "redaction",
-      "source_texte_detail": "redaction",
-      "a_relire": true,
-      "voisins_meme_categorie": [
-        "technical-writer",
-        "devrel"
-      ],
-      "voisins_autres_categories": [
-        "scrum-master",
-        "lead-developer"
-      ],
-      "roadmap_url": null
-    },
-    {
-      "id": "technical-writer",
-      "categorie": "transmission",
-      "titre": "Rédacteur·rice technique (technical writer)",
-      "type": "entree",
-      "depuis": [],
-      "rome": null,
-      "brief": "Écrit la documentation qui permet d'utiliser, d'intégrer ou de maintenir un logiciel.",
-      "missions": "Rédiger guides utilisateur, documentation d'API et tutoriels, travailler avec les développeurs, maintenir la documentation à jour.",
-      "competences": [
-        "Rédaction claire",
-        "Markdown",
-        "docs-as-code (Git)",
-        "lecture de code",
-        "OpenAPI"
-      ],
-      "a_eviter_si": "Écrire beaucoup et relire en détail t'ennuie.",
       "parcours": null,
       "salaires": {
         "silkhom": {
@@ -7259,8 +8535,267 @@
           ],
           "moyenne_keur": 52.6,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Technical Writer",
+            "raison": "Silkhom n'a pas de ligne DevRel : la plus proche est celle du rédacteur technique (technical writer), qui explique lui aussi un produit à des développeurs."
+          }
+        },
+        "apec": {
+          "famille": "Développement informatique",
+          "mediane": 50,
+          "d1": 38,
+          "d9": 74,
+          "idf": {
+            "mediane": 55,
+            "d1": 43,
+            "d9": 77
+          },
+          "autres_regions": {
+            "mediane": 46,
+            "d1": 36,
+            "d9": 67
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": {
+            "de": "Développement informatique",
+            "raison": "Pas de famille Apec pour les DevRel : on reprend celle des développeur·ses, le métier par lequel on y arrive le plus souvent."
+          }
+        }
+      },
+      "fiabilite": "nd",
+      "fiabilite_note": "salaire Apec rapproché de la famille « Développement informatique » ; salaire Silkhom rapproché du technical writer, faute de ligne DevRel",
+      "source_texte": "redaction",
+      "source_texte_detail": "redaction",
+      "a_relire": true,
+      "voisins_meme_categorie": [
+        "technical-writer",
+        "formateur-informatique"
+      ],
+      "voisins_autres_categories": [
+        "ingenieur-avant-vente",
+        "product-manager"
+      ],
+      "roadmap_url": "https://roadmap.sh/devrel"
+    },
+    {
+      "id": "formateur-informatique",
+      "categorie": "transmission",
+      "titre": "Formateur·rice en informatique",
+      "type": "evolution",
+      "depuis": [
+        "dev-backend",
+        "admin-systemes-reseaux",
+        "lead-developer"
+      ],
+      "rome": "K2111",
+      "brief": "Transmet des compétences techniques à des étudiants, des salariés ou des personnes en reconversion.",
+      "missions": "Concevoir des supports et des exercices, animer des sessions, évaluer les apprenants, se tenir à jour techniquement. Souvent en indépendant ou en complément d'une autre activité.",
+      "competences": [
+        "Expertise technique",
+        "pédagogie",
+        "prise de parole",
+        "conception de supports",
+        "évaluation"
+      ],
+      "a_eviter_si": "Répéter les mêmes notions et gérer un groupe hétérogène te fatigue.",
+      "parcours": "ROME (fiche Formateur) : licence ou master dans le domaine enseigné (ou en sciences de l'éducation), ou diplôme d'État de formateur d'adultes ; aucune certification n'est obligatoire.",
+      "salaires": {
+        "silkhom": {
+          "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+          "ligne": "Formateur applicatif",
+          "grilles": [
+            {
+              "ligne": "Formateur applicatif",
+              "niveaux": [
+                {
+                  "niveau": "junior",
+                  "annees_min": 0,
+                  "annees_max": 2,
+                  "paris": [
+                    40,
+                    45
+                  ],
+                  "grandes_villes": [
+                    35,
+                    40
+                  ],
+                  "regions": [
+                    30,
+                    35
+                  ]
+                },
+                {
+                  "niveau": "confirme",
+                  "annees_min": 2,
+                  "annees_max": 5,
+                  "paris": [
+                    45,
+                    50
+                  ],
+                  "grandes_villes": [
+                    40,
+                    45
+                  ],
+                  "regions": [
+                    35,
+                    40
+                  ]
+                },
+                {
+                  "niveau": "senior",
+                  "annees_min": 5,
+                  "annees_max": null,
+                  "paris": [
+                    50,
+                    60
+                  ],
+                  "grandes_villes": [
+                    45,
+                    50
+                  ],
+                  "regions": [
+                    40,
+                    45
+                  ]
+                }
+              ],
+              "note": "Ligne Silkhom « Formateur applicatif » (formation à un logiciel) : approximation."
+            }
+          ],
+          "moyenne_keur": 42.8,
+          "variation_pct": null,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": {
+            "de": "Formateur Applicatif",
+            "raison": "Silkhom ne publie que la grille du formateur applicatif, qui apprend aux salariés à se servir d'un logiciel, et non celle du formateur qui enseigne l'informatique."
+          }
+        },
+        "apec": {
+          "famille": "Enseignement et formation continue",
+          "mediane": 45,
+          "d1": 31,
+          "d9": 68,
+          "idf": {
+            "mediane": 50,
+            "d1": 38,
+            "d9": 75
+          },
+          "autres_regions": {
+            "mediane": 43,
+            "d1": 30,
+            "d9": 62
+          },
+          "moins_35_ans": {
+            "mediane": 44
+          },
+          "rapprochement": null
+        }
+      },
+      "fiabilite": "moyenne",
+      "fiabilite_note": "Apec : cadres salariés seulement ; salaire Silkhom rapproché du formateur applicatif",
+      "source_texte": "redaction",
+      "source_texte_detail": "redaction",
+      "a_relire": true,
+      "voisins_meme_categorie": [
+        "technical-writer",
+        "devrel"
+      ],
+      "voisins_autres_categories": [
+        "scrum-master",
+        "lead-developer"
+      ],
+      "roadmap_url": null
+    },
+    {
+      "id": "technical-writer",
+      "categorie": "transmission",
+      "titre": "Rédacteur·rice technique (technical writer)",
+      "type": "entree",
+      "depuis": [],
+      "rome": "H1207",
+      "brief": "Écrit la documentation qui permet d'utiliser, d'intégrer ou de maintenir un logiciel.",
+      "missions": "Rédiger guides utilisateur, documentation d'API et tutoriels, travailler avec les développeurs, maintenir la documentation à jour.",
+      "competences": [
+        "Rédaction claire",
+        "Markdown",
+        "docs-as-code (Git)",
+        "lecture de code",
+        "OpenAPI"
+      ],
+      "a_eviter_si": "Écrire beaucoup et relire en détail t'ennuie.",
+      "parcours": "ROME (fiche Rédacteur technique) : bac+2 à bac+5 en communication technique, design d'information ou rédaction technique.",
+      "salaires": {
+        "silkhom": {
+          "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
+          "ligne": "Technical Writer",
+          "grilles": [
+            {
+              "ligne": "Technical Writer",
+              "niveaux": [
+                {
+                  "niveau": "junior",
+                  "annees_min": 0,
+                  "annees_max": 3,
+                  "paris": [
+                    36,
+                    50
+                  ],
+                  "grandes_villes": [
+                    32,
+                    45
+                  ],
+                  "regions": [
+                    29,
+                    42
+                  ]
+                },
+                {
+                  "niveau": "confirme",
+                  "annees_min": 3,
+                  "annees_max": 7,
+                  "paris": [
+                    50,
+                    68
+                  ],
+                  "grandes_villes": [
+                    45,
+                    58
+                  ],
+                  "regions": [
+                    42,
+                    55
+                  ]
+                },
+                {
+                  "niveau": "senior",
+                  "annees_min": 7,
+                  "annees_max": null,
+                  "paris": [
+                    68,
+                    80
+                  ],
+                  "grandes_villes": [
+                    58,
+                    70
+                  ],
+                  "regions": [
+                    55,
+                    64
+                  ]
+                }
+              ]
+            }
+          ],
+          "moyenne_keur": 52.6,
+          "variation_pct": null,
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Rédaction technique et documentation",
@@ -7269,7 +8804,8 @@
           "d9": 65,
           "idf": null,
           "autres_regions": null,
-          "moins_35_ans": null
+          "moins_35_ans": null,
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -7285,7 +8821,7 @@
         "integrateur-web",
         "dev-backend"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/technical-writer"
     },
     {
       "id": "cto",
@@ -7297,7 +8833,7 @@
         "architecte-logiciel",
         "lead-developer"
       ],
-      "rome": null,
+      "rome": "M1803",
       "brief": "Responsable de la stratégie technique d'une entreprise, souvent d'un éditeur ou d'une startup.",
       "missions": "Définir les choix techniques et l'organisation des équipes, recruter, garantir la sécurité et la fiabilité, représenter la technique auprès de la direction et des investisseurs.",
       "competences": [
@@ -7308,7 +8844,7 @@
         "communication de direction"
       ],
       "a_eviter_si": "Tu veux une expertise technique pointue plutôt qu'une responsabilité large.",
-      "parcours": null,
+      "parcours": "ROME (fiche DSI, qui reprend l'appellation CTO) : bac+5, master ou diplôme d'ingénieur en informatique ou génie logiciel ; une certification en gestion de projets informatiques peut être pertinente.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -7357,7 +8893,8 @@
           "moyenne_keur": 90.8,
           "variation_pct": 5.8,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM / page Silkhom"
+          "moyenne_source": "BDM / page Silkhom",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Direction informatique",
@@ -7376,7 +8913,8 @@
           },
           "moins_35_ans": {
             "mediane": 52
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "moyenne",
@@ -7404,7 +8942,7 @@
         "data-engineer",
         "architecte-entreprise"
       ],
-      "rome": null,
+      "rome": "M1423",
       "brief": "Dirige la stratégie de l'entreprise sur ses données : qualité, gouvernance, valorisation.",
       "missions": "Définir la gouvernance des données, fixer normes et responsabilités, piloter les projets de valorisation, travailler avec le DPO sur la conformité.",
       "competences": [
@@ -7415,7 +8953,7 @@
         "communication de direction"
       ],
       "a_eviter_si": "Tu veux rester dans l'analyse ou le développement au quotidien.",
-      "parcours": null,
+      "parcours": "Cigref : bac+5 ou bac+6 (école d'ingénieur, de commerce, gestion, marketing ou statistiques) avec plusieurs années sur des fonctions transverses ; évolution vers des postes à forte dimension de leadership.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -7464,9 +9002,29 @@
           "moyenne_keur": 129.6,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Big Data",
+          "mediane": 54,
+          "d1": 40,
+          "d9": 98,
+          "idf": {
+            "mediane": 58,
+            "d1": 42,
+            "d9": 112
+          },
+          "autres_regions": {
+            "mediane": 48,
+            "d1": 36,
+            "d9": 70
+          },
+          "moins_35_ans": {
+            "mediane": 48
+          },
+          "rapprochement": null
+        }
       },
       "fiabilite": "bonne",
       "fiabilite_note": null,
@@ -7503,7 +9061,7 @@
         "gouvernance"
       ],
       "a_eviter_si": "Tu veux faire de la technique : le métier est surtout du pilotage et de la négociation.",
-      "parcours": null,
+      "parcours": "Cigref : bac+5, manager de haut niveau ayant dirigé de grandes structures (en France et à l'international) ou de grands projets à l'échelle de l'entreprise.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -7552,7 +9110,8 @@
           "moyenne_keur": 108.3,
           "variation_pct": null,
           "moyenne_verifiee": true,
-          "moyenne_source": "BDM"
+          "moyenne_source": "BDM",
+          "rapprochement": null
         },
         "apec": {
           "famille": "Direction informatique",
@@ -7571,7 +9130,8 @@
           },
           "moins_35_ans": {
             "mediane": 52
-          }
+          },
+          "rapprochement": null
         }
       },
       "fiabilite": "bonne",
@@ -7599,7 +9159,7 @@
         "lead-developer",
         "scrum-master"
       ],
-      "rome": null,
+      "rome": "M1844",
       "brief": "Manage une ou plusieurs équipes de développement : recrutement, progression des personnes, organisation.",
       "missions": "Encadrer et faire progresser les développeurs, organiser le travail, recruter, faire le lien avec le produit et la direction.",
       "competences": [
@@ -7610,7 +9170,7 @@
         "gestion des conflits"
       ],
       "a_eviter_si": "Tu veux continuer à coder la majeure partie de ton temps.",
-      "parcours": null,
+      "parcours": "ROME (fiche Responsable des études et applications informatiques, qui reprend l'appellation responsable des développements informatiques) : bac+5, master ou diplôme d'ingénieur en informatique.",
       "salaires": {
         "silkhom": {
           "source": "silkhom.com/les-salaires-informatique-et-electronique (2026)",
@@ -7658,13 +9218,36 @@
           ],
           "moyenne_keur": 89.9,
           "variation_pct": null,
-          "moyenne_verifiee": false,
-          "moyenne_source": "rapport"
+          "moyenne_verifiee": true,
+          "moyenne_source": "silkhom-it-2026",
+          "rapprochement": null
         },
-        "apec": null
+        "apec": {
+          "famille": "Direction informatique",
+          "mediane": 77,
+          "d1": 49,
+          "d9": 130,
+          "idf": {
+            "mediane": 91,
+            "d1": 56,
+            "d9": 139
+          },
+          "autres_regions": {
+            "mediane": 65,
+            "d1": 46,
+            "d9": 96
+          },
+          "moins_35_ans": {
+            "mediane": 52
+          },
+          "rapprochement": {
+            "de": "Direction informatique",
+            "raison": "Pas de famille Apec pour l'engineering management : on reprend celle de la direction informatique, qui inclut les responsables informatiques encadrant une équipe."
+          }
+        }
       },
       "fiabilite": "moyenne",
-      "fiabilite_note": null,
+      "fiabilite_note": "salaire Apec rapproché de la famille « Direction informatique »",
       "source_texte": "cigref",
       "source_texte_detail": "cigref-2025 (7.5 Responsable d'études, rapprochement)",
       "a_relire": false,
@@ -7676,7 +9259,7 @@
         "scrum-master",
         "responsable-support-it"
       ],
-      "roadmap_url": null
+      "roadmap_url": "https://roadmap.sh/engineering-manager"
     }
   ],
   "sources": [
