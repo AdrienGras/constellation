@@ -3,6 +3,8 @@
 Première passe faite après la fusion du 2026-11-02 : textes, codes ROME, parcours et salaires comparés au Cigref 2025, au ROME 4.0 (version 62), à Silkhom et à l'Apec. Aucun texte de `metiers.json` n'a été modifié.
 Chaque point donne le champ, le problème, la correction proposée et la source, plus une recommandation (« Reco ») pour trancher vite. Les pages Cigref sont les numéros imprimés (page du PDF = numéro imprimé + 6).
 
+**Appliquer tes décisions.** Corrige `metiers.json` à la main (y compris le quiz, qui vit désormais dans `metiers.json`), puis lance `python3 scripts/valider.py metiers.json`. Ne relance pas `fusionner.py` : il refuse désormais de tourner sur une v1.1 sans `--force`, car il réécrirait tes corrections avec le contenu de `recherche/`.
+
 ## Propositions de changement de chiffres
 
 Rien n'est appliqué tant que tu n'as pas validé. Ces propositions viennent des notes des chantiers (`recherche/*.md`), des revues et de cette relecture ; la validation de la v1.0 (tâche 1) n'avait relevé aucun défaut. Sources : `apec-2025` (pages du PDF), `silkhom-it-2026` (page web, et PDF de l'étude complète pour les moyennes), ROME 4.0 v62 (fiches consultables sur `candidat.francetravail.fr/metierscope/fiche-metier/<code>`).
@@ -25,7 +27,7 @@ Rien n'est appliqué tant que tu n'as pas validé. Ces propositions viennent des
 - Actuel : « Big Data », médiane 54, D1 40, D9 98 ; IDF 58/42/112 ; régions 48/36/70 ; moins de 35 ans 48.
 - Proposé : « Business intelligence et décisionnel », médiane 50, D1 39, D9 75 ; IDF 54/42/76 ; régions 47/37/59 ; moins de 35 ans 45. Le rapprochement est conservé.
 - Raison : c'est la famille de son voisin `dev-bi`, et l'analytics engineer modélise l'entrepôt comme lui. Le chantier Apec n'a pas examiné cette famille. Le D9 de Big Data (98) est tiré par les data scientists.
-- Source : apec-2025 p. 63 et p. 62. **Reco : oui.**
+- Source : apec-2025 p. 63 et p. 62. **Reco : oui.** À lire avec la fiche 10 : la famille Apec (BI) et le code ROME (M1811, Data engineer) sont deux axes distincts, les deux recommandations coexistent.
 
 **P4 · `mlops` · `salaires.apec`**
 - Actuel : « Big Data », médiane 54. Proposé : « Développement informatique », médiane 50, D1 38, D9 74 ; IDF 55/43/77 ; régions 46/36/67 ; moins de 35 ans 44.
@@ -46,6 +48,13 @@ Rien n'est appliqué tant que tu n'as pas validé. Ces propositions viennent des
 - Actuel : « Production et maintenance informatique », médiane 58, D1 37, D9 99, par rapprochement.
 - Problème : la médiane est tirée vers le haut par les responsables de production. Silkhom donne 42–60 k€ pour le responsable support et 40–55 pour l'ingénieur support. Aucune famille Apec ne décrit le support.
 - Source : apec-2025 p. 55 ; Silkhom page. **Reco : garder les deux.** Le rapprochement et sa raison sont affichés, et le badge est déjà à `moyenne`.
+
+**P19 · `chief-data-officer` · `salaires.apec`** (fiche `a_relire: false`, ajoutée par la revue finale)
+- Actuel : « Big Data » en correspondance directe, médiane 54, D1 40, D9 98 ; IDF 58/42/112 ; régions 48/36/70 ; moins de 35 ans 48 ; `rapprochement: null`, badge `bonne`, aucune note.
+- Problème : la grille Silkhom du CDO donne 100–115 k€ en régions dès le niveau confirmé (moyenne 129,6), et `dsi` et `cto` affichent 77, `engineering-manager` 77 aussi (par rapprochement). Un·e étudiant·e verrait le CDO payé comme un data analyst. La famille Big Data mélange data analysts, data scientists et directions des données.
+- Option (a) : rattacher à « Direction informatique » par `rapprochement`, mêmes chiffres que `dsi` et `cto` : médiane 77, D1 49, D9 130 ; IDF 91/56/139 ; autres régions 65/46/96 ; moins de 35 ans 52. Badge `moyenne`.
+- Option (b) : garder Big Data (54/40/98) avec la note « médiane de toute la famille Big Data, où le CDO côtoie data analysts et data scientists ; sous-estime nettement ce poste de direction », et badge `moyenne`.
+- Source : apec-2025 p. 62 (Big Data) et p. 52 (Direction informatique) ; Silkhom page, ligne Chief Data Officer. **Reco : (a).** Même la médiane Direction informatique (77) reste sous la grille Silkhom du CDO, mais l'écart est cohérent avec les autres postes de direction.
 
 ### Salaires Silkhom et badges
 
@@ -110,6 +119,8 @@ Rien n'est appliqué tant que tu n'as pas validé. Ces propositions viennent des
 
 ## Fiches, de la plus douteuse à la plus sûre
 
+- Pointeur : `chief-data-officer` est `a_relire: false` et n'a pas de fiche ci-dessous, mais il est concerné par **P19** (salaire Apec).
+
 ### 1. `devrel` — Developer advocate
 - `fiabilite`, `salaires` : badge `nd` alors que des chiffres s'affichent, et deux rapprochements incohérents entre eux → **P8**.
 - `rome`, `parcours` : `null`, à juste titre. Aucune fiche ROME (pas d'appellation « advocate » ni « évangéliste ») et aucun profil Cigref. Rien à changer.
@@ -157,6 +168,7 @@ Rien n'est appliqué tant que tu n'as pas validé. Ces propositions viennent des
 ### 10. `analytics-engineer` — Analytics engineer
 - `salaires.apec` : Big Data plutôt que Business intelligence (famille de `dev-bi`) → **P3**.
 - `rome` : le chantier hésitait entre M1811 (Data engineer) et M1824 (Développeur décisionnel). Reco : garder M1811, puisque les transformations sous dbt relèvent de l'ingénierie des données. `parcours: null` est justifié. Source : ROME M1811, M1824.
+- Cohérence avec **P3** : les deux recommandations coexistent. La famille Apec (BI, pour le salaire) et le code ROME (M1811, pour la fiche métier) sont deux axes différents : l'Apec classe le poste par famille de rémunération, le ROME par contenu du métier. Si tu acceptes P3 (famille BI parce qu'il modélise l'entrepôt comme `dev-bi`) tout en gardant M1811, il n'y a pas de contradiction. Si tu préfères aligner les deux sur la BI, il faudrait aussi passer le ROME à M1824.
 
 ### 11. `ingenieur-affaires-it` — Ingénieur·e d'affaires IT
 - `fiabilite_note` : Silkhom ne mesure que le fixe, alors que `a_eviter_si` insiste sur la rémunération variable. Pour ce métier, l'écart entre le chiffre affiché et la paie réelle est le plus fort. Correction : ajouter « salaire fixe seulement ; la part variable peut être importante ». Source : `meta.unites` ; apec-2025, famille « Commerciaux dans l'informatique ».
@@ -203,6 +215,7 @@ Rien n'est appliqué tant que tu n'as pas validé. Ces propositions viennent des
 
 ### 23. `formateur-informatique` — Formateur·rice en informatique
 - `parcours` : « ROME (fiche Formateur) » ; la fiche K2111 a l'appellation « Formateur informatique ». Correction : « ROME (fiche Formateur, appellation formateur informatique) : … ». Source : ROME K2111.
+- `salaires.silkhom.rapprochement.de` : « Formateur Applicatif » (majuscule), alors que la ligne de la grille Silkhom est « Formateur applicatif ». Reco : aligner la casse sur la grille (« Formateur applicatif »).
 
 ### Fiches sans problème propre
 - `ingenieur-iam` : rien à signaler. M1817 est le code le moins éloigné, aucune fiche ROME ne traite de l'IAM.
@@ -232,6 +245,7 @@ Rien n'est appliqué tant que tu n'as pas validé. Ces propositions viennent des
 - q12d : « pour être prêt·es tous les deux » mêle inclusif et masculin ; préférer « pour que chacun·e soit prêt·e à l'oral ».
 - q13 : « C'est plutôt sur… » est oral, préférer « Elle porte plutôt sur… ». q13d est bancale, préférer « comment quelqu'un a fait grandir une petite équipe tech jusqu'à une grande entreprise ».
 - q16b : réponse « morale », que tout le monde choisira. q16d (des semaines sans chiffre d'usage) décrit une situation peu étudiante.
+- Équilibre des branches : `developpement` et `management` apparaissent dans 11 réponses, quatre branches dans 9. En répondant au hasard, l'attendu va de 4,25 à 4,75 points selon la branche, soit un écart d'environ 12 %. Aucun changement proposé ; à savoir si tu veux rééquilibrer.
 
 **T2 · Préfixes de `parcours`**. Sur les 18 parcours v1.0, 17 commencent par « Cigref : » (le 18ᵉ est celui de `dev-backend`, voir P18) ; les 37 de la v1.1 par « ROME (fiche X) : » (26) ou « Cigref (profil X) : » (8), plus 3 par « Cigref : ». Reco : harmoniser en « ROME : » / « Cigref : » et déplacer le nom de la fiche dans `source_texte_detail`, ou bien adopter le format long partout.
 

@@ -1,10 +1,12 @@
 """Fusion des fichiers de recherche dans metiers.json.
 
-Usage : python3 scripts/fusionner.py [--essai]
+Outil prévu pour l'unique fusion v1.0 → v1.1 ; ne pas le relancer sur une v1.1.
+Usage : python3 scripts/fusionner.py [--essai] [--force]
 Lit metiers.json et recherche/*.json (macro_branches.json et quiz.json à part),
 affiche les refus et les erreurs de validation. Sans --essai, et seulement s'il
 n'y a aucun refus, réécrit metiers.json au format de la v1.0.
-Code de sortie 1 s'il y a un refus ou une erreur de validation.
+Code de sortie 1 s'il y a un refus ou une erreur de validation ; 2 si metiers.json
+est déjà en v1.1 et que --force n'est pas passé (--essai reste permis, avec avertissement).
 """
 
 import copy
@@ -284,12 +286,26 @@ def _lire_a_part(dossier, nom):
     return None
 
 
+MESSAGE_DEJA_FUSIONNE = (
+    f"ATTENTION metiers.json est déjà en version {VERSION} : la fusion a déjà été faite.\n"
+    "La relancer écraserait les corrections manuelles (rapprochements, notes, quiz) par le contenu de recherche/.\n"
+    "Pour appliquer des décisions, modifier metiers.json à la main puis lancer "
+    "`python3 scripts/valider.py metiers.json`.\n"
+    "Pour forcer malgré tout l'écriture, ajouter --force."
+)
+
+
 def main(argv, racine=None):
     racine = Path(racine) if racine else Path(__file__).resolve().parent.parent
     essai = "--essai" in argv
+    force = "--force" in argv
     dossier = racine / "recherche"
 
     donnees = lire(racine / "metiers.json")
+    if donnees.get("meta", {}).get("version") == VERSION and not force:
+        print(MESSAGE_DEJA_FUSIONNE)
+        if not essai:
+            return 2
     fichiers = sorted(p for p in dossier.glob("*.json") if p.name not in FICHIERS_A_PART)
     if not fichiers:
         print(f"Aucun chantier dans {dossier}")

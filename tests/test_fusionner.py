@@ -313,7 +313,9 @@ def lancer(argv, racine):
 
 
 class TestLigneDeCommande(unittest.TestCase):
-    def preparer(self, dossier, donnees):
+    def preparer(self, dossier, donnees, version="1.0"):
+        """Écrit metiers.json ; par défaut en v1.0, la seule version que le CLI fusionne sans --force."""
+        donnees["meta"]["version"] = version
         racine = Path(dossier)
         ecrire(racine / "metiers.json", donnees)
         return racine
@@ -348,6 +350,43 @@ class TestLigneDeCommande(unittest.TestCase):
             bon = chantier("rome", modification("metier-1", "rome", "M1805"))
             (racine / "recherche" / "rome.json").write_text(json.dumps(bon), encoding="utf-8")
             code = lancer([], racine)
+            self.assertEqual(code, 0)
+            ecrit = json.loads((racine / "metiers.json").read_text(encoding="utf-8"))
+            self.assertEqual(metier(ecrit, "metier-1")["rome"], "M1805")
+
+    def test_cli_refuse_v11_sans_force(self):
+        d = donnees_valides()
+        with tempfile.TemporaryDirectory() as dossier:
+            racine = self.preparer(dossier, d, "1.1")
+            avant = (racine / "metiers.json").read_bytes()
+            (racine / "recherche").mkdir()
+            bon = chantier("rome", modification("metier-1", "rome", "M1805"))
+            (racine / "recherche" / "rome.json").write_text(json.dumps(bon), encoding="utf-8")
+            code = lancer([], racine)
+            self.assertEqual(code, 2)
+            self.assertEqual((racine / "metiers.json").read_bytes(), avant)
+
+    def test_cli_essai_autorise_v11_avec_avertissement(self):
+        d = donnees_valides()
+        with tempfile.TemporaryDirectory() as dossier:
+            racine = self.preparer(dossier, d, "1.1")
+            avant = (racine / "metiers.json").read_bytes()
+            sortie = io.StringIO()
+            with contextlib.redirect_stdout(sortie):
+                code = main(["--essai"], racine)
+            self.assertEqual(code, 0)
+            self.assertIn("--force", sortie.getvalue())
+            self.assertEqual((racine / "metiers.json").read_bytes(), avant)
+
+    def test_cli_force_autorise_v11(self):
+        d = donnees_valides()
+        metier(d, "metier-1")["rome"] = None
+        with tempfile.TemporaryDirectory() as dossier:
+            racine = self.preparer(dossier, d, "1.1")
+            (racine / "recherche").mkdir()
+            bon = chantier("rome", modification("metier-1", "rome", "M1805"))
+            (racine / "recherche" / "rome.json").write_text(json.dumps(bon), encoding="utf-8")
+            code = lancer(["--force"], racine)
             self.assertEqual(code, 0)
             ecrit = json.loads((racine / "metiers.json").read_text(encoding="utf-8"))
             self.assertEqual(metier(ecrit, "metier-1")["rome"], "M1805")

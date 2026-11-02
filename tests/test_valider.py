@@ -1,4 +1,6 @@
+import json
 import unittest
+from pathlib import Path
 
 from scripts.valider import scores_max_quiz, valider
 from tests.fixtures import donnees_valides
@@ -159,6 +161,13 @@ class TestValider(unittest.TestCase):
         d = donnees_valides()
         del d["quiz"]
         self.assertErreur(d, "quiz")
+
+
+class TestMetiersJsonReel(unittest.TestCase):
+    def test_metiers_json_valide(self):
+        chemin = Path(__file__).resolve().parent.parent / "metiers.json"
+        donnees = json.loads(chemin.read_text(encoding="utf-8"))
+        self.assertEqual(valider(donnees), [])
 
 
 if __name__ == "__main__":

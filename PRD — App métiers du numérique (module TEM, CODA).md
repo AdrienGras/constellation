@@ -92,7 +92,7 @@ Règles d'affichage :
 
 - Silkhom est en brut annuel fixe, l'Apec en fixe + variable pour des cadres : jamais sur un même graphique ni dans une même colonne.
 - Les tranches d'expérience varient d'une ligne Silkhom à l'autre ; les afficher telles qu'elles sont dans les données.
-- `rapprochement` vaut `null` ou `{de, raison}`. Quand il est renseigné, les chiffres viennent d'un métier voisin : l'app l'affiche avec sa `raison` (« données de … »), sous le bloc de salaires concerné.
+- `rapprochement` vaut `null` ou `{de, raison}`. Quand il est renseigné, les chiffres viennent d'une ligne Silkhom ou d'une famille Apec voisine : l'app l'affiche avec sa `raison` (« données de … »), sous le bloc de salaires concerné.
 - `a_relire` n'est pas affiché. Il sert à suivre la relecture des 36 fiches concernées avant la mise en ligne.
 - `roadmap_url` est renseigné pour 31 fiches sur 68 ; l'app doit tolérer son absence.
 
