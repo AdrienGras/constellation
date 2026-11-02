@@ -275,3 +275,56 @@ Source : chantier roadmap, cas douteux.
 **T8 · Badge et rapprochements croisés**. `ingenieur-avant-vente` est passé de `bonne` à `moyenne`, parce que son salaire Silkhom est désormais déclaré rapproché (« Ingénieur Commercial »). C'est le seul badge modifié par la fusion. À valider.
 
 **T9 · `source_texte: "rapport"`**. Sept fiches (`dev-legacy-cobol`, `dev-rust-systeme`, `dev-backend`, `dev-bdd`, `dev-fullstack`, `dev-frontend`, `integrateur-web`), toutes à relire, citent le rapport de recherche interne, qui n'est pas dans `sources[]`. Reco : les réattribuer à « rédaction », ou au Cigref 3.2 quand le texte en est proche.
+
+## Décisions d'Adrien (02/11/2026)
+
+Toutes les décisions ci-dessous sont appliquées dans `metiers.json` (quiz compris) ; `python3 scripts/valider.py metiers.json` passe.
+
+### Propositions de changement de chiffres
+- **P1** `ux-designer` : famille « Marketing digital » (52/37/74 ; IDF 55/40/77 ; régions 46/35/67 ; moins de 35 ans 45), `rapprochement: null`, note Apec retirée de `fiabilite_note`.
+- **P2** `product-manager` : on garde « Gestion de projets informatiques ».
+- **P3** `analytics-engineer` : famille « Business intelligence et décisionnel » (50/39/75 ; IDF 54/42/76 ; régions 47/37/59 ; moins de 35 ans 45), rapprochement conservé (de : BI).
+- **P4** `mlops` : on garde Big Data.
+- **P5** `engineering-manager` : on garde Direction informatique.
+- **P6** `integrateur-web` : `salaires.apec` à `null` (n.d.), note Apec retirée, `fiabilite_note` signale un poste souvent non cadre.
+- **P7** `ingenieur-support-applicatif` et `responsable-support-it` : on garde.
+- **P8** `devrel` : badge `faible`, Apec gardé en Développement informatique, `fiabilite_note` sur les deux rapprochements différents (Silkhom : technical writer ; Apec : développement).
+- **P9** `ingenieur-informatique-industrielle` : on garde ERP/MES.
+- **P10** `ingenieur-support-applicatif` : on garde « Ingénieur Support ».
+- **P11** `dev-backend` : moyenne Silkhom laissée n.d.
+- **P12** `dev-rust-systeme` : `moyenne_keur` à `null` ; `variation_pct` était déjà `null` ; `moyenne_verifiee` et `moyenne_source` passent à `null`, comme pour `dev-backend`.
+- **P13** `analyste-soc` 44,6, `ingenieur-production` 52,0, `scrum-master` 49,1 : moyennes remplies, variations de la page gardées, `moyenne_source: silkhom-it-2026`.
+- **P14** `ingenieur-production` : ROME M1884.
+- **P15** `ingenieur-reseaux` : ROME M1802.
+- **P16** `ingenieur-support-applicatif` : ROME M1871.
+- **P17** `responsable-support-it` : ROME I1406, parcours réécrit (bac+2 à bac+3, après technicien support, ITIL en atout).
+- **P18** `dev-backend` : parcours « ROME : bac+3 à bac+5 (…) ; Cigref : bac+2/3 ou ingénieur pour le profil Concepteur / développeur. »
+- **P19** `chief-data-officer` : Direction informatique par rapprochement (77/49/130 ; IDF 91/56/139 ; régions 65/46/96 ; moins de 35 ans 52), badge `moyenne`, note Apec.
+
+### Fiches
+- `sre` : `type: evolution`, `depuis: [ingenieur-devops]`, parcours Cigref (évolution du DevOps).
+- `devsecops` : `type: evolution`, `depuis: [ingenieur-devops, dev-backend]`, même parcours Cigref.
+- `platform-engineer` : même parcours Cigref ; son type était déjà `evolution`, pas d'incohérence.
+- `dev-backend` : `source_texte_detail` M1805 → M1855.
+- `analyste-soc` : « des certifications en sécurité sont un plus » remplace la mention CISSP/GIAC.
+- `dev-rust-systeme` : `fiabilite_note` « chiffres Rust tirés par la rareté du profil ; Go plus proche du back-end classique ».
+- `dev-jeu-video` : rapprochement Apec déclaré (Développement informatique, le jeu vidéo n'est pas distingué), note ajoutée, badge `moyenne` inchangé.
+- `ingenieur-affaires-it` : `fiabilite_note` complétée (« salaire fixe seulement ; la part variable peut être importante ») ; ligne Silkhom « Ingénieur Commercial ».
+- `dev-embarque` : parcours complété (postes de développeur systèmes embarqués dès bac+2/3).
+- `formateur-informatique` : rapprochement Silkhom « Formateur applicatif ».
+- `analytics-engineer` : on garde ROME M1811.
+
+### Points transverses
+- **T1** quiz : poids q01d → `infra-cloud` 2 (comme q06d) ; q11c → `produit-design` 2 + `developpement` 1 ; q08a → `produit-design` 2 + `data-ia` 1 ; q03c sans `management`. Textes q04a, q07b, q09, q12d, q13, q13d, q16b et q16d reformulés. Rééquilibrage : q01b et q14c → `management` 2 + `produit-design` 1, q13a → `qualite-archi` 2 + `infra-cloud` 1, q08c → `data-ia` 2 + `produit-design` 1 (texte en mini-sondage). Écart des scores maximaux 5,9 %, écart attendu au hasard 11,7 %.
+- **T2** : tous les parcours commencent par « ROME : » ou « Cigref : » ; le nom de la fiche ou du profil est passé dans `source_texte_detail`.
+- **T3** : mention « fiche générale » retirée des parcours de `dev-legacy-cobol`, `dev-rust-systeme`, `dev-android`, `dev-ios`, `dev-mobile-multiplateforme`.
+- **T4** : « Cigref : bac+2/3 ou ingénieur » ajouté à `dev-fullstack`, `dev-frontend`, `integrateur-web` (et `dev-backend` par P18).
+- **T5** : on garde `dba`, `dev-bdd`, `ingenieur-cloud`, `sre` ; `roadmap_url` retiré de `dev-mobile-multiplateforme` et `dev-rust-systeme` (29 liens sur 68).
+- **T6** : l'app affiche les années d'expérience (« 0–2 ans »), pas « junior / confirmé / senior » (règle ajoutée à la PRD).
+- **T7** : `moyenne_source` normalisé en `bdm-2026`, `silkhom-it-2026` ou `silkhom-ia-2026`.
+- **T8** : badge `moyenne` d'`ingenieur-avant-vente` validé.
+- **T9** : `source_texte: rapport` réattribué : `dev-backend` → `cigref` (profil 3.2, rapprochement) ; les six autres → `redaction`.
+
+### Salaires cibles et relecture
+- Les salaires sont présentés comme des salaires cibles, pas des salaires de sortie d'études : `meta.unites`, `meta.mentions` et PRD (fiche métier, règles d'affichage) le disent.
+- Les 36 fiches `a_relire` passent à `false`.
