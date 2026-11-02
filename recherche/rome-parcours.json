@@ -491,8 +491,8 @@
     {
       "metier": "technicien-support",
       "champ": "rome",
-      "valeur": "I1401",
-      "source": "rome, fiche I1401 « Technicien / Technicienne de maintenance en informatique »"
+      "valeur": "I1404",
+      "source": "rome, fiche I1404 « Conseiller / Conseillère support technique informatique »"
     },
     {
       "metier": "consultant-erp",
@@ -521,14 +521,14 @@
     {
       "metier": "ingenieur-affaires-it",
       "champ": "rome",
-      "valeur": "D1407",
-      "source": "rome, fiche D1407 « Technico-commercial / Technico-commerciale »"
+      "valeur": "D1420",
+      "source": "rome, fiche D1420 « Cadre Technico-commercial / Cadre Technico-commerciale »"
     },
     {
       "metier": "ingenieur-affaires-it",
       "champ": "parcours",
-      "valeur": "ROME (fiche Technico-commercial, fiche générale non spécifique à l'informatique) : bac+2 à bac+5 en commerce, complété par une expérience de la vente ou du secteur technique concerné.",
-      "source": "rome, fiche D1407 « Technico-commercial / Technico-commerciale », rubrique accès au métier"
+      "valeur": "ROME (fiche Cadre technico-commercial, qui reprend l'appellation ingénieur technico-commercial en informatique ; fiche non spécifique à l'informatique) : bac+2 à bac+5 en commerce ou gestion.",
+      "source": "rome, fiche D1420 « Cadre Technico-commercial / Cadre Technico-commerciale », rubrique accès au métier"
     },
     {
       "metier": "formateur-informatique",
