@@ -1,0 +1,729 @@
+{
+  "chantier": "apec",
+  "sources_ajoutees": [],
+  "modifications": [
+    {
+      "metier": "dev-bdd",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "dev-android",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "dev-ios",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "dev-mobile-multiplateforme",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "dev-jeu-video",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "lead-developer",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "architecte-logiciel",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "platform-engineer",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Infrastructures et systèmes informatiques",
+        "mediane": 55,
+        "d1": 41,
+        "d9": 85,
+        "idf": {
+          "mediane": 62,
+          "d1": 45,
+          "d9": 87
+        },
+        "autres_regions": {
+          "mediane": 53,
+          "d1": 39,
+          "d9": 76
+        },
+        "moins_35_ans": {
+          "mediane": 47
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Infrastructures et systèmes informatiques », p. 60"
+    },
+    {
+      "metier": "devsecops",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Sécurité informatique",
+        "mediane": 60,
+        "d1": 43,
+        "d9": 99,
+        "idf": {
+          "mediane": 63,
+          "d1": 47,
+          "d9": 110
+        },
+        "autres_regions": {
+          "mediane": 57,
+          "d1": 41,
+          "d9": 76
+        },
+        "moins_35_ans": {
+          "mediane": 51
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Sécurité informatique », p. 56"
+    },
+    {
+      "metier": "ingenieur-iam",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Sécurité informatique",
+        "mediane": 60,
+        "d1": 43,
+        "d9": 99,
+        "idf": {
+          "mediane": 63,
+          "d1": 47,
+          "d9": 110
+        },
+        "autres_regions": {
+          "mediane": 57,
+          "d1": 41,
+          "d9": 76
+        },
+        "moins_35_ans": {
+          "mediane": 51
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Sécurité informatique », p. 56"
+    },
+    {
+      "metier": "chief-data-officer",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Big Data",
+        "mediane": 54,
+        "d1": 40,
+        "d9": 98,
+        "idf": {
+          "mediane": 58,
+          "d1": 42,
+          "d9": 112
+        },
+        "autres_regions": {
+          "mediane": 48,
+          "d1": 36,
+          "d9": 70
+        },
+        "moins_35_ans": {
+          "mediane": 48
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "directeur-projet",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Gestion de projets informatiques",
+        "mediane": 57,
+        "d1": 41,
+        "d9": 79,
+        "idf": {
+          "mediane": 63,
+          "d1": 45,
+          "d9": 87
+        },
+        "autres_regions": {
+          "mediane": 52,
+          "d1": 39,
+          "d9": 73
+        },
+        "moins_35_ans": {
+          "mediane": 48
+        },
+        "rapprochement": null
+      },
+      "source": "apec-2025, famille « Gestion de projets informatiques », p. 53"
+    },
+    {
+      "metier": "integrateur-web",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": {
+          "de": "Développement informatique",
+          "raison": "Pas de famille Apec propre à l'intégration web : on reprend celle des développeur·ses, le métier le plus proche."
+        }
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "integrateur-web",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Développement informatique »",
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "dev-ia-embarquee",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Informatique industrielle et technique",
+        "mediane": 51,
+        "d1": 39,
+        "d9": 71,
+        "idf": {
+          "mediane": 52,
+          "d1": 41,
+          "d9": 73
+        },
+        "autres_regions": {
+          "mediane": 49,
+          "d1": 38,
+          "d9": 69
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": {
+          "de": "Informatique industrielle et technique",
+          "raison": "Pas de famille Apec pour l'IA embarquée : on reprend celle de l'informatique embarquée et industrielle, sans le volet IA."
+        }
+      },
+      "source": "apec-2025, famille « Informatique industrielle et technique », p. 58"
+    },
+    {
+      "metier": "dev-ia-embarquee",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Informatique industrielle et technique »",
+      "source": "apec-2025, famille « Informatique industrielle et technique », p. 58"
+    },
+    {
+      "metier": "cloud-finops",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Infrastructures et systèmes informatiques",
+        "mediane": 55,
+        "d1": 41,
+        "d9": 85,
+        "idf": {
+          "mediane": 62,
+          "d1": 45,
+          "d9": 87
+        },
+        "autres_regions": {
+          "mediane": 53,
+          "d1": 39,
+          "d9": 76
+        },
+        "moins_35_ans": {
+          "mediane": 47
+        },
+        "rapprochement": {
+          "de": "Infrastructures et systèmes informatiques",
+          "raison": "Pas de famille Apec pour le FinOps : on reprend celle des infrastructures et systèmes, le métier venant du cloud."
+        }
+      },
+      "source": "apec-2025, famille « Infrastructures et systèmes informatiques », p. 60"
+    },
+    {
+      "metier": "cloud-finops",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Infrastructures et systèmes informatiques »",
+      "source": "apec-2025, famille « Infrastructures et systèmes informatiques », p. 60"
+    },
+    {
+      "metier": "analytics-engineer",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Big Data",
+        "mediane": 54,
+        "d1": 40,
+        "d9": 98,
+        "idf": {
+          "mediane": 58,
+          "d1": 42,
+          "d9": 112
+        },
+        "autres_regions": {
+          "mediane": 48,
+          "d1": 36,
+          "d9": 70
+        },
+        "moins_35_ans": {
+          "mediane": 48
+        },
+        "rapprochement": {
+          "de": "Big Data",
+          "raison": "Pas de famille Apec pour l'analytics engineering : on reprend celle du Big Data, qui regroupe data engineers et data analysts."
+        }
+      },
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "analytics-engineer",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Big Data »",
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "ml-engineer",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Big Data",
+        "mediane": 54,
+        "d1": 40,
+        "d9": 98,
+        "idf": {
+          "mediane": 58,
+          "d1": 42,
+          "d9": 112
+        },
+        "autres_regions": {
+          "mediane": 48,
+          "d1": 36,
+          "d9": 70
+        },
+        "moins_35_ans": {
+          "mediane": 48
+        },
+        "rapprochement": {
+          "de": "Big Data",
+          "raison": "Pas de famille Apec pour le machine learning : on reprend celle du Big Data, qui inclut les data scientists."
+        }
+      },
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "ml-engineer",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Big Data »",
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "mlops",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Big Data",
+        "mediane": 54,
+        "d1": 40,
+        "d9": 98,
+        "idf": {
+          "mediane": 58,
+          "d1": 42,
+          "d9": 112
+        },
+        "autres_regions": {
+          "mediane": 48,
+          "d1": 36,
+          "d9": 70
+        },
+        "moins_35_ans": {
+          "mediane": 48
+        },
+        "rapprochement": {
+          "de": "Big Data",
+          "raison": "Pas de famille Apec pour le MLOps : on reprend celle du Big Data, qui inclut les data engineers, les plus proches de ce métier."
+        }
+      },
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "mlops",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Big Data »",
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "ingenieur-ia-generative",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Big Data",
+        "mediane": 54,
+        "d1": 40,
+        "d9": 98,
+        "idf": {
+          "mediane": 58,
+          "d1": 42,
+          "d9": 112
+        },
+        "autres_regions": {
+          "mediane": 48,
+          "d1": 36,
+          "d9": 70
+        },
+        "moins_35_ans": {
+          "mediane": 48
+        },
+        "rapprochement": {
+          "de": "Big Data",
+          "raison": "Pas de famille Apec pour l'IA générative : on reprend celle du Big Data, qui inclut les data scientists."
+        }
+      },
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "ingenieur-ia-generative",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Big Data »",
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "ingenieur-computer-vision",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Big Data",
+        "mediane": 54,
+        "d1": 40,
+        "d9": 98,
+        "idf": {
+          "mediane": 58,
+          "d1": 42,
+          "d9": 112
+        },
+        "autres_regions": {
+          "mediane": 48,
+          "d1": 36,
+          "d9": 70
+        },
+        "moins_35_ans": {
+          "mediane": 48
+        },
+        "rapprochement": {
+          "de": "Big Data",
+          "raison": "Pas de famille Apec pour la vision par ordinateur : on reprend celle du Big Data, qui inclut les data scientists."
+        }
+      },
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "ingenieur-computer-vision",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Big Data »",
+      "source": "apec-2025, famille « Big Data », p. 62"
+    },
+    {
+      "metier": "ingenieur-support-applicatif",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Production et maintenance informatique",
+        "mediane": 58,
+        "d1": 37,
+        "d9": 99,
+        "idf": {
+          "mediane": 68,
+          "d1": 39,
+          "d9": 101
+        },
+        "autres_regions": {
+          "mediane": 51,
+          "d1": 37,
+          "d9": 75
+        },
+        "moins_35_ans": {
+          "mediane": 51
+        },
+        "rapprochement": {
+          "de": "Production et maintenance informatique",
+          "raison": "Pas de famille Apec pour le support applicatif : on reprend celle de la production et maintenance informatique, qui couvre la gestion des incidents."
+        }
+      },
+      "source": "apec-2025, famille « Production et maintenance informatique », p. 55"
+    },
+    {
+      "metier": "ingenieur-support-applicatif",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Production et maintenance informatique »",
+      "source": "apec-2025, famille « Production et maintenance informatique », p. 55"
+    },
+    {
+      "metier": "responsable-support-it",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Production et maintenance informatique",
+        "mediane": 58,
+        "d1": 37,
+        "d9": 99,
+        "idf": {
+          "mediane": 68,
+          "d1": 39,
+          "d9": 101
+        },
+        "autres_regions": {
+          "mediane": 51,
+          "d1": 37,
+          "d9": 75
+        },
+        "moins_35_ans": {
+          "mediane": 51
+        },
+        "rapprochement": {
+          "de": "Production et maintenance informatique",
+          "raison": "Pas de famille Apec pour le support IT : on reprend celle de la production et maintenance informatique, qui inclut les responsables de parc et de production."
+        }
+      },
+      "source": "apec-2025, famille « Production et maintenance informatique », p. 55"
+    },
+    {
+      "metier": "responsable-support-it",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Production et maintenance informatique »",
+      "source": "apec-2025, famille « Production et maintenance informatique », p. 55"
+    },
+    {
+      "metier": "devrel",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Développement informatique",
+        "mediane": 50,
+        "d1": 38,
+        "d9": 74,
+        "idf": {
+          "mediane": 55,
+          "d1": 43,
+          "d9": 77
+        },
+        "autres_regions": {
+          "mediane": 46,
+          "d1": 36,
+          "d9": 67
+        },
+        "moins_35_ans": {
+          "mediane": 44
+        },
+        "rapprochement": {
+          "de": "Développement informatique",
+          "raison": "Pas de famille Apec pour les DevRel : on reprend celle des développeur·ses, le métier par lequel on y arrive le plus souvent."
+        }
+      },
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "devrel",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Développement informatique »",
+      "source": "apec-2025, famille « Développement informatique », p. 64"
+    },
+    {
+      "metier": "engineering-manager",
+      "champ": "salaires.apec",
+      "valeur": {
+        "famille": "Direction informatique",
+        "mediane": 77,
+        "d1": 49,
+        "d9": 130,
+        "idf": {
+          "mediane": 91,
+          "d1": 56,
+          "d9": 139
+        },
+        "autres_regions": {
+          "mediane": 65,
+          "d1": 46,
+          "d9": 96
+        },
+        "moins_35_ans": {
+          "mediane": 52
+        },
+        "rapprochement": {
+          "de": "Direction informatique",
+          "raison": "Pas de famille Apec pour l'engineering management : on reprend celle de la direction informatique, qui inclut les responsables informatiques encadrant une équipe."
+        }
+      },
+      "source": "apec-2025, famille « Direction informatique », p. 52"
+    },
+    {
+      "metier": "engineering-manager",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Direction informatique »",
+      "source": "apec-2025, famille « Direction informatique », p. 52"
+    },
+    {
+      "metier": "product-manager",
+      "champ": "salaires.apec.rapprochement",
+      "valeur": {
+        "de": "Gestion de projets informatiques",
+        "raison": "Pas de famille Apec pour le product management en informatique : on reprend celle de la gestion de projets informatiques, la plus proche."
+      },
+      "source": "apec-2025, famille « Gestion de projets informatiques », p. 53"
+    },
+    {
+      "metier": "product-manager",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Gestion de projets informatiques »",
+      "source": "apec-2025, famille « Gestion de projets informatiques », p. 53"
+    }
+  ]
+}
