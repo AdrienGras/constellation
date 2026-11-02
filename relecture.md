@@ -1,13 +1,13 @@
 # Relecture des 36 fiches `a_relire` — `metiers.json` v1.1
 
-Première passe faite après la fusion du 2026-11-02 : textes, codes ROME, parcours et salaires comparés au Cigref 2025, au ROME 4.0 (version 62), à Silkhom et à l'Apec. Aucun texte de `metiers.json` n'a été modifié.
+Première passe faite après la fusion du 2026-11-02 : textes, codes ROME, parcours et salaires comparés au Cigref 2025, au ROME 4.0 (version 62), à Silkhom et à l'Apec. Les décisions d'Adrien (section « Décisions d'Adrien » en fin de document) ont été appliquées dans `metiers.json` le 02/11/2026.
 Chaque point donne le champ, le problème, la correction proposée et la source, plus une recommandation (« Reco ») pour trancher vite. Les pages Cigref sont les numéros imprimés (page du PDF = numéro imprimé + 6).
 
-**Appliquer tes décisions.** Corrige `metiers.json` à la main (y compris le quiz, qui vit désormais dans `metiers.json`), puis lance `python3 scripts/valider.py metiers.json`. Ne relance pas `fusionner.py` : il refuse désormais de tourner sur une v1.1 sans `--force`, car il réécrirait tes corrections avec le contenu de `recherche/`.
+**Décisions appliquées.** Les corrections sont faites dans `metiers.json` (y compris le quiz, qui vit désormais dans `metiers.json`), et `python3 scripts/valider.py metiers.json` passe. Ne relance pas `fusionner.py` : il refuse désormais de tourner sur une v1.1 sans `--force`, car il réécrirait tes corrections avec le contenu de `recherche/`.
 
 ## Propositions de changement de chiffres
 
-Rien n'est appliqué tant que tu n'as pas validé. Ces propositions viennent des notes des chantiers (`recherche/*.md`), des revues et de cette relecture ; la validation de la v1.0 (tâche 1) n'avait relevé aucun défaut. Sources : `apec-2025` (pages du PDF), `silkhom-it-2026` (page web, et PDF de l'étude complète pour les moyennes), ROME 4.0 v62 (fiches consultables sur `candidat.francetravail.fr/metierscope/fiche-metier/<code>`).
+Ces propositions ont été tranchées par Adrien et ses décisions appliquées le 02/11/2026 (voir « Décisions d'Adrien »). Elles viennent des notes des chantiers (`recherche/*.md`), des revues et de cette relecture ; la validation de la v1.0 (tâche 1) n'avait relevé aucun défaut. Sources : `apec-2025` (pages du PDF), `silkhom-it-2026` (page web, et PDF de l'étude complète pour les moyennes), ROME 4.0 v62 (fiches consultables sur `candidat.francetravail.fr/metierscope/fiche-metier/<code>`).
 
 ### Salaires Apec
 
