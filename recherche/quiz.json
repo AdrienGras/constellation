@@ -4,19 +4,19 @@
       "id": "q01",
       "intitule": "Projet de groupe, la veille du rendu, rien ne marche. Tu es plutôt la personne qui…",
       "reponses": [
-        { "id": "a", "texte": "cherche le bug ligne par ligne, jusqu'à le trouver", "poids": { "developpement": 2, "qualite-archi": 1 } },
-        { "id": "b", "texte": "refait le planning de la soirée et dit qui s'occupe de quoi", "poids": { "management": 2 } },
+        { "id": "a", "texte": "cherche le bug ligne par ligne, jusqu'à le trouver", "poids": { "developpement": 2 } },
+        { "id": "b", "texte": "refait le planning de la soirée et dit qui s'occupe de quoi", "poids": { "produit-design": 2, "management": 1 } },
         { "id": "c", "texte": "prépare la démo pour mettre en valeur ce qui tourne déjà", "poids": { "produit-design": 2, "relation-transmission": 1 } },
         { "id": "d", "texte": "relance tout sur une machine propre pour voir si le souci vient de l'environnement", "poids": { "qualite-archi": 2, "infra-cloud": 1 } }
       ]
     },
     {
       "id": "q02",
-      "intitule": "Une personne de ta famille t'appelle : son ordinateur rame, et elle vient de recevoir un mail bizarre « de sa banque ». Tu commences par…",
+      "intitule": "Une personne de ta famille t'appelle : son ordinateur rame depuis quelques jours. Une fois chez elle, tu commences par…",
       "reponses": [
-        { "id": "a", "texte": "regarder ce qui se lance au démarrage et faire le ménage", "poids": { "infra-cloud": 2 } },
-        { "id": "b", "texte": "examiner le mail : l'expéditeur, le lien, la pièce jointe… et changer ses mots de passe au moindre doute", "poids": { "cybersecurite": 2 } },
-        { "id": "c", "texte": "lui montrer, calmement, comment repérer ce genre de mail toute seule la prochaine fois", "poids": { "relation-transmission": 2, "cybersecurite": 1 } }
+        { "id": "a", "texte": "lui demander ce qui a changé ces derniers jours, puis regarder ce qui se lance au démarrage et faire le ménage", "poids": { "relation-transmission": 2, "infra-cloud": 1 } },
+        { "id": "b", "texte": "sauvegarder ses fichiers, puis tout réinstaller proprement", "poids": { "infra-cloud": 2 } },
+        { "id": "c", "texte": "vérifier qu'aucun programme louche ne s'est installé, et chercher par où il serait entré", "poids": { "cybersecurite": 2 } }
       ]
     },
     {
@@ -54,7 +54,7 @@
       "intitule": "Quelqu'un de ta promo te fait tester l'appli de son projet. Ce qui te saute aux yeux en premier…",
       "reponses": [
         { "id": "a", "texte": "les boutons mal alignés, et le fait qu'on ne sait pas où cliquer", "poids": { "produit-design": 2 } },
-        { "id": "b", "texte": "le formulaire qui accepte n'importe quoi, et les mots de passe stockés en clair", "poids": { "cybersecurite": 2, "qualite-archi": 1 } },
+        { "id": "b", "texte": "le formulaire qui accepte n'importe quoi, et les mots de passe stockés en clair", "poids": { "cybersecurite": 2 } },
         { "id": "c", "texte": "la façon dont le code est rangé (ou pas)", "poids": { "qualite-archi": 2, "developpement": 1 } },
         { "id": "d", "texte": "le fait que ça ne tourne que sur sa machine", "poids": { "infra-cloud": 2 } }
       ]
@@ -64,7 +64,7 @@
       "intitule": "Pour un projet de groupe, vous partagez un dépôt Git et un petit serveur. Ce qui t'inquiète le plus…",
       "reponses": [
         { "id": "a", "texte": "que quelqu'un pousse un mot de passe ou une clé d'API dans le dépôt, visible de tous", "poids": { "cybersecurite": 2 } },
-        { "id": "b", "texte": "qu'à une semaine du rendu, personne ne sache plus qui fait quoi", "poids": { "management": 2 } },
+        { "id": "b", "texte": "qu'une personne du groupe ne fasse presque rien, et que personne n'ose le lui dire", "poids": { "management": 2 } },
         { "id": "c", "texte": "que quelqu'un casse la branche principale en poussant sans avoir testé", "poids": { "qualite-archi": 2 } },
         { "id": "d", "texte": "que le serveur tombe la veille de la soutenance", "poids": { "infra-cloud": 2 } }
       ]
@@ -76,7 +76,7 @@
         { "id": "a", "texte": "tu fais un tableau des pour et des contre, avec des chiffres si possible", "poids": { "data-ia": 2 } },
         { "id": "b", "texte": "tu défends l'idée qui te parle, et tu trouves les arguments qui font changer d'avis", "poids": { "relation-transmission": 2 } },
         { "id": "c", "texte": "tu demandes à quelques personnes qui pourraient s'en servir ce qu'elles en pensent", "poids": { "produit-design": 2 } },
-        { "id": "d", "texte": "tu fixes une limite de dix minutes, puis tu fais trancher le groupe", "poids": { "management": 2 } }
+        { "id": "d", "texte": "tu tranches, et tu assumes le choix devant le groupe", "poids": { "management": 2 } }
       ]
     },
     {
@@ -105,7 +105,7 @@
       "reponses": [
         { "id": "a", "texte": "qu'il soit beau et qu'il donne envie de s'inscrire aux soirées", "poids": { "produit-design": 2 } },
         { "id": "b", "texte": "qu'il tienne le coup le jour où toute l'école se connecte en même temps pour les inscriptions", "poids": { "infra-cloud": 2, "developpement": 1 } },
-        { "id": "c", "texte": "que tout le monde puisse s'en servir, y compris une personne malvoyante avec un lecteur d'écran", "poids": { "developpement": 2, "produit-design": 1 } },
+        { "id": "c", "texte": "que tout le monde puisse s'en servir, y compris une personne malvoyante avec un lecteur d'écran", "poids": { "developpement": 2 } },
         { "id": "d", "texte": "savoir combien de personnes le visitent et ce qu'elles y cherchent", "poids": { "data-ia": 2 } }
       ]
     },
@@ -126,7 +126,7 @@
         { "id": "a", "texte": "comment une grosse plateforme tient des millions de personnes connectées en même temps", "poids": { "infra-cloud": 2 } },
         { "id": "b", "texte": "une IA qui génère des images, ou qui bat des humains à un jeu", "poids": { "data-ia": 2 } },
         { "id": "c", "texte": "un piratage célèbre raconté de A à Z", "poids": { "cybersecurite": 2 } },
-        { "id": "d", "texte": "comment une petite équipe est passée d'une idée à une appli que tout le monde utilise", "poids": { "produit-design": 2, "management": 1 } }
+        { "id": "d", "texte": "comment une personne a fait grandir une petite équipe tech jusqu'à une grosse boîte, et les choix difficiles qu'elle a dû faire", "poids": { "management": 2 } }
       ]
     },
     {
@@ -135,7 +135,7 @@
       "reponses": [
         { "id": "a", "texte": "écrire un README si clair qu'une personne extérieure installe le projet sans demander d'aide", "poids": { "relation-transmission": 2 } },
         { "id": "b", "texte": "dessiner le schéma qui montre comment toutes les briques tiennent ensemble", "poids": { "qualite-archi": 2 } },
-        { "id": "c", "texte": "organiser la soutenance : qui parle, dans quel ordre, combien de temps", "poids": { "management": 2 } },
+        { "id": "c", "texte": "organiser la soutenance : qui parle, dans quel ordre, combien de temps", "poids": { "produit-design": 2, "management": 1 } },
         { "id": "d", "texte": "sortir quelques chiffres qui montrent que ça marche vraiment", "poids": { "data-ia": 2 } }
       ]
     },
@@ -156,7 +156,7 @@
         { "id": "a", "texte": "que personne ne prenne de décision et qu'on perde une heure à débattre", "poids": { "management": 2 } },
         { "id": "b", "texte": "qu'une personne soit larguée et que personne ne prenne le temps de l'aider", "poids": { "relation-transmission": 2, "management": 1 } },
         { "id": "c", "texte": "que le code devienne un plat de spaghettis que plus personne n'ose toucher", "poids": { "qualite-archi": 2 } },
-        { "id": "d", "texte": "qu'on passe des semaines sur une fonctionnalité dont personne ne se servira", "poids": { "produit-design": 2 } }
+        { "id": "d", "texte": "qu'on passe des semaines sur une fonctionnalité sans un seul chiffre qui montre que quelqu'un en a besoin", "poids": { "produit-design": 2, "data-ia": 1 } }
       ]
     }
   ]
