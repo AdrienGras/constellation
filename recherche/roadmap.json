@@ -81,12 +81,6 @@
       "source": "roadmap.sh/devops, vérifiée le 2026-11-02"
     },
     {
-      "metier": "platform-engineer",
-      "champ": "roadmap_url",
-      "valeur": "https://roadmap.sh/kubernetes",
-      "source": "roadmap.sh/kubernetes, vérifiée le 2026-11-02"
-    },
-    {
       "metier": "sre",
       "champ": "roadmap_url",
       "valeur": "https://roadmap.sh/devops",

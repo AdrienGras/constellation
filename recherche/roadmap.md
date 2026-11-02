@@ -1,6 +1,6 @@
 # Recherche roadmap.sh (2026-11-02)
 
-Méthode : liste des roadmaps lue sur https://roadmap.sh/roadmaps, puis chaque URL retenue chargée (HTTP 200). Un slug inexistant renvoie 404 (testé : `/sre`, `/platform-engineer`, `/soc-analyst`, `/pentester`). 32 métiers liés, 36 laissés à `null`.
+Méthode : liste des roadmaps lue sur https://roadmap.sh/roadmaps, puis chaque URL retenue chargée (HTTP 200). Un slug inexistant renvoie 404 (testé : `/sre`, `/platform-engineer`, `/soc-analyst`, `/pentester`). 31 métiers liés, 37 laissés à `null`.
 
 ## Choix faits
 
@@ -16,11 +16,11 @@ Liés mais à relire :
 - dba -> `postgresql-dba` : la page est spécifique à PostgreSQL ; la fiche cite aussi Oracle et SQL Server. Le contenu (sauvegarde, réplication, optimisation, sécurité) colle au métier. À supprimer si Adrien veut un lien strictement générique.
 - dev-bdd -> `sql` : roadmap de compétence, pas de rôle ; SQL est le coeur du métier (PL/SQL non couvert).
 - ingenieur-cloud -> `cloud-computing` : roadmap généraliste, la fiche vise AWS/Azure/GCP. Pas d'`aws` retenu car la fiche est multi-fournisseurs.
-- platform-engineer -> `kubernetes` : la fiche s'intitule « Platform engineer / ingénieur·e Kubernetes » ; la page ne couvre pas la plateforme interne (Helm, GitOps).
 - dev-mobile-multiplateforme -> `flutter` : la fiche cite Flutter ou React Native ; un seul lien possible, `react-native` existe aussi.
 - dev-rust-systeme -> `rust` : la fiche dit « Rust / Go » ; `golang` existe aussi.
 
 Laissés à `null` malgré une page proche :
+- platform-engineer : `kubernetes` est un outil, pas le métier ; la page ne couvre pas la plateforme interne (Helm, GitOps) et `/platform-engineer` n'existe pas (404). Lien retiré au tour 1 de correction.
 - analyste-soc, pentester, rssi : seule `cyber-security` (généraliste) existe, jugée trop large pour ces postes.
 - architecte-cloud : pas de page d'architecte cloud ; `software-architect` vise le logiciel, `cloud-computing` est un parcours d'apprentissage.
 - dev-bi : `bi-analyst` décrit un rôle d'analyste, pas de construction d'entrepôts et d'ETL.
