@@ -1,0 +1,163 @@
+{
+  "questions": [
+    {
+      "id": "q01",
+      "intitule": "Projet de groupe, la veille du rendu, rien ne marche. Tu es plutôt la personne qui…",
+      "reponses": [
+        { "id": "a", "texte": "cherche le bug ligne par ligne, jusqu'à le trouver", "poids": { "developpement": 2, "qualite-archi": 1 } },
+        { "id": "b", "texte": "refait le planning de la soirée et dit qui s'occupe de quoi", "poids": { "management": 2 } },
+        { "id": "c", "texte": "prépare la démo pour mettre en valeur ce qui tourne déjà", "poids": { "produit-design": 2, "relation-transmission": 1 } },
+        { "id": "d", "texte": "relance tout sur une machine propre pour voir si le souci vient de l'environnement", "poids": { "qualite-archi": 2, "infra-cloud": 1 } }
+      ]
+    },
+    {
+      "id": "q02",
+      "intitule": "Une personne de ta famille t'appelle : son ordinateur rame, et elle vient de recevoir un mail bizarre « de sa banque ». Tu commences par…",
+      "reponses": [
+        { "id": "a", "texte": "regarder ce qui se lance au démarrage et faire le ménage", "poids": { "infra-cloud": 2 } },
+        { "id": "b", "texte": "examiner le mail : l'expéditeur, le lien, la pièce jointe… et changer ses mots de passe au moindre doute", "poids": { "cybersecurite": 2 } },
+        { "id": "c", "texte": "lui montrer, calmement, comment repérer ce genre de mail toute seule la prochaine fois", "poids": { "relation-transmission": 2, "cybersecurite": 1 } }
+      ]
+    },
+    {
+      "id": "q03",
+      "intitule": "Hackathon de 48 heures. Ton équipe tient son idée, il reste à se répartir les rôles. Tu prends…",
+      "reponses": [
+        { "id": "a", "texte": "le cœur de l'appli : l'API, la base, la logique", "poids": { "developpement": 2 } },
+        { "id": "b", "texte": "les écrans et le parcours, pour que le jury comprenne l'appli en trois secondes", "poids": { "produit-design": 2, "developpement": 1 } },
+        { "id": "c", "texte": "le pitch final devant le jury", "poids": { "relation-transmission": 2, "management": 1 } },
+        { "id": "d", "texte": "les données : dénicher un jeu de données ouvert et en tirer quelque chose de parlant", "poids": { "data-ia": 2 } }
+      ]
+    },
+    {
+      "id": "q04",
+      "intitule": "Un week-end sans rendu, tu as envie de bidouiller. Le plus probable, c'est…",
+      "reponses": [
+        { "id": "a", "texte": "un petit jeu ou une appli pour ton téléphone", "poids": { "developpement": 2 } },
+        { "id": "b", "texte": "monter un serveur chez toi : un Raspberry Pi, un NAS, un serveur de jeu pour tes potes", "poids": { "infra-cloud": 2 } },
+        { "id": "c", "texte": "un script qui récupère des chiffres (stats de ton jeu, prix, météo) et en fait des graphiques", "poids": { "data-ia": 2 } },
+        { "id": "d", "texte": "un CTF, ou une machine à « pirater » sur un site d'entraînement au hacking éthique", "poids": { "cybersecurite": 2 } }
+      ]
+    },
+    {
+      "id": "q05",
+      "intitule": "À la fin d'une journée de cours, ce qui te laisse le plus content·e, c'est d'avoir…",
+      "reponses": [
+        { "id": "a", "texte": "expliqué un truc à quelqu'un et vu le moment où ça a fait tilt", "poids": { "relation-transmission": 2 } },
+        { "id": "b", "texte": "enfin fait marcher un bout de code qui te résistait depuis des heures", "poids": { "developpement": 2 } },
+        { "id": "c", "texte": "compris pourquoi une solution est mieux construite qu'une autre, même si les deux marchent", "poids": { "qualite-archi": 2 } },
+        { "id": "d", "texte": "remis le groupe sur les rails pour que tout le monde avance", "poids": { "management": 2 } }
+      ]
+    },
+    {
+      "id": "q06",
+      "intitule": "Quelqu'un de ta promo te fait tester l'appli de son projet. Ce qui te saute aux yeux en premier…",
+      "reponses": [
+        { "id": "a", "texte": "les boutons mal alignés, et le fait qu'on ne sait pas où cliquer", "poids": { "produit-design": 2 } },
+        { "id": "b", "texte": "le formulaire qui accepte n'importe quoi, et les mots de passe stockés en clair", "poids": { "cybersecurite": 2, "qualite-archi": 1 } },
+        { "id": "c", "texte": "la façon dont le code est rangé (ou pas)", "poids": { "qualite-archi": 2, "developpement": 1 } },
+        { "id": "d", "texte": "le fait que ça ne tourne que sur sa machine", "poids": { "infra-cloud": 2 } }
+      ]
+    },
+    {
+      "id": "q07",
+      "intitule": "Pour un projet de groupe, vous partagez un dépôt Git et un petit serveur. Ce qui t'inquiète le plus…",
+      "reponses": [
+        { "id": "a", "texte": "que quelqu'un pousse un mot de passe ou une clé d'API dans le dépôt, visible de tous", "poids": { "cybersecurite": 2 } },
+        { "id": "b", "texte": "qu'à une semaine du rendu, personne ne sache plus qui fait quoi", "poids": { "management": 2 } },
+        { "id": "c", "texte": "que quelqu'un casse la branche principale en poussant sans avoir testé", "poids": { "qualite-archi": 2 } },
+        { "id": "d", "texte": "que le serveur tombe la veille de la soutenance", "poids": { "infra-cloud": 2 } }
+      ]
+    },
+    {
+      "id": "q08",
+      "intitule": "Ton groupe hésite entre deux idées de projet et le débat tourne en rond. Toi…",
+      "reponses": [
+        { "id": "a", "texte": "tu fais un tableau des pour et des contre, avec des chiffres si possible", "poids": { "data-ia": 2 } },
+        { "id": "b", "texte": "tu défends l'idée qui te parle, et tu trouves les arguments qui font changer d'avis", "poids": { "relation-transmission": 2 } },
+        { "id": "c", "texte": "tu demandes à quelques personnes qui pourraient s'en servir ce qu'elles en pensent", "poids": { "produit-design": 2 } },
+        { "id": "d", "texte": "tu fixes une limite de dix minutes, puis tu fais trancher le groupe", "poids": { "management": 2 } }
+      ]
+    },
+    {
+      "id": "q09",
+      "intitule": "Premières semaines d'alternance : on te laisse prendre tes marques dans l'équipe. Tu passes le plus de temps à…",
+      "reponses": [
+        { "id": "a", "texte": "lire le code existant pour comprendre comment les morceaux s'emboîtent", "poids": { "qualite-archi": 2 } },
+        { "id": "b", "texte": "comprendre comment tout ça est installé, mis en ligne et protégé : serveurs, conteneurs, accès", "poids": { "infra-cloud": 2, "cybersecurite": 1 } },
+        { "id": "c", "texte": "discuter avec les collègues qui se servent tous les jours de l'appli de l'équipe, pour savoir ce qui les agace", "poids": { "produit-design": 2 } },
+        { "id": "d", "texte": "fouiller la base de données pour voir ce qui est enregistré et ce qu'on pourrait en apprendre", "poids": { "data-ia": 2 } }
+      ]
+    },
+    {
+      "id": "q10",
+      "intitule": "Dans un jeu vidéo, ce qui te plaît le plus…",
+      "reponses": [
+        { "id": "a", "texte": "optimiser ton équipement ou ta stratégie à coups de stats et de calculs", "poids": { "data-ia": 2 } },
+        { "id": "b", "texte": "mener ton équipe ou ta guilde : qui joue quel rôle, quelle tactique", "poids": { "management": 2 } },
+        { "id": "c", "texte": "dénicher les failles, les glitches, les raccourcis que les devs n'avaient pas prévus", "poids": { "cybersecurite": 2, "qualite-archi": 1 } },
+        { "id": "d", "texte": "créer tes propres cartes, mods ou skins", "poids": { "developpement": 2, "produit-design": 1 } }
+      ]
+    },
+    {
+      "id": "q11",
+      "intitule": "Le BDE te confie la refonte de son site. Pour toi, le plus important, c'est…",
+      "reponses": [
+        { "id": "a", "texte": "qu'il soit beau et qu'il donne envie de s'inscrire aux soirées", "poids": { "produit-design": 2 } },
+        { "id": "b", "texte": "qu'il tienne le coup le jour où toute l'école se connecte en même temps pour les inscriptions", "poids": { "infra-cloud": 2, "developpement": 1 } },
+        { "id": "c", "texte": "que tout le monde puisse s'en servir, y compris une personne malvoyante avec un lecteur d'écran", "poids": { "developpement": 2, "produit-design": 1 } },
+        { "id": "d", "texte": "savoir combien de personnes le visitent et ce qu'elles y cherchent", "poids": { "data-ia": 2 } }
+      ]
+    },
+    {
+      "id": "q12",
+      "intitule": "TP noté en binôme. Ton binôme a écrit une fonction qui « marche ». Toi, tu…",
+      "reponses": [
+        { "id": "a", "texte": "écris des tests pour les cas limites : liste vide, nombre négatif, valeur énorme", "poids": { "qualite-archi": 2 } },
+        { "id": "b", "texte": "essaies de la faire planter avec l'entrée la plus tordue possible", "poids": { "cybersecurite": 2, "qualite-archi": 1 } },
+        { "id": "c", "texte": "la reprends pour la rendre plus courte et plus rapide", "poids": { "developpement": 2 } },
+        { "id": "d", "texte": "lui fais expliquer sa logique, puis lui montres ta version, pour être prêt·es tous les deux à l'oral", "poids": { "relation-transmission": 2, "management": 1 } }
+      ]
+    },
+    {
+      "id": "q13",
+      "intitule": "Le soir, une vidéo ou un article tech te happe. C'est plutôt sur…",
+      "reponses": [
+        { "id": "a", "texte": "comment une grosse plateforme tient des millions de personnes connectées en même temps", "poids": { "infra-cloud": 2 } },
+        { "id": "b", "texte": "une IA qui génère des images, ou qui bat des humains à un jeu", "poids": { "data-ia": 2 } },
+        { "id": "c", "texte": "un piratage célèbre raconté de A à Z", "poids": { "cybersecurite": 2 } },
+        { "id": "d", "texte": "comment une petite équipe est passée d'une idée à une appli que tout le monde utilise", "poids": { "produit-design": 2, "management": 1 } }
+      ]
+    },
+    {
+      "id": "q14",
+      "intitule": "Le projet est fini. Il reste le README et la soutenance. Tu te portes volontaire pour…",
+      "reponses": [
+        { "id": "a", "texte": "écrire un README si clair qu'une personne extérieure installe le projet sans demander d'aide", "poids": { "relation-transmission": 2 } },
+        { "id": "b", "texte": "dessiner le schéma qui montre comment toutes les briques tiennent ensemble", "poids": { "qualite-archi": 2 } },
+        { "id": "c", "texte": "organiser la soutenance : qui parle, dans quel ordre, combien de temps", "poids": { "management": 2 } },
+        { "id": "d", "texte": "sortir quelques chiffres qui montrent que ça marche vraiment", "poids": { "data-ia": 2 } }
+      ]
+    },
+    {
+      "id": "q15",
+      "intitule": "Une amie veut lancer sa boutique en ligne de bijoux faits main et te demande conseil. Tu…",
+      "reponses": [
+        { "id": "a", "texte": "lui poses plein de questions, puis l'aides à choisir parmi les solutions toutes prêtes (Shopify, Etsy…) celle qui lui va", "poids": { "relation-transmission": 2 } },
+        { "id": "b", "texte": "lui proposes de coder le site toi-même", "poids": { "developpement": 2 } },
+        { "id": "c", "texte": "penses tout de suite au paiement sécurisé et à la protection des données de ses acheteur·ses", "poids": { "cybersecurite": 2 } },
+        { "id": "d", "texte": "regardes où l'héberger et comment ne rien perdre si un jour tout plante", "poids": { "infra-cloud": 2 } }
+      ]
+    },
+    {
+      "id": "q16",
+      "intitule": "Dans un projet de groupe, ce qui t'agace le plus…",
+      "reponses": [
+        { "id": "a", "texte": "que personne ne prenne de décision et qu'on perde une heure à débattre", "poids": { "management": 2 } },
+        { "id": "b", "texte": "qu'une personne soit larguée et que personne ne prenne le temps de l'aider", "poids": { "relation-transmission": 2, "management": 1 } },
+        { "id": "c", "texte": "que le code devienne un plat de spaghettis que plus personne n'ose toucher", "poids": { "qualite-archi": 2 } },
+        { "id": "d", "texte": "qu'on passe des semaines sur une fonctionnalité dont personne ne se servira", "poids": { "produit-design": 2 } }
+      ]
+    }
+  ]
+}
