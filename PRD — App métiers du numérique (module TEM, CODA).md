@@ -46,8 +46,9 @@ L'app compte cinq écrans : nuage, fiche, quiz, roadmap, sources.
 
 - Brief, missions, compétences, « à éviter si », parcours.
 - Type : entrée ou évolution ; pour un métier d'évolution, les métiers « depuis » sont cliquables.
-- Salaires Silkhom : grille par tranche d'expérience, avec sélecteur de zone (Paris, grandes villes, régions). Zone par défaut : régions.
-- Salaires Apec : médiane et déciles de la famille, affichés à part, avec une phrase rappelant que les deux sources ne se comparent pas.
+- Chaque bloc de salaires est titré « Salaire cible » : un salaire à viser après quelques années, pas un salaire de sortie d'études.
+- Salaire cible Silkhom : grille par tranche d'années d'expérience (« 0–2 ans », « 2–5 ans »…), avec sélecteur de zone (Paris, grandes villes, régions). Zone par défaut : régions. La première tranche en régions est signalée comme la plus proche d'un premier emploi.
+- Salaire cible Apec : médiane et déciles de la famille, affichés à part, avec la mention « médiane des cadres, toutes expériences, pas un salaire d'embauche » et une phrase rappelant que les deux sources ne se comparent pas.
 - Badge de fiabilité et source du texte.
 - Voisins cliquables ; lien roadmap.sh quand il existe.
 - Une valeur absente s'affiche « n.d. », jamais une estimation.
@@ -91,10 +92,11 @@ Toutes les données viennent d'un seul fichier, `metiers.json` (version 1.1, 02/
 Règles d'affichage :
 
 - Silkhom est en brut annuel fixe, l'Apec en fixe + variable pour des cadres : jamais sur un même graphique ni dans une même colonne.
-- Les tranches d'expérience varient d'une ligne Silkhom à l'autre ; les afficher telles qu'elles sont dans les données.
+- Les salaires sont des salaires cibles, jamais présentés comme des salaires de sortie d'études. Chaque bloc s'intitule « Salaire cible ». Le bloc Apec porte la mention « médiane des cadres, toutes expériences, pas un salaire d'embauche ». Dans la grille Silkhom, la première tranche en régions est signalée comme la plus proche d'un premier emploi.
+- Les tranches Silkhom s'affichent en années d'expérience (« 0–2 ans », « 2–5 ans », « 5 ans et plus »), d'après `annees_min` et `annees_max`, et jamais avec les étiquettes « junior / confirmé / senior » de `niveau`, qui sonnent faux pour un métier d'évolution. Les tranches varient d'une ligne à l'autre (0–2 / 2–5 / 5+ ou 0–3 / 3–7 / 7+) : les afficher telles qu'elles sont dans les données.
 - `rapprochement` vaut `null` ou `{de, raison}`. Quand il est renseigné, les chiffres viennent d'une ligne Silkhom ou d'une famille Apec voisine : l'app l'affiche avec sa `raison` (« données de … »), sous le bloc de salaires concerné.
-- `a_relire` n'est pas affiché. Il sert à suivre la relecture des 36 fiches concernées avant la mise en ligne.
-- `roadmap_url` est renseigné pour 31 fiches sur 68 ; l'app doit tolérer son absence.
+- `a_relire` n'est pas affiché. Il a servi à suivre la relecture des 36 fiches concernées, faite le 02/11/2026 : il vaut désormais `false` partout.
+- `roadmap_url` est renseigné pour 29 fiches sur 68 ; l'app doit tolérer son absence.
 
 ## Contraintes techniques
 
@@ -115,17 +117,17 @@ Règles d'affichage :
 
 ## Décisions ouvertes et critères de fin
 
-Le nuage, les fiches et la roadmap peuvent être développés dès maintenant. Les macro-branches sont validées : le quiz peut être développé à son tour, une fois ses questions relues.
+Le nuage, les fiches et la roadmap peuvent être développés dès maintenant. Les macro-branches et les questions du quiz sont validées : le quiz peut être développé lui aussi.
 
 | Décision | État | Bloque |
 | --- | --- | --- |
 | Regrouper les 17 catégories en macro-branches pour le quiz ; la règle « hors top 3 » porte sur ces macro-branches | Validé (8 branches) | Rien |
-| Questions et pondérations du quiz | Rédigées (16 questions), à relire | Quiz |
+| Questions et pondérations du quiz | Relues et validées (16 questions) | Rien |
 | Pile technique | À décider | Démarrage du code |
 | Licence des textes propres (CC BY 4.0 proposée) | À décider | Mise en ligne |
-| Liens roadmap.sh par fiche (`roadmap_url`) | Remplis pour 31 fiches sur 68 | Rien, affichage conditionnel |
+| Liens roadmap.sh par fiche (`roadmap_url`) | Remplis pour 29 fiches sur 68 | Rien, affichage conditionnel |
 | Seuil de 12 élèves (article 8) et absence du groupe B2-I : question à Yoan | À poser | Maintien de la session |
-| Relecture des 36 fiches marquées `a_relire` (`relecture.md`) | À faire | Mise en ligne |
+| Relecture des 36 fiches marquées `a_relire` (`relecture.md`) | Faite (02/11/2026) | Rien |
 
 Critères de fin :
 
@@ -133,5 +135,5 @@ Critères de fin :
 - [ ] Le quiz produit un top 3, et le nuage le met en évidence.
 - [ ] Une roadmap 2027–2031 se crée, se sauvegarde, se réimporte et s'imprime en A4 lisible.
 - [ ] L'app tourne sur GitHub Pages.
-- [ ] Tous les `a_relire` sont passés à `false`.
+- [x] Tous les `a_relire` sont passés à `false`.
 - [ ] Le lien GitHub Pages est envoyé à scolarite-orleans@coda.school au plus tard le 21/05/2027.
