@@ -42,9 +42,10 @@ Aucun de ces métiers n'est à `bonne` : aucune modification `fiabilite` n'est n
 | `devrel` | Développement informatique | 64 | Pas de famille DevRel ; la fiche indique qu'on y arrive depuis `dev-backend` / `dev-fullstack`. |
 | `engineering-manager` | Direction informatique | 52 | La famille liste « Responsable informatique », qui encadre une équipe ; cohérent avec la grille Silkhom de l'EM (70–95 k€ en confirmé), proche de celle du CTO. |
 
-### Rapprochement implicite de la v1.0 rendu explicite — 1 métier
+### Rapprochements implicites de la v1.0 rendus explicites — 2 métiers
 
 - `product-manager` : famille « Gestion de projets informatiques » (p. 53), dont la liste (chef·fe de projet Agile, chef·fe de projet informatique, directeur·rice de projets, PMO, webmaster) ne contient aucun métier produit. Ajout de `salaires.apec.rapprochement` et d'une `fiabilite_note` ; aucun chiffre ne change et le badge reste `moyenne`. Voir aussi la proposition n° 2.
+- `ux-designer` : famille « Art, création et design » (p. 39), qui liste designer, graphiste, web designer, infographiste 3D, styliste…, mais pas l'UX. Ajout de `salaires.apec.rapprochement` et d'une `fiabilite_note` ; aucun chiffre ne change et le badge reste `moyenne`. Voir aussi la proposition n° 1.
 
 ### Laissés à `null` — 2 métiers
 
@@ -52,7 +53,7 @@ Aucun de ces métiers n'est à `bonne` : aucune modification `fiabilite` n'est n
 
 ## Cas douteux
 
-- **Notes de fiabilité écrasées.** La fusion remplace la `fiabilite_note` v1.0 par la jonction des notes des chantiers. Pour `dev-ia-embarquee` (« profil très rare »), `cloud-finops` (« métier récent, nouvelle ligne Silkhom 2026 alignée sur DevOps ») et `ingenieur-ia-generative` (« métier jeune, intitulés instables »), la note v1.0 disparaîtra si aucun autre chantier ne la reprend. Pour `devrel`, la note « aucun chiffre fiable trouvé » est de toute façon contredite par le nouveau chiffre. À vérifier au moment de la fusion.
+- **Notes de fiabilité v1.0.** La fusion remplace la `fiabilite_note` v1.0 par les notes des chantiers, jointes par « ; » (Apec d'abord). Les notes Apec reprennent donc la part non Silkhom et non contredite de la note v1.0 : `dev-ia-embarquee` (« profil très rare ; salaire Apec rapproché… »), `ingenieur-ia-generative` (« métier jeune, intitulés instables ; salaire Apec rapproché… »), et `formateur-informatique` reçoit « Apec : cadres salariés seulement » (part Apec de sa note v1.0, la part Silkhom étant réécrite par le chantier Silkhom). La note de `cloud-finops` ne parle que de Silkhom : elle relève du chantier Silkhom. Celle de `devrel` (« aucun chiffre fiable trouvé ») est contredite par le nouveau chiffre et n'est pas reprise.
 - **`devrel`** : badge `nd` conservé (on ne relève jamais un badge) alors qu'un salaire Apec s'affiche. Autre famille envisageable : « Avant-vente et support commercial » (p. 26, médiane 56 k€), car l'ingénieur·e avant-vente présente aussi un produit technique ; écartée parce que son D9 (92 k€) reflète des parts variables commerciales que le DevRel n'a pas en général.
 - **`mlops`** : l'exemple de la spec citait « Développement informatique ». J'ai retenu « Big Data » pour que les quatre métiers IA aient la même famille et parce que le MLOps vient surtout du data engineering. Écart : médiane 54 k€ (Big Data) contre 50 k€ (Développement).
 - **`engineering-manager`** : il partage les chiffres de `cto` et `dsi` (médiane 77 k€). Alternative : « Direction en études, R&D » (p. 66, médiane 65 k€, IDF 75, autres régions 61, moins de 35 ans 48), mais cette famille concerne surtout l'industrie et le BTP.
@@ -67,8 +68,8 @@ Aucun de ces métiers n'est à `bonne` : aucune modification `fiabilite` n'est n
 
 ### 1. `ux-designer` — `salaires.apec`
 
-- **Valeur actuelle** : famille « Art, création et design », médiane 45, D1 35, D9 60 ; `idf`, `autres_regions`, `moins_35_ans` à `null`.
-- **Valeur proposée** : famille « Marketing digital », médiane 52, D1 37, D9 74 ; `idf` {médiane 55, D1 40, D9 77} ; `autres_regions` {médiane 46, D1 35, D9 67} ; `moins_35_ans` {médiane 45} ; `rapprochement: null`.
+- **Valeur actuelle** : famille « Art, création et design », médiane 45, D1 35, D9 60 ; `idf`, `autres_regions`, `moins_35_ans` à `null` (rapprochement rendu explicite par ce chantier).
+- **Valeur proposée** : famille « Marketing digital », médiane 52, D1 37, D9 74 ; `idf` {médiane 55, D1 40, D9 77} ; `autres_regions` {médiane 46, D1 35, D9 67} ; `moins_35_ans` {médiane 45} ; `rapprochement: null` (la `fiabilite_note` Apec serait alors à retirer).
 - **Raison** : l'Apec liste explicitement « UX designer » parmi les métiers de la famille « Marketing digital ». La famille « Art, création et design » liste designer, graphiste, web designer, infographiste 3D, styliste…, mais pas l'UX. Conséquence à noter : `ui-designer` (web designer, famille Art) et `ux-designer` n'auraient plus les mêmes chiffres.
 - **Source** : apec-2025, famille « Marketing digital », p. 90 (liste des métiers et chiffres) ; famille « Art, création et design », p. 39.
 

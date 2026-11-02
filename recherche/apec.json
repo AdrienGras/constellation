@@ -367,7 +367,7 @@
     {
       "metier": "dev-ia-embarquee",
       "champ": "fiabilite_note",
-      "valeur": "salaire Apec rapproché de la famille « Informatique industrielle et technique »",
+      "valeur": "profil très rare ; salaire Apec rapproché de la famille « Informatique industrielle et technique »",
       "source": "apec-2025, famille « Informatique industrielle et technique », p. 58"
     },
     {
@@ -537,7 +537,7 @@
     {
       "metier": "ingenieur-ia-generative",
       "champ": "fiabilite_note",
-      "valeur": "salaire Apec rapproché de la famille « Big Data »",
+      "valeur": "métier jeune, intitulés instables ; salaire Apec rapproché de la famille « Big Data »",
       "source": "apec-2025, famille « Big Data », p. 62"
     },
     {
@@ -724,6 +724,27 @@
       "champ": "fiabilite_note",
       "valeur": "salaire Apec rapproché de la famille « Gestion de projets informatiques »",
       "source": "apec-2025, famille « Gestion de projets informatiques », p. 53"
+    },
+    {
+      "metier": "ux-designer",
+      "champ": "salaires.apec.rapprochement",
+      "valeur": {
+        "de": "Art, création et design",
+        "raison": "Cette famille de l'Apec regroupe les métiers du design (graphistes, web designers…) mais n'y nomme pas l'UX design."
+      },
+      "source": "apec-2025, famille « Art, création et design », p. 39"
+    },
+    {
+      "metier": "ux-designer",
+      "champ": "fiabilite_note",
+      "valeur": "salaire Apec rapproché de la famille « Art, création et design »",
+      "source": "apec-2025, famille « Art, création et design », p. 39"
+    },
+    {
+      "metier": "formateur-informatique",
+      "champ": "fiabilite_note",
+      "valeur": "Apec : cadres salariés seulement",
+      "source": "apec-2025, famille « Enseignement et formation continue », p. 109"
     }
   ]
 }
