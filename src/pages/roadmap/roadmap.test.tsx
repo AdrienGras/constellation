@@ -94,6 +94,33 @@ describe('RoadmapPage : métier visé', () => {
     expect(within(screen.getByRole('list', { name: 'Métiers' })).getAllByRole('button')).toHaveLength(68)
   })
 
+  it('rechoisir le même métier rend le focus au titre', async () => {
+    const user = userEvent.setup()
+    stocker('dev-backend')
+    monter()
+    await user.click(screen.getByRole('button', { name: 'Changer' }))
+    await user.click(
+      within(screen.getByRole('list', { name: 'Métiers' })).getByRole('button', { name: /Développeur·se back-end/ }),
+    )
+    expect(screen.queryByRole('list', { name: 'Métiers' })).not.toBeInTheDocument()
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).toHaveFocus())
+  })
+
+  it('compétences : le détail s’ouvre quand la fenêtre s’élargit', () => {
+    let ecouteur: (e: { matches: boolean }) => void = () => {}
+    window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+      matches: false,
+      media: query,
+      addEventListener: (_: string, f: typeof ecouteur) => (ecouteur = f),
+      removeEventListener: vi.fn(),
+    })) as unknown as typeof window.matchMedia
+    monter()
+    const details = document.querySelector('[data-competences] details') as HTMLDetailsElement
+    expect(details.open).toBe(false)
+    act(() => ecouteur({ matches: true }))
+    expect(details.open).toBe(true)
+  })
+
   it('cible disparue : alerte', () => {
     stocker('metier-disparu')
     monter()
@@ -171,6 +198,17 @@ describe('RoadmapPage : éléments', () => {
     expect(stockee().annees['2027'].map((i) => i.titre)).toEqual(['B', 'A'])
   })
 
+  it('le focus suit l’élément déplacé jusqu’en tête ou en queue', async () => {
+    const user = userEvent.setup()
+    stocker(null, { '2027': [item('A'), item('B')] })
+    monter()
+    screen.getByRole('button', { name: 'Descendre « A »' }).focus()
+    await user.keyboard('{Enter}')
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Monter « A »' })).toHaveFocus())
+    await user.keyboard('{Enter}')
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Descendre « A »' })).toHaveFocus())
+  })
+
   it('poignée de déplacement nommée', () => {
     stocker(null, { '2027': [item('A'), item('B')] })
     monter()
@@ -192,6 +230,7 @@ describe('RoadmapPage : éléments', () => {
     await user.click(within(dialog).getByRole('button', { name: 'Supprimer' }))
     expect(screen.queryByRole('article')).not.toBeInTheDocument()
     expect(stockee().annees['2027']).toHaveLength(0)
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Ajouter à 2027' })).toHaveFocus())
   })
 })
 

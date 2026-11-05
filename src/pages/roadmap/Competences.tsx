@@ -1,19 +1,32 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { Badge } from '@/components/ui/badge'
 import { metierParId } from '@/donnees'
 
+const REQUETE = '(min-width: 1024px)'
+
 // Ouvert à partir de 1024 px (colonne sticky), replié en dessous ; sans matchMedia, ouvert.
-function ouvertParDefaut(): boolean {
-  if (typeof window.matchMedia !== 'function') return true
-  return window.matchMedia('(min-width: 1024px)').matches
+function useLarge(): boolean {
+  const [large, setLarge] = useState(
+    () => typeof window.matchMedia !== 'function' || window.matchMedia(REQUETE).matches,
+  )
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return
+    const mql = window.matchMedia(REQUETE)
+    const surChangement = (e: { matches: boolean }) => setLarge(e.matches)
+    mql.addEventListener('change', surChangement)
+    return () => mql.removeEventListener('change', surChangement)
+  }, [])
+  return large
 }
 
 export function Competences({ cible }: { cible: string | null }) {
+  const large = useLarge()
   const metier = cible ? metierParId(cible) : undefined
   return (
     <aside data-competences className="lg:sticky lg:top-6 lg:self-start">
       <details
-        open={ouvertParDefaut()}
+        open={large}
         className="rounded-md bg-surface p-4 shadow-carte [&>summary]:cursor-pointer [&>summary]:font-display [&>summary]:text-[18px] [&>summary]:leading-6 [&>summary]:font-[650]"
       >
         <summary>Compétences de la fiche</summary>

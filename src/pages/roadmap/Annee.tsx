@@ -17,6 +17,7 @@ import {
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { GripVertical, Plus } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import { ItemRoadmap } from '@/components/metier/ItemRoadmap'
 import { Button } from '@/components/ui/button'
 import type { Annee as AnneeId, Item } from '@/logique/roadmap'
@@ -43,9 +44,32 @@ function ItemTriable({
 }) {
   const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition, isDragging } =
     useSortable({ id: item.id })
+  const racine = useRef<HTMLLIElement | null>(null)
+  const prefere = useRef<'Monter' | 'Descendre' | null>(null)
+
+  // Le déplacement réordonne le DOM et peut désactiver le bouton cliqué : le focus revient sur
+  // ce bouton, ou sur son vis-à-vis s'il est désormais désactivé (WCAG 2.4.3).
+  useEffect(() => {
+    const verbe = prefere.current
+    if (!verbe) return
+    prefere.current = null
+    const autre = verbe === 'Monter' ? 'Descendre' : 'Monter'
+    const bouton = (v: string) =>
+      racine.current?.querySelector<HTMLButtonElement>(`button[aria-label^="${v} «"]`)
+    const cible = bouton(verbe)?.disabled === false ? bouton(verbe) : bouton(autre)
+    cible?.focus()
+  })
+
+  function deplacer(verbe: 'Monter' | 'Descendre', vers: number) {
+    prefere.current = verbe
+    onDeplacer(index, vers)
+  }
   return (
     <li
-      ref={setNodeRef}
+      ref={(n) => {
+        racine.current = n
+        setNodeRef(n)
+      }}
       style={{ transform: CSS.Transform.toString(transform), transition }}
       className={isDragging ? 'relative z-10 opacity-80' : undefined}
     >
@@ -53,8 +77,8 @@ function ItemTriable({
         item={item}
         premier={index === 0}
         dernier={index === total - 1}
-        onMonter={() => onDeplacer(index, index - 1)}
-        onDescendre={() => onDeplacer(index, index + 1)}
+        onMonter={() => deplacer('Monter', index - 1)}
+        onDescendre={() => deplacer('Descendre', index + 1)}
         onModifier={onModifier}
         onSupprimer={onSupprimer}
         poignee={
@@ -155,7 +179,7 @@ export function Annee({
         </DndContext>
       )}
       <div>
-        <Button type="button" variant="outline" size="sm" onClick={onAjouter}>
+        <Button type="button" variant="outline" size="sm" data-ajouter={annee} onClick={onAjouter}>
           <Plus aria-hidden="true" />
           Ajouter à {annee}
         </Button>

@@ -31,16 +31,16 @@ export function RoadmapPage() {
   const [suppression, setSuppression] = useState<Suppression | null>(null)
   const [changement, setChangement] = useState(false)
   const titre = useRef<HTMLHeadingElement>(null)
-  const dejaVu = useRef(etat.cible)
+  const [fermetures, setFermetures] = useState(0)
 
   const metier = etat.cible ? metierParId(etat.cible) : undefined
   const couleur = metier ? `var(--ligne-${ligneDuMetier(metier)})` : 'var(--trait-fort)'
 
-  // Le choix fait disparaître la liste qui avait le focus : on le ramène sur le titre.
+  // La fermeture du choix fait disparaître la liste qui avait le focus : on le ramène sur le titre,
+  // même si le métier choisi est celui qui était déjà visé.
   useEffect(() => {
-    if (dejaVu.current !== etat.cible) titre.current?.focus()
-    dejaVu.current = etat.cible
-  }, [etat.cible])
+    if (fermetures > 0) titre.current?.focus()
+  }, [fermetures])
 
   return (
     <div className="flex flex-col gap-8 px-6 pt-6 pb-16 lg:px-12">
@@ -77,6 +77,7 @@ export function RoadmapPage() {
             onChoisir={(id) => {
               choisirCible(id)
               setChangement(false)
+              setFermetures((n) => n + 1)
             }}
           />
         ) : null}
@@ -145,7 +146,9 @@ function DialogSuppression({
   onConfirmer: () => void
   onFermer: () => void
 }) {
-  const retourFocus = useRetourFocus()
+  const retourFocus = useRetourFocus(() =>
+    document.querySelector<HTMLElement>(`button[data-ajouter="${suppression.annee}"]`),
+  )
   return (
     <Dialog open onOpenChange={(ouvert) => !ouvert && onFermer()}>
       <DialogContent onCloseAutoFocus={retourFocus}>
