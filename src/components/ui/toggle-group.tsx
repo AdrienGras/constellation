@@ -4,8 +4,11 @@ import { cn } from '@/lib/utils'
 import { toggleVariants } from '@/components/ui/toggle'
 
 const groupe =
-  'inline-flex w-fit overflow-hidden rounded-sm border border-trait-fort bg-surface'
-const separateur = 'border-l border-trait-fort first:border-l-0'
+  'inline-flex w-fit rounded-sm border border-trait-fort bg-surface'
+// Pas d'overflow-hidden sur le groupe (il rognerait le contour de focus) : les items extrêmes
+// épousent eux-mêmes l'arrondi intérieur du conteneur (6 px - 1 px de bordure).
+const separateur =
+  'border-l border-trait-fort first:rounded-l-[5px] first:border-l-0 last:rounded-r-[5px]'
 
 function ToggleGroup({
   className,

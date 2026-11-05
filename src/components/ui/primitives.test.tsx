@@ -5,7 +5,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog'
-import { ToggleLiens } from '@/components/ui/toggle-group'
+import { ToggleGroup, ToggleGroupItem, ToggleLiens } from '@/components/ui/toggle-group'
 
 describe('primitives', () => {
   it('Button par défaut est en primaire', () => {
@@ -74,5 +74,18 @@ describe('primitives', () => {
     expect(screen.getByRole('dialog', { name: 'Titre' })).toBeInTheDocument()
     await userEvent.click(screen.getByRole('button', { name: 'Fermer' }))
     expect(screen.queryByRole('dialog')).toBeNull()
+  })
+
+  it('les groupes de bascule ne rognent pas le contour de focus (pas d’overflow-hidden)', () => {
+    render(
+      <>
+        <ToggleLiens label="Liens" items={[{ href: '#/a', label: 'A', actif: true }]} />
+        <ToggleGroup type="single" aria-label="Groupe">
+          <ToggleGroupItem value="a">A</ToggleGroupItem>
+        </ToggleGroup>
+      </>,
+    )
+    expect(screen.getByRole('navigation', { name: 'Liens' }).className).not.toContain('overflow-hidden')
+    expect(screen.getByLabelText('Groupe').className).not.toContain('overflow-hidden')
   })
 })
