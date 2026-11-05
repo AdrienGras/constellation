@@ -22,9 +22,9 @@ corps, sans distinction entre ce qui est fait, en suspens, ou à creuser.
 
 ## 2026-11-05 — Licence CC BY 4.0, PR de la branche `app` et première publication
 
-**Dernière chose faite** : licence des textes validée par Adrien (CC BY 4.0 pour les textes propres : fiches rédigées par CODA, quiz, interface ; passages Cigref et salaires sous les conditions de leurs sources ; code MIT), affichée sur la page Sources (`LICENCE_TEXTES`), PRD et BACKLOG à jour. Workflow Pages : déclencheur `pull_request` vers `main` (build + tests, sans publier ; `deploy` réservé à `main`). Branche `app` poussée, PR vers `main`, fusion au vert, publication surveillée (voir l'entrée suivante ou le run GitHub).
+**Dernière chose faite** : licence des textes validée par Adrien (CC BY 4.0 pour les textes propres : fiches rédigées par CODA, quiz, interface ; passages Cigref et salaires sous les conditions de leurs sources ; code MIT), affichée sur la page Sources (`LICENCE_TEXTES`), PRD et BACKLOG à jour. Workflow Pages : déclencheur `pull_request` vers `main` (build + tests, sans publier ; `deploy` réservé à `main`). Branche `app` poussée, PR #2 vers `main` (checks verts), fusionnée par commit de merge `c2a9c81` ; run Pages `42018695757` vert (build + deploy). **App en ligne : https://adriengras.github.io/constellation/** — sondée dans Chromium : 7 routes, 68 stations, aucune erreur console, aucun hôte externe contacté.
 
-**Trucs en suspens** : passe visuelle d'Adrien (haut du plan à 390 px en 1280×800, textes secondaires 13–15 px, rendu vidéoprojecteur, mobile) ; un serveur de test Tailscale a été lancé (`vite preview --host 0.0.0.0 --port 4174`, http://adrien-laptop.halfbeak-wahoo.ts.net:4174/constellation/) le temps de la session. Envoi du lien Pages à scolarite-orleans@coda.school avant le 21/05/2027.
+**Trucs en suspens** : passe visuelle d'Adrien (haut du plan à 390 px en 1280×800, textes secondaires 13–15 px, rendu vidéoprojecteur, mobile) ; le serveur de test Tailscale de la session est arrêté. La branche `app` est conservée pour les ajustements UX ; ces mises à jour de mémoire y sont commitées en local, non poussées. Envoi du lien Pages à scolarite-orleans@coda.school avant le 21/05/2027.
 
 **Prochaine chose à creuser** : ajustements UX après la passe visuelle d'Adrien, puis nouveau run de publication.
 

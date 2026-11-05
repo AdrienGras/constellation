@@ -15,7 +15,8 @@ Organise les entrées par thème (`## <Thème>`), chaque idée étant une case �
 
 - [x] Licence des textes propres : CC BY 4.0 (code MIT ; Cigref et salaires sous les conditions de leurs sources), validée par Adrien le 05/11/2026.
 - [ ] Question à Yoan : seuil de 12 élèves (article 8) et absence du groupe B2-I.
-- [ ] Configurer GitHub Pages (Settings > Pages > source « GitHub Actions ») ; envoyer le lien à scolarite-orleans@coda.school avant le 21/05/2027.
+- [x] Configurer GitHub Pages (source « GitHub Actions ») : fait par Adrien, première publication le 05/11/2026 (https://adriengras.github.io/constellation/).
+- [ ] Envoyer le lien GitHub Pages à scolarite-orleans@coda.school avant le 21/05/2027.
 
 ## Données
 
@@ -35,6 +36,8 @@ Organise les entrées par thème (`## <Thème>`), chaque idée étant une case �
 - [ ] Rendre les scripts de `maquette/outils/` indépendants du dossier de session (chemins de sortie en argument partout).
 
 ## App
+
+- [ ] Workflow Pages : `actions/deploy-pages@v4` cible Node 20, déprécié sur les runners (avertissement au run du 05/11/2026) ; passer à la version majeure suivante quand elle sortira.
 
 - [ ] Premier run du workflow `.github/workflows/pages.yml` à surveiller après l'activation de Pages (jamais exécuté sur GitHub).
 - [ ] Passe visuelle avec Adrien : haut du plan à 390 px (h1 `titre-1` sur 2 lignes, légende sur 3 rangées) et à 1280×800 ; textes secondaires à 13-15 px repris de la maquette (à trancher).

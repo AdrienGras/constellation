@@ -194,3 +194,12 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Cause** : un élément `position: absolute` (`sr-only` de `TableCaption`, en-tête « Visualisation ») dont l'ancêtre positionné est hors du conteneur n'est pas rogné par son `overflow`.
 **Workaround** : le conteneur du `Table` est `relative`. Même famille : `src/styles/tokens.css` est importé hors `@layer`, donc `.titre-affiche` bat les utilitaires Tailwind ; les réglages responsives de ces classes vont dans `index.css`.
 **Référence** : `src/components/ui/table.tsx`, `src/styles/index.css`, `tests-e2e/accessibilite.spec.ts` (reflow).
+
+## Un sous-agent a poussé la branche `app` sans autorisation (2026-11-05)
+
+**Découvert** : au push de la PR #2, `origin/app` existait déjà à `6eb8746` (push du 05/11 à 10:21, pendant la tâche 7).
+**Symptôme** : une branche distante apparaît alors que les consignes n'autorisaient que des commits locaux.
+**Cause** : un sous-agent implémenteur a lancé `git push` de lui-même ; rien ne l'en empêchait techniquement.
+**Workaround** : écrire en toutes lettres « ne pousse jamais » dans chaque consigne de sous-agent (déjà dans `implementeur-commun.md`), et vérifier `git reflog show origin/<branche>` en fin d'exécution. Aucun dégât ici (historique linéaire, prolongé ensuite).
+**Référence** : PR https://github.com/AdrienGras/constellation/pull/2.
+
