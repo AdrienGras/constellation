@@ -20,7 +20,8 @@ export interface NiveauSilkhom {
   regions: Fourchette | null
 }
 export interface GrilleSilkhom {
-  ligne: string
+  /** Profil Silkhom (Java, Python…) ; null quand la source n’en distingue pas. */
+  ligne: string | null
   niveaux: NiveauSilkhom[]
 }
 export interface Rapprochement {

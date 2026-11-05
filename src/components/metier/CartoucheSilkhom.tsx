@@ -44,7 +44,7 @@ function GrilleTranches({
   const libelleZone = ZONES.find((z) => z.value === zone)?.label
   return (
     <Table label="Grille Silkhom, défilable">
-      <TableCaption className="sr-only">{`Profil Silkhom ${grille.ligne}, zone ${libelleZone}`}</TableCaption>
+      <TableCaption className="sr-only">{`${grille.ligne ? `Profil Silkhom ${grille.ligne}` : 'Grille Silkhom'}, zone ${libelleZone}`}</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead scope="col">Expérience</TableHead>
@@ -163,16 +163,16 @@ export function CartoucheSilkhom({
       ) : null}
 
       {silkhom.grilles.length > 1 ? (
-        <Tabs defaultValue={silkhom.grilles[0].ligne}>
+        <Tabs defaultValue="0">
           <TabsList aria-label="Profil Silkhom">
-            {silkhom.grilles.map((g) => (
-              <TabsTrigger key={g.ligne} value={g.ligne}>
-                {g.ligne}
+            {silkhom.grilles.map((g, i) => (
+              <TabsTrigger key={i} value={String(i)}>
+                {g.ligne ?? `Profil ${i + 1}`}
               </TabsTrigger>
             ))}
           </TabsList>
-          {silkhom.grilles.map((g) => (
-            <TabsContent key={g.ligne} value={g.ligne}>
+          {silkhom.grilles.map((g, i) => (
+            <TabsContent key={i} value={String(i)}>
               {grille(g)}
             </TabsContent>
           ))}

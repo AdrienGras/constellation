@@ -144,13 +144,16 @@ describe('CartoucheApec', () => {
 describe('toutes les fiches', () => {
   it(`les ${metiers.length} fiches se rendent sans erreur`, () => {
     for (const m of metiers) {
-      const { unmount } = render(
+      const { container, unmount } = render(
         <>
           {silkhom(m)}
           {apec(m)}
         </>,
       )
       expect(screen.getAllByText('Salaire cible')).toHaveLength(2)
+      const texte = container.textContent ?? ''
+      expect(texte, m.id).not.toMatch(/\bnull\b|undefined/)
+      expect(texte, m.id).not.toMatch(/junior|confirm|senior|expert|variation/i)
       unmount()
     }
   })
