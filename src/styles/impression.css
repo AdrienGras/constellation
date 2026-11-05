@@ -1,5 +1,8 @@
-/* Impression A4 de la roadmap. Importé par RoadmapPage seulement ; tout est sous @media print.
-   Le noir #000 est la seule couleur en dur du projet : il est propre au papier. */
+/* Impression A4, surtout pour la roadmap. Importé par RoadmapPage, mais le bundle est unique :
+   ces règles valent pour toute l'app, d'où les sélecteurs ciblés (data-barre, data-bandeau)
+   plutôt que header ou [role=status], qui toucheraient aussi l'en-tête d'une fiche.
+   Tout est sous @media print. Le noir #000 et le blanc #fff sont les seules couleurs en dur
+   du projet : elles sont propres au papier. */
 @media print {
   @page {
     size: A4 portrait;
@@ -19,10 +22,9 @@
     color: #000 !important;
   }
 
-  /* Navigation, lien d'évitement (dans le header), bandeau de stockage. */
-  header,
-  nav,
-  [role='status'],
+  /* Barre de navigation (avec le lien d'évitement) et bandeau de stockage. */
+  [data-barre],
+  [data-bandeau],
   [data-radix-popper-content-wrapper],
   [role='dialog'],
   [data-slot='dialog-overlay'] {

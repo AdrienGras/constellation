@@ -80,3 +80,13 @@ test.describe('parcours étudiant', () => {
     expect(urls.filter((u) => !u.startsWith('http://localhost:4173/'))).toEqual([])
   })
 })
+
+test.describe('impression', () => {
+  test('une fiche imprimée garde son titre et masque la barre de navigation', async ({ fiche, page }) => {
+    await fiche.ouvrir('dev-backend')
+    await page.emulateMedia({ media: 'print' })
+    await expect(fiche.titre).toBeVisible()
+    await expect(fiche.titre).toHaveText('Développeur·se back-end')
+    await expect(fiche.barre).toBeHidden()
+  })
+})

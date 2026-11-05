@@ -36,7 +36,7 @@ export function Layout() {
     <TooltipProvider>
       <BarreNavigation actif={pageActive(pathname)} />
       {stockageOk ? null : (
-        <p role="status" className="m-0 bg-surface-muted px-6 py-3 text-encre">
+        <p role="status" data-bandeau className="m-0 bg-surface-muted px-6 py-3 text-encre">
           Ton navigateur ne garde rien : ton résultat de quiz et ta roadmap seront perdus en fermant
           l’onglet. Pense à exporter.
         </p>

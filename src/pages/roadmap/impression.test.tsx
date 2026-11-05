@@ -67,7 +67,7 @@ describe('impression de la roadmap', () => {
     expect(css).toContain('@media print')
     expect(css).toContain('size: A4')
     expect(css).toContain('break-inside: avoid')
-    for (const sel of ['nav', '[data-actions]', '[data-competences]', '[data-actions-item]']) {
+    for (const sel of ['[data-barre]', '[data-bandeau]', '[data-actions]', '[data-competences]', '[data-actions-item]']) {
       expect(css).toMatch(new RegExp(`${sel.replace(/[[\]]/g, '\\$&')}[^{]*\\{[^}]*display:\\s*none`))
     }
   })
