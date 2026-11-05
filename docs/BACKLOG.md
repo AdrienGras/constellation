@@ -15,12 +15,12 @@ Organise les entrées par thème (`## <Thème>`), chaque idée étant une case �
 
 - [ ] Licence des textes propres (CC BY 4.0 proposée).
 - [ ] Question à Yoan : seuil de 12 élèves (article 8) et absence du groupe B2-I.
-- [ ] Configurer GitHub Pages ; envoyer le lien à scolarite-orleans@coda.school avant le 21/05/2027.
+- [ ] Configurer GitHub Pages (Settings > Pages > source « GitHub Actions ») ; envoyer le lien à scolarite-orleans@coda.school avant le 21/05/2027.
 
 ## Données
 
 - [ ] Badge `ux-designer` à `moyenne` sans note ni rapprochement (même situation qu'`ui-designer`) : justifier ou remonter.
-- [ ] `meta.unites.silkhom` énonce encore l'ancienne règle « premier emploi » (sans l'exception des métiers d'évolution) : à aligner sur la PRD par script.
+- [x] `meta.unites.silkhom` (et `meta.mentions`) alignés sur la PRD (règle « premier emploi » avec l'exception des métiers d'évolution).
 - [ ] Tous les compteurs (16 questions, 29 liens roadmap…) sont écrits en dur dans la PRD : à resynchroniser après toute modification de données.
 
 ## Scripts
@@ -34,3 +34,19 @@ Organise les entrées par thème (`## <Thème>`), chaque idée étant une case �
 - [ ] Tester le thème sombre sur le vrai vidéoprojecteur de CODA avant le 28/05/2027 (risque de délavage en salle éclairée).
 - [ ] Rendre les scripts de `maquette/outils/` indépendants du dossier de session (chemins de sortie en argument partout).
 
+## App
+
+- [ ] Premier run du workflow `.github/workflows/pages.yml` à surveiller après l'activation de Pages (jamais exécuté sur GitHub).
+- [ ] Passe visuelle avec Adrien : haut du plan à 390 px (h1 `titre-1` sur 2 lignes, légende sur 3 rangées) et à 1280×800 ; textes secondaires à 13-15 px repris de la maquette (à trancher).
+- [ ] Déplacer un élément de roadmap d'une année à l'autre (aujourd'hui : supprimer puis recréer).
+- [ ] Zoom du plan sur mobile.
+- [ ] 10 vulnérabilités modérées en devDependencies (`npm audit`) ; 0 en dépendances d'exécution.
+- [ ] Avertissement de taille de chunk au build (`metiers.json` embarqué) : code-splitting par route ou limite justifiée.
+- [ ] Liens `target=_blank` sans annonce « nouvel onglet » : à généraliser.
+- [ ] Stockage : sonde restante si `removeItem` jette ; `window.localStorage` qui jette non testé ; `url` non trimée au stockage (import et brouillon, trimer titre / url / note avant ajouter / modifier) ; résultat d'`ecrire` ignoré côté quiz.
+- [ ] Roadmap : `estObjet` dupliqué ; `annees` non tableau ignoré en silence ; cible non-chaîne sans `cibleInconnue` ; `remplacer` sans contrôle de cible inconnue ; `choisirCible(null)` sans changement remet le drapeau sans réécrire ; `ouvertParDefaut` dupliqué (ListePage / Competences) ; ref inline du `<li>` recréé à chaque rendu (`Annee.tsx`) ; Supprimer sans variant destructif ; condition `urlOk` dupliquée à l'impression ; `[role=status]` masqué globalement à l'impression ; date d'impression calculée au rendu.
+- [ ] UI : RadioGroupItem 22 px hors RadioCarte, focus de RadioCarte sur la pastille ; bordure d'erreur 2 px qui décale ; `Progress` ignore `max` ; Tabs / Select / RadioCarte / Progress / Tooltip / Table non testés ; `TooltipProvider` par badge ; `PlageSalaire` sans clamp ; `PastilleLigne` taille md en plus ; `PastilleLigne`/cartouches : rendu n.d. et bloc « raison » dupliqués.
+- [ ] Plan et fiches : station atténuée par l'opacité seule ; `onBlur`/`onMouseLeave` partagent l'état ; tests manquants (redirection mobile, légende de zone avant quiz, navigation de `BasculeVue`) ; `<details>` de la liste remontés au passage recherche vide / non vide (perte d'ouverture manuelle) ; h2 `.etiquette` 13 px et « À éviter si » dans `AlertTitle` ; `px-12` fixe sur Introuvable.
+- [ ] Quiz : borner `question` (0..15) dans `estEtatQuiz` côté contexte ; départage à 1 place sans test ; `m!.titre` ; déplacer `exemplesDeLigne` dans `categories.ts` ; `allerA` réécrit même sans changement ; pas de test provider pour un stockage quiz illisible.
+- [ ] E2E : régions Silkhom multi-onglets de même nom ; voie clavier dnd non testée en jsdom (couverte en e2e).
+- [ ] Test `echelleApec` quasi tautologique ; lignes > `printWidth` 100 ; bloc `directories` résiduel dans `package.json`.

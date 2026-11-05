@@ -8,7 +8,9 @@ Web app statique (GitHub Pages) pour la journée « Construire son avenir dans l
 - `metiers.json` est l'**unique source de données** de l'app (aucun appel réseau à l'exécution). Ne jamais relancer `scripts/fusionner.py` dessus ; le modifier par script Python (voir `docs/CONVENTIONS.md`) puis `python3 scripts/valider.py metiers.json`.
 - Salaires : toujours présentés comme **salaires cibles**, jamais comme salaires de sortie d'études ; Silkhom et Apec jamais sur le même graphique ni la même colonne ; valeur absente = « n.d. », jamais une estimation (détails : PRD, « Règles d'affichage »).
 - Ordre de travail décidé par Adrien : maquette (shadcn) → validation → plan → implémentation → publication. **La maquette est validée (05/11/2026)** : c'est la référence visuelle et comportementale de l'implémentation (`maquette/README.md`).
-- Pile technique : React + Vite + Tailwind CSS + shadcn/ui (icônes `lucide-react`), site statique pour GitHub Pages. Thème sombre unique ; couleurs et composants repris du design system « constellation » (`maquette/design-system/`), contraste WCAG 2 AA obligatoire.
+- Pile technique : React + Vite + Tailwind CSS + shadcn/ui (icônes `lucide-react`), site statique pour GitHub Pages. Thème sombre unique ; couleurs et composants repris du design system « constellation » (`maquette/design-system/`), contraste WCAG 2 AA obligatoire. L’app vit dans `src/` ; commandes : `npm run dev|test|lint|build|e2e`.
+- Couleurs : uniquement par les tokens du design system (classes Tailwind issues de `tokens.css` / `index.css`). Seules exceptions : `plan.json` pour le SVG du plan, et `#000` / `#fff` dans la feuille d’impression.
+- Tests e2e Playwright en Page Object Model (`tests-e2e/pages/`) : les specs ne contiennent aucun sélecteur brut (décision d’Adrien, 05/11/2026).
 - Commit et push uniquement sur demande d'Adrien.
 
 <!-- MEMORY_BLOCK_START -->

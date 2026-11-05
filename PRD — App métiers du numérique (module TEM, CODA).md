@@ -131,9 +131,9 @@ Le nuage, les fiches et la roadmap peuvent être développés dès maintenant. L
 
 Critères de fin :
 
-- [ ] Les 68 métiers sont accessibles depuis le nuage et la vue liste.
-- [ ] Le quiz produit un top 3, et le nuage le met en évidence.
-- [ ] Une roadmap 2027–2031 se crée, se sauvegarde, se réimporte et s'imprime en A4 lisible.
+- [x] Les 68 métiers sont accessibles depuis le nuage et la vue liste.
+- [x] Le quiz produit un top 3, et le nuage le met en évidence.
+- [x] Une roadmap 2027–2031 se crée, se sauvegarde, se réimporte et s'imprime en A4 lisible.
 - [ ] L'app tourne sur GitHub Pages.
 - [x] Tous les `a_relire` sont passés à `false`.
 - [ ] Le lien GitHub Pages est envoyé à scolarite-orleans@coda.school au plus tard le 21/05/2027.

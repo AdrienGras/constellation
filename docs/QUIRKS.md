@@ -115,3 +115,74 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Workaround** : garder la source de vérité dans `maquette/` (design system, canevas, outils) ; pour modifier le canevas, relire ses fichiers avec `Artifact read` (`paths`) puis republier depuis `scratchpad/artifact-files/<id>/`.
 **Référence** : `maquette/README.md`.
 
+## `@fontsource-variable/bricolage-grotesque` expose la famille « Bricolage Grotesque Variable » (2026-11-05)
+
+**Découvert** : mise en place des polices (tâche 1).
+**Symptôme** : `font-family: 'Bricolage Grotesque'` ne s'applique pas, le navigateur retombe sur la police de secours.
+**Cause** : le paquet déclare sa `@font-face` sous le nom « Bricolage Grotesque Variable ».
+**Workaround** : utiliser ce nom exact dans `--font-display` (et le déclarer une seule fois : il avait été dupliqué).
+**Référence** : `src/index.css`.
+
+## La CLI shadcn crée un dossier `@/` littéral et ajoute une dépendance `cn` (2026-11-05)
+
+**Découvert** : ajout des composants shadcn (tâche 7).
+**Symptôme** : un dossier `@/` apparaît à la racine du dépôt ; `package.json` gagne une dépendance parasite `cn` ; `index.css` peut être réécrit.
+**Cause** : la CLI n'a pas résolu l'alias `@/` de `components.json`, et `cn` n'est pas l'utilitaire `lib/utils`.
+**Workaround** : après chaque `npx shadcn add`, déplacer les fichiers dans `src/components/ui/`, supprimer le dossier `@/` et la dépendance `cn`, relire le diff de `index.css`.
+**Référence** : `components.json`, `src/components/ui/`.
+
+## Radix ToggleGroup ne convient pas à des liens (2026-11-05)
+
+**Découvert** : bascule Graphe / Liste (tâche 7).
+**Symptôme** : le ToggleGroup Radix gère un état et des `role=radio`, pas la navigation ; la bascule ne change pas la route et l'accessibilité est fausse.
+**Cause** : c'est un contrôle de sélection, pas un groupe de liens.
+**Workaround** : `ToggleLiens` dans `src/components/ui/toggle-group.tsx` : de vrais liens (`aria-current`) stylés comme la bascule.
+**Référence** : `src/components/ui/toggle-group.tsx`.
+
+## Le Dialog Radix piloté par état ne rend pas le focus à l'ouvreur (2026-11-05)
+
+**Découvert** : dialogue d'ajout / modification d'un élément de roadmap (tâche 15).
+**Symptôme** : après fermeture, le focus retombe sur `body` (WCAG 2.4.3).
+**Cause** : le dialogue est ouvert par un état du parent, sans `DialogTrigger` : Radix ne connaît pas l'ouvreur.
+**Workaround** : `useRetourFocus` mémorise l'élément actif à l'ouverture et le refocalise à la fermeture.
+**Référence** : `src/pages/roadmap/useRetourFocus.ts`.
+
+## jsdom n'a ni `matchMedia` ni `ResizeObserver` (2026-11-05)
+
+**Découvert** : tests de composants Radix et de la liste (tâches 12 et 15).
+**Symptôme** : `window.matchMedia is not a function` ou `ResizeObserver is not defined`.
+**Cause** : jsdom n'implémente pas ces API.
+**Workaround** : `ResizeObserver` est stubé dans `src/test/setup.ts` ; `matchMedia` est stubé dans le test qui en a besoin (`ListePage.test.tsx`), et le code tolère son absence (ouvert par défaut).
+**Référence** : `src/test/setup.ts`, `src/pages/ListePage.tsx`.
+
+## Le glisser-déposer dnd-kit n'est pas testable en jsdom (2026-11-05)
+
+**Découvert** : tests de la roadmap (tâche 15).
+**Symptôme** : les capteurs dnd-kit ne bougent jamais : jsdom renvoie des rectangles nuls.
+**Cause** : pas de mise en page, donc pas de géométrie.
+**Workaround** : tester la logique de réordonnancement en unitaire, le glisser (souris et clavier) en e2e Playwright.
+**Référence** : `tests-e2e/roadmap.spec.ts`.
+
+## `react-hooks/rules-of-hooks` se déclenche sur le `use` des fixtures Playwright (2026-11-05)
+
+**Découvert** : e2e (tâche 17).
+**Symptôme** : ESLint signale un hook appelé hors composant sur `await use(page)`.
+**Cause** : le paramètre de fixture Playwright s'appelle `use`, comme le hook React.
+**Workaround** : règle désactivée pour `tests-e2e/**` seulement dans `eslint.config.js`, pas globalement.
+**Référence** : `tests-e2e/fixtures.ts`, `eslint.config.js`.
+
+## Le classifieur de permissions refuse un `git commit` de sous-agent (« Unrequested Commit ») (2026-11-05)
+
+**Découvert** : tâche 16 du plan.
+**Symptôme** : le sous-agent n'obtient pas le droit de commiter, même sur une branche locale.
+**Cause** : le classifieur ne voit pas l'autorisation d'Adrien dans le contexte du sous-agent.
+**Workaround** : écrire explicitement dans la consigne « Adrien a autorisé les commits locaux sur la branche `app`, sans push » ; à défaut, commit par le contrôleur sur feu vert explicite.
+**Référence** : `.superpowers/sdd/2026-11-05-implementation-app/implementeur-commun.md`.
+
+## Le chemin en dur du squelette Python de CONVENTIONS pose problème dans un worktree (2026-11-05)
+
+**Découvert** : relecture du plan.
+**Symptôme** : le squelette fait `sys.path.insert(0, "/srv/AdrienGras/constellation")` : dans un worktree, il importe les scripts du dépôt principal, pas ceux de la branche.
+**Cause** : chemin absolu vers le dépôt principal.
+**Workaround** : travailler dans le dépôt lui-même, ou remplacer le chemin par la racine du worktree courant.
+**Référence** : `docs/CONVENTIONS.md`, section « Modification de metiers.json ».
