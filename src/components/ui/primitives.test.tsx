@@ -5,6 +5,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog'
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 import { ToggleGroup, ToggleGroupItem, ToggleLiens } from '@/components/ui/toggle-group'
 
 describe('primitives', () => {
@@ -87,5 +88,18 @@ describe('primitives', () => {
     )
     expect(screen.getByRole('navigation', { name: 'Liens' }).className).not.toContain('overflow-hidden')
     expect(screen.getByLabelText('Groupe').className).not.toContain('overflow-hidden')
+  })
+
+  it('Table : le conteneur défilable est focalisable au clavier', () => {
+    const { container } = render(
+      <Table>
+        <TableBody>
+          <TableRow>
+            <TableCell>x</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>,
+    )
+    expect(container.querySelector('[data-slot="table-container"]')).toHaveAttribute('tabindex', '0')
   })
 })

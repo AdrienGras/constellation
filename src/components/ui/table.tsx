@@ -3,7 +3,12 @@ import { cn } from '@/lib/utils'
 
 function Table({ className, ...props }: React.ComponentProps<'table'>) {
   return (
-    <div data-slot="table-container" className="w-full overflow-x-auto">
+    // Défilable à l'horizontale sur écran étroit : il doit être focalisable au clavier (axe, scrollable-region-focusable).
+    <div
+      data-slot="table-container"
+      tabIndex={0}
+      className="w-full overflow-x-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
+    >
       <table
         data-slot="table"
         className={cn('w-full border-collapse text-[16px] leading-[22px]', className)}
