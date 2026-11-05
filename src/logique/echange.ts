@@ -1,4 +1,4 @@
-import { ANNEES, nouvelId, roadmapVide, type EtatRoadmap, type Item } from './roadmap'
+import { ANNEES, nouvelId, roadmapVide, urlAcceptable, type EtatRoadmap, type Item } from './roadmap'
 
 export const FORMAT = 'constellation-roadmap'
 
@@ -50,6 +50,7 @@ export function importerRoadmap(texte: string, idsMetiers: ReadonlySet<string>):
 
   const annees = estObjet(brut.annees) ? brut.annees : {}
   const roadmap = roadmapVide()
+  const idsVus = new Set<string>()
   for (const cle of Object.keys(annees)) {
     const annee = ANNEES.find((a) => String(a) === cle)
     if (annee === undefined) {
@@ -68,11 +69,20 @@ export function importerRoadmap(texte: string, idsMetiers: ReadonlySet<string>):
           `L’élément n° ${i + 1} de ${cle} est incomplet : il lui faut un type (projet ou notion) et un titre.`,
         )
       }
+      const url = typeof it.url === 'string' ? it.url : ''
+      if (!urlAcceptable(url)) {
+        return echec(
+          `L’élément n° ${i + 1} de ${cle} a une adresse qui ne commence pas par http:// ou https://.`,
+        )
+      }
+      let id = typeof it.id === 'string' ? it.id : ''
+      if (id === '' || idsVus.has(id)) id = nouvelId()
+      idsVus.add(id)
       items.push({
-        id: typeof it.id === 'string' && it.id !== '' ? it.id : nouvelId(),
+        id,
         type: it.type,
         titre: it.titre,
-        url: typeof it.url === 'string' ? it.url : '',
+        url,
         note: typeof it.note === 'string' ? it.note : '',
       })
     }

@@ -85,11 +85,21 @@ export function estVide(e: EtatRoadmap): boolean {
   return nbItems(e) === 0 && e.cible === null
 }
 
+export function urlAcceptable(url: string): boolean {
+  const u = url.trim()
+  if (u === '') return true
+  try {
+    const { protocol } = new URL(u)
+    return protocol === 'http:' || protocol === 'https:'
+  } catch {
+    return false
+  }
+}
+
 export function validerBrouillon(b: Brouillon): { titre?: string; url?: string } {
   const erreurs: { titre?: string; url?: string } = {}
   if (b.titre.trim() === '') erreurs.titre = 'Donne un titre à cet élément.'
-  const url = b.url.trim()
-  if (url !== '' && !/^https?:\/\//i.test(url)) {
+  if (!urlAcceptable(b.url)) {
     erreurs.url = 'L’adresse doit commencer par http:// ou https://.'
   }
   return erreurs
@@ -105,6 +115,7 @@ function estItem(v: unknown): v is Item {
     (v.type === 'projet' || v.type === 'notion') &&
     typeof v.titre === 'string' &&
     typeof v.url === 'string' &&
+    urlAcceptable(v.url) &&
     typeof v.note === 'string'
   )
 }

@@ -100,10 +100,28 @@ describe('importerRoadmap', () => {
     expect(r.roadmap.annees['2028']).toEqual([])
   })
 
-  it('accepte une année numérique', () => {
-    // JSON.parse ne produit que des chaînes comme clés ; on vérifie la tolérance via les clés « 2027 »
-    const r = importerRoadmap(fichier({ annees: { '2027': [] } }), ids)
+  it('refuse une url dangereuse', () => {
+    const annees = { '2027': [{ type: 'projet', titre: 't', url: 'javascript:alert(1)' }] }
+    expect(importerRoadmap(fichier({ annees }), ids)).toEqual({
+      ok: false,
+      erreur:
+        'L’élément n° 1 de 2027 a une adresse qui ne commence pas par http:// ou https://.',
+    })
+  })
+
+  it('régénère les ids en double', () => {
+    const annees = {
+      '2027': [{ id: 'x', type: 'projet', titre: 'a' }],
+      '2028': [{ id: 'x', type: 'notion', titre: 'b' }],
+    }
+    const r = importerRoadmap(fichier({ annees }), ids)
     expect(r.ok).toBe(true)
+    if (!r.ok) return
+    const a = r.roadmap.annees['2027'][0].id
+    const b = r.roadmap.annees['2028'][0].id
+    expect(a).toBe('x')
+    expect(b).not.toBe('x')
+    expect(b).not.toBe('')
   })
 
   it('met à null une cible inconnue et le signale', () => {

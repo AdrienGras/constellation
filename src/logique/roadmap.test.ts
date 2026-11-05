@@ -9,6 +9,7 @@ import {
   nbItems,
   roadmapVide,
   supprimerItem,
+  urlAcceptable,
   validerBrouillon,
   type Brouillon,
 } from './roadmap'
@@ -105,4 +106,18 @@ describe('estEtatRoadmap', () => {
     expect(estEtatRoadmap(e)).toBe(false)
   })
   it('refuse le non-objet', () => expect(estEtatRoadmap(null)).toBe(false))
+})
+
+describe('urlAcceptable', () => {
+  it('accepte vide, http et https', () => {
+    for (const u of ['', 'https://x.fr', 'http://x.fr']) expect(urlAcceptable(u)).toBe(true)
+  })
+  it('refuse les autres schémas et les adresses nues', () => {
+    for (const u of ['javascript:alert(1)', 'JAVASCRIPT:alert(1)', 'data:text/html,x', 'symfony.com'])
+      expect(urlAcceptable(u)).toBe(false)
+  })
+  it('estEtatRoadmap refuse une url dangereuse', () => {
+    const e = ajouterItem(roadmapVide(), 2027, { ...brouillon('a'), url: 'javascript:alert(1)' }, 'a')
+    expect(estEtatRoadmap(e)).toBe(false)
+  })
 })
