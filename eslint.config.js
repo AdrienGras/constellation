@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
-  { ignores: ['dist', 'maquette', 'recherche', 'coverage', 'playwright-report', 'node_modules'] },
+  { ignores: ['dist', 'maquette', 'recherche', 'coverage', 'playwright-report', 'test-results', 'node_modules'] },
   {
     files: ['**/*.{ts,tsx}'],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
@@ -20,4 +20,6 @@ export default tseslint.config(
   { files: ['src/components/ui/**'], rules: { 'react-refresh/only-export-components': 'off' } },
   // Chaque contexte garde son provider et son hook dans le même fichier.
   { files: ['src/etat/**'], rules: { 'react-refresh/only-export-components': 'off' } },
+  // Les fixtures Playwright appellent `use(...)`, que la règle des hooks React prend pour un hook.
+  { files: ['tests-e2e/**'], rules: { 'react-hooks/rules-of-hooks': 'off' } },
 )
