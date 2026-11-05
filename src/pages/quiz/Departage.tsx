@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { PastilleLigne } from '@/components/metier/PastilleLigne'
 import { RadioCarte, RadioGroup } from '@/components/ui/radio-group'
@@ -28,6 +28,9 @@ export function Departage() {
   const [choix, setChoix] = useState<LigneId[]>(() =>
     etat.departage.filter((id) => candidats.includes(id)),
   )
+  const h1 = useRef<HTMLHeadingElement>(null)
+  // Le bouton cliqué a disparu avec l’écran précédent : le focus va au titre.
+  useEffect(() => h1.current?.focus(), [])
   const complet = choix.length === places
 
   const bascule = (id: LigneId) =>
@@ -35,7 +38,7 @@ export function Departage() {
 
   return (
     <div className="mx-auto flex w-full max-w-[720px] flex-col gap-6 px-6 py-8">
-      <h1 tabIndex={-1} className="m-0 font-display text-[28px] leading-9 font-bold">
+      <h1 ref={h1} tabIndex={-1} className="m-0 font-display text-[28px] leading-9 font-bold">
         Une dernière question
       </h1>
       <p className="m-0 text-[17px] leading-[26px]">

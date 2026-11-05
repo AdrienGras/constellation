@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router'
 import { Button } from '@/components/ui/button'
 import { PastilleLigne } from '@/components/metier/PastilleLigne'
@@ -22,6 +23,9 @@ export function exemplesDeLigne(id: LigneId, n = 3): string[] {
 export function Resultat({ top3 }: { top3: LigneId[] }) {
   usePageTitre('Tes 3 lignes de départ')
   const { refaire } = useQuiz()
+  const h1 = useRef<HTMLHeadingElement>(null)
+  // Le bouton cliqué a disparu avec l’écran précédent : le focus va au titre.
+  useEffect(() => h1.current?.focus(), [])
   const gardé = stockageDisponible()
 
   return (
@@ -29,7 +33,7 @@ export function Resultat({ top3 }: { top3: LigneId[] }) {
       <p className="m-0 text-[15px] font-bold tracking-[0.06em] text-encre-douce uppercase">
         Résultat du quiz
       </p>
-      <h1 tabIndex={-1} className="m-0 font-display text-[32px] leading-10 font-bold">
+      <h1 ref={h1} tabIndex={-1} className="m-0 font-display text-[32px] leading-10 font-bold">
         Tes 3 lignes de départ
       </h1>
       <ol className="m-0 flex list-none flex-col gap-3 p-0">

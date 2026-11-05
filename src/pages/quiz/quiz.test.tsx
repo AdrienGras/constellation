@@ -34,6 +34,7 @@ describe('Quiz', () => {
       screen.getByRole('heading', { level: 1, name: 'Tes 3 lignes de départ' }),
     ).toBeInTheDocument()
     expect(document.title).toBe('Tes 3 lignes de départ · constellation')
+    expect(document.activeElement).toBe(screen.getByRole('heading', { level: 1 }))
     const rangs = screen.getAllByText(/^[123](er|e) choix$/).map((n) => n.closest('li')?.textContent)
     expect(rangs[0]).toMatch(/Infra & cloud.*1er choix/)
     expect(rangs[1]).toMatch(/Management.*2e choix/)
@@ -82,17 +83,24 @@ describe('Quiz', () => {
     expect(
       screen.getByText('Ces lignes sont à égalité pour tes 2 dernières places : choisis-en 2.'),
     ).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'Une dernière question' })).toHaveFocus()
     const cases = screen.getAllByRole('checkbox')
     expect(cases).toHaveLength(3)
+    expect(cases[0]).toHaveAccessibleName(/Développement/)
+    expect(cases[1]).toHaveAccessibleName(/Qualité & architecture/)
+    expect(cases[2]).toHaveAccessibleName(/Produit & design/)
     const voir = screen.getByRole('button', { name: 'Voir mon résultat' })
     expect(voir).toBeDisabled()
     await user.click(screen.getByRole('checkbox', { name: /Qualité & architecture/ }))
-    await user.click(screen.getByRole('checkbox', { name: /Relation & transmission|Produit & design/ }))
+    await user.click(screen.getByRole('checkbox', { name: /Produit & design/ }))
     expect(screen.getByText('2 sur 2 choisies')).toBeInTheDocument()
-    const restante = screen.getAllByRole('checkbox').find((c) => !(c as HTMLInputElement).checked)
-    expect(restante).toBeDisabled()
+    expect(screen.getByRole('checkbox', { name: /Développement/ })).toBeDisabled()
     await user.click(voir)
-    expect(screen.getByRole('heading', { level: 1, name: 'Tes 3 lignes de départ' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'Tes 3 lignes de départ' })).toHaveFocus()
+    const rangs = screen.getAllByText(/^[123](er|e) choix$/).map((n) => n.closest('li')?.textContent)
+    expect(rangs[0]).toMatch(/Relation & transmission.*1er choix/)
+    expect(rangs[1]).toMatch(/Qualité & architecture.*2e choix/)
+    expect(rangs[2]).toMatch(/Produit & design.*3e choix/)
   })
 
   it('refaire le quiz revient à la question 1 et vide le stockage', async () => {
