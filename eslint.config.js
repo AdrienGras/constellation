@@ -18,4 +18,6 @@ export default tseslint.config(
   },
   // Les primitives shadcn exportent leurs variantes (cva) à côté des composants.
   { files: ['src/components/ui/**'], rules: { 'react-refresh/only-export-components': 'off' } },
+  // Chaque contexte garde son provider et son hook dans le même fichier.
+  { files: ['src/etat/**'], rules: { 'react-refresh/only-export-components': 'off' } },
 )

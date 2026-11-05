@@ -126,6 +126,15 @@ describe('RoadmapProvider', () => {
     expect(result.current.cibleOubliee).toBe(true)
   })
 
+  it('cibleOubliee repasse à faux après le choix d’une cible', () => {
+    localStorage.setItem(CLES.roadmap, JSON.stringify({ ...roadmapVide(), cible: 'metier-disparu' }))
+    const { result } = renderHook(() => useRoadmap(), { wrapper: enveloppeRoadmap })
+    expect(result.current.cibleOubliee).toBe(true)
+    act(() => result.current.choisirCible('dev-backend'))
+    expect(result.current.cibleOubliee).toBe(false)
+    expect(result.current.etat.cible).toBe('dev-backend')
+  })
+
   it('garde une cible connue', () => {
     localStorage.setItem(CLES.roadmap, JSON.stringify({ ...roadmapVide(), cible: 'dev-backend' }))
     const { result } = renderHook(() => useRoadmap(), { wrapper: enveloppeRoadmap })

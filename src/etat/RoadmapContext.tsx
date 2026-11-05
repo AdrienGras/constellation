@@ -47,6 +47,7 @@ function charger(): { etat: EtatRoadmap; cibleOubliee: boolean } {
 export function RoadmapProvider({ children }: { children: ReactNode }) {
   const [initial] = useState(charger)
   const [etat, setEtat] = useState(initial.etat)
+  const [cibleOubliee, setCibleOubliee] = useState(initial.cibleOubliee)
   const [enregistre, setEnregistre] = useState(true)
   const courant = useRef(etat)
 
@@ -67,21 +68,27 @@ export function RoadmapProvider({ children }: { children: ReactNode }) {
 
   const actions = useMemo(
     () => ({
-      remplacer: poser,
+      remplacer: (e: EtatRoadmap) => {
+        setCibleOubliee(false)
+        poser(e)
+      },
       ajouter: (a: Annee, b: Brouillon) => modifierEtat((e) => ajouterItem(e, a, b)),
       modifier: (a: Annee, id: string, b: Brouillon) =>
         modifierEtat((e) => modifierItem(e, a, id, b)),
       supprimer: (a: Annee, id: string) => modifierEtat((e) => supprimerItem(e, a, id)),
       deplacer: (a: Annee, de: number, vers: number) =>
         modifierEtat((e) => deplacerItem(e, a, de, vers)),
-      choisirCible: (id: string | null) => modifierEtat((e) => choisirCibleDans(e, id)),
+      choisirCible: (id: string | null) => {
+        setCibleOubliee(false)
+        modifierEtat((e) => choisirCibleDans(e, id))
+      },
     }),
     [poser, modifierEtat],
   )
 
   const valeur = useMemo<ValeurRoadmap>(
-    () => ({ etat, enregistre, cibleOubliee: initial.cibleOubliee, ...actions }),
-    [etat, enregistre, initial.cibleOubliee, actions],
+    () => ({ etat, enregistre, cibleOubliee, ...actions }),
+    [etat, enregistre, cibleOubliee, actions],
   )
 
   return <RoadmapContext.Provider value={valeur}>{children}</RoadmapContext.Provider>
