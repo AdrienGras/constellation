@@ -10,8 +10,7 @@ import { useFiltres } from '@/etat/FiltresContext'
 import { useQuiz } from '@/etat/QuizContext'
 import { correspondFiltre } from '@/logique/filtres'
 import { normaliser } from '@/logique/texte'
-import { EncartQuiz } from './plan/EncartQuiz'
-import { BasculeVue, Filtres } from './plan/Filtres'
+import { EnTeteAccueil } from './plan/EnTeteAccueil'
 import { usePageTitre } from './usePageTitre'
 
 // Ouvert à partir de 768 px, replié en dessous ; sans matchMedia, ouvert.
@@ -61,24 +60,12 @@ export function ListePage() {
   const compteur = `${n} ${n > 1 ? 'métiers affichés' : 'métier affiché'} sur ${metiers.length}`
 
   return (
-    <div className="flex flex-col gap-5 px-6 pt-8 pb-10 md:px-12">
-      <div className="flex flex-wrap items-end justify-between gap-6">
-        <div>
-          <p className="m-0 text-[13px] leading-5 font-bold tracking-[0.06em] text-encre-douce uppercase">
-            Accueil · vue liste
-          </p>
-          <h1 className="titre-1 mt-1 mb-0">Les 68 métiers, ligne par ligne</h1>
-          <p className="mt-2 mb-0 max-w-[760px] text-encre-douce">
-            La même chose que le plan, au clavier ou au lecteur d’écran. Chaque nom ouvre la fiche
-            du métier.
-          </p>
-        </div>
-        <div className="flex w-full min-w-0 flex-wrap items-center gap-4 md:w-auto md:flex-none">
-          <EncartQuiz />
-          <BasculeVue actif="liste" />
-        </div>
-      </div>
-      <Filtres />
+    <div className="flex flex-col gap-5 px-6 pt-6 pb-10 md:px-12">
+      <EnTeteAccueil
+        titre="Les 68 métiers, ligne par ligne"
+        chapeau="La même chose que le plan, au clavier ou au lecteur d’écran. Chaque nom ouvre la fiche du métier."
+        vue="liste"
+      />
       <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
         <div className="w-[360px] max-w-full">
           <Champ label="Chercher un métier">

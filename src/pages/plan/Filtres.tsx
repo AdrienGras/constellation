@@ -46,7 +46,8 @@ export function Filtres({ legende = true }: { legende?: boolean }) {
 
   return (
     <div className="flex flex-wrap items-end gap-x-6 gap-y-3">
-      <label className="flex w-[240px] max-w-full flex-col gap-1.5">
+      <div className="relative w-[240px] max-w-full">
+      <label className="flex flex-col gap-1.5">
         <span className="text-[15px] leading-5 font-bold">Catégorie</span>
         <select
           ref={selectCategorie}
@@ -68,6 +69,17 @@ export function Filtres({ legende = true }: { legende?: boolean }) {
           ))}
         </select>
       </label>
+      {actif ? (
+        // Posé sur la rangée du libellé, pour ne pas élargir la rangée des filtres.
+        <Button variant="link" className="absolute top-0 right-0 text-[15px]" onClick={() => {
+            setFiltres(FILTRES_VIDES)
+            // Le bouton se démonte avec les filtres : le focus passe au premier champ.
+            selectCategorie.current?.focus()
+          }}>
+          Effacer les filtres
+        </Button>
+      ) : null}
+      </div>
       <div className="flex flex-col gap-1.5">
         <span className="text-[15px] leading-5 font-bold">Type de métier</span>
         <ToggleGroup
@@ -85,15 +97,6 @@ export function Filtres({ legende = true }: { legende?: boolean }) {
           ))}
         </ToggleGroup>
       </div>
-      {actif ? (
-        <Button variant="link" className="mb-2.5" onClick={() => {
-            setFiltres(FILTRES_VIDES)
-            // Le bouton se démonte avec les filtres : le focus passe au premier champ.
-            selectCategorie.current?.focus()
-          }}>
-          Effacer les filtres
-        </Button>
-      ) : null}
       {legende ? (
         <LegendeLignes className="flex flex-1 flex-wrap justify-end gap-x-3 gap-y-1.5 pb-1" />
       ) : null}

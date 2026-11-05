@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router'
 import { useFiltres } from '@/etat/FiltresContext'
 import { useQuiz } from '@/etat/QuizContext'
 import { usePageTitre } from '../usePageTitre'
-import { EncartQuiz } from './EncartQuiz'
-import { BasculeVue, Filtres } from './Filtres'
+import { EnTeteAccueil } from './EnTeteAccueil'
 import { PlanSvg } from './PlanSvg'
 
 const DRAPEAU = 'constellation.plan.redirige'
@@ -34,24 +33,12 @@ export function PlanPage() {
 
   return (
     <div className="flex flex-col px-6 pb-6 md:px-12">
-      <div className="flex flex-wrap items-end justify-between gap-6 pt-8 pb-5 lg:flex-nowrap">
-        <div>
-          <p className="m-0 text-[13px] leading-5 font-bold tracking-[0.06em] text-encre-douce uppercase">
-            Accueil
-          </p>
-          <h1 className="titre-1 mt-1 mb-0">Le plan des métiers du numérique</h1>
-          <p className="mt-2 mb-0 max-w-[760px] text-encre-douce">
-            68 métiers sur 8 lignes, qui partent toutes de ta formation. Survole une station pour
-            voir le métier, clique pour ouvrir sa fiche.
-          </p>
-        </div>
-        <div className="flex w-full min-w-0 flex-wrap items-center gap-4 md:w-auto md:flex-none">
-          <EncartQuiz />
-          <BasculeVue actif="graphe" />
-        </div>
-      </div>
-      <div className="pb-4">
-        <Filtres legende={false} />
+      <div className="pt-4 pb-2">
+        <EnTeteAccueil
+          titre="Le plan des métiers du numérique"
+          chapeau="68 métiers sur 8 lignes. Survole une station pour voir le métier, clique pour ouvrir sa fiche."
+          vue="graphe"
+        />
       </div>
       <Link
         to="/liste"

@@ -161,10 +161,16 @@ describe('PlanPage', () => {
   it('après le quiz : 3 lignes allumées, 5 en exploration, rien d’atténué', async () => {
     stockerQuizTermine('b')
     const { container } = monter()
-    expect(screen.getByText('Tes 3 lignes de départ sont allumées')).toBeInTheDocument()
+    const encart = screen.getByRole('region', { name: 'Ton résultat de quiz' })
+    expect(within(encart).getByText('Tes 3 lignes de départ sont allumées')).toBeInTheDocument()
+    for (const rang of ['1er choix', '2e choix', '3e choix']) {
+      expect(within(encart).getByText(rang)).toBeInTheDocument()
+    }
     expect(
-      screen.getByText(/les lignes en pointillés \(5 lignes, \d+ métiers\)/),
+      within(encart).getByText(/zone d’exploration : les lignes en pointillés \(5 lignes, \d+ métiers\)/),
     ).toBeInTheDocument()
+    expect(within(encart).getByText(/point de départ, pas un verdict/)).toBeInTheDocument()
+    expect(within(encart).getByRole('button', { name: 'Refaire le quiz' })).toBeInTheDocument()
     for (const id of ['infra-cloud', 'management', 'developpement']) {
       expect(container.querySelector(`[data-trace="${id}"]`)).toHaveAttribute('data-etat', 'top')
     }

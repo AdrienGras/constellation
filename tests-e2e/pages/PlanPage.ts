@@ -28,6 +28,11 @@ export class PlanPage extends AppPage {
     return this.page.getByRole('link', { name: 'Liste', exact: true })
   }
 
+  /** Choisit une catégorie dans la liste « Catégorie » (par son libellé). */
+  async choisirCategorie(libelle: string) {
+    await this.page.getByRole('combobox', { name: 'Catégorie' }).selectOption({ label: libelle })
+  }
+
   get dessin(): Locator {
     return this.page.locator('[data-plan-dessin]')
   }

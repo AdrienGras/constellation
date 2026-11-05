@@ -168,6 +168,56 @@ test.describe('plan : bulle au-dessus de la légende (1280×590)', () => {
   })
 })
 
+const ETATS_QUIZ = [
+  ['avant le quiz', null],
+  ['résultat du quiz', QUIZ_B],
+  ['départage en attente', QUIZ_A],
+] as const
+
+for (const [nom, fenetre] of [
+  ['1280×590', FENETRES.w1280],
+  ['1366×633', FENETRES.w1366],
+  ['1536×731', FENETRES.w1536],
+] as const) {
+  for (const [etat, quiz] of ETATS_QUIZ) {
+    test.describe(`plan : en-tête compact (${nom}, ${etat})`, () => {
+      test.use({ viewport: fenetre })
+
+      test('plan à 300 px au plus, titre sur une ligne, sans défilement horizontal', async ({ plan }) => {
+        await plan.ouvrir()
+        if (quiz) await plan.poserStockage('constellation.quiz.v1', quiz)
+        expect(await plan.hautDansLaPage(plan.dessin)).toBeLessThanOrEqual(300)
+        expect(await plan.nombreDeLignes(plan.titre)).toBe(1)
+        const { contenu, fenetre: largeur } = await plan.largeursDocument()
+        expect(contenu).toBeLessThanOrEqual(largeur)
+      })
+    })
+  }
+}
+
+test.describe('plan : filtre actif (1280×590)', () => {
+  test.use({ viewport: FENETRES.w1280 })
+
+  test('filtre actif : le plan reste à 300 px au plus', async ({ plan }) => {
+    await plan.ouvrir()
+    await plan.poserStockage('constellation.quiz.v1', QUIZ_B)
+    await plan.choisirCategorie('Back-end')
+    expect(await plan.hautDansLaPage(plan.dessin)).toBeLessThanOrEqual(300)
+  })
+})
+
+test.describe('liste : après le quiz (1366×633)', () => {
+  test.use({ viewport: FENETRES.w1366 })
+
+  test('liste après le quiz : recherche visible sans défiler', async ({ liste }) => {
+    await liste.ouvrir()
+    await liste.poserStockage('constellation.quiz.v1', QUIZ_B)
+    expect((await liste.rectEcran(liste.recherche)).bas).toBeLessThanOrEqual(await liste.hauteurFenetre())
+    const { contenu, fenetre } = await liste.largeursDocument()
+    expect(contenu).toBeLessThanOrEqual(fenetre)
+  })
+})
+
 test.describe('plan : plein écran', () => {
   test.use({ viewport: FENETRES.w1366 })
 
