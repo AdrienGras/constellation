@@ -9,8 +9,8 @@ import { usePageTitre } from '../usePageTitre'
 import { categoriesDeLigne } from './categories'
 
 // Export imposé par le plan (tâche 14).
-// eslint-disable-next-line react-refresh/only-export-components
 /** Titres des `n` premiers métiers d’entrée de la ligne. */
+// eslint-disable-next-line react-refresh/only-export-components
 export function exemplesDeLigne(id: LigneId, n = 3): string[] {
   return stationsDeLigne(id)
     .map((s) => metierParId(s))
