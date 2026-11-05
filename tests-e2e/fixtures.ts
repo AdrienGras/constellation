@@ -13,8 +13,6 @@ interface Fixtures {
   quiz: QuizPage
   roadmap: RoadmapPage
   sources: SourcesPage
-  /** Vide le localStorage avant le test (une fois : un rechargement garde ensuite l'état). */
-  stockageVide: void
 }
 
 export const test = base.extend<Fixtures>({
@@ -24,14 +22,6 @@ export const test = base.extend<Fixtures>({
   quiz: async ({ page }, use) => use(new QuizPage(page)),
   roadmap: async ({ page }, use) => use(new RoadmapPage(page)),
   sources: async ({ page }, use) => use(new SourcesPage(page)),
-  stockageVide: [
-    async ({ page }, use) => {
-      await page.goto('./')
-      await page.evaluate(() => window.localStorage.clear())
-      await use()
-    },
-    { auto: false },
-  ],
 })
 
 export { expect }

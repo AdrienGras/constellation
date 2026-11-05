@@ -50,7 +50,7 @@ export function ItemRoadmap({
             {libelleType}
           </span>
         </span>
-        <p className="m-0 text-[17px] leading-6 font-bold">{item.titre}</p>
+        <p data-titre-element className="m-0 text-[17px] leading-6 font-bold">{item.titre}</p>
         {item.url && urlAcceptable(item.url) ? (
           <a
             data-lien-ecran

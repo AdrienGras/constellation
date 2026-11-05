@@ -43,7 +43,7 @@ test.describe('roadmap', () => {
     const chemin = await roadmap.exporter()
     expect((await readFile(chemin, 'utf8')).length).toBeGreaterThan(0)
 
-    await page.evaluate(() => window.localStorage.clear())
+    await roadmap.viderStockage()
     await page.reload()
     await expect(roadmap.titre).toHaveText('Quel métier vises-tu ?')
     await expect(roadmap.titresDeLAnnee(2027)).toHaveCount(0)

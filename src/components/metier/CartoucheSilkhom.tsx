@@ -43,7 +43,7 @@ function GrilleTranches({
   const premiere = grille.niveaux[0]
   const libelleZone = ZONES.find((z) => z.value === zone)?.label
   return (
-    <Table>
+    <Table label={`Profil Silkhom ${grille.ligne}, zone ${libelleZone}`}>
       <TableCaption className="sr-only">{`Profil Silkhom ${grille.ligne}, zone ${libelleZone}`}</TableCaption>
       <TableHeader>
         <TableRow>

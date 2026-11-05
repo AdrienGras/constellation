@@ -92,7 +92,7 @@ describe('primitives', () => {
 
   it('Table : le conteneur défilable est focalisable au clavier', () => {
     const { container } = render(
-      <Table>
+      <Table label="Tarifs">
         <TableBody>
           <TableRow>
             <TableCell>x</TableCell>
@@ -100,6 +100,8 @@ describe('primitives', () => {
         </TableBody>
       </Table>,
     )
-    expect(container.querySelector('[data-slot="table-container"]')).toHaveAttribute('tabindex', '0')
+    const region = screen.getByRole('region', { name: 'Tarifs' })
+    expect(region).toHaveAttribute('tabindex', '0')
+    expect(region).toContainElement(container.querySelector('table'))
   })
 })

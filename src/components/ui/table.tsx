@@ -1,11 +1,17 @@
 import * as React from 'react'
 import { cn } from '@/lib/utils'
 
-function Table({ className, ...props }: React.ComponentProps<'table'>) {
+function Table({
+  className,
+  label,
+  ...props
+}: React.ComponentProps<'table'> & { /** Nom du conteneur défilable, lu par les lecteurs d'écran quand il prend le focus. */ label: string }) {
   return (
     // Défilable à l'horizontale sur écran étroit : il doit être focalisable au clavier (axe, scrollable-region-focusable).
     <div
       data-slot="table-container"
+      role="region"
+      aria-label={label}
       tabIndex={0}
       className="w-full overflow-x-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
     >

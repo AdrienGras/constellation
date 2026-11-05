@@ -24,7 +24,7 @@ export function SourcesPage() {
       <section className="flex flex-col gap-3">
         <h2 className="titre-2 m-0">Les {sources.length} sources</h2>
         <div className="rounded-md bg-surface shadow-carte">
-          <Table>
+          <Table label="Liste des sources">
             <TableHeader>
               <TableRow>
                 {COLONNES.map((c) => (

@@ -6,7 +6,7 @@ import { AppPage, echapper } from './AppPage'
 
 export type TypeElement = 'projet' | 'notion'
 
-export interface Element {
+export interface ElementRoadmap {
   type?: TypeElement
   titre: string
   url?: string
@@ -50,24 +50,27 @@ export class RoadmapPage extends AppPage {
 
   /** Titres des éléments d'une année, dans l'ordre affiché. */
   titresDeLAnnee(annee: number): Locator {
-    return this.annee(annee).getByRole('article').locator('p.font-bold')
+    return this.annee(annee).getByRole('article').locator('[data-titre-element]')
   }
 
   get dialogue(): Locator {
     return this.page.getByRole('dialog')
   }
 
-  async ajouterElement(annee: number, element: Element) {
+  async ajouterElement(annee: number, element: ElementRoadmap) {
     await this.ouvrirAjout(annee)
     await this.remplirDialogue(element)
     await this.dialogue.getByRole('button', { name: 'Enregistrer' }).click()
     await this.dialogue.waitFor({ state: 'detached' })
-    await this.attendreRetourDuFocus()
+    await this.attendreRetourDuFocus(`Ajouter à ${annee}`)
   }
 
-  /** À la fermeture, l'app rend le focus au bouton d'origine ; on attend ce retour avant d'enchaîner. */
-  async attendreRetourDuFocus() {
-    await this.page.waitForFunction(() => document.activeElement !== document.body)
+  /** À la fermeture, l'app rend le focus au bouton d'origine : on attend ce bouton précis avant d'enchaîner. */
+  async attendreRetourDuFocus(nomBouton: string) {
+    await this.page.waitForFunction(
+      (nom) => document.activeElement?.tagName === 'BUTTON' && document.activeElement.textContent?.trim() === nom,
+      nomBouton,
+    )
   }
 
   async ouvrirAjout(annee: number) {
@@ -75,7 +78,7 @@ export class RoadmapPage extends AppPage {
     await this.dialogue.waitFor()
   }
 
-  async remplirDialogue({ type = 'projet', titre, url, note }: Element) {
+  async remplirDialogue({ type = 'projet', titre, url, note }: ElementRoadmap) {
     await this.dialogue.getByRole('radio', { name: LIBELLE_TYPE[type] }).check()
     await this.dialogue.getByLabel('Titre').fill(titre)
     if (url !== undefined) await this.dialogue.getByLabel('Ressource (URL)').fill(url)

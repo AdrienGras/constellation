@@ -118,7 +118,7 @@ export function CartoucheApec({
         <span>{`médiane · famille « ${apec.famille} »`}</span>
       </div>
       <Reglette apec={apec} />
-      <Table>
+      <Table label="Médianes Apec par population">
         <TableHeader>
           <TableRow>
             <TableHead scope="col">Population</TableHead>

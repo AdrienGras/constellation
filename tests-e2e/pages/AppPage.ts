@@ -15,6 +15,11 @@ export class AppPage {
     await this.barre.waitFor()
   }
 
+  /** Vide le localStorage de l'origine (la page doit déjà être chargée). */
+  async viderStockage() {
+    await this.page.evaluate(() => window.localStorage.clear())
+  }
+
   get barre(): Locator {
     return this.page.getByRole('navigation', { name: 'Navigation principale' })
   }
