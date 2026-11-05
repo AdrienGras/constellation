@@ -68,3 +68,52 @@ test.describe('roadmap : colonne des compétences', () => {
     expect(bas).toBeLessThanOrEqual(await roadmap.hauteurFenetre())
   })
 })
+
+for (const [nom, fenetre] of [
+  ['1366×633', FENETRES.w1366],
+  ['1280×590', FENETRES.w1280],
+] as const) {
+  test.describe(`quiz : barre de navigation collée (${nom})`, () => {
+    test.use({ viewport: fenetre })
+
+    test('les 16 questions : bouton visible à l’ouverture', async ({ quiz }) => {
+      await quiz.ouvrir()
+      for (let i = 0; i < 16; i++) {
+        await quiz.defilerA(0)
+        expect((await quiz.rectEcran(quiz.boutonAvancer)).bas).toBeLessThanOrEqual(await quiz.hauteurFenetre())
+        await quiz.cocherPremiere()
+        await quiz.boutonAvancer.click()
+      }
+    })
+
+    test('défilée en bas, la barre ne recouvre ni la dernière réponse ni la note', async ({ quiz }) => {
+      await quiz.ouvrir()
+      for (let i = 0; i < 8; i++) {
+        await quiz.cocherPremiere()
+        await quiz.boutonAvancer.click()
+      }
+      await quiz.defilerA(99999)
+      const barre = await quiz.rectEcran(quiz.barreNavigation)
+      expect((await quiz.rectEcran(quiz.dernierChoix)).bas).toBeLessThanOrEqual(barre.haut)
+      expect((await quiz.rectEcran(quiz.note)).bas).toBeLessThanOrEqual(barre.haut)
+    })
+
+    test('au clavier, la dernière réponse n’est pas masquée par la barre', async ({ quiz }) => {
+      await quiz.ouvrir()
+      for (let i = 0; i < 8; i++) {
+        await quiz.cocherPremiere()
+        await quiz.boutonAvancer.click()
+      }
+      await quiz.defilerA(0)
+      await quiz.descendreAuClavier(3)
+      const barre = await quiz.rectEcran(quiz.barreNavigation)
+      expect((await quiz.rectEcran(quiz.dernierChoix)).bas).toBeLessThanOrEqual(barre.haut)
+    })
+
+    test('départage : bouton visible à l’ouverture', async ({ quiz }) => {
+      await quiz.ouvrir()
+      await quiz.poserStockage('constellation.quiz.v1', QUIZ_A)
+      expect((await quiz.rectEcran(quiz.boutonAvancer)).bas).toBeLessThanOrEqual(await quiz.hauteurFenetre())
+    })
+  })
+}

@@ -38,7 +38,7 @@ export function Departage() {
     setChoix((c) => (c.includes(id) ? c.filter((x) => x !== id) : [...c, id]))
 
   return (
-    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-6 px-6 py-8">
+    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-6 px-6 pt-6">
       <h1 ref={h1} tabIndex={-1} className="m-0 font-display text-[28px] leading-9 font-bold">
         Une dernière question
       </h1>
@@ -67,7 +67,7 @@ export function Departage() {
               return (
                 <label
                   key={id}
-                  className="flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border-2 border-trait bg-surface px-6 py-4 text-[18px] leading-[26px] hover:border-trait-fort has-[:checked]:border-primaire has-[:checked]:shadow-[inset_0_0_0_1px_var(--primaire)] has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-60 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--focus)]"
+                  className="flex min-h-11 scroll-mb-28 cursor-pointer items-center gap-3 rounded-lg border-2 border-trait bg-surface px-6 py-4 text-[18px] leading-[26px] hover:border-trait-fort has-[:checked]:border-primaire has-[:checked]:shadow-[inset_0_0_0_1px_var(--primaire)] has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-60 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--focus)]"
                 >
                   <input
                     type="checkbox"
@@ -86,7 +86,10 @@ export function Departage() {
           </p>
         </div>
       )}
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div
+        data-barre-quiz
+        className="sticky bottom-0 -mx-6 flex flex-wrap items-center justify-between gap-3 border-t border-trait bg-fond px-6 py-4"
+      >
         <Button variant="outline" onClick={rouvrir}>
           ← Revenir aux questions
         </Button>
