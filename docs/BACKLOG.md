@@ -44,7 +44,9 @@ Organise les entrées par thème (`## <Thème>`), chaque idée étant une case �
 - [ ] Repasse UX, suites : barre du quiz sur 2 lignes en mobile (environ 130 px), plus haute que les marges de défilement `scroll-mb-32` / `scroll-mb-40`.
 - [ ] Repasse UX, suites : bouton « Plein écran » sur sa propre rangée sous 1280 px (aujourd'hui masqué avec la légende posée, absent du flux étroit).
 - [ ] Repasse UX, suites : ni capture ni test du rendu réel en plein écran (ratio du plan, légende, bulle).
-- [ ] Repasse UX, suites : libellés du plan à 11 px et textes secondaires de 13 à 15 px (n° 6 de l'audit) ; cosmétiques n° 7 à 13, dont les marges noires du PDF (à confirmer dans la boîte d'impression).
+- [ ] Repasse UX, suites : textes secondaires de 13 à 15 px (n° 6 de l'audit ; les libellés du plan sont à 12 px depuis le plan pleine largeur, sauf sous 1280 px). Cosmétiques n° 7 à 13 : faits (étape 3) ; marges blanches du PDF à revoir à l'œil dans la boîte d'impression de Chrome et d'Edge.
+- [ ] Plan : bulle non remesurée si l'on défile pendant qu'elle est affichée (elle peut être rognée).
+- [ ] Mineurs de la relecture de l'étape 3 : test « filtre après quiz » sur Back-end (ligne du top 3, pas une ligne estompée) ; `SourcesPage.datesDuTableau` choisit la colonne par position ; bulle toujours « dessous » en jsdom (rect à 0) ; opacité des fonds de quartier non vérifiée en test unitaire.
 - [ ] Repasse UX, suites : retirer le rappel « point de départ » de l'encart du quiz si une ligne s'ajoute à l'en-tête (2 px de marge sous le plafond de 300 px).
 - [ ] Déplacer un élément de roadmap d'une année à l'autre (aujourd'hui : supprimer puis recréer).
 - [ ] Zoom du plan sur mobile.

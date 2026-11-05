@@ -243,7 +243,7 @@ Corrigé le 05/11/2026 sur la branche `app` (commits `230280c..cdcd91a`). Spec :
 | 4 | Bouton « Question suivante » sous le pli | Barre de navigation `sticky bottom-0`, marges de défilement sur l'élément focalisé |
 | 5 | Titre et légende de l'en-tête | Légende dans le plan à partir de 1280 px, bouton « Plein écran » |
 
-Annexe, corrigée aussi : exemples de la ligne Management, bouton `ghost` désactivé sans fond de survol, filet bas du tableau Apec. Les n° 6 à 13 restent ouverts (BACKLOG).
+Annexe, corrigée aussi : exemples de la ligne Management, bouton `ghost` désactivé sans fond de survol, filet bas du tableau Apec. Les n° 6 à 13 restaient ouverts ; les n° 7 à 13 sont traités dans l'étape 3 (plus bas), le n° 6 reste au BACKLOG.
 
 Haut du dessin du plan (`[data-plan-dessin]`, `rect.top + scrollY`, barre de navigation comprise), mesuré le 05/11/2026 sur le build de production (`vite preview`), `deviceScaleFactor: 1`. La part visible est `(hauteur de fenêtre − haut) / hauteur du dessin`. La spec `tests-e2e/mise-en-page.spec.ts` vérifie que le haut est ≤ 300 px et que le centre « TA FORMATION » est visible en 1366×633.
 
@@ -267,3 +267,44 @@ Captures après correction :
 
 ![Quiz question 9, 1280×590](captures/quiz-1280x590-apres-correction.png)
 
+### Étape 3 : cosmétiques n° 7 à 13, et zone d'exploration (n° 14)
+
+Corrigé le 05/11/2026 sur la branche `repasse-ux-cosmetique`, pas encore commité. Spec : [`2026-11-05-repasse-ux-cosmetique-design.md`](../../superpowers/specs/2026-11-05-repasse-ux-cosmetique-design.md). Plan : [`2026-11-05-repasse-ux-cosmetique.md`](../../superpowers/plans/2026-11-05-repasse-ux-cosmetique.md). Le n° 14 a été ajouté par Adrien : après le quiz, la zone d'exploration attirait plus l'œil que le top 3.
+
+| # | Problème | Correction | Mesure |
+|---|---|---|---|
+| 7 | Le plan ne prend pas toute la largeur | Le plan sort de la marge de page (plafonné à 1280 px). En-tête en `pt-3`. Légende dans le flux en `gap-x-4 gap-y-2`. **La liste « Catégorie » reste à 240 px** : à 280 px, l'encart du quiz passe à la ligne et le haut du plan monte à 306 px en 1280×590. | Dessin de 1280×720 en 1280 (1184×666 avant) ; libellés à 12 px |
+| 8 | Éléments de roadmap très hauts | Les 4 actions passent sur une rangée en haut à droite. Sous `sm`, elles passent sous le contenu. | Cartes de l'exemple de l'audit : 144 / 90 / 90 px en 1280×720. La carte au titre d'une ligne mesurait 182 px avant (1280×800) |
+| 9 | Dates coupées au trait d'union | `whitespace-nowrap` | 6 dates sur une ligne |
+| 10 | Colonne des barres Silkhom étirée | Piste plafonnée à 640 px. La colonne prend le reste de la largeur, et l'espace libre va à droite de la barre. | Piste de 816 à 640 px en 1536. Écart entre fourchette et piste : de 82 px (première version) à ≤ 32 px. À la demande d'Adrien, la barre est aussi calée sur la ligne de sa fourchette quand le badge « premier emploi » rend la ligne plus haute (décalage vertical de 13 px → ≤ 1 px) |
+| 11 | Métiers voisins sur deux lignes | Gardé tel quel (jugé acceptable à l'audit) | — |
+| 12 | Bulle rognée, cibles qui se chevauchent, « FORMATION » qui touche le bord du disque | La bulle passe sous la station quand elle sortirait par le haut ; son côté est recalculé à chaque ouverture. Les cibles rondes suivent la largeur du plan (`clamp(24px, 2,75 %, 34px)`). Le dessin de la station suit sa cible et ne prend plus le pointeur. Le disque central passe d'un rayon de 30 à 34. | Bulle de « RSSI » entière quand la station est à 60 px du haut. Aucun point de clic n'ouvre une station plus lointaine que la plus proche (en 1280, 1366 et 1024 : 28, 18 et 54 points fautifs avant) |
+| 13 | Marges noires du PDF | `:root { color-scheme: light }` sous `@media print` | Pixel de marge du PDF A4 (`printBackground: true`) : `rgb(18,18,18)` → `rgb(255,255,255)` |
+| 14 | Zone d'exploration plus voyante que le top 3 | Fond des quartiers et tracés des 5 lignes hors du top 3 à une opacité de 0,4, sans pointillé. Les stations et les libellés gardent leur plein contraste. L'encart dit « les lignes estompées ». | — |
+
+Haut du dessin et bas du centre « FORMATION », remesurés sur le build de production :
+
+| Fenêtre | Haut avant le quiz | Haut après le quiz | Centre après le quiz |
+|---|---|---|---|
+| 1366×768, 1440×900, 1536×864 | 254 px | 256 px | 629 px |
+| 1280×720, 1280×800 | 254 px | 284 px | 657 px |
+| 1366×633 | 254 px | 256 px | **629 px** (fenêtre de 633) |
+| 1280×590 | 254 px | 284 px | 657 px (sous le pli, comme avant) |
+
+Avec le départage en attente, les valeurs sont celles d'avant le quiz. En 1366×633, le test exige désormais 2 px de marge sous le centre.
+
+Une relecture finale (Opus) a relevé deux défauts, corrigés avec un test qui échouait d'abord :
+- **Bulle** : son côté restait « dessous » quand on resurvolait une station plus bas.
+- **Zone de clic** : elle était celle du dessin carré de 34 px, pas celle du disque du lien. Le premier test mesurait le rectangle du lien et passait à tort.
+
+Résultats des vérifications : 231 tests unitaires, lint propre, build, 109 tests e2e passés et 69 ignorés (specs réservées au bureau ou au mobile).
+
+Défaut préexistant relevé au passage et corrigé à la demande d'Adrien : en 1280×720, la pastille « Java/Spring… C#/.NET » débordait de la carte des compétences de la roadmap (droite à 1286 px pour une carte à 1232). Les pastilles passent maintenant à la ligne.
+
+Captures après la correction :
+
+![Plan après le quiz, 1280×800](captures/plan-1280x800-apres-cosmetique.png)
+
+![Roadmap, 1280×720](captures/roadmap-1280x720-apres-cosmetique.png)
+
+![Tableau Silkhom, 1536×864](captures/fiche-1536x864-silkhom-apres-cosmetique.png)

@@ -20,6 +20,39 @@ corps, sans distinction entre ce qui est fait, en suspens, ou à creuser.
 
 ---
 
+## 2026-11-05 — Repasse UX, étape 3 : cosmétiques n° 7 à 13 et zone d'exploration estompée
+
+**Dernière chose faite** : les n° 7 à 13 de l'audit sont traités, plus un n° 14 ajouté par Adrien (zone d'exploration estompée après le quiz). Tout est sur la branche `repasse-ux-cosmetique` (depuis `main` `bf6284e`), **non commité**. Spec et plan dans `docs/superpowers/` (`2026-11-05-repasse-ux-cosmetique*`). Les changements :
+- **n° 7** : plan en pleine largeur (1280×720 en 1280), en-tête en `pt-3`, liste « Catégorie » gardée à 240 px (accord d'Adrien) ;
+- **n° 8** : les 4 actions d'un élément de roadmap sur une rangée, sous le contenu en mobile ;
+- **n° 9** : dates des sources en `nowrap` ;
+- **n° 10** : piste Silkhom plafonnée à 640 px, colonne en `w-full`, barre calée sur la 1re ligne de sa fourchette (`h-[22px]`, demande d'Adrien) ;
+- **n° 11** : gardé tel quel ;
+- **n° 12** :
+  - la bulle passe sous la station si elle sort par le haut (côté lié à l'objet `actif`) ;
+  - les cibles suivent la largeur du plan (`clamp(24px,2.75%,34px)`), le dessin suit sa cible (`size-full`) et ne prend pas le pointeur ;
+  - disque central de rayon 34 ;
+- **n° 13** : marges du PDF confirmées noires (`rgb(18,18,18)`), corrigées par `color-scheme: light` sous `@media print` ;
+- **n° 14** : tracés et quartiers hors du top 3 à une opacité de 0,4, sans pointillé ; l'encart dit « les lignes estompées ».
+
+Relecture finale par Opus : deux défauts importants corrigés, chacun en partant d'un test qui échouait (côté de bulle périmé, zone de clic du dessin). Ensuite, à la demande d'Adrien : pastilles des compétences de la roadmap qui passent à la ligne au lieu de déborder (défaut de `main`). Vérifié : 231 tests unitaires, lint, build, 109 e2e passés et 69 ignorés. Rapport, section « Suites », sous-section « Étape 3 », avec mesures et 3 captures.
+
+**Trucs en suspens** : commit, push et PR attendent la demande d'Adrien. À vérifier à l'œil par Adrien :
+- la zone d'exploration estompée (opacité 0,4, réglable par `OPACITE_EXPLORATION` dans `PlanSvg.tsx`) ;
+- les stations plus petites sous 1237 px de large ;
+- les marges du PDF dans la boîte d'impression de Chrome et d'Edge.
+
+Quatre mineurs de relecture au BACKLOG.
+
+**Prochaine chose à creuser** : la passe visuelle d'Adrien, puis commit, PR vers `main` et publication. Reste au BACKLOG le n° 6 (textes secondaires de 13 à 15 px).
+
+**Notes pour future Claude** :
+- Tant qu'un `vite preview` tourne sur 4173, `npm run e2e` le réutilise et teste l'ancien `dist/` : lancer `npm run build` avant (QUIRKS).
+- Une cible cliquable se teste par `elementFromPoint`, pas par le rectangle du lien (CONVENTIONS, QUIRKS).
+- `aspect-square` cède à un enfant plus grand (QUIRKS).
+- Marges actuelles en 1366×633 : haut du plan à 254 / 256 px, centre à 627 / 629 px pour 633 px de fenêtre (le test exige 2 px de marge).
+- Le ledger d'exécution est dans `.superpowers/sdd/2026-11-05-repasse-ux-cosmetique/progress.md` (ignoré par git), avec les décisions `Ruling:`.
+
 ## 2026-11-05 — Repasse UX, étape 2 : résolutions des problèmes de l'audit
 
 **Dernière chose faite** : les problèmes 1 à 5 du rapport d'audit sont corrigés (commits `230280c..cdcd91a` sur `app`, spec et plan dans `docs/superpowers/`). Plan : en-tête compact `EnTeteAccueil` partagé avec la liste, encart du quiz réduit après le quiz, légende des lignes posée dans le plan dès 1280 px (coin haut gauche), bouton « Plein écran » (`usePleinEcran`, masqué si l'API manque), bulle au-dessus de la légende. Haut du dessin du plan : 258 px avant le quiz, 260 px après (288 px en 1280 de large), remesurés le 05/11/2026 dans 7 fenêtres après la relecture finale ; le centre « TA FORMATION » finit à 628 / 630 px en 1366×633 (fenêtre 633). Relecture finale : encart du résultat remis sur 3 rangées (pastilles sur une rangée), anti-recouvrement des stations réparé (sélecteur `href*=` et garde-fou à 68), constantes de spec dans `tests-e2e/donnees.ts`, « Effacer les filtres » à 20 px de haut (plus d'empiètement sur le select), props mortes retirées. Quiz : barre de navigation `sticky bottom-0`, marges de défilement `scroll-mb-32` / `scroll-mb-40` sur l'élément focalisé. Roadmap : `sticky` porté par l'enveloppe, hauteur plafonnée. Hors résolution, résolus aussi : exemples « Par exemple, après quelques années : » pour Management, bouton `ghost` désactivé sans fond de survol, filet bas des en-têtes de ligne du tableau Apec. Nouvelle spec `tests-e2e/mise-en-page.spec.ts` (fenêtres réelles 1366×633, 1280×590, 1536×731, 1280×800). Vérifié : 230 tests unitaires, lint propre, build, 93 e2e passés (53 ignorés, projet mobile). Captures « après » : `plan-1366x633-`, `plan-1280x800-` et `quiz-1280x590-apres-correction.png`.
