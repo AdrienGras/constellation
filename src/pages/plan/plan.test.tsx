@@ -88,7 +88,7 @@ describe('PlanPage', () => {
 
   it('un filtre de catégorie atténue les autres stations sans les sortir de la tabulation', async () => {
     monter()
-    await userEvent.click(screen.getByRole('button', { name: 'Back-end' }))
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Catégorie' }), 'Back-end')
     const toutes = stations()
     const attenuees = toutes.filter((s) => s.dataset.attenue === 'true')
     expect(attenuees).toHaveLength(63)

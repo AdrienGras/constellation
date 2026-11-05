@@ -1,7 +1,5 @@
 import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router'
-import { PastilleLigne } from '@/components/metier/PastilleLigne'
-import { lignes } from '@/donnees'
 import { useFiltres } from '@/etat/FiltresContext'
 import { useQuiz } from '@/etat/QuizContext'
 import { usePageTitre } from '../usePageTitre'
@@ -35,10 +33,13 @@ export function PlanPage() {
   }, [navigate])
 
   return (
-    <div className="flex flex-col gap-5 px-6 py-8 md:px-12">
-      <div className="flex flex-wrap items-end justify-between gap-6">
+    <div className="flex flex-col gap-2 px-6 pt-4 pb-6 md:px-12">
+      <div className="flex flex-wrap items-end justify-between gap-6 lg:flex-nowrap">
         <div>
-          <h1 className="m-0 font-display text-[40px] leading-[1.1] font-bold tracking-[-0.02em]">
+          <p className="m-0 text-[13px] leading-5 font-bold tracking-[0.06em] text-encre-douce uppercase">
+            Accueil
+          </p>
+          <h1 className="mt-1 mb-0 font-display text-[30px] leading-[1.1] font-bold tracking-[-0.02em]">
             Le plan des métiers du numérique
           </h1>
           <p className="mt-2 mb-0 max-w-[760px] text-encre-douce">
@@ -46,7 +47,7 @@ export function PlanPage() {
             voir le métier, clique pour ouvrir sa fiche.
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-none flex-wrap items-center gap-4">
           <EncartQuiz />
           <BasculeVue actif="graphe" />
         </div>
@@ -59,11 +60,6 @@ export function PlanPage() {
         Passer à la vue liste
       </Link>
       <PlanSvg filtres={filtres} top3={top3} />
-      <div aria-label="Légende des lignes" role="group" className="flex flex-wrap gap-x-4 gap-y-2">
-        {lignes.map((l) => (
-          <PastilleLigne key={l.id} ligne={l.id} taille="sm" />
-        ))}
-      </div>
     </div>
   )
 }
