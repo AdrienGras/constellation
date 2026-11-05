@@ -1,6 +1,11 @@
-import { usePageTitre } from '../usePageTitre'
+import { useQuiz } from '@/etat/QuizContext'
+import { Departage } from './Departage'
+import { Question } from './Question'
+import { Resultat } from './Resultat'
 
 export function QuizPage() {
-  usePageTitre('Quiz')
-  return <h1>Quiz</h1>
+  const { etat, top3 } = useQuiz()
+  if (!etat.termine) return <Question index={etat.question} />
+  if (top3 === null) return <Departage />
+  return <Resultat top3={top3} />
 }
