@@ -47,7 +47,7 @@ L'app compte cinq écrans : nuage, fiche, quiz, roadmap, sources.
 - Brief, missions, compétences, « à éviter si », parcours.
 - Type : entrée ou évolution ; pour un métier d'évolution, les métiers « depuis » sont cliquables.
 - Chaque bloc de salaires est titré « Salaire cible » : un salaire à viser après quelques années, pas un salaire de sortie d'études.
-- Salaire cible Silkhom : grille par tranche d'années d'expérience (« 0–2 ans », « 2–5 ans »…), avec sélecteur de zone (Paris, grandes villes, régions). Zone par défaut : régions. Si la première tranche commence à 0 an, elle est signalée en régions comme la plus proche d'un premier emploi ; sinon, la fiche affiche « pas de premier emploi direct : métier accessible après N ans d'expérience » (N = `annees_min` de la première tranche).
+- Salaire cible Silkhom : grille par tranche d'années d'expérience (« 0–2 ans », « 2–5 ans »…), avec sélecteur de zone (Paris, grandes villes, régions). Zone par défaut : régions. Si la première tranche commence à 0 an, elle est signalée en régions comme la plus proche d'un premier emploi pour un métier d'entrée ; pour un métier d'évolution, la fiche affiche à la place « Métier d'évolution : les années comptent l'expérience dans ce poste, après un premier métier (…) », avec ses métiers « depuis » ; si la première tranche ne commence pas à 0 an, la fiche affiche « pas de premier emploi direct : métier accessible après N ans d'expérience » (N = `annees_min` de la première tranche).
 - Salaire cible Apec : médiane et déciles de la famille, affichés à part, avec la mention « médiane des cadres, toutes expériences, pas un salaire d'embauche » et une phrase rappelant que les deux sources ne se comparent pas.
 - Badge de fiabilité et source du texte.
 - Voisins cliquables ; lien roadmap.sh quand il existe.
@@ -92,7 +92,7 @@ Toutes les données viennent d'un seul fichier, `metiers.json` (version 1.1, 02/
 Règles d'affichage :
 
 - Silkhom est en brut annuel fixe, l'Apec en fixe + variable pour des cadres : jamais sur un même graphique ni dans une même colonne.
-- Les salaires sont des salaires cibles, jamais présentés comme des salaires de sortie d'études. Chaque bloc s'intitule « Salaire cible ». Le bloc Apec porte la mention « médiane des cadres, toutes expériences, pas un salaire d'embauche ». Dans la grille Silkhom, la première tranche en régions est signalée comme « la plus proche d'un premier emploi » seulement si elle commence à 0 an (`annees_min == 0`) ; sinon, la fiche affiche « pas de premier emploi direct : métier accessible après N ans d'expérience », N étant l'`annees_min` de la première tranche.
+- Les salaires sont des salaires cibles, jamais présentés comme des salaires de sortie d'études. Chaque bloc s'intitule « Salaire cible ». Le bloc Apec porte la mention « médiane des cadres, toutes expériences, pas un salaire d'embauche ». Dans la grille Silkhom, la première tranche en régions est signalée comme « la plus proche d'un premier emploi » seulement si elle commence à 0 an (`annees_min == 0`) et que le métier est un métier d'entrée ; pour un métier d'évolution qui commence à 0 an, pas de signalement mais la phrase « Métier d'évolution : les années comptent l'expérience dans ce poste, après un premier métier (…) » (décision d'Adrien, 02/11/2026) ; si la première tranche ne commence pas à 0 an, la fiche affiche « pas de premier emploi direct : métier accessible après N ans d'expérience », N étant l'`annees_min` de la première tranche.
 - Les tranches Silkhom s'affichent en années d'expérience (« 0–2 ans », « 2–5 ans », « 5 ans et plus »), d'après `annees_min` et `annees_max`, et jamais avec les étiquettes « junior / confirmé / senior » de `niveau`, qui sonnent faux pour un métier d'évolution. Les tranches varient d'une ligne à l'autre (0–2 / 2–5 / 5+ ou 0–3 / 3–7 / 7+) : les afficher telles qu'elles sont dans les données, dans leur ordre. Une tranche ouverte (`annees_max: null`) s'affiche « N ans et plus », y compris quand une grille en compte deux (par exemple « 6 ans et plus » puis « 15 ans et plus »). Un trou entre deux tranches est montré tel quel, sans le combler. Aucune étiquette de `niveau` ne s'affiche, `expert` pas plus que les autres : seulement les années.
 - `rapprochement` vaut `null` ou `{de, raison}`. Quand il est renseigné, les chiffres viennent d'une ligne Silkhom ou d'une famille Apec voisine : l'app l'affiche avec sa `raison` (« données de … »), sous le bloc de salaires concerné.
 - `a_relire` n'est pas affiché. Il a servi à suivre la relecture des 36 fiches concernées, faite le 02/11/2026 : il vaut désormais `false` partout.
@@ -105,7 +105,7 @@ Règles d'affichage :
 - **Cible** : ordinateurs portables des étudiants et vidéoprojecteur. Desktop d'abord, lisible sur mobile.
 - **Impression** : feuille de style dédiée pour la roadmap, une année par bloc, sans navigation ni couleurs de fond.
 - **Accessibilité** : contrastes suffisants, navigation clavier, et une vue liste comme alternative au graphe.
-- **Pile technique** : à décider (voir décisions ouvertes).
+- **Pile technique** : React + Vite + Tailwind CSS + shadcn/ui (icônes `lucide-react`), build statique pour GitHub Pages ; `metiers.json` importé au build. Décision d'Adrien, 05/11/2026. Référence visuelle : la maquette validée (design system « constellation » et canevas, voir `maquette/README.md`).
 
 ## Hors périmètre
 
@@ -123,7 +123,7 @@ Le nuage, les fiches et la roadmap peuvent être développés dès maintenant. L
 | --- | --- | --- |
 | Regrouper les 17 catégories en macro-branches pour le quiz ; la règle « hors top 3 » porte sur ces macro-branches | Validé (8 branches) | Rien |
 | Questions et pondérations du quiz | Relues et validées (16 questions) | Rien |
-| Pile technique | À décider | Démarrage du code |
+| Pile technique | Validé (React + Vite + Tailwind + shadcn/ui, 05/11/2026) | Rien |
 | Licence des textes propres (CC BY 4.0 proposée) | À décider | Mise en ligne |
 | Liens roadmap.sh par fiche (`roadmap_url`) | Remplis pour 29 fiches sur 68 | Rien, affichage conditionnel |
 | Seuil de 12 élèves (article 8) et absence du groupe B2-I : question à Yoan | À poser | Maintien de la session |

@@ -1,0 +1,14 @@
+<!-- @dsCard group="Affichage" height=150 subtitle="au survol et au focus" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Tooltip — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h('div', { style: { paddingTop: '56px' } }, h(C.Tooltip, { open: true, content: h(React.Fragment, null, h('strong', null, 'Site Reliability Engineer (SRE)'), 'DevOps, cloud & SRE · métier d’évolution') }, h(C.Button, { variant: 'outline' }, 'Station SRE')))
+));
+</script>
+</body>
+</html>

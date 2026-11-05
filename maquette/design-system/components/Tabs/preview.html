@@ -1,0 +1,19 @@
+<!-- @dsCard group="Navigation" height=170 subtitle="onglets accessibles au clavier (flèches, Début, Fin)" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Tabs — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Tabs, { label: 'Profil Silkhom', items: [
+    { value: 'java', label: 'Java', content: 'Grille du profil Java.' },
+    { value: 'python', label: 'Python', content: 'Grille du profil Python.' },
+    { value: 'php', label: 'PHP', content: 'Grille du profil PHP.' },
+    { value: 'net', label: 'Net', content: 'Grille du profil .NET.' },
+    { value: 'js', label: 'Backend JS', content: 'Grille du profil Backend JS.' } ] })
+));
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- @dsCard group="Affichage" height=260 subtitle="info · attention · neutre" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Alert — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo-col"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Alert, { variant: 'info', title: 'Médiane des cadres, toutes expériences, pas un salaire d’embauche.' }),
+  h(C.Alert, { variant: 'attention', title: 'Pas de premier emploi direct : métier accessible après 6 ans d’expérience.' }),
+  h(C.Alert, { variant: 'neutre', title: 'Ton navigateur ne garde rien.' }, 'Ton résultat de quiz et ta roadmap seront perdus en fermant l’onglet. Pense à exporter.')
+));
+</script>
+</body>
+</html>

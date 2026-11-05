@@ -1,0 +1,42 @@
+{
+ "developpement": {
+  "nom": "Développement",
+  "vive": "#3fbbff",
+  "halo": "#013053"
+ },
+ "infra-cloud": {
+  "nom": "Infra & cloud",
+  "vive": "#40ef7c",
+  "halo": "#033816"
+ },
+ "cybersecurite": {
+  "nom": "Cybersécurité",
+  "vive": "#ff4b57",
+  "halo": "#4f1a1b"
+ },
+ "data-ia": {
+  "nom": "Data & IA",
+  "vive": "#a65aff",
+  "halo": "#34234f"
+ },
+ "qualite-archi": {
+  "nom": "Qualité & architecture",
+  "vive": "#ff9010",
+  "halo": "#4b2000"
+ },
+ "produit-design": {
+  "nom": "Produit & design",
+  "vive": "#ff65ca",
+  "halo": "#481a37"
+ },
+ "relation-transmission": {
+  "nom": "Relation & transmission",
+  "vive": "#ffe919",
+  "halo": "#382e00"
+ },
+ "management": {
+  "nom": "Management",
+  "vive": "#00ecff",
+  "halo": "#003841"
+ }
+}

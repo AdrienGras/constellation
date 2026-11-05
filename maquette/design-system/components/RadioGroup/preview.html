@@ -1,0 +1,19 @@
+<!-- @dsCard group="Formulaires" height=400 subtitle="liste ou cartes de quiz" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>RadioGroup — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo-col"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.RadioGroup, { variant: 'carte', legend: "Quelqu'un de ta promo te fait tester l'appli de son projet. Ce qui te saute aux yeux en premier…", defaultValue: 'b', options: [
+    { value: 'a', label: 'les boutons mal alignés, et le fait qu’on ne sait pas où cliquer' },
+    { value: 'b', label: 'le formulaire qui accepte n’importe quoi, et les mots de passe stockés en clair' },
+    { value: 'c', label: 'la façon dont le code est rangé (ou pas)' },
+    { value: 'd', label: 'le fait que ça ne tourne que sur sa machine' } ] }),
+  h(C.RadioGroup, { legend: 'Type d’item', defaultValue: 'projet', options: [ { value: 'projet', label: 'Projet à réaliser', description: 'Quelque chose que tu construis.' }, { value: 'notion', label: 'Notion à apprendre', description: 'Un sujet à comprendre.' } ] })
+));
+</script>
+</body>
+</html>

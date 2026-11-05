@@ -1,0 +1,14 @@
+<!-- @dsCard group="Formulaires" height=130 subtitle="liste déroulante native stylée" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Select — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo-col"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Select, { label: 'Catégorie', options: [ { value: 'toutes', label: 'Toutes les catégories (17)' }, { value: 'backend', label: 'Back-end (5)' }, { value: 'devops-cloud', label: 'DevOps, cloud & SRE (6)' }, { value: 'secu', label: 'Cybersécurité (6)' } ] })
+));
+</script>
+</body>
+</html>

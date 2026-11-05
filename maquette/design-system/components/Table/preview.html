@@ -1,0 +1,15 @@
+<!-- @dsCard group="Affichage" height=230 subtitle="en-têtes, n.d. automatique" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Table — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo-col"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Table, { caption: 'Sources des données', columns: [ { key: 'titre', label: 'Source' }, { key: 'editeur', label: 'Éditeur' }, { key: 'date', label: 'Date', align: 'right', num: true } ],
+    rows: [ { titre: 'Baromètre des salaires 2026', editeur: 'Silkhom', date: '2026' }, { titre: 'Les rémunérations des cadres, édition 2025', editeur: 'Apec', date: '2025' }, { titre: 'Nomenclature des profils métiers du SI', editeur: 'Cigref', date: null } ] })
+));
+</script>
+</body>
+</html>

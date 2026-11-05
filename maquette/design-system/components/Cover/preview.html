@@ -1,0 +1,53 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>constellation</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--fond); color: var(--encre); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; }
+  .band { position: absolute; top: 0; left: 0; width: 960px; height: 120px; }
+  .band svg { display: block; }
+  .marine { fill: var(--ligne-developpement); }
+  .bleu { fill: var(--ligne-infra-cloud); }
+  .orange { fill: var(--ligne-produit-design); }
+  .ciel { fill: var(--ligne-relation-transmission); }
+  .blk { rx: var(--rayon-md); }
+  .trace { fill: none; stroke: var(--ligne-qualite-archi); stroke-width: var(--trace-ligne); stroke-linecap: round; stroke-linejoin: round; }
+  .station { fill: var(--fond); stroke: var(--encre); stroke-width: 3; }
+  .correspondance { fill: var(--fond); stroke: var(--encre); stroke-width: 3; }
+  .words { position: absolute; left: var(--espace-6); bottom: var(--espace-6); max-width: 880px; }
+  .name { margin: 0; font-family: var(--font-display); font-size: 64px; line-height: 0.95; font-weight: 750; letter-spacing: -0.03em; color: var(--encre); }
+  .tag { margin: var(--espace-2) 0 0 2px; font-size: 14px; line-height: 20px; color: var(--encre-douce); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="band" aria-hidden="true">
+<svg viewBox="0 0 960 120" width="960" height="120">
+<!--
+  blocks      ligne-developpement 336×104 bled off the top (la ligne 1, celle de la majorité de la promo, le plus grand) · ligne-infra-cloud 176×88 · ligne-relation-transmission 200×72 · ligne-produit-design 216×104 bled off the right edge — ≈ 40 % de la bande, en fluo sur le fond sombre
+  arrangement une bande de blocs inégaux, bas étagés comme des quais, gouttières espace-4, tous bord haut hors cadre
+  pattern     row « motif littéral » : un seul trajet de métro en ligne-qualite-archi, trace-ligne d'épaisseur, segments à 0° et 45°, avec quatre stations (trois pleines, une correspondance) évidées dans `fond`, parce que le système dit « le plan de métro »
+  scales      côtés en multiples d'espace-2 ; gouttières espace-4 ; coins rayon-md ; trait trace-ligne ; stations 18 px (station-diametre)
+-->
+<rect class="marine blk" x="0" y="-16" width="336" height="104" rx="10"/>
+<rect class="bleu blk" x="352" y="-16" width="176" height="88" rx="10"/>
+<rect class="ciel blk" x="544" y="-16" width="200" height="72" rx="10"/>
+<rect class="orange blk" x="760" y="-16" width="216" height="104" rx="10"/>
+<path class="trace" d="M -8 104 H 216 L 264 56 H 600 L 640 96 H 968"/>
+<circle class="station" cx="120" cy="104" r="9"/>
+<circle class="station" cx="400" cy="56" r="9"/>
+<circle class="correspondance" cx="520" cy="56" r="11"/>
+<circle class="station" cx="840" cy="96" r="9"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">constellation</h1>
+<p class="tag">Le plan des métiers du numérique, pour choisir ta ligne de départ.</p>
+</div>
+</div>
+</body>
+</html>

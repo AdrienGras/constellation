@@ -1,0 +1,20 @@
+<!-- @dsCard group="Plan de métro" height=170 subtitle="entrée pleine, évolution à anneau ; repos, survol, focus, atténuée" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Station — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Station, { ligne: 'developpement', categorie: 'backend', type: 'entree', titre: 'Entrée' }),
+  h(C.Station, { ligne: 'infra-cloud', categorie: 'devops-cloud', type: 'evolution', titre: 'Évolution' }),
+  h(C.Station, { ligne: 'cybersecurite', type: 'entree', etat: 'survol', titre: 'Survol' }),
+  h(C.Station, { ligne: 'data-ia', categorie: 'ia', type: 'evolution', etat: 'focus', titre: 'Focus clavier' }),
+  h(C.Station, { ligne: 'qualite-archi', categorie: 'qa', type: 'entree', etat: 'attenue', titre: 'Zone d’exploration' }),
+  h(C.Station, { ligne: 'relation-transmission', categorie: 'support', type: 'entree', titre: 'Support' }),
+  h(C.Station, { ligne: 'management', type: 'evolution', titre: 'Management' })
+));
+</script>
+</body>
+</html>

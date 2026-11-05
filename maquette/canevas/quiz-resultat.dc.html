@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Résultat du quiz</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/constellation/tokens.css">
+<link rel="stylesheet" href="ds/constellation/components/bundle.css">
+<script src="ds/constellation/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#eef2f7}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 1060px; background: var(--fond); color: var(--encre); font-family: var(--font-sans); font-size: 17px; line-height: 26px">
+<x-import component-from-global-scope="Constellation.BarreNavigation" actif="quiz" routes="{{routes}}"></x-import>
+<main id="contenu" style="max-width: 880px; margin: 0 auto; padding: 40px 48px 64px; display: flex; flex-direction: column; gap: 28px">
+<sc-if value="{{enCours}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p class="etiquette" style="margin: 0; color: var(--encre-douce)">Quiz · environ 10 minutes</p>
+<x-import component-from-global-scope="Constellation.Progress" value="{{num}}" max="{{max}}" label="{{progression}}" detail="{{reste}}"></x-import>
+</div>
+<sc-for list="{{questions}}" as="q" hint-placeholder-count="1">
+<sc-if value="{{q.visible}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<h1 class="titre-1" style="margin: 0; font-size: 34px; line-height: 40px">{{q.intitule}}</h1>
+<x-import component-from-global-scope="Constellation.RadioGroup" variant="carte" legend="{{q.intitule}}" legende-masquee="{{oui}}" options="{{q.options}}" name="{{q.id}}" default-value="{{q.choix}}" on-value-change="{{q.pick}}"></x-import>
+</div>
+</sc-if>
+</sc-for>
+<div style="display: flex; justify-content: space-between; gap: 12px">
+<x-import component-from-global-scope="Constellation.Button" variant="ghost" on-click="{{precedent}}" disabled="{{premiere}}">← Question précédente</x-import>
+<x-import component-from-global-scope="Constellation.Button" size="lg" on-click="{{suivant}}" disabled="{{pasRepondu}}">{{libelleSuivant}}</x-import>
+</div>
+<p style="margin: 0; font-size: 15px; color: var(--encre-douce)">Il n’y a pas de bonne réponse : choisis ce qui te ressemble le plus, même de peu.</p>
+</sc-if>
+<sc-if value="{{fini}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p class="etiquette" style="margin: 0; color: var(--encre-douce)">Résultat du quiz</p>
+<h1 class="titre-affiche" style="margin: 0">Tes 3 lignes de départ</h1>
+<p class="chapo" style="margin: 0">Un point de départ, pas un verdict. Ce matin, tu vas justement explorer ailleurs : 3 métiers hors de ces lignes.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<sc-for list="{{top}}" as="t" hint-placeholder-count="3">
+<section style="background: var(--surface); border-radius: var(--rayon-lg); box-shadow: var(--ombre-carte); padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; border-left: 0">
+<x-import component-from-global-scope="Constellation.PastilleLigne" ligne="{{t.id}}" taille="lg" rang="{{t.rang}}"></x-import>
+<p style="margin: 0; color: var(--encre-douce)">{{t.cats}}</p>
+<p style="margin: 0; font-size: 15px">Par exemple : {{t.exemples}}</p>
+</section>
+</sc-for>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center">
+<a href="nuage-apres-quiz.dc.html" class="cs-btn cs-btn-default cs-btn-lg">Voir mes lignes sur le plan</a>
+<x-import component-from-global-scope="Constellation.Button" variant="secondary" size="lg" on-click="{{refaire}}">Refaire le quiz</x-import>
+</div>
+<x-import component-from-global-scope="Constellation.Alert" variant="neutre" icone="disque" title="Résultat gardé dans ce navigateur." role="status">Tu peux refaire le quiz quand tu veux ; seul le dernier résultat compte.</x-import>
+</sc-if>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1060}}'>
+class Component extends DCLogic {
+constructor(props) { super(props); this.state = { i: 0, reponses: {"q01": "a", "q02": "b", "q03": "a", "q04": "a", "q05": "b", "q06": "c", "q07": "d", "q08": "c", "q09": "b", "q10": "d", "q11": "b", "q12": "c", "q13": "b", "q14": "d", "q15": "b", "q16": "d"}, fini: true }; }
+renderVals() {
+const QS = [{"id": "q01", "intitule": "Projet de groupe, la veille du rendu, rien ne marche. Tu es plutôt la personne qui…", "options": [{"value": "a", "label": "cherche le bug ligne par ligne, jusqu'à le trouver"}, {"value": "b", "label": "refait le planning de la soirée et dit qui s'occupe de quoi"}, {"value": "c", "label": "prépare la démo pour mettre en valeur ce qui tourne déjà"}, {"value": "d", "label": "relance tout sur une machine propre pour voir si le souci vient de l'environnement"}], "poids": {"a": {"developpement": 2}, "b": {"produit-design": 2, "management": 1}, "c": {"relation-transmission": 2, "produit-design": 1}, "d": {"infra-cloud": 2}}}, {"id": "q02", "intitule": "Une personne de ta famille t'appelle : son ordinateur rame depuis quelques jours. Une fois chez elle, tu commences par…", "options": [{"value": "a", "label": "lui demander de te montrer ce qu'elle faisait quand ça a commencé à ramer"}, {"value": "b", "label": "regarder ce qui se lance au démarrage et faire le ménage"}, {"value": "c", "label": "vérifier qu'aucun programme louche ne tourne en douce"}], "poids": {"a": {"relation-transmission": 2}, "b": {"infra-cloud": 2}, "c": {"cybersecurite": 2}}}, {"id": "q03", "intitule": "Hackathon de 48 heures. Ton équipe tient son idée, il reste à se répartir les rôles. Tu prends…", "options": [{"value": "a", "label": "le cœur de l'appli : l'API, la base, la logique"}, {"value": "b", "label": "les écrans et le parcours, pour que le jury comprenne l'appli en trois secondes"}, {"value": "c", "label": "le pitch final devant le jury"}, {"value": "d", "label": "les données : dénicher un jeu de données ouvert et en tirer quelque chose de parlant"}], "poids": {"a": {"developpement": 2}, "b": {"produit-design": 2, "developpement": 1}, "c": {"relation-transmission": 2}, "d": {"data-ia": 2}}}, {"id": "q04", "intitule": "Un week-end sans rendu, tu as envie de bidouiller. Le plus probable, c'est…", "options": [{"value": "a", "label": "un petit jeu, une appli pour ton téléphone, un bot Discord ou une petite API"}, {"value": "b", "label": "monter un serveur chez toi : un Raspberry Pi, un NAS, un serveur de jeu pour tes potes"}, {"value": "c", "label": "un script qui récupère des chiffres (stats de ton jeu, prix, météo) et en fait des graphiques"}, {"value": "d", "label": "un CTF, ou une machine à « pirater » sur un site d'entraînement au hacking éthique"}], "poids": {"a": {"developpement": 2}, "b": {"infra-cloud": 2}, "c": {"data-ia": 2}, "d": {"cybersecurite": 2}}}, {"id": "q05", "intitule": "À la fin d'une journée de cours, ce qui te laisse le plus content·e, c'est d'avoir…", "options": [{"value": "a", "label": "expliqué un truc à quelqu'un et vu le moment où ça a fait tilt"}, {"value": "b", "label": "enfin fait marcher un bout de code qui te résistait depuis des heures"}, {"value": "c", "label": "compris pourquoi une solution est mieux construite qu'une autre, même si les deux marchent"}, {"value": "d", "label": "remis le groupe sur les rails pour que tout le monde avance"}], "poids": {"a": {"relation-transmission": 2}, "b": {"developpement": 2}, "c": {"qualite-archi": 2}, "d": {"management": 2}}}, {"id": "q06", "intitule": "Quelqu'un de ta promo te fait tester l'appli de son projet. Ce qui te saute aux yeux en premier…", "options": [{"value": "a", "label": "les boutons mal alignés, et le fait qu'on ne sait pas où cliquer"}, {"value": "b", "label": "le formulaire qui accepte n'importe quoi, et les mots de passe stockés en clair"}, {"value": "c", "label": "la façon dont le code est rangé (ou pas)"}, {"value": "d", "label": "le fait que ça ne tourne que sur sa machine"}], "poids": {"a": {"produit-design": 2}, "b": {"cybersecurite": 2}, "c": {"qualite-archi": 2, "developpement": 1}, "d": {"infra-cloud": 2}}}, {"id": "q07", "intitule": "Pour un projet de groupe, vous partagez un dépôt Git et un petit serveur. Ce qui t'inquiète le plus…", "options": [{"value": "a", "label": "que quelqu'un pousse un mot de passe ou une clé d'API dans le dépôt, visible de tous"}, {"value": "b", "label": "qu'une personne du groupe ne pousse presque rien sur le dépôt, et que personne n'ose le lui dire"}, {"value": "c", "label": "que quelqu'un casse la branche principale en poussant sans avoir testé"}, {"value": "d", "label": "que le serveur tombe la veille de la soutenance"}], "poids": {"a": {"cybersecurite": 2}, "b": {"management": 2}, "c": {"qualite-archi": 2}, "d": {"infra-cloud": 2}}}, {"id": "q08", "intitule": "Ton groupe hésite entre deux idées de projet et le débat tourne en rond. Toi…", "options": [{"value": "a", "label": "tu fais un tableau des pour et des contre, avec des chiffres si possible"}, {"value": "b", "label": "tu défends l'idée qui te parle, et tu trouves les arguments qui font changer d'avis"}, {"value": "c", "label": "tu fais un mini-sondage auprès de personnes qui pourraient s'en servir, et tu regardes ce qui en ressort"}, {"value": "d", "label": "tu tranches, et tu assumes le choix devant le groupe"}], "poids": {"a": {"produit-design": 2, "data-ia": 1}, "b": {"relation-transmission": 2}, "c": {"data-ia": 2, "produit-design": 1}, "d": {"management": 2}}}, {"id": "q09", "intitule": "Premières semaines d'alternance (ou de stage) : on te laisse prendre tes marques dans l'équipe. Tu passes le plus de temps à…", "options": [{"value": "a", "label": "lire le code existant pour comprendre comment les morceaux s'emboîtent"}, {"value": "b", "label": "comprendre comment tout ça est installé, mis en ligne et protégé : serveurs, conteneurs, accès"}, {"value": "c", "label": "discuter avec les collègues qui se servent tous les jours de l'appli de l'équipe, pour savoir ce qui les agace"}, {"value": "d", "label": "fouiller la base de données pour voir ce qui est enregistré et ce qu'on pourrait en apprendre"}], "poids": {"a": {"qualite-archi": 2}, "b": {"infra-cloud": 2, "cybersecurite": 1}, "c": {"produit-design": 2}, "d": {"data-ia": 2}}}, {"id": "q10", "intitule": "Dans un jeu vidéo, ce qui te plaît le plus…", "options": [{"value": "a", "label": "optimiser ton équipement ou ta stratégie à coups de stats et de calculs"}, {"value": "b", "label": "mener ton équipe ou ta guilde : qui joue quel rôle, quelle tactique"}, {"value": "c", "label": "dénicher les failles, les glitches, les raccourcis que les devs n'avaient pas prévus"}, {"value": "d", "label": "créer tes propres cartes, mods ou skins"}], "poids": {"a": {"data-ia": 2}, "b": {"management": 2}, "c": {"cybersecurite": 2, "qualite-archi": 1}, "d": {"developpement": 2}}}, {"id": "q11", "intitule": "Le BDE te confie la refonte de son site. Pour toi, le plus important, c'est…", "options": [{"value": "a", "label": "qu'il soit beau et qu'il donne envie de s'inscrire aux soirées"}, {"value": "b", "label": "qu'il tienne le coup le jour où toute l'école se connecte en même temps pour les inscriptions"}, {"value": "c", "label": "que tout le monde puisse s'en servir, y compris une personne malvoyante avec un lecteur d'écran"}, {"value": "d", "label": "savoir combien de personnes le visitent et ce qu'elles y cherchent"}], "poids": {"a": {"produit-design": 2}, "b": {"infra-cloud": 2, "developpement": 1}, "c": {"produit-design": 2, "developpement": 1}, "d": {"data-ia": 2}}}, {"id": "q12", "intitule": "TP noté en binôme. Ton binôme a écrit une fonction qui « marche ». Toi, tu…", "options": [{"value": "a", "label": "écris des tests pour les cas limites : liste vide, nombre négatif, valeur énorme"}, {"value": "b", "label": "essaies de la faire planter avec l'entrée la plus tordue possible"}, {"value": "c", "label": "la reprends pour la rendre plus courte et plus rapide"}, {"value": "d", "label": "lui fais expliquer sa logique, puis lui montres ta version, pour que chacun·e soit prêt·e à l'oral"}], "poids": {"a": {"qualite-archi": 2}, "b": {"cybersecurite": 2, "qualite-archi": 1}, "c": {"developpement": 2}, "d": {"relation-transmission": 2, "management": 1}}}, {"id": "q13", "intitule": "Le soir, une vidéo ou un article tech te happe. Le sujet, c'est plutôt…", "options": [{"value": "a", "label": "comment une grosse plateforme tient des millions de personnes connectées en même temps"}, {"value": "b", "label": "une IA qui génère des images, ou qui bat des humains à un jeu"}, {"value": "c", "label": "un piratage célèbre raconté de A à Z"}, {"value": "d", "label": "comment quelqu'un a fait grandir une petite équipe tech jusqu'à une grande entreprise, et les choix difficiles que ça lui a demandés"}], "poids": {"a": {"qualite-archi": 2, "infra-cloud": 1}, "b": {"data-ia": 2}, "c": {"cybersecurite": 2}, "d": {"management": 2}}}, {"id": "q14", "intitule": "Le projet est fini. Il reste le README et la soutenance. Tu te portes volontaire pour…", "options": [{"value": "a", "label": "écrire un README si clair qu'une personne extérieure installe le projet sans demander d'aide"}, {"value": "b", "label": "dessiner le schéma qui montre comment toutes les briques tiennent ensemble"}, {"value": "c", "label": "organiser la soutenance : qui parle, dans quel ordre, combien de temps"}, {"value": "d", "label": "sortir quelques chiffres qui montrent que ça marche vraiment"}], "poids": {"a": {"relation-transmission": 2}, "b": {"qualite-archi": 2}, "c": {"produit-design": 2, "management": 1}, "d": {"data-ia": 2}}}, {"id": "q15", "intitule": "Une amie veut lancer sa boutique en ligne de bijoux faits main et te demande conseil. Tu…", "options": [{"value": "a", "label": "lui poses plein de questions, puis l'aides à choisir parmi les solutions toutes prêtes (Shopify, Etsy…) celle qui lui va"}, {"value": "b", "label": "lui proposes de coder le site toi-même"}, {"value": "c", "label": "penses tout de suite au paiement sécurisé et à la protection des données de ses acheteur·ses"}, {"value": "d", "label": "regardes où l'héberger et comment ne rien perdre si un jour tout plante"}], "poids": {"a": {"relation-transmission": 2, "management": 1}, "b": {"developpement": 2}, "c": {"cybersecurite": 2}, "d": {"infra-cloud": 2}}}, {"id": "q16", "intitule": "Dans un projet de groupe, ce qui t'agace le plus…", "options": [{"value": "a", "label": "que personne ne prenne de décision et qu'on perde une heure à débattre"}, {"value": "b", "label": "que tout le savoir du projet reste dans la tête d'une seule personne"}, {"value": "c", "label": "que le code devienne un plat de spaghettis que plus personne n'ose toucher"}, {"value": "d", "label": "qu'on passe des heures sur une fonctionnalité dont personne ne se servira"}], "poids": {"a": {"management": 2}, "b": {"management": 2, "relation-transmission": 1}, "c": {"qualite-archi": 2}, "d": {"produit-design": 2, "data-ia": 1}}}];
+const BR = [{"id": "developpement", "cats": "Back-end, Front-end, Mobile & jeu, Embarqué & industriel", "exemples": "Développeur·se Cobol / mainframe, Développeur·se Rust / Go, Développeur·se back-end"}, {"id": "infra-cloud", "cats": "Infrastructure & réseaux, DevOps, cloud & SRE", "exemples": "Administrateur·rice de bases de données (DBA), Administrateur·rice systèmes et réseaux, Ingénieur·e de production / exploitation"}, {"id": "cybersecurite", "cats": "Cybersécurité", "exemples": "Analyste SOC, Ingénieur·e IAM (gestion des identités et des accès), Ingénieur·e cybersécurité"}, {"id": "data-ia", "cats": "Data, Intelligence artificielle", "exemples": "Analytics engineer, Data analyst, Data engineer"}, {"id": "qualite-archi", "cats": "Qualité & test, Architecture & lead", "exemples": "Ingénieur·e QA / automatisation des tests, Testeur·se fonctionnel·le"}, {"id": "produit-design", "cats": "Produit & projet, Design UX/UI", "exemples": "Business analyst / chef·fe de projet MOA, Chef·fe de projet technique (MOE), Product owner"}, {"id": "relation-transmission", "cats": "Support, Conseil & vente, Transmission", "exemples": "Ingénieur·e support applicatif, Technicien·ne support utilisateurs (helpdesk), Consultant·e ERP / CRM"}, {"id": "management", "cats": "Management", "exemples": ""}];
+const st = this.state, n = QS.length;
+const q = QS[st.i];
+const questions = QS.map((x, k) => ({ id: x.id, num: k + 1, intitule: x.intitule, options: x.options, visible: !st.fini && k === st.i, choix: st.reponses[x.id], pick: (v) => this.setState({ reponses: Object.assign({}, this.state.reponses, { [x.id]: v }) }) }));
+const score = {}; BR.forEach((b) => { score[b.id] = 0; });
+QS.forEach((x) => { const r = st.reponses[x.id]; if (r) { const p = x.poids[r]; Object.keys(p).forEach((b) => { score[b] += p[b]; }); } });
+const top = BR.map((b, k) => ({ b: b, k: k, s: score[b.id] })).sort((a, c) => c.s - a.s || a.k - c.k).slice(0, 3).map((t, r) => ({ id: t.b.id, cats: t.b.cats, exemples: t.b.exemples, rang: r + 1 }));
+const repondu = !!st.reponses[q.id];
+return { routes: {"nuage": "Main.dc.html", "quiz": "quiz-question.dc.html", "roadmap": "roadmap.dc.html", "sources": "sources.dc.html"}, 
+  oui: true, enCours: !st.fini, fini: st.fini, questions: questions, top: top,
+  num: st.i + 1, max: n, progression: 'Question ' + (st.i + 1) + ' sur ' + n, reste: (n - st.i - 1) + ' restantes',
+  premiere: st.i === 0, pasRepondu: !repondu, libelleSuivant: st.i === n - 1 ? 'Voir mon résultat' : 'Question suivante',
+  precedent: () => this.setState({ i: Math.max(0, st.i - 1) }),
+  suivant: () => { if (!repondu) return; if (st.i === n - 1) this.setState({ fini: true }); else this.setState({ i: st.i + 1 }); },
+  refaire: () => this.setState({ i: 0, reponses: {}, fini: false })
+};
+}
+}
+</script>
+</body>
+</html>

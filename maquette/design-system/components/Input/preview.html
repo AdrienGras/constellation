@@ -1,0 +1,16 @@
+<!-- @dsCard group="Formulaires" height=300 subtitle="libellé, aide, erreur, recherche" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Input — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo-col"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Input, { label: 'Titre', placeholder: 'Ex. : API REST de gestion de bibliothèque', hint: 'Ce que tu vas faire ou apprendre, en une ligne.' }),
+  h(C.Input, { label: 'Ressource (URL)', type: 'url', defaultValue: 'roadmap.sh/backend', error: 'Une URL commence par https://' }),
+  h(C.Input, { label: 'Chercher un métier', icone: 'recherche', placeholder: 'Ex. : DevOps, data, sécurité…' })
+));
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!-- @dsCard group="Roadmap" height=330 width=760 subtitle="projet · notion ; poignée et boutons monter / descendre" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>ItemRoadmap — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo-col"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.ItemRoadmap, { type: 'projet', titre: 'API REST de gestion de bibliothèque avec Symfony', url: 'https://symfony.com/doc/current/index.html', note: 'À faire pendant l’alternance, avec tests et documentation OpenAPI.', premier: true }),
+  h(C.ItemRoadmap, { type: 'notion', titre: 'Index et plans d’exécution en SQL', url: 'https://use-the-index-luke.com/fr', dernier: true })
+));
+</script>
+</body>
+</html>
