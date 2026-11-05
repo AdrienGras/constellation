@@ -1,0 +1,104 @@
+/* constellation — generated from tokens.json */
+:root, [data-theme="sombre"] {
+  --fond: #0c1117;
+  --surface: #151c25;
+  --surface-muted: #1f2833;
+  --trait: #2a3442;
+  --trait-fort: #6e7a8b;
+  --encre: #eef2f7;
+  --encre-douce: #a3adbb;
+  --primaire: #eef2f7;
+  --primaire-survol: #ffffff;
+  --sur-primaire: #0c1117;
+  --focus: #ffffff;
+  --succes: #5cf29b;
+  --succes-doux: #0f3a24;
+  --attention: #ffc94d;
+  --attention-doux: #3d2c05;
+  --danger: #ff8080;
+  --danger-doux: #4a1416;
+  --info: #7cc4ff;
+  --info-doux: #0d2a47;
+  --ligne-developpement: #3fbbff;
+  --ligne-developpement-pastel: #004266;
+  --ligne-developpement-encre: var(--ligne-developpement);
+  --sur-ligne-developpement: var(--fond);
+  --ligne-infra-cloud: #40ef7c;
+  --ligne-infra-cloud-pastel: #0d4a22;
+  --ligne-infra-cloud-encre: var(--ligne-infra-cloud);
+  --sur-ligne-infra-cloud: var(--fond);
+  --ligne-cybersecurite: #ff4b57;
+  --ligne-cybersecurite-pastel: #490c11;
+  --ligne-cybersecurite-encre: var(--ligne-cybersecurite);
+  --sur-ligne-cybersecurite: var(--fond);
+  --ligne-data-ia: #a65aff;
+  --ligne-data-ia-pastel: #230b3d;
+  --ligne-data-ia-encre: var(--ligne-data-ia);
+  --sur-ligne-data-ia: var(--fond);
+  --ligne-qualite-archi: #ff9010;
+  --ligne-qualite-archi-pastel: #5e2f00;
+  --ligne-qualite-archi-encre: var(--ligne-qualite-archi);
+  --sur-ligne-qualite-archi: var(--fond);
+  --ligne-produit-design: #ff65ca;
+  --ligne-produit-design-pastel: #562244;
+  --ligne-produit-design-encre: var(--ligne-produit-design);
+  --sur-ligne-produit-design: var(--fond);
+  --ligne-relation-transmission: #ffe919;
+  --ligne-relation-transmission-pastel: #473e00;
+  --ligne-relation-transmission-encre: var(--ligne-relation-transmission);
+  --sur-ligne-relation-transmission: var(--fond);
+  --ligne-management: #00ecff;
+  --ligne-management-pastel: #004953;
+  --ligne-management-encre: var(--ligne-management);
+  --sur-ligne-management: var(--fond);
+  --cat-backend: #3fbbff;
+  --cat-frontend: #75d0ff;
+  --cat-mobile-jeu: #a1e6ff;
+  --cat-embarque: #c5f6ff;
+  --cat-qa: #ff9010;
+  --cat-devops-cloud: #83ffa3;
+  --cat-infra: #40ef7c;
+  --cat-secu: var(--ligne-cybersecurite);
+  --cat-data: #a65aff;
+  --cat-ia: #b67eff;
+  --cat-archi: #ffae5f;
+  --cat-produit-projet: #ff65ca;
+  --cat-design: #ff8cdb;
+  --cat-support: #ffe919;
+  --cat-conseil-vente: #fff26a;
+  --cat-transmission: #fef28e;
+  --cat-management: var(--ligne-management);
+  --ombre-carte: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 2px 8px rgba(0, 0, 0, 0.45);
+  --ombre-flottante: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+:root {
+  --espace-1: 4px;
+  --espace-2: 8px;
+  --espace-3: 12px;
+  --espace-4: 16px;
+  --espace-5: 24px;
+  --espace-6: 32px;
+  --espace-7: 48px;
+  --espace-8: 64px;
+  --rayon-sm: 6px;
+  --rayon-md: 10px;
+  --rayon-lg: 18px;
+  --rayon-pilule: 999px;
+  --trace-ligne: 8px;
+  --trace-voisin: 2px;
+  --station-diametre: 18px;
+  --font-display: "Bricolage Grotesque", "Atkinson Hyperlegible", system-ui, sans-serif;
+  --font-sans: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+.titre-affiche { font-family: var(--font-display); font-size: 56px; line-height: 60px; font-weight: 700; letter-spacing: -0.02em; }
+.titre-1 { font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 700; letter-spacing: -0.015em; }
+.titre-2 { font-family: var(--font-display); font-size: 28px; line-height: 34px; font-weight: 650; }
+.titre-3 { font-family: var(--font-display); font-size: 20px; line-height: 26px; font-weight: 650; }
+.chapo { font-family: var(--font-sans); font-size: 20px; line-height: 30px; font-weight: 400; }
+.corps { font-family: var(--font-sans); font-size: 17px; line-height: 26px; font-weight: 400; }
+.petit { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 400; }
+.etiquette { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.chiffre-grand { font-family: var(--font-mono); font-size: 40px; line-height: 44px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.chiffre { font-family: var(--font-mono); font-size: 17px; line-height: 24px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.code { font-family: var(--font-mono); font-size: 14px; line-height: 20px; font-weight: 400; font-variant-numeric: tabular-nums; }

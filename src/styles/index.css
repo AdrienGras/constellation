@@ -1,0 +1,133 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+:root {
+  --font-display: "Bricolage Grotesque Variable", "Atkinson Hyperlegible", system-ui, sans-serif;
+
+  --background: var(--fond);
+  --foreground: var(--encre);
+  --card: var(--surface);
+  --card-foreground: var(--encre);
+  --popover: var(--surface);
+  --popover-foreground: var(--encre);
+  --primary: var(--primaire);
+  --primary-foreground: var(--sur-primaire);
+  --secondary: var(--surface-muted);
+  --secondary-foreground: var(--encre);
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--encre-douce);
+  --accent: var(--surface-muted);
+  --accent-foreground: var(--encre);
+  --destructive: var(--danger);
+  --border: var(--trait);
+  --input: var(--trait-fort);
+  --ring: var(--focus);
+  --radius: var(--rayon-md);
+}
+
+@theme inline {
+  --color-fond: var(--fond);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-trait: var(--trait);
+  --color-trait-fort: var(--trait-fort);
+  --color-encre: var(--encre);
+  --color-encre-douce: var(--encre-douce);
+  --color-primaire: var(--primaire);
+  --color-primaire-survol: var(--primaire-survol);
+  --color-sur-primaire: var(--sur-primaire);
+  --color-focus: var(--focus);
+  --color-succes: var(--succes);
+  --color-succes-doux: var(--succes-doux);
+  --color-attention: var(--attention);
+  --color-attention-doux: var(--attention-doux);
+  --color-danger: var(--danger);
+  --color-danger-doux: var(--danger-doux);
+  --color-info: var(--info);
+  --color-info-doux: var(--info-doux);
+  --color-ligne-developpement: var(--ligne-developpement);
+  --color-ligne-developpement-pastel: var(--ligne-developpement-pastel);
+  --color-ligne-infra-cloud: var(--ligne-infra-cloud);
+  --color-ligne-infra-cloud-pastel: var(--ligne-infra-cloud-pastel);
+  --color-ligne-cybersecurite: var(--ligne-cybersecurite);
+  --color-ligne-cybersecurite-pastel: var(--ligne-cybersecurite-pastel);
+  --color-ligne-data-ia: var(--ligne-data-ia);
+  --color-ligne-data-ia-pastel: var(--ligne-data-ia-pastel);
+  --color-ligne-qualite-archi: var(--ligne-qualite-archi);
+  --color-ligne-qualite-archi-pastel: var(--ligne-qualite-archi-pastel);
+  --color-ligne-produit-design: var(--ligne-produit-design);
+  --color-ligne-produit-design-pastel: var(--ligne-produit-design-pastel);
+  --color-ligne-relation-transmission: var(--ligne-relation-transmission);
+  --color-ligne-relation-transmission-pastel: var(--ligne-relation-transmission-pastel);
+  --color-ligne-management: var(--ligne-management);
+  --color-ligne-management-pastel: var(--ligne-management-pastel);
+  --color-cat-backend: var(--cat-backend);
+  --color-cat-frontend: var(--cat-frontend);
+  --color-cat-mobile-jeu: var(--cat-mobile-jeu);
+  --color-cat-embarque: var(--cat-embarque);
+  --color-cat-qa: var(--cat-qa);
+  --color-cat-devops-cloud: var(--cat-devops-cloud);
+  --color-cat-infra: var(--cat-infra);
+  --color-cat-secu: var(--cat-secu);
+  --color-cat-data: var(--cat-data);
+  --color-cat-ia: var(--cat-ia);
+  --color-cat-archi: var(--cat-archi);
+  --color-cat-produit-projet: var(--cat-produit-projet);
+  --color-cat-design: var(--cat-design);
+  --color-cat-support: var(--cat-support);
+  --color-cat-conseil-vente: var(--cat-conseil-vente);
+  --color-cat-transmission: var(--cat-transmission);
+  --color-cat-management: var(--cat-management);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-display: "Bricolage Grotesque Variable", "Atkinson Hyperlegible", system-ui, sans-serif;
+  --font-sans: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --radius-sm: var(--rayon-sm);
+  --radius-md: var(--rayon-md);
+  --radius-lg: var(--rayon-lg);
+
+  --shadow-carte: var(--ombre-carte);
+  --shadow-flottante: var(--ombre-flottante);
+}
+
+body {
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 26px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
