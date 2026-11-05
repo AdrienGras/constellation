@@ -1,4 +1,4 @@
-import { act, render, screen, within } from '@testing-library/react'
+import { act, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { RouterProvider, createMemoryRouter } from 'react-router'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
@@ -78,6 +78,25 @@ describe('PlanPage', () => {
     expect(screen.queryByRole('tooltip')).toBeNull()
   })
 
+  it('les stations sont regroupées sous un nom accessible', () => {
+    monter()
+    const groupe = screen.getByRole('group', { name: 'Plan des métiers : 68 stations' })
+    expect(within(groupe).getAllByRole('link')).toHaveLength(68)
+  })
+
+  it('la bulle reste ouverte quand la souris passe de la station à la bulle (WCAG 1.4.13)', async () => {
+    monter()
+    const lien = screen.getByRole('link', { name: LIEN_BACKEND })
+    await userEvent.hover(lien)
+    const bulle = screen.getByRole('tooltip')
+    expect(bulle).not.toHaveClass('pointer-events-none')
+    await userEvent.unhover(lien)
+    await userEvent.hover(bulle)
+    expect(screen.getByRole('tooltip')).toBeInTheDocument()
+    await userEvent.unhover(bulle)
+    await waitFor(() => expect(screen.queryByRole('tooltip')).toBeNull())
+  })
+
   it('Échap ferme la bulle et les voisins sans déplacer le focus', async () => {
     const { container } = monter()
     const lien = screen.getByRole('link', { name: LIEN_BACKEND })
@@ -94,7 +113,7 @@ describe('PlanPage', () => {
     await userEvent.hover(screen.getByRole('link', { name: LIEN_BACKEND }))
     expect(screen.getByRole('tooltip')).toHaveTextContent('Back-end · métier d’entrée')
     await userEvent.unhover(screen.getByRole('link', { name: LIEN_BACKEND }))
-    expect(screen.queryByRole('tooltip')).toBeNull()
+    await waitFor(() => expect(screen.queryByRole('tooltip')).toBeNull())
   })
 
   it('un filtre de catégorie atténue les autres stations sans les sortir de la tabulation', async () => {
@@ -152,6 +171,15 @@ describe('PlanPage', () => {
     expect(container.querySelectorAll('[data-trace][data-etat="exploration"]')).toHaveLength(5)
     expect(stations().filter((s) => s.dataset.attenue === 'true')).toHaveLength(0)
     expect(screen.getByText('Zone d’exploration')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: `${LIEN_BACKEND}, ligne de ton top 3` })).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', {
+        name: /^Développeur·se full-stack.*ligne 1 Développement, ligne de ton top 3$/,
+      }),
+    ).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: /, zone d’exploration$/ })).toHaveLength(
+      stations().length - stations().filter((s) => /top 3$/.test(s.getAttribute('aria-label') ?? '')).length,
+    )
 
     await userEvent.click(screen.getByRole('button', { name: 'Refaire le quiz' }))
     expect(router.state.location.pathname).toBe('/quiz')

@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router'
 import { Station } from '@/components/metier/Station'
 import { categorieParId, ligneParId, plan, stationsDeLigne } from '@/donnees'
@@ -20,6 +20,16 @@ interface Actif {
 export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] | null }) {
   const [actif, setActif] = useState<Actif | null>(null)
   const ouvert = actif !== null
+  const fermeture = useRef<number | undefined>(undefined)
+
+  // WCAG 1.4.13 : la bulle reste ouverte quand la souris passe de la station à la bulle,
+  // d’où une fermeture différée que l’entrée dans la bulle ou dans une station annule.
+  const annulerFermeture = useCallback(() => window.clearTimeout(fermeture.current), [])
+  const fermerPlusTard = () => {
+    annulerFermeture()
+    fermeture.current = window.setTimeout(() => setActif(null), 200)
+  }
+  useEffect(() => annulerFermeture, [annulerFermeture])
 
   // WCAG 1.4.13 : Échap ferme la bulle sans déplacer le focus.
   useEffect(() => {
@@ -120,6 +130,7 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
           : null}
       </svg>
 
+      <div role="group" aria-label="Plan des métiers : 68 stations" className="absolute inset-0">
       {plan.lignes.flatMap((l) =>
         stationsDeLigne(l.id).map((id) => {
           const s = plan.stations[id]
@@ -136,16 +147,27 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
               : retenue
                 ? 'repos'
                 : 'attenue'
+          const rangQuiz = top3
+            ? top3.includes(s.ligne)
+              ? ', ligne de ton top 3'
+              : ', zone d’exploration'
+            : ''
           return (
             <Link
               key={id}
               to={`/fiche/${id}`}
-              aria-label={`${s.titre}, ${cat}, ${libelleType(s.type)}, ligne ${ligne.num} ${ligne.libelle}${retenue ? '' : ', hors filtre'}`}
+              aria-label={`${s.titre}, ${cat}, ${libelleType(s.type)}, ligne ${ligne.num} ${ligne.libelle}${rangQuiz}${retenue ? '' : ', hors filtre'}`}
               aria-describedby={courant ? 'plan-bulle' : undefined}
               data-attenue={retenue ? undefined : 'true'}
-              onMouseEnter={() => setActif({ id, clavier: false })}
-              onMouseLeave={() => setActif(null)}
-              onFocus={() => setActif({ id, clavier: true })}
+              onMouseEnter={() => {
+                annulerFermeture()
+                setActif({ id, clavier: false })
+              }}
+              onMouseLeave={fermerPlusTard}
+              onFocus={() => {
+                annulerFermeture()
+                setActif({ id, clavier: true })
+              }}
               onBlur={() => setActif(null)}
               className="absolute grid size-[34px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full"
               style={{ left: `${(s.x / L) * 100}%`, top: `${(s.y / H) * 100}%`, zIndex: courant ? 3 : 2 }}
@@ -155,12 +177,15 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
           )
         }),
       )}
+      </div>
 
       {courante ? (
         <div
           id="plan-bulle"
           role="tooltip"
-          className="pointer-events-none absolute z-[5] max-w-[300px] rounded-sm bg-encre px-3.5 py-2.5 text-[14px] leading-5 text-fond shadow-flottante"
+          onMouseEnter={annulerFermeture}
+          onMouseLeave={fermerPlusTard}
+          className="absolute z-[5] max-w-[300px] rounded-sm bg-encre px-3.5 py-2.5 text-[14px] leading-5 text-fond shadow-flottante"
           style={{
             left: `${(courante.x / L) * 100}%`,
             top: `${(courante.y / H) * 100}%`,
