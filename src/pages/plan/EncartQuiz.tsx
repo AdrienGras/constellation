@@ -18,30 +18,30 @@ export function EncartQuiz() {
     return (
       <section
         aria-label="Ton résultat de quiz"
-        className={`${CARTE} ml-auto flex max-w-[780px] min-w-0 flex-1 basis-[520px] flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2`}
+        className={`${CARTE} ml-auto flex max-w-[780px] min-w-0 flex-1 basis-[520px] flex-col gap-0.5 px-4 py-1.5`}
       >
         <h2 className="sr-only">Tes 3 lignes de départ sont allumées</h2>
-        <div className="flex min-w-0 flex-1 basis-[420px] flex-col gap-1">
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
-            {top3.map((id, i) => (
-              <PastilleLigne key={id} ligne={id} taille="sm" rang={(i + 1) as 1 | 2 | 3} />
-            ))}
-          </div>
-          <p className="m-0 text-[15px] leading-5 text-encre-douce">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          {top3.map((id, i) => (
+            <PastilleLigne key={id} ligne={id} taille="sm" rang={(i + 1) as 1 | 2 | 3} />
+          ))}
+        </div>
+        <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
+          <p className="m-0 min-w-0 flex-1 basis-[360px] text-[15px] leading-[18px] text-encre-douce">
             Un point de départ, pas un verdict. Ce matin, choisis 3 métiers dans ta zone
             d’exploration : les lignes en pointillés ({exploration} lignes, {metiers} métiers).
           </p>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => {
+              refaire()
+              navigate('/quiz')
+            }}
+          >
+            Refaire le quiz
+          </Button>
         </div>
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={() => {
-            refaire()
-            navigate('/quiz')
-          }}
-        >
-          Refaire le quiz
-        </Button>
       </section>
     )
   }

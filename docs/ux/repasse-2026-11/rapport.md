@@ -245,19 +245,19 @@ Corrigé le 05/11/2026 sur la branche `app` (commits `230280c..cdcd91a`). Spec :
 
 Annexe, corrigée aussi : exemples de la ligne Management, bouton `ghost` désactivé sans fond de survol, filet bas du tableau Apec. Les n° 6 à 13 restent ouverts (BACKLOG).
 
-Haut du dessin du plan (`[data-plan-dessin]`, `rect.top + scrollY`, barre de navigation comprise), mesuré le 05/11/2026 sur le build de production (`vite preview`), `deviceScaleFactor: 1`. La part visible est `(hauteur de fenêtre − haut) / hauteur du dessin`. La spec `tests-e2e/mise-en-page.spec.ts` vérifie seulement que le haut est ≤ 300 px.
+Haut du dessin du plan (`[data-plan-dessin]`, `rect.top + scrollY`, barre de navigation comprise), mesuré le 05/11/2026 sur le build de production (`vite preview`), `deviceScaleFactor: 1`. La part visible est `(hauteur de fenêtre − haut) / hauteur du dessin`. La spec `tests-e2e/mise-en-page.spec.ts` vérifie que le haut est ≤ 300 px et que le centre « TA FORMATION » est visible en 1366×633.
 
 | Fenêtre | Avant le quiz : audit → mesuré | Après le quiz : audit → mesuré | Part visible (avant / après le quiz) |
 |---|---|---|---|
-| 1366×768 | 380 → **258 px** | 480 → **298 px** | 71 % / 66 % |
-| 1280×720 | 390 → **258 px** | 512 → **298 px** | 69 % / 63 % |
-| 1280×800 | 390 → **258 px** | 512 → **298 px** | 81 % / 75 % |
-| 1440×900 | 336 → **258 px** | 480 → **298 px** | 89 % / 84 % |
-| 1536×864 | 336 → **258 px** | 480 → **298 px** | 84 % / 79 % |
-| 1366×633 | n.d. | n.d. : **258 / 298 px** | 52 % / 47 % |
-| 1280×590 | n.d. | n.d. : **258 / 298 px** | 50 % / 44 % |
+| 1366×768 | 380 → **258 px** | 480 → **260 px** | 71 % / 71 % |
+| 1280×720 | 390 → **258 px** | 512 → **288 px** | 69 % / 65 % |
+| 1280×800 | 390 → **258 px** | 512 → **288 px** | 81 % / 77 % |
+| 1440×900 | 336 → **258 px** | 480 → **260 px** | 89 % / 89 % |
+| 1536×864 | 336 → **258 px** | 480 → **260 px** | 84 % / 84 % |
+| 1366×633 | n.d. → **258 px** | n.d. → **260 px** | 52 % / 52 % |
+| 1280×590 | n.d. → **258 px** | n.d. → **288 px** | 50 % / 45 % |
 
-Les deux dernières lignes sont des fenêtres réelles (barres du navigateur déduites), absentes de l'audit. Hauteur du dessin : 666 px en 1280, 714 px en 1366, 720 px à 1440 et 1536. Vérifié : 230 tests unitaires, lint, build, 86 e2e passés, 46 ignorés.
+Centre du plan en 1366×633 : le bas du texte « FORMATION » est à 628 px avant le quiz (et avec le départage en attente) et 630 px après le quiz, pour 633 px de fenêtre, donc visible sans défiler dans les trois états. En 1280×590 il ne l'est pas (602 px avant le quiz, 632 px après) : seule la fenêtre de 1366×633 le garantit. Les deux dernières lignes sont des fenêtres réelles (barres du navigateur déduites), absentes de l'audit. Hauteur du dessin : 666 px en 1280, 714 px en 1366, 720 px à 1440 et 1536. Encart du résultat de quiz remis sur trois rangées (pastilles sur une seule, texte et bouton dessous), sans retirer le rappel « point de départ ». Vérifié : 230 tests unitaires, lint, build, 93 e2e passés, 53 ignorés.
 
 Captures après correction :
 

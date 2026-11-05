@@ -1,57 +1,8 @@
 import { expect, test } from './fixtures'
-
-/** Fenêtres de mesure de la repasse UX (hauteurs d'un PC portable, barres du navigateur déduites). */
-export const FENETRES = {
-  w1366: { width: 1366, height: 633 },
-  w1280: { width: 1280, height: 590 },
-  w1536: { width: 1536, height: 731 },
-  w1280x800: { width: 1280, height: 800 },
-}
-
-/** Quiz terminé, les 16 réponses identiques : « a » donne le départage en attente, « b » le résultat Infra & cloud / Management / Développement. */
-const etatQuiz = (lettre: 'a' | 'b') => ({
-  version: 1,
-  reponses: Object.fromEntries(
-    Array.from({ length: 16 }, (_, i) => [`q${String(i + 1).padStart(2, '0')}`, lettre]),
-  ),
-  question: 15,
-  departage: [],
-  termine: true,
-})
+import { FENETRES, QUIZ_A, QUIZ_B, ROADMAP_AUDIT } from './donnees'
 
 /** Station la plus à gauche de la ligne 6 (Produit & design), sous la carte de légende. */
 const STATION_LIGNE_6 = 'UX designer'
-
-export const QUIZ_A = etatQuiz('a')
-export const QUIZ_B = etatQuiz('b')
-
-const element = (id: string, type: 'projet' | 'notion', titre: string, url = '', note = '') => ({
-  id,
-  type,
-  titre,
-  url,
-  note,
-})
-
-export const ROADMAP_AUDIT = {
-  version: 1,
-  cible: 'dev-backend',
-  annees: {
-    '2027': [
-      element('audit-1', 'notion', 'Bases de SQL et modélisation de données', 'https://roadmap.sh/sql', 'Faire les exercices du module'),
-      element('audit-2', 'projet', 'API REST de gestion de bibliothèque en Node.js'),
-      element('audit-3', 'notion', 'Git avancé : rebase, bisect, hooks'),
-    ],
-    '2028': [
-      element('audit-4', 'projet', 'Stage de 3 mois en entreprise : back-end PHP/Symfony'),
-      element('audit-5', 'notion', 'Docker et docker compose'),
-    ],
-    '2029': [element('audit-6', 'notion', 'Architecture hexagonale et DDD')],
-    '2030': [],
-    '2031': [element('audit-7', 'projet', 'Alternance en Master : développeur·se back-end')],
-  },
-  modifie_le: null,
-}
 
 // Playwright exige un motif de déstructuration pour le premier argument.
 // eslint-disable-next-line no-empty-pattern
@@ -178,6 +129,7 @@ for (const [nom, fenetre] of [
   ['1280×590', FENETRES.w1280],
   ['1366×633', FENETRES.w1366],
   ['1536×731', FENETRES.w1536],
+  ['1280×800', FENETRES.w1280x800],
 ] as const) {
   for (const [etat, quiz] of ETATS_QUIZ) {
     test.describe(`plan : en-tête compact (${nom}, ${etat})`, () => {
@@ -195,6 +147,18 @@ for (const [nom, fenetre] of [
   }
 }
 
+for (const [etat, quiz] of ETATS_QUIZ) {
+  test.describe(`plan : centre visible sans défiler (1366×633, ${etat})`, () => {
+    test.use({ viewport: FENETRES.w1366 })
+
+    test('le bas du centre « TA FORMATION » tient dans la fenêtre', async ({ plan }) => {
+      await plan.ouvrir()
+      if (quiz) await plan.poserStockage('constellation.quiz.v1', quiz)
+      expect((await plan.rectEcran(plan.centre)).bas).toBeLessThanOrEqual(await plan.hauteurFenetre())
+    })
+  })
+}
+
 test.describe('plan : filtre actif (1280×590)', () => {
   test.use({ viewport: FENETRES.w1280 })
 
@@ -203,6 +167,17 @@ test.describe('plan : filtre actif (1280×590)', () => {
     await plan.poserStockage('constellation.quiz.v1', QUIZ_B)
     await plan.choisirCategorie('Back-end')
     expect(await plan.hautDansLaPage(plan.dessin)).toBeLessThanOrEqual(300)
+  })
+
+  test('« Effacer les filtres » n’empiète pas sur la liste « Catégorie »', async ({ plan }) => {
+    await plan.ouvrir()
+    await plan.choisirCategorie('Back-end')
+    const select = await plan.rectEcran(plan.listeCategorie)
+    const bouton = await plan.rectEcran(plan.boutonEffacerFiltres)
+    expect(bouton.bas).toBeLessThanOrEqual(select.haut)
+    // Contour de focus compris : 2 px de trait et 2 px de décalage.
+    await plan.boutonEffacerFiltres.focus()
+    expect((await plan.rectEcran(plan.boutonEffacerFiltres)).bas + 4).toBeLessThanOrEqual(select.haut)
   })
 })
 
@@ -224,6 +199,7 @@ test.describe('plan : plein écran', () => {
   test('entrer puis sortir', async ({ plan }) => {
     await plan.ouvrir()
     expect(await plan.pleinEcranDisponible(), 'API Fullscreen indisponible dans ce Chromium').toBe(true)
+    const avant = await plan.rectEcran(plan.dessin)
     await plan.boutonPleinEcran.click()
     await expect.poll(() => plan.pleinEcranActif()).toBe(true)
     await expect(plan.boutonPleinEcran).toHaveText('Quitter le plein écran')
@@ -235,5 +211,13 @@ test.describe('plan : plein écran', () => {
     await plan.boutonPleinEcran.click()
     await expect.poll(() => plan.pleinEcranActif()).toBe(false)
     await expect(plan.boutonPleinEcran).toHaveText('Plein écran')
+    await expect
+      .poll(async () => {
+        const apres = await plan.rectEcran(plan.dessin)
+        return Math.max(
+          ...(['haut', 'bas', 'gauche', 'droite'] as const).map((k) => Math.abs(apres[k] - avant[k])),
+        )
+      })
+      .toBeLessThanOrEqual(1)
   })
 })

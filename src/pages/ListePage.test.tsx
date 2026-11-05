@@ -63,14 +63,14 @@ describe('ListePage', () => {
   })
 
   it('pas de légende des lignes sur la liste', () => {
-  monter()
-  expect(screen.queryByRole('group', { name: 'Légende des lignes' })).toBeNull()
-  const titres = screen.getAllByRole('heading', { level: 2 })
-  expect(titres).toHaveLength(8)
-  for (const h of titres) expect(h.querySelector('[aria-hidden="true"]')).not.toBeNull()
-})
+    monter()
+    expect(screen.queryByRole('group', { name: 'Légende des lignes' })).toBeNull()
+    const titres = screen.getAllByRole('heading', { level: 2 })
+    expect(titres).toHaveLength(8)
+    for (const h of titres) expect(h.querySelector('[aria-hidden="true"]')).not.toBeNull()
+  })
 
-it('rend 68 liens de fiche, 8 h2 dans l’ordre des lignes et 17 h3', () => {
+  it('rend 68 liens de fiche, 8 h2 dans l’ordre des lignes et 17 h3', () => {
     monter()
     expect(liensFiche()).toHaveLength(68)
     const attendus = lignes.map((l) => `Ligne ${l.num}, ${l.libelle}`)

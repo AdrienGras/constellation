@@ -224,7 +224,7 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Découvert** : barre de navigation du quiz collée en bas de la fenêtre (repasse UX, étape 2).
 **Symptôme** : malgré une marge de défilement sur le label ou la carte, la case focalisée au clavier passait sous la barre `sticky bottom-0`.
 **Cause** : le navigateur applique `scroll-margin` à l'élément focalisé, ici la pastille radio Radix ou l'`input` checkbox du départage, pas son label ni sa carte. Pour une case centrée dans une carte haute, la marge doit aussi couvrir le bas de la carte.
-**Workaround** : `scroll-mb-32` sur la pastille (`src/components/ui/radio-group.tsx`, `RadioCarte`), `scroll-mb-40` sur la case du départage (`src/pages/quiz/Departage.tsx`). Vérifié par `tests-e2e/mise-en-page.spec.ts`.
+**Workaround** : `scroll-mb-32` sur la pastille (`src/components/ui/radio-group.tsx:52`, `RadioCarte`), `scroll-mb-40` sur la case du départage (`src/pages/quiz/Departage.tsx:77`). Vérifié par `tests-e2e/mise-en-page.spec.ts`.
 **Référence** : `docs/superpowers/specs/2026-11-05-repasse-ux-resolutions-design.md`.
 
 ## Radix `RadioGroup` déplace le focus dans un `setTimeout` (2026-11-05)
@@ -235,26 +235,24 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Workaround** : attendre chaque arrivée du focus (`toBeFocused`) avant la touche suivante.
 **Référence** : `src/components/ui/radio-group.tsx`, `node_modules/@radix-ui/react-roving-focus/dist/index.mjs`.
 
-## L'en-tête du plan est au plafond : 298 px pour 300 px (2026-11-05)
+## L'en-tête du plan est au plafond : le centre est à 3 px du pli en 1366×633 (2026-11-05)
 
-**Découvert** : mesures de la repasse UX, étape 2 (tâche 7).
-**Symptôme** : `tests-e2e/mise-en-page.spec.ts` échoue dès qu'une ligne s'ajoute à l'en-tête ou à l'encart du quiz.
-**Cause** : haut du dessin du plan à 258 px avant le quiz, 298 px après, pour un plafond de 300 px (barre de navigation comprise) : 2 px de marge.
-**Workaround** : retirer d'abord ce qui est prévu dans l'ordre validé par Adrien : le rappel « point de départ, pas un verdict » de l'encart (`src/pages/plan/EncartQuiz.tsx`) est la prochaine étape. L'étiquette « Accueil » et le chapeau long sont déjà retirés ; la consigne de la zone d'exploration et son décompte restent.
-**Référence** : `src/pages/plan/EnTeteAccueil.tsx`, `src/pages/plan/EncartQuiz.tsx`.
+**Découvert** : mesures de la repasse UX, étape 2 (tâche 7), puis relecture finale.
+**Symptôme** : `tests-e2e/mise-en-page.spec.ts` échoue dès qu'une ligne s'ajoute à l'en-tête ou à l'encart du quiz : plafond de 300 px pour le haut du dessin, et bas du texte « FORMATION » ≤ hauteur de fenêtre en 1366×633.
+**Cause** : haut du dessin à 258 px avant le quiz et 260 px après (288 px en 1280 de large) ; le centre du plan finit à 628 px avant le quiz, 630 px après, pour 633 px de fenêtre.
+**Workaround** : l'encart du résultat tient sur 3 rangées de 20 à 28 px (pastilles sur une rangée, texte et bouton « Refaire le quiz » en dessous, `py-1.5`, `gap-0.5`). Si une ligne s'ajoute, retirer le rappel « point de départ, pas un verdict » de `src/pages/plan/EncartQuiz.tsx` (retrait n° 3 validé par Adrien, pas encore appliqué) ; la consigne de la zone d'exploration et son décompte restent. L'étiquette « Accueil » et le chapeau long sont déjà retirés.
+**Référence** : `src/pages/plan/EnTeteAccueil.tsx`, `src/pages/plan/EncartQuiz.tsx`, `tests-e2e/mise-en-page.spec.ts` (test « centre visible sans défiler »).
 
 ## Tailwind v4 n'a pas de variante `fullscreen:` (2026-11-05)
 
 **Découvert** : bouton « Plein écran » du plan (repasse UX, étape 2).
 **Symptôme** : `fullscreen:` ne produit aucune règle CSS.
 **Cause** : Tailwind v4 ne fournit pas cette variante.
-**Workaround** : variantes arbitraires, `[&:fullscreen]:` sur l'élément plein écran et `[:fullscreen_&]:` pour ses descendants (bouton, légende).
-**Référence** : `src/pages/plan/usePleinEcran.ts`, `src/pages/plan/PlanPage.tsx`.
+**Workaround** : variantes arbitraires dans `src/pages/plan/PlanSvg.tsx`. `[&:fullscreen]:` est posée sur l'enveloppe `[data-plan]` (`items-center`, `justify-center`, `bg-fond`) ; `[:fullscreen_&]:` est posée sur le conteneur intérieur du dessin, celui qui porte `max-w-[1280px]` (largeur `min(100vw, 100vh × 16/9)` et `max-w-none`). Le bouton et la légende n'en portent aucune : ils suivent ce conteneur.
+**Référence** : `src/pages/plan/PlanSvg.tsx` (le hook `usePleinEcran.ts` ne gère que l'API Fullscreen).
 
-## Une spec Playwright qui exporte ses constantes les fait réenregistrer (2026-11-05)
+## Les constantes partagées entre specs vont dans `tests-e2e/donnees.ts` (2026-11-05)
 
 **Découvert** : écriture de `tests-e2e/mise-en-page.spec.ts` (repasse UX, étape 2).
-**Symptôme** : importer `FENETRES` ou `QUIZ_A` de cette spec dans une autre rejouerait les tests de la première.
-**Cause** : importer un fichier `*.spec.ts` l'exécute, donc ses `test()` s'enregistrent une seconde fois.
-**Workaround** : déplacer les constantes dans un module non-spec (par exemple `tests-e2e/donnees.ts`) avant le premier import croisé.
-**Référence** : `tests-e2e/mise-en-page.spec.ts`.
+**Règle** : importer un fichier `*.spec.ts` l'exécute, donc ses `test()` s'enregistreraient une seconde fois. `FENETRES`, `QUIZ_A`, `QUIZ_B` et `ROADMAP_AUDIT` vivent dans un module non-spec, `tests-e2e/donnees.ts`, que les specs importent ; une spec n'exporte jamais rien.
+**Référence** : `tests-e2e/donnees.ts`, `tests-e2e/mise-en-page.spec.ts`.
