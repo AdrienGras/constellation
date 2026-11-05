@@ -22,7 +22,7 @@ import { DialogItem } from './DialogItem'
 import { useRetourFocus } from './useRetourFocus'
 import '@/styles/impression.css'
 
-type Edition = { annee: AnneeId; item?: Item }
+type Edition = { annee: AnneeId; item?: Item; choixAnnee?: boolean }
 type Suppression = { annee: AnneeId; item: Item }
 
 export function RoadmapPage() {
@@ -93,7 +93,7 @@ export function RoadmapPage() {
         ) : null}
       </header>
 
-      <ActionsRoadmap onAjouter={() => setEdition({ annee: 2027 })} />
+      <ActionsRoadmap onAjouter={() => setEdition({ annee: 2027, choixAnnee: true })} />
 
       <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
         <div className="relative flex min-w-0 flex-col lg:flex-[2]">
@@ -124,10 +124,11 @@ export function RoadmapPage() {
         <DialogItem
           annee={edition.annee}
           item={edition.item}
+          choixAnnee={edition.choixAnnee}
           onFermer={() => setEdition(null)}
-          onEnregistrer={(b) => {
+          onEnregistrer={(b, annee) => {
             if (edition.item) modifier(edition.annee, edition.item.id, b)
-            else ajouter(edition.annee, b)
+            else ajouter(annee, b)
             setEdition(null)
           }}
         />

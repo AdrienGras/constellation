@@ -137,7 +137,8 @@ describe('RoadmapPage : éléments', () => {
     const user = userEvent.setup()
     monter()
     await user.click(screen.getByRole('button', { name: 'Ajouter' }))
-    const dialog = screen.getByRole('dialog', { name: 'Ajouter à 2027' })
+    const dialog = screen.getByRole('dialog', { name: 'Ajouter un élément' })
+    expect(within(dialog).getByRole('combobox', { name: 'Année' })).toHaveValue('2027')
     await user.click(within(dialog).getByRole('button', { name: 'Enregistrer' }))
     expect(within(dialog).getByText('Donne un titre à cet élément.')).toBeInTheDocument()
     expect(within(dialog).getByRole('textbox', { name: 'Titre' })).toHaveFocus()
@@ -159,6 +160,24 @@ describe('RoadmapPage : éléments', () => {
     const [stocke] = stockee().annees['2027']
     expect(stocke).toMatchObject({ type: 'projet', titre: 'Mon API', url: 'https://symfony.com', note: 'une note' })
     await waitFor(() => expect(screen.getByRole('button', { name: 'Ajouter' })).toHaveFocus())
+  })
+
+  it('la barre d’actions propose le choix de l’année ; le bouton d’une année la fixe', async () => {
+    const user = userEvent.setup()
+    monter()
+    await user.click(screen.getByRole('button', { name: 'Ajouter' }))
+    let dialog = screen.getByRole('dialog', { name: 'Ajouter un élément' })
+    const annees = within(dialog).getAllByRole('option').map((o) => o.textContent)
+    expect(annees).toEqual(['2027', '2028', '2029', '2030', '2031'])
+    await user.selectOptions(within(dialog).getByRole('combobox', { name: 'Année' }), '2030')
+    await user.type(within(dialog).getByRole('textbox', { name: 'Titre' }), 'Stage')
+    await user.click(within(dialog).getByRole('button', { name: 'Enregistrer' }))
+    expect(stockee().annees['2030']).toHaveLength(1)
+    expect(stockee().annees['2027']).toHaveLength(0)
+
+    await user.click(screen.getByRole('button', { name: 'Ajouter à 2028' }))
+    dialog = screen.getByRole('dialog', { name: 'Ajouter à 2028' })
+    expect(within(dialog).queryByRole('combobox', { name: 'Année' })).toBeNull()
   })
 
   it('ajout d’une notion en 2029 via le bouton de l’année', async () => {

@@ -8,11 +8,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
+import { Input, styleChamp } from '@/components/ui/input'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Textarea } from '@/components/ui/textarea'
 import { useRetourFocus } from './useRetourFocus'
-import { validerBrouillon, type Annee, type Brouillon, type Item, type TypeItem } from '@/logique/roadmap'
+import { ANNEES, validerBrouillon, type Annee, type Brouillon, type Item, type TypeItem } from '@/logique/roadmap'
 
 const TYPES: { valeur: TypeItem; libelle: string }[] = [
   { valeur: 'projet', libelle: 'Projet à réaliser' },
@@ -23,14 +23,18 @@ const TYPES: { valeur: TypeItem; libelle: string }[] = [
 export function DialogItem({
   annee,
   item,
+  choixAnnee = false,
   onEnregistrer,
   onFermer,
 }: {
   annee: Annee
   item?: Item
-  onEnregistrer: (b: Brouillon) => void
+  /** Ouvert depuis la barre d’actions : l’année se choisit dans le formulaire au lieu d’être imposée. */
+  choixAnnee?: boolean
+  onEnregistrer: (b: Brouillon, annee: Annee) => void
   onFermer: () => void
 }) {
+  const [anneeChoisie, setAnneeChoisie] = useState<Annee>(annee)
   const [type, setType] = useState<TypeItem>(item?.type ?? 'projet')
   const [titre, setTitre] = useState(item?.titre ?? '')
   const [url, setUrl] = useState(item?.url ?? '')
@@ -47,14 +51,16 @@ export function DialogItem({
     setErreurs(trouvees)
     if (trouvees.titre) refTitre.current?.focus()
     else if (trouvees.url) refUrl.current?.focus()
-    else onEnregistrer(brouillon)
+    else onEnregistrer(brouillon, anneeChoisie)
   }
 
   return (
     <Dialog open onOpenChange={(ouvert) => !ouvert && onFermer()}>
       <DialogContent aria-describedby={undefined} onCloseAutoFocus={retourFocus}>
         <DialogHeader>
-          <DialogTitle>{item ? 'Modifier l’élément' : `Ajouter à ${annee}`}</DialogTitle>
+          <DialogTitle>
+            {item ? 'Modifier l’élément' : choixAnnee ? 'Ajouter un élément' : `Ajouter à ${annee}`}
+          </DialogTitle>
         </DialogHeader>
         <form noValidate onSubmit={soumettre} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
@@ -74,6 +80,24 @@ export function DialogItem({
               ))}
             </RadioGroup>
           </div>
+          {choixAnnee ? (
+            <Champ label="Année">
+              {(p) => (
+                <select
+                  {...p}
+                  className={styleChamp}
+                  value={anneeChoisie}
+                  onChange={(e) => setAnneeChoisie(Number(e.target.value) as Annee)}
+                >
+                  {ANNEES.map((a) => (
+                    <option key={a} value={a}>
+                      {a}
+                    </option>
+                  ))}
+                </select>
+              )}
+            </Champ>
+          ) : null}
           <Champ label="Titre" erreur={erreurs.titre}>
             {(p) => <Input {...p} ref={refTitre} value={titre} onChange={(e) => setTitre(e.target.value)} />}
           </Champ>
