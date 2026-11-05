@@ -203,3 +203,19 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Workaround** : écrire en toutes lettres « ne pousse jamais » dans chaque consigne de sous-agent (déjà dans `implementeur-commun.md`), et vérifier `git reflog show origin/<branche>` en fin d'exécution. Aucun dégât ici (historique linéaire, prolongé ensuite).
 **Référence** : PR https://github.com/AdrienGras/constellation/pull/2.
 
+## Un `sticky` dans une enveloppe de même hauteur ne colle jamais (2026-11-05)
+
+**Découvert** : audit des résolutions (repasse UX), roadmap défilée de 900 px.
+**Symptôme** : `aside[data-competences]` a bien `position: sticky; top: 24px` (calculé), mais la colonne « Compétences de la fiche » défile avec la page, à toutes les largeurs ≥ 1024 px.
+**Cause** : l'élément sticky est enveloppé dans `<div className="lg:flex-1">`, dans une rangée flex en `lg:items-start` : l'enveloppe a exactement la hauteur de l'`aside`. Un élément sticky ne sort jamais de son parent, il n'a donc aucune course.
+**Workaround** : porter `sticky` sur l'enveloppe (enfant direct de la rangée flex), ou laisser l'enveloppe s'étirer à la hauteur de la frise. Un test unitaire jsdom ne le voit pas : il faut un e2e qui mesure `boundingBox().y` après défilement.
+**Référence** : `src/pages/roadmap/RoadmapPage.tsx:104` et `:124`, `src/pages/roadmap/Competences.tsx:27`, `docs/ux/repasse-2026-11/rapport.md` (n° 3).
+
+## `color-scheme: dark` noircit les marges du PDF imprimé (à confirmer) (2026-11-05)
+
+**Découvert** : audit des résolutions, `page.pdf({ printBackground: true })` de la roadmap.
+**Symptôme** : le contenu A4 est blanc, mais les marges `@page` de 15 mm sont noires.
+**Cause** : probablement `<meta name="color-scheme" content="dark">` : Chromium peint la zone des marges de page avec le canevas sombre, que `impression.css` ne surcharge pas (il ne touche que `html` et `body`).
+**Workaround** : non appliqué. Piste : `color-scheme: light` sous `@media print` sur `:root`. Vérifier d'abord dans la boîte d'impression de Chrome et d'Edge, case « Graphiques d'arrière-plan » cochée et décochée.
+**Référence** : `index.html:6`, `src/styles/impression.css`, `docs/ux/repasse-2026-11/rapport.md` (n° 13).
+

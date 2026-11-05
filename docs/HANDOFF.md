@@ -20,6 +20,16 @@ corps, sans distinction entre ce qui est fait, en suspens, ou à creuser.
 
 ---
 
+## 2026-11-05 — Repasse UX, étape 1 : audit des résolutions de PC portable
+
+**Dernière chose faite** : audit Playwright du build de production (`vite preview`, port 4173) en MDPI à 1366×768, 1280×720, 1280×800, 1440×900 et 1536×864, sur 17 scénarios (plan avant/après quiz, liste, 4 fiches, quiz question/départage/résultat, roadmap vide/remplie/Dialog/défilée, Sources, impression). Rapport : `docs/ux/repasse-2026-11/rapport.md` (tableau + 13 sections), 21 captures annotées dans `captures/`. Aucun défilement horizontal, aucun texte rogné, Dialog toujours dans l'écran. Problèmes majeurs : plan sous le pli (haut à 336–512 px, 31 % visible en 1280×720 après le quiz), encart du résultat qui écrase l'en-tête (titre sur 3 lignes), colonne sticky des compétences qui ne colle pas (enveloppe `lg:flex-1` de même hauteur que l'`aside`), bouton « Question suivante » sous le pli (15/16 questions en 1280×720). Points connus confirmés : haut du plan à 390 px en 1280×800, libellés SVG à 11,1 px en 1280.
+
+**Trucs en suspens** : rien n'est corrigé ; Adrien doit donner ses priorités. Hors résolution, à lui signaler : « Par exemple : » vide pour la ligne Management (quiz), boutons Monter/Descendre désactivés qui ont le fond du survol, marges noires du PDF (à confirmer dans la vraie boîte d'impression). Aucun commit de cette étape (consigne : commit sur demande).
+
+**Prochaine chose à creuser** : après les priorités d'Adrien, brainstorming court sur l'en-tête du plan (compacter l'en-tête, plafonner le plan à la hauteur de fenêtre, ou les deux ; l'encart du résultat), puis plan et exécution en TDD avec des tests e2e POM de mise en page (position du plan, colonne sticky à 24 px après défilement, bouton du quiz au-dessus du pli en 1366×768, `scrollWidth <= clientWidth`).
+
+**Notes pour future Claude** : les sondes (`sonde.mjs`, `sonde2.mjs`, `captures.mjs`) étaient dans le scratchpad, vidé entre sessions ; le rapport décrit leur méthode pour les réécrire. Elles importent `/srv/AdrienGras/constellation/node_modules/playwright/index.mjs` et pré-remplissent `localStorage` par `addInitScript` gardé par un drapeau `sessionStorage` (sinon chaque navigation réécrase l'état). Le quiz terminé « tout en A » donne l'écran de départage, « tout en B » le résultat Infra & cloud / Management / Développement.
+
 ## 2026-11-05 — Licence CC BY 4.0, PR de la branche `app` et première publication
 
 **Dernière chose faite** : licence des textes validée par Adrien (CC BY 4.0 pour les textes propres : fiches rédigées par CODA, quiz, interface ; passages Cigref et salaires sous les conditions de leurs sources ; code MIT), affichée sur la page Sources (`LICENCE_TEXTES`), PRD et BACKLOG à jour. Workflow Pages : déclencheur `pull_request` vers `main` (build + tests, sans publier ; `deploy` réservé à `main`). Branche `app` poussée, PR #2 vers `main` (checks verts), fusionnée par commit de merge `c2a9c81` ; run Pages `42018695757` vert (build + deploy). **App en ligne : https://adriengras.github.io/constellation/** — sondée dans Chromium : 7 routes, 68 stations, aucune erreur console, aucun hôte externe contacté.

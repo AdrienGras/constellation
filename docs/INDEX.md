@@ -16,6 +16,7 @@ Voir aussi : `ENVIRONMENT.md` · `QUIRKS.md` · `BACKLOG.md` · `HANDOFF.md`
 | Design system « constellation » (tokens sombres fluo WCAG AA, 23 composants) | 2026-11-04 | `docs/superpowers/specs/2026-11-02-maquette-design.md` | — | Validé par Adrien | https://claude.ai/artifact/VHX2ssXV1wRTpzDimUkkge ; copie dans `maquette/design-system/` |
 | Maquettes des 5 écrans (canevas Design, 16 artboards, quiz et roadmap jouables) | 2026-11-04 | `docs/superpowers/specs/2026-11-02-maquette-design.md` | — | **Validé par Adrien le 05/11/2026**, jouable de bout en bout | https://claude.ai/artifact/WzcbrRpVeq6Ghw9aUgXevM ; sources dans `maquette/` |
 | App constellation (React/Vite : plan, liste, fiches, quiz, roadmap, sources ; 18 tâches, tests unitaires, e2e POM, axe, workflow Pages) | 2026-11-05 | `docs/superpowers/specs/2026-11-05-implementation-app-design.md` | `docs/superpowers/plans/2026-11-05-implementation-app.md` | Livré sur la branche `app`, relu tâche par tâche ; mise en ligne en attente | Premier run du workflow et activation de Pages à faire (BACKLOG) ; sources dans `src/` |
+| Repasse UX, étape 1 : audit des résolutions de PC portable (5 viewports MDPI, 17 scénarios, 13 problèmes) | 2026-11-05 | `docs/ux/repasse-2026-11/rapport.md` | — | Audit livré, corrections en attente des priorités d'Adrien | 21 captures dans `docs/ux/repasse-2026-11/captures/` ; sondes Playwright restées dans le scratchpad |
 
 ## Commandes / scripts utilitaires
 
