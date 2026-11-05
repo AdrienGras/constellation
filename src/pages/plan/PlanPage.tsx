@@ -33,13 +33,13 @@ export function PlanPage() {
   }, [navigate])
 
   return (
-    <div className="flex flex-col gap-2 px-6 pt-4 pb-6 md:px-12">
-      <div className="flex flex-wrap items-end justify-between gap-6 lg:flex-nowrap">
+    <div className="flex flex-col px-6 pb-6 md:px-12">
+      <div className="flex flex-wrap items-end justify-between gap-6 pt-8 pb-5 lg:flex-nowrap">
         <div>
           <p className="m-0 text-[13px] leading-5 font-bold tracking-[0.06em] text-encre-douce uppercase">
             Accueil
           </p>
-          <h1 className="mt-1 mb-0 font-display text-[30px] leading-[1.1] font-bold tracking-[-0.02em]">
+          <h1 className="titre-1 mt-1 mb-0">
             Le plan des métiers du numérique
           </h1>
           <p className="mt-2 mb-0 max-w-[760px] text-encre-douce">
@@ -52,7 +52,9 @@ export function PlanPage() {
           <BasculeVue actif="graphe" />
         </div>
       </div>
-      <Filtres />
+      <div className="pb-4">
+        <Filtres />
+      </div>
       <Link
         to="/liste"
         className="sr-only focus:not-sr-only focus:self-start focus:rounded-sm focus:bg-surface focus:px-3 focus:py-2"

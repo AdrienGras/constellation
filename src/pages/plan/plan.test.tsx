@@ -78,6 +78,17 @@ describe('PlanPage', () => {
     expect(screen.queryByRole('tooltip')).toBeNull()
   })
 
+  it('Échap ferme la bulle et les voisins sans déplacer le focus', async () => {
+    const { container } = monter()
+    const lien = screen.getByRole('link', { name: LIEN_BACKEND })
+    act(() => lien.focus())
+    expect(await screen.findByRole('tooltip')).toBeInTheDocument()
+    await userEvent.keyboard('{Escape}')
+    expect(screen.queryByRole('tooltip')).toBeNull()
+    expect(container.querySelectorAll('svg [data-voisin]')).toHaveLength(0)
+    expect(lien).toHaveFocus()
+  })
+
   it('le survol affiche aussi la bulle', async () => {
     monter()
     await userEvent.hover(screen.getByRole('link', { name: LIEN_BACKEND }))

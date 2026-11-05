@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { Link } from 'react-router'
 import { Station } from '@/components/metier/Station'
 import { categorieParId, ligneParId, plan, stationsDeLigne } from '@/donnees'
@@ -19,6 +19,18 @@ interface Actif {
 
 export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] | null }) {
   const [actif, setActif] = useState<Actif | null>(null)
+  const ouvert = actif !== null
+
+  // WCAG 1.4.13 : Échap ferme la bulle sans déplacer le focus.
+  useEffect(() => {
+    if (!ouvert) return
+    const fermer = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActif(null)
+    }
+    document.addEventListener('keydown', fermer)
+    return () => document.removeEventListener('keydown', fermer)
+  }, [ouvert])
+
   const courante = actif ? plan.stations[actif.id] : null
   const voisins = courante ? courante.voisins.filter((id) => plan.stations[id]) : []
   const etatLigne = (id: LigneId) => (top3 ? (top3.includes(id) ? 'top' : 'exploration') : undefined)
