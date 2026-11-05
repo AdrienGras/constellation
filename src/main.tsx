@@ -8,9 +8,11 @@ import '@fontsource/jetbrains-mono/600.css'
 import './styles/index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { RouterProvider } from 'react-router'
+import { router } from './routes'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <h1>constellation</h1>
+    <RouterProvider router={router} />
   </StrictMode>,
 )
