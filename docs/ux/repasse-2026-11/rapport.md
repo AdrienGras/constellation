@@ -269,7 +269,7 @@ Captures après correction :
 
 ### Étape 3 : cosmétiques n° 7 à 13, et zone d'exploration (n° 14)
 
-Corrigé le 05/11/2026 sur la branche `repasse-ux-cosmetique`, pas encore commité. Spec : [`2026-11-05-repasse-ux-cosmetique-design.md`](../../superpowers/specs/2026-11-05-repasse-ux-cosmetique-design.md). Plan : [`2026-11-05-repasse-ux-cosmetique.md`](../../superpowers/plans/2026-11-05-repasse-ux-cosmetique.md). Le n° 14 a été ajouté par Adrien : après le quiz, la zone d'exploration attirait plus l'œil que le top 3.
+Corrigé le 05/11/2026 sur la branche `repasse-ux-cosmetique`, fusionné dans `main` par la PR #5 (merge `cd82e0b`) et publié. Spec : [`2026-11-05-repasse-ux-cosmetique-design.md`](../../superpowers/specs/2026-11-05-repasse-ux-cosmetique-design.md). Plan : [`2026-11-05-repasse-ux-cosmetique.md`](../../superpowers/plans/2026-11-05-repasse-ux-cosmetique.md). Le n° 14 a été ajouté par Adrien : après le quiz, la zone d'exploration attirait plus l'œil que le top 3.
 
 | # | Problème | Correction | Mesure |
 |---|---|---|---|

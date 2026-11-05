@@ -20,7 +20,7 @@ corps, sans distinction entre ce qui est fait, en suspens, ou à creuser.
 
 ---
 
-## 2026-11-05 — Repasse UX, étape 3 : cosmétiques n° 7 à 13 et zone d'exploration estompée
+## 2026-11-05 — Repasse UX, étape 3 : cosmétiques n° 7 à 13 et zone d'exploration estompée (publiée)
 
 **Dernière chose faite** : les n° 7 à 13 de l'audit sont traités, plus un n° 14 ajouté par Adrien (zone d'exploration estompée après le quiz). Tout est sur la branche `repasse-ux-cosmetique` (depuis `main` `bf6284e`), **non commité**. Spec et plan dans `docs/superpowers/` (`2026-11-05-repasse-ux-cosmetique*`). Les changements :
 - **n° 7** : plan en pleine largeur (1280×720 en 1280), en-tête en `pt-3`, liste « Catégorie » gardée à 240 px (accord d'Adrien) ;
@@ -37,7 +37,7 @@ corps, sans distinction entre ce qui est fait, en suspens, ou à creuser.
 
 Relecture finale par Opus : deux défauts importants corrigés, chacun en partant d'un test qui échouait (côté de bulle périmé, zone de clic du dessin). Ensuite, à la demande d'Adrien : pastilles des compétences de la roadmap qui passent à la ligne au lieu de déborder (défaut de `main`). Vérifié : 231 tests unitaires, lint, build, 109 e2e passés et 69 ignorés. Rapport, section « Suites », sous-section « Étape 3 », avec mesures et 3 captures.
 
-**Trucs en suspens** : commit, push et PR attendent la demande d'Adrien. À vérifier à l'œil par Adrien :
+**Trucs en suspens** : publié. PR #5 fusionnée (merge `cd82e0b`), après un correctif de la quality gate SonarCloud (`9f404d5`, fiabilité C à cause d'un `reduce()` sans valeur initiale, voir QUIRKS). Run Pages `42050254651` vert. Le site en ligne a été sondé en 1366×633 après le quiz : plan à 256 px de haut et 1280 px de large, centre à 628 px, 5 lignes estompées, aucune erreur console, `color-scheme` imprimé `light`. À vérifier à l'œil par Adrien :
 - la zone d'exploration estompée (opacité 0,4, réglable par `OPACITE_EXPLORATION` dans `PlanSvg.tsx`) ;
 - les stations plus petites sous 1237 px de large ;
 - les marges du PDF dans la boîte d'impression de Chrome et d'Edge.

@@ -280,3 +280,12 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Cause** : `reuseExistingServer: !process.env.CI` dans `playwright.config.ts` : si le port 4173 répond, Playwright ne relance pas `npm run build`.
 **Workaround** : `npm run build` avant chaque `npx playwright test` tant qu'un aperçu tourne (l'aperçu relit `dist/` à chaque requête), ou arrêter l'aperçu.
 **Référence** : `playwright.config.ts` (`webServer`).
+
+## SonarCloud bloque une PR sur une seule remarque de fiabilité, tests e2e compris (2026-11-05)
+
+**Découvert** : PR #5 (repasse cosmétique), check « SonarCloud Code Analysis » rouge alors que le build et les tests passaient.
+**Symptôme** : quality gate en échec, `new_reliability_rating` à 3 (C) pour un seuil de 1 (A).
+**Cause** : la gate porte sur le nouveau code, specs et page objects Playwright compris. Une seule remarque de fiabilité de sévérité moyenne (`typescript:S6959`, `reduce()` sans valeur initiale) suffit à faire tomber la note à C. Sonar relève aussi, sans bloquer : complexité cognitive > 15 (`S3776`), ternaires imbriqués (`S3358`), `async` sans `await` (`S7503`), `getAttribute` au lieu de `dataset` (`S7761`), `test.skip` conditionnel (`S1607`).
+**Workaround** : lire les remarques par l'API publique (voir ENVIRONMENT, SonarCloud), corriger, repousser. Pour un test propre à un écran étroit, fixer la fenêtre par `test.use({ viewport })` plutôt que `test.skip` selon le projet.
+**Référence** : commit `9f404d5`, `src/pages/plan/PlanSvg.tsx` (fonctions `etatStation`, `mentionQuiz`, `translationBulle`).
+

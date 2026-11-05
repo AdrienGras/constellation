@@ -44,7 +44,8 @@ Carte des paths, services, accès, commandes. À jour au fil des découvertes.
 
 | Service | Rôle | Accès |
 |---|---|---|
-| GitHub Pages | Hébergement de l'app (100 % statique, pas de backend), déployé par `.github/workflows/pages.yml` | URL attendue `https://adriengras.github.io/constellation/` ; **l'activation de Pages (source « GitHub Actions ») reste à faire par Adrien** ; le workflow n'a encore jamais tourné |
+| GitHub Pages | Hébergement de l'app (100 % statique, pas de backend), déployé par `.github/workflows/pages.yml` à chaque push sur `main` (job `deploy` sauté sur les PR) | `https://adriengras.github.io/constellation/` ; activé (source « GitHub Actions »), publié depuis le 05/11/2026 |
+| SonarCloud | Analyse de chaque PR (check « SonarCloud Code Analysis », bloquant) : quality gate sur le **nouveau code** — notes de fiabilité, sécurité et maintenabilité à A, duplication ≤ 3 %, hotspots revus à 100 % | Projet `AdrienGras_constellation`, API publique : `https://sonarcloud.io/api/qualitygates/project_status?projectKey=AdrienGras_constellation&pullRequest=<n>` et `https://sonarcloud.io/api/issues/search?componentKeys=AdrienGras_constellation&pullRequest=<n>&resolved=false` |
 
 ## Variables d'environnement
 
