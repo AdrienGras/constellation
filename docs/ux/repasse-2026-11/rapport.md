@@ -245,15 +245,19 @@ Corrigé le 05/11/2026 sur la branche `app` (commits `230280c..cdcd91a`). Spec :
 
 Annexe, corrigée aussi : exemples de la ligne Management, bouton `ghost` désactivé sans fond de survol, filet bas du tableau Apec. Les n° 6 à 13 restent ouverts (BACKLOG).
 
-Haut du dessin du plan en coordonnées de page (barre de navigation comprise), mesuré par `tests-e2e/mise-en-page.spec.ts` :
+Haut du dessin du plan (`[data-plan-dessin]`, `rect.top + scrollY`, barre de navigation comprise), mesuré le 05/11/2026 sur le build de production (`vite preview`), `deviceScaleFactor: 1`. La part visible est `(hauteur de fenêtre − haut) / hauteur du dessin`. La spec `tests-e2e/mise-en-page.spec.ts` vérifie seulement que le haut est ≤ 300 px.
 
-| Largeur | Avant le quiz, avant | Avant le quiz, après | Après le quiz, avant | Après le quiz, après |
-|---|---|---|---|---|
-| 1280 px | 390 px (1280×800) | 258 px | 336 à 512 px | 298 px |
-| 1366 px | 336 à 512 px | 258 px | 336 à 512 px | 298 px |
-| 1536 px | 336 à 512 px | 258 px | 336 à 512 px | 298 px |
+| Fenêtre | Avant le quiz : audit → mesuré | Après le quiz : audit → mesuré | Part visible (avant / après le quiz) |
+|---|---|---|---|
+| 1366×768 | 380 → **258 px** | 480 → **298 px** | 71 % / 66 % |
+| 1280×720 | 390 → **258 px** | 512 → **298 px** | 69 % / 63 % |
+| 1280×800 | 390 → **258 px** | 512 → **298 px** | 81 % / 75 % |
+| 1440×900 | 336 → **258 px** | 480 → **298 px** | 89 % / 84 % |
+| 1536×864 | 336 → **258 px** | 480 → **298 px** | 84 % / 79 % |
+| 1366×633 | n.d. | n.d. : **258 / 298 px** | 52 % / 47 % |
+| 1280×590 | n.d. | n.d. : **258 / 298 px** | 50 % / 44 % |
 
-Les valeurs « avant » viennent du tableau de l'audit (fourchette sur les cinq viewports, 390 px en 1280×800 avant le quiz) ; les valeurs « après » sont identiques aux trois largeurs. Vérifié : 230 tests unitaires, lint, build, 86 e2e.
+Les deux dernières lignes sont des fenêtres réelles (barres du navigateur déduites), absentes de l'audit. Hauteur du dessin : 666 px en 1280, 714 px en 1366, 720 px à 1440 et 1536. Vérifié : 230 tests unitaires, lint, build, 86 e2e passés, 46 ignorés.
 
 Captures après correction :
 

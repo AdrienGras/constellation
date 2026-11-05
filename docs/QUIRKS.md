@@ -224,31 +224,37 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Découvert** : barre de navigation du quiz collée en bas de la fenêtre (repasse UX, étape 2).
 **Symptôme** : malgré une marge de défilement sur le label ou la carte, la case focalisée au clavier passait sous la barre `sticky bottom-0`.
 **Cause** : le navigateur applique `scroll-margin` à l'élément focalisé, ici la pastille radio Radix ou l'`input` checkbox du départage, pas son label ni sa carte. Pour une case centrée dans une carte haute, la marge doit aussi couvrir le bas de la carte.
-**Workaround** : `scroll-mb-32` sur la pastille radio (`Question`), `scroll-mb-40` sur la case du départage (`Departage`). Mesuré dans `tests-e2e/mise-en-page.spec.ts`.
-**Référence** : `src/pages/quiz/`, `docs/superpowers/specs/2026-11-05-repasse-ux-resolutions-design.md`.
+**Workaround** : `scroll-mb-32` sur la pastille (`src/components/ui/radio-group.tsx`, `RadioCarte`), `scroll-mb-40` sur la case du départage (`src/pages/quiz/Departage.tsx`). Vérifié par `tests-e2e/mise-en-page.spec.ts`.
+**Référence** : `docs/superpowers/specs/2026-11-05-repasse-ux-resolutions-design.md`.
 
 ## Radix `RadioGroup` déplace le focus dans un `setTimeout` (2026-11-05)
 
-**Découvert** : test clavier de la barre du quiz.
+**Découvert** : test clavier de la barre du quiz (`tests-e2e/mise-en-page.spec.ts`).
 **Symptôme** : une touche envoyée juste après la précédente atterrit sur l'ancienne pastille, le test devient instable.
-**Cause** : `RadioGroup` déplace le focus au tick suivant, pas de façon synchrone.
+**Cause** : `focusFirst` de `@radix-ui/react-roving-focus` (utilisé par `RadioGroup`) est appelé dans un `setTimeout` (`dist/index.mjs`, ligne 202) : le focus arrive au tick suivant, pas de façon synchrone.
 **Workaround** : attendre chaque arrivée du focus (`toBeFocused`) avant la touche suivante.
+**Référence** : `src/components/ui/radio-group.tsx`, `node_modules/@radix-ui/react-roving-focus/dist/index.mjs`.
 
 ## L'en-tête du plan est au plafond : 298 px pour 300 px (2026-11-05)
 
-**Symptôme** : `mise-en-page.spec.ts` échoue dès qu'une ligne s'ajoute à l'en-tête ou à l'encart du quiz.
+**Découvert** : mesures de la repasse UX, étape 2 (tâche 7).
+**Symptôme** : `tests-e2e/mise-en-page.spec.ts` échoue dès qu'une ligne s'ajoute à l'en-tête ou à l'encart du quiz.
 **Cause** : haut du dessin du plan à 258 px avant le quiz, 298 px après, pour un plafond de 300 px (barre de navigation comprise) : 2 px de marge.
-**Workaround** : retirer d'abord ce qui est prévu dans l'ordre validé par Adrien : le rappel « point de départ, pas un verdict » de l'encart est la prochaine étape. L'étiquette « Accueil » et le chapeau long sont déjà retirés ; la consigne de la zone d'exploration et son décompte restent.
-**Référence** : `src/pages/EnTeteAccueil.tsx`, `tests-e2e/mise-en-page.spec.ts`.
+**Workaround** : retirer d'abord ce qui est prévu dans l'ordre validé par Adrien : le rappel « point de départ, pas un verdict » de l'encart (`src/pages/plan/EncartQuiz.tsx`) est la prochaine étape. L'étiquette « Accueil » et le chapeau long sont déjà retirés ; la consigne de la zone d'exploration et son décompte restent.
+**Référence** : `src/pages/plan/EnTeteAccueil.tsx`, `src/pages/plan/EncartQuiz.tsx`.
 
 ## Tailwind v4 n'a pas de variante `fullscreen:` (2026-11-05)
 
-**Symptôme** : `fullscreen:` ne produit aucune règle.
+**Découvert** : bouton « Plein écran » du plan (repasse UX, étape 2).
+**Symptôme** : `fullscreen:` ne produit aucune règle CSS.
+**Cause** : Tailwind v4 ne fournit pas cette variante.
 **Workaround** : variantes arbitraires, `[&:fullscreen]:` sur l'élément plein écran et `[:fullscreen_&]:` pour ses descendants (bouton, légende).
-**Référence** : `usePleinEcran` et la page du plan.
+**Référence** : `src/pages/plan/usePleinEcran.ts`, `src/pages/plan/PlanPage.tsx`.
 
 ## Une spec Playwright qui exporte ses constantes les fait réenregistrer (2026-11-05)
 
-**Symptôme** : importer `FENETRES` ou `QUIZ_A` de `mise-en-page.spec.ts` dans une autre spec rejoue les tests de la première.
+**Découvert** : écriture de `tests-e2e/mise-en-page.spec.ts` (repasse UX, étape 2).
+**Symptôme** : importer `FENETRES` ou `QUIZ_A` de cette spec dans une autre rejouerait les tests de la première.
 **Cause** : importer un fichier `*.spec.ts` l'exécute, donc ses `test()` s'enregistrent une seconde fois.
 **Workaround** : déplacer les constantes dans un module non-spec (par exemple `tests-e2e/donnees.ts`) avant le premier import croisé.
+**Référence** : `tests-e2e/mise-en-page.spec.ts`.
