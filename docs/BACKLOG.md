@@ -40,7 +40,12 @@ Organise les entrées par thème (`## <Thème>`), chaque idée étant une case �
 - [ ] Workflow Pages : `actions/deploy-pages@v4` cible Node 20, déprécié sur les runners (avertissement au run du 05/11/2026) ; passer à la version majeure suivante quand elle sortira.
 
 - [ ] Premier run du workflow `.github/workflows/pages.yml` à surveiller après l'activation de Pages (jamais exécuté sur GitHub).
-- [ ] Passe visuelle avec Adrien : haut du plan à 390 px (h1 `titre-1` sur 2 lignes, légende sur 3 rangées) et à 1280×800 ; textes secondaires à 13-15 px repris de la maquette (à trancher).
+- [ ] Passe visuelle avec Adrien : textes secondaires à 13-15 px repris de la maquette (à trancher). Le haut du plan est traité par la repasse UX, étape 2 (258 / 298 px) ; reste à lui faire valider l'en-tête et la légende dans le plan.
+- [ ] Repasse UX, suites : barre du quiz sur 2 lignes en mobile (environ 130 px), plus haute que les marges de défilement `scroll-mb-32` / `scroll-mb-40`.
+- [ ] Repasse UX, suites : bouton « Plein écran » sur sa propre rangée sous 1280 px (aujourd'hui masqué avec la légende posée, absent du flux étroit).
+- [ ] Repasse UX, suites : ni capture ni test du rendu réel en plein écran (ratio du plan, légende, bulle).
+- [ ] Repasse UX, suites : libellés du plan à 11 px et textes secondaires de 13 à 15 px (n° 6 de l'audit) ; cosmétiques n° 7 à 13, dont les marges noires du PDF (à confirmer dans la boîte d'impression).
+- [ ] Repasse UX, suites : retirer le rappel « point de départ » de l'encart du quiz si une ligne s'ajoute à l'en-tête (2 px de marge sous le plafond de 300 px).
 - [ ] Déplacer un élément de roadmap d'une année à l'autre (aujourd'hui : supprimer puis recréer).
 - [ ] Zoom du plan sur mobile.
 - [ ] 10 vulnérabilités modérées en devDependencies (`npm audit`) ; 0 en dépendances d'exécution.

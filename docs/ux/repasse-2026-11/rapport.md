@@ -230,3 +230,36 @@ Vus pendant l'audit, sans lien avec la taille de l'écran :
 - **Boutons Monter et Descendre désactivés** : le bouton désactivé (monter le premier élément, descendre le dernier) apparaît avec un fond, comme s'il était survolé (voir la capture du n° 3). Cause : `button.tsx:9` donne `disabled:bg-surface-muted`, le même fond que `hover:bg-surface-muted` du variant `ghost` (`button.tsx:16`).
 - **Tableau Apec des fiches** : les filets entre les lignes ne passent pas sous la première colonne (« Île-de-France », « Autres régions »), visible dans les pages entières des fiches.
 - **Contour de focus sur le titre** après un changement d'écran du quiz (focus programmatique sur le `h1`) : visible sur les captures faites sans interaction préalable. À vérifier en conditions réelles (après un clic souris) avant de décider s'il y a quelque chose à corriger.
+
+## Suites
+
+Corrigé le 05/11/2026 sur la branche `app` (commits `230280c..cdcd91a`). Spec : [`2026-11-05-repasse-ux-resolutions-design.md`](../../superpowers/specs/2026-11-05-repasse-ux-resolutions-design.md) ; plan : [`2026-11-05-repasse-ux-resolutions.md`](../../superpowers/plans/2026-11-05-repasse-ux-resolutions.md).
+
+| # | Problème | Correction |
+|---|---|---|
+| 1 | Plan sous le pli | En-tête compact partagé, légende posée dans le plan, plan plafonné à 300 px en haut |
+| 2 | Encart du résultat | Encart réduit après le quiz, en-tête de la liste sans légende |
+| 3 | Colonne sticky des compétences | `sticky` sur l'enveloppe, hauteur plafonnée, défilement interne |
+| 4 | Bouton « Question suivante » sous le pli | Barre de navigation `sticky bottom-0`, marges de défilement sur l'élément focalisé |
+| 5 | Titre et légende de l'en-tête | Légende dans le plan à partir de 1280 px, bouton « Plein écran » |
+
+Annexe, corrigée aussi : exemples de la ligne Management, bouton `ghost` désactivé sans fond de survol, filet bas du tableau Apec. Les n° 6 à 13 restent ouverts (BACKLOG).
+
+Haut du dessin du plan en coordonnées de page (barre de navigation comprise), mesuré par `tests-e2e/mise-en-page.spec.ts` :
+
+| Largeur | Avant le quiz, avant | Avant le quiz, après | Après le quiz, avant | Après le quiz, après |
+|---|---|---|---|---|
+| 1280 px | 390 px (1280×800) | 258 px | 336 à 512 px | 298 px |
+| 1366 px | 336 à 512 px | 258 px | 336 à 512 px | 298 px |
+| 1536 px | 336 à 512 px | 258 px | 336 à 512 px | 298 px |
+
+Les valeurs « avant » viennent du tableau de l'audit (fourchette sur les cinq viewports, 390 px en 1280×800 avant le quiz) ; les valeurs « après » sont identiques aux trois largeurs. Vérifié : 230 tests unitaires, lint, build, 86 e2e.
+
+Captures après correction :
+
+![Plan après le quiz, 1366×633](captures/plan-1366x633-apres-correction.png)
+
+![Plan avant le quiz, 1280×800](captures/plan-1280x800-apres-correction.png)
+
+![Quiz question 9, 1280×590](captures/quiz-1280x590-apres-correction.png)
+
