@@ -141,7 +141,10 @@ export class PlanPage extends AppPage {
         for (const [x, y] of points) {
           const touche = document.elementFromPoint(x, y)?.closest('a[href*="/fiche/"]')
           if (!touche) continue
-          const plusProche = centres.reduce((m, o) => (Math.hypot(o.x - x, o.y - y) < Math.hypot(m.x - x, m.y - y) ? o : m))
+          const plusProche = centres.reduce(
+            (m, o) => (Math.hypot(o.x - x, o.y - y) < Math.hypot(m.x - x, m.y - y) ? o : m),
+            centres[0],
+          )
           const ecart = Math.hypot(centres.find((o) => o.a === touche)!.x - x, centres.find((o) => o.a === touche)!.y - y) -
             Math.hypot(plusProche.x - x, plusProche.y - y)
           if (ecart > 0.5) fautes.push(`${touche.getAttribute('aria-label')?.split(',')[0]} au lieu de ${plusProche.a.getAttribute('aria-label')?.split(',')[0]}`)
@@ -164,7 +167,7 @@ export class PlanPage extends AppPage {
   }
 
   /** Vrai si les 4 coins du texte « FORMATION » sont dans le disque central (unités SVG). */
-  async centreDansLeDisque(): Promise<boolean> {
+  centreDansLeDisque(): Promise<boolean> {
     return this.page.locator('[data-plan-dessin]').evaluate((dessin) => {
       const texte = dessin.querySelector<SVGTextElement>('[data-centre]')
       const disque = dessin.querySelector<SVGCircleElement>('[data-disque]')
@@ -194,7 +197,7 @@ export class PlanPage extends AppPage {
   }
 
   /** Vrai si l'élément au centre de la station est la station elle-même (la bulle ne la cache pas). */
-  async stationVisibleSousLaBulle(titre: string): Promise<boolean> {
+  stationVisibleSousLaBulle(titre: string): Promise<boolean> {
     return this.station(titre).evaluate((lien) => {
       const r = lien.getBoundingClientRect()
       const e = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2)
@@ -203,8 +206,8 @@ export class PlanPage extends AppPage {
   }
 
   /** Côté de la bulle par rapport à sa station : `dessus` ou `dessous`. */
-  async coteDeLaBulle(): Promise<string | null> {
-    return this.bulle.getAttribute('data-cote')
+  coteDeLaBulle(): Promise<string | null> {
+    return this.bulle.evaluate((el) => el.dataset.cote ?? null)
   }
 
   async survolerStation(titre: string) {

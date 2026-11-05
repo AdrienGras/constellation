@@ -131,11 +131,9 @@ test.describe('roadmap', () => {
   })
 })
 
-test.describe('roadmap : carte d’élément sur mobile', () => {
-  // eslint-disable-next-line no-empty-pattern
-  test.beforeEach(({}, info) => {
-    test.skip(info.project.name !== 'mobile', 'Disposition propre à l’écran étroit.')
-  })
+test.describe('roadmap : carte d’élément sur écran étroit (390 px)', () => {
+  // La disposition ne dépend que de la largeur : la fenêtre est fixée ici, le test tourne dans les deux projets.
+  test.use({ viewport: { width: 390, height: 844 } })
 
   test('les actions passent sous le titre, qui garde sa largeur', async ({ roadmap }) => {
     await roadmap.ouvrir()

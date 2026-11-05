@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { Maximize, Minimize } from 'lucide-react'
 import { Link } from 'react-router'
-import { Station } from '@/components/metier/Station'
+import { Station, type EtatStation } from '@/components/metier/Station'
 import { Button } from '@/components/ui/button'
 import { categorieParId, ligneParId, plan, stationsDeLigne } from '@/donnees'
 import type { LigneId } from '@/donnees/types'
@@ -20,6 +20,25 @@ const libelleType = (t: string) => (t === 'entree' ? 'métier d’entrée' : 'm�
 interface Actif {
   id: string
   clavier: boolean
+}
+
+function etatStation(id: string, actif: Actif | null, voisins: string[], retenue: boolean): EtatStation {
+  if (actif?.id === id) return actif.clavier ? 'focus' : 'survol'
+  if (actif && voisins.includes(id)) return 'survol'
+  return retenue ? 'repos' : 'attenue'
+}
+
+function mentionQuiz(ligne: LigneId, top3: LigneId[] | null): string {
+  if (!top3) return ''
+  return top3.includes(ligne) ? ', ligne de ton top 3' : ', zone d’exploration'
+}
+
+/** Décalage de la bulle : recentrée près des bords du plan, au-dessus ou au-dessous de sa station. */
+function translationBulle(x: number, cote: 'dessus' | 'dessous'): string {
+  let horizontal = '-50%'
+  if (x < 160) horizontal = '-10%'
+  else if (x > 1120) horizontal = '-90%'
+  return `translate(${horizontal}, ${cote === 'dessus' ? 'calc(-100% - 24px)' : '24px'})`
 }
 
 export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] | null }) {
@@ -167,16 +186,8 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
                 const cat = categorieParId(s.cat)?.libelle ?? s.cat
                 const retenue = correspondFiltre({ categorie: s.cat, type: s.type }, filtres)
                 const courant = actif?.id === id
-                const etat = courant
-                  ? actif.clavier
-                    ? 'focus'
-                    : 'survol'
-                  : actif && voisins.includes(id)
-                    ? 'survol'
-                    : retenue
-                      ? 'repos'
-                      : 'attenue'
-                const rangQuiz = top3 ? (top3.includes(s.ligne) ? ', ligne de ton top 3' : ', zone d’exploration') : ''
+                const etat = etatStation(id, actif, voisins, retenue)
+                const rangQuiz = mentionQuiz(s.ligne, top3)
                 return (
                   // Cible ronde dont le diamètre suit la largeur du plan (34 px au plus, 24 au moins, WCAG 2.5.8) :
                   // les centres les plus proches sont à 35,9 / 1280 de la largeur, donc pas de chevauchement au-dessus de 856 px.
@@ -220,7 +231,7 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
               style={{
                 left: `${(courante.x / L) * 100}%`,
                 top: `${(courante.y / H) * 100}%`,
-                transform: `translate(${courante.x < 160 ? '-10%' : courante.x > 1120 ? '-90%' : '-50%'}, ${coteBulle === 'dessus' ? 'calc(-100% - 24px)' : '24px'})`,
+                transform: translationBulle(courante.x, coteBulle),
               }}
             >
               <strong className="block text-base leading-[22px]">{courante.titre}</strong>
