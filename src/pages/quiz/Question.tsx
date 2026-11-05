@@ -43,7 +43,7 @@ export function Question({
   }, [index])
 
   return (
-    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-6 px-6 py-8">
+    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-6 px-6 pt-6">
       <div className="flex flex-col gap-3">
         <p className="m-0 text-[15px] font-bold tracking-[0.06em] text-encre-douce uppercase">
           Quiz · environ 10 minutes
@@ -73,7 +73,10 @@ export function Question({
       <p className="m-0 text-[15px] leading-[22px] text-encre-douce">
         Il n’y a pas de bonne réponse : choisis ce qui te ressemble le plus, même de peu.
       </p>
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div
+        data-barre-quiz
+        className="sticky bottom-0 -mx-6 flex flex-wrap items-center justify-between gap-3 border-t border-trait bg-fond px-6 py-4"
+      >
         <Button variant="outline" disabled={index === 0} onClick={() => allerA(index - 1)}>
           ← Question précédente
         </Button>

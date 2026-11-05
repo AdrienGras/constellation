@@ -117,6 +117,13 @@ describe('CartoucheApec', () => {
     expect(screen.getByRole('img', { name: /^1er décile \d+ k€, médiane 50 k€, 9e décile \d+ k€$/ })).toBeInTheDocument()
   })
 
+  it('les en-têtes de ligne portent le filet bas', () => {
+    render(apec(metier('dev-backend')))
+    const entetes = screen.getAllByRole('rowheader')
+    expect(entetes.length).toBeGreaterThan(0)
+    for (const th of entetes) expect(th.className).toMatch(/border-b/)
+  })
+
   it('mlops : rapprochement avec la famille Big Data', () => {
     const m = metier('mlops')
     const { container } = render(apec(m))

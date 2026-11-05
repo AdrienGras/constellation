@@ -49,7 +49,7 @@ function RadioCarte({
         className,
       )}
     >
-      <RadioGroupItem value={value} className="mt-0 focus-visible:outline-none" {...props} />
+      <RadioGroupItem value={value} className="mt-0 scroll-mb-32 focus-visible:outline-none" {...props} />
       {lettre ? (
         <span
           aria-hidden="true"

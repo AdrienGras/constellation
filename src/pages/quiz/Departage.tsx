@@ -6,15 +6,16 @@ import type { LigneId } from '@/donnees/types'
 import { useQuiz } from '@/etat/QuizContext'
 import { usePageTitre } from '../usePageTitre'
 import { categoriesDeLigne } from './categories'
-import { exemplesDeLigne } from './Resultat'
+import { exemplesDeLigne, libelleExemples } from './Resultat'
 
 function Details({ id }: { id: LigneId }) {
+  const ex = exemplesDeLigne(id)
   return (
     <span className="flex flex-col gap-1">
       <PastilleLigne ligne={id} />
       <span className="text-[16px] leading-6 text-encre-douce">{categoriesDeLigne(id)}</span>
       <span className="text-[16px] leading-6">
-        <strong>Par exemple :</strong> {exemplesDeLigne(id).join(', ')}
+        <strong>{libelleExemples(ex)}</strong> {ex.titres.join(', ')}
       </span>
     </span>
   )
@@ -37,7 +38,7 @@ export function Departage() {
     setChoix((c) => (c.includes(id) ? c.filter((x) => x !== id) : [...c, id]))
 
   return (
-    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-6 px-6 py-8">
+    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-6 px-6 pt-6">
       <h1 ref={h1} tabIndex={-1} className="m-0 font-display text-[28px] leading-9 font-bold">
         Une dernière question
       </h1>
@@ -73,7 +74,7 @@ export function Departage() {
                     checked={coche}
                     disabled={!coche && complet}
                     onChange={() => bascule(id)}
-                    className="size-[22px] shrink-0 cursor-pointer accent-[var(--primaire)] focus-visible:outline-none disabled:cursor-not-allowed"
+                    className="size-[22px] shrink-0 scroll-mb-40 cursor-pointer accent-[var(--primaire)] focus-visible:outline-none disabled:cursor-not-allowed"
                   />
                   <Details id={id} />
                 </label>
@@ -85,7 +86,10 @@ export function Departage() {
           </p>
         </div>
       )}
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div
+        data-barre-quiz
+        className="sticky bottom-0 -mx-6 flex flex-wrap items-center justify-between gap-3 border-t border-trait bg-fond px-6 py-4"
+      >
         <Button variant="outline" onClick={rouvrir}>
           ← Revenir aux questions
         </Button>

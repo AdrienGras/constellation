@@ -25,6 +25,24 @@ describe('primitives', () => {
     expect(bouton.className).toContain('h-9')
   })
 
+  it('Button ghost désactivé : ni fond ni bordure de survol', () => {
+    render(
+      <Button variant="ghost" disabled>
+        Monter
+      </Button>,
+    )
+    const b = screen.getByRole('button', { name: 'Monter' })
+    expect(b.className).not.toMatch(/(^|\s)disabled:bg-surface-muted(\s|$)/)
+    expect(b.className).toMatch(/disabled:bg-transparent/)
+  })
+
+  it('Button default désactivé garde son fond désactivé', () => {
+    render(<Button disabled>Ok</Button>)
+    expect(screen.getByRole('button', { name: 'Ok' }).className).toMatch(
+      /disabled:bg-surface-muted/,
+    )
+  })
+
   it('Badge succes affiche son texte', () => {
     render(<Badge variant="succes">Validé</Badge>)
     expect(screen.getByText('Validé').className).toContain('bg-succes-doux')

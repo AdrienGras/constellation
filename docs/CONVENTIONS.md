@@ -114,3 +114,28 @@ ecrire(CLES.roadmap, etat)                         // renvoie false si le stocka
 - Clés versionnées (`constellation.<nom>.v1`) centralisées dans `CLES`. Toute valeur lue passe par un type guard (`estEtatQuiz`, `estEtatRoadmap`) ; une valeur invalide est ignorée sans être effacée.
 - Les URL ne sont acceptées qu'en `http(s)` (import, état et rendu).
 - Le stockage peut manquer (navigation privée) : l'app affiche l'avertissement et continue en mémoire.
+
+## Test e2e de mise en page — squelette
+
+```ts
+import { expect, test } from './fixtures'
+
+test.describe('quiz : barre collée (1366×633)', () => {
+  test.use({ viewport: { width: 1366, height: 633 } })   // fenêtre réelle : barres du navigateur déduites
+
+  test('le bouton reste dans la fenêtre', async ({ quiz }) => {
+    await quiz.ouvrir()
+    await quiz.poserStockage('constellation.quiz.v1', { version: 1, reponses: {}, question: 8, departage: [], termine: false })
+    await quiz.defilerA(0)
+    expect((await quiz.rectEcran(quiz.boutonAvancer)).bas).toBeLessThanOrEqual(await quiz.hauteurFenetre())
+  })
+})
+```
+
+### Règles tacites
+
+- Fenêtres de mesure : 1366×633, 1280×590, 1536×731 et 1280×800 (hauteur d'écran moins les barres du navigateur). Projet `mobile` ignoré (`test.skip` dans `beforeEach`).
+- Aucun sélecteur ni mesure DOM dans la spec : tout passe par les page objects (`poserStockage`, `rectEcran`, `hautDansLaPage`, `defilerA`, `hauteurFenetre`, `nombreDeLignes`). `poserStockage` écrit le `localStorage`, recharge et attend l'app.
+- Un `sticky` ou une marge de défilement ne se testent qu'en e2e : jsdom ne mesure rien. Tolérance d'un pixel sur les comparaisons de position.
+- Les constantes partagées (`FENETRES`, `QUIZ_A`, `QUIZ_B`, `ROADMAP_AUDIT`) vivent dans `tests-e2e/donnees.ts`, jamais exportées d'une spec : importer un `*.spec.ts` réenregistre ses tests (voir QUIRKS).
+- Garde-fou : toute méthode de page object qui filtre une collection vérifie le nombre attendu et lève une erreur sinon (par exemple `stationsRecouvertesPar` exige 68 stations). Un sélecteur cassé fait alors échouer le test au lieu de le rendre vide. Le routeur est à ancre : les `href` valent `#/fiche/…`, d'où `href*=` et jamais `href^=`.

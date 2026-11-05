@@ -24,7 +24,7 @@ export function Competences({ cible }: { cible: string | null }) {
   const large = useLarge()
   const metier = cible ? metierParId(cible) : undefined
   return (
-    <aside data-competences className="lg:sticky lg:top-6 lg:self-start">
+    <aside data-competences>
       <details
         open={large}
         className="rounded-md bg-surface p-4 shadow-carte [&>summary]:cursor-pointer [&>summary]:font-display [&>summary]:text-[18px] [&>summary]:leading-6 [&>summary]:font-[650]"

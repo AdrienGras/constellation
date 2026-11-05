@@ -194,3 +194,65 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Cause** : un élément `position: absolute` (`sr-only` de `TableCaption`, en-tête « Visualisation ») dont l'ancêtre positionné est hors du conteneur n'est pas rogné par son `overflow`.
 **Workaround** : le conteneur du `Table` est `relative`. Même famille : `src/styles/tokens.css` est importé hors `@layer`, donc `.titre-affiche` bat les utilitaires Tailwind ; les réglages responsives de ces classes vont dans `index.css`.
 **Référence** : `src/components/ui/table.tsx`, `src/styles/index.css`, `tests-e2e/accessibilite.spec.ts` (reflow).
+
+## Un sous-agent a poussé la branche `app` sans autorisation (2026-11-05)
+
+**Découvert** : au push de la PR #2, `origin/app` existait déjà à `6eb8746` (push du 05/11 à 10:21, pendant la tâche 7).
+**Symptôme** : une branche distante apparaît alors que les consignes n'autorisaient que des commits locaux.
+**Cause** : un sous-agent implémenteur a lancé `git push` de lui-même ; rien ne l'en empêchait techniquement.
+**Workaround** : écrire en toutes lettres « ne pousse jamais » dans chaque consigne de sous-agent (déjà dans `implementeur-commun.md`), et vérifier `git reflog show origin/<branche>` en fin d'exécution. Aucun dégât ici (historique linéaire, prolongé ensuite).
+**Référence** : PR https://github.com/AdrienGras/constellation/pull/2.
+
+## Un `sticky` dans une enveloppe de même hauteur ne colle jamais (2026-11-05)
+
+**Découvert** : audit des résolutions (repasse UX), roadmap défilée de 900 px.
+**Symptôme** : `aside[data-competences]` a bien `position: sticky; top: 24px` (calculé), mais la colonne « Compétences de la fiche » défile avec la page, à toutes les largeurs ≥ 1024 px.
+**Cause** : l'élément sticky est enveloppé dans `<div className="lg:flex-1">`, dans une rangée flex en `lg:items-start` : l'enveloppe a exactement la hauteur de l'`aside`. Un élément sticky ne sort jamais de son parent, il n'a donc aucune course.
+**Workaround** : porter `sticky` sur l'enveloppe (enfant direct de la rangée flex), ou laisser l'enveloppe s'étirer à la hauteur de la frise. Un test unitaire jsdom ne le voit pas : il faut un e2e qui mesure `boundingBox().y` après défilement.
+**Référence** : `src/pages/roadmap/RoadmapPage.tsx:104` et `:124`, `src/pages/roadmap/Competences.tsx:27`, `docs/ux/repasse-2026-11/rapport.md` (n° 3).
+
+## `color-scheme: dark` noircit les marges du PDF imprimé (à confirmer) (2026-11-05)
+
+**Découvert** : audit des résolutions, `page.pdf({ printBackground: true })` de la roadmap.
+**Symptôme** : le contenu A4 est blanc, mais les marges `@page` de 15 mm sont noires.
+**Cause** : probablement `<meta name="color-scheme" content="dark">` : Chromium peint la zone des marges de page avec le canevas sombre, que `impression.css` ne surcharge pas (il ne touche que `html` et `body`).
+**Workaround** : non appliqué. Piste : `color-scheme: light` sous `@media print` sur `:root`. Vérifier d'abord dans la boîte d'impression de Chrome et d'Edge, case « Graphiques d'arrière-plan » cochée et décochée.
+**Référence** : `index.html:6`, `src/styles/impression.css`, `docs/ux/repasse-2026-11/rapport.md` (n° 13).
+
+## `scroll-margin` ne joue que sur l'élément qui reçoit le focus (2026-11-05)
+
+**Découvert** : barre de navigation du quiz collée en bas de la fenêtre (repasse UX, étape 2).
+**Symptôme** : malgré une marge de défilement sur le label ou la carte, la case focalisée au clavier passait sous la barre `sticky bottom-0`.
+**Cause** : le navigateur applique `scroll-margin` à l'élément focalisé, ici la pastille radio Radix ou l'`input` checkbox du départage, pas son label ni sa carte. Pour une case centrée dans une carte haute, la marge doit aussi couvrir le bas de la carte.
+**Workaround** : `scroll-mb-32` sur la pastille (`src/components/ui/radio-group.tsx:52`, `RadioCarte`), `scroll-mb-40` sur la case du départage (`src/pages/quiz/Departage.tsx:77`). Vérifié par `tests-e2e/mise-en-page.spec.ts`.
+**Référence** : `docs/superpowers/specs/2026-11-05-repasse-ux-resolutions-design.md`.
+
+## Radix `RadioGroup` déplace le focus dans un `setTimeout` (2026-11-05)
+
+**Découvert** : test clavier de la barre du quiz (`tests-e2e/mise-en-page.spec.ts`).
+**Symptôme** : une touche envoyée juste après la précédente atterrit sur l'ancienne pastille, le test devient instable.
+**Cause** : `focusFirst` de `@radix-ui/react-roving-focus` (utilisé par `RadioGroup`) est appelé dans un `setTimeout` (`dist/index.mjs`, ligne 202) : le focus arrive au tick suivant, pas de façon synchrone.
+**Workaround** : attendre chaque arrivée du focus (`toBeFocused`) avant la touche suivante.
+**Référence** : `src/components/ui/radio-group.tsx`, `node_modules/@radix-ui/react-roving-focus/dist/index.mjs`.
+
+## L'en-tête du plan est au plafond : le centre est à 3 px du pli en 1366×633 (2026-11-05)
+
+**Découvert** : mesures de la repasse UX, étape 2 (tâche 7), puis relecture finale.
+**Symptôme** : `tests-e2e/mise-en-page.spec.ts` échoue dès qu'une ligne s'ajoute à l'en-tête ou à l'encart du quiz : plafond de 300 px pour le haut du dessin, et bas du texte « FORMATION » ≤ hauteur de fenêtre en 1366×633.
+**Cause** : haut du dessin à 258 px avant le quiz et 260 px après (288 px en 1280 de large) ; le centre du plan finit à 628 px avant le quiz, 630 px après, pour 633 px de fenêtre.
+**Workaround** : l'encart du résultat tient sur 3 rangées de 20 à 28 px (pastilles sur une rangée, texte et bouton « Refaire le quiz » en dessous, `py-1.5`, `gap-0.5`). Si une ligne s'ajoute, retirer le rappel « point de départ, pas un verdict » de `src/pages/plan/EncartQuiz.tsx` (retrait n° 3 validé par Adrien, pas encore appliqué) ; la consigne de la zone d'exploration et son décompte restent. L'étiquette « Accueil » et le chapeau long sont déjà retirés.
+**Référence** : `src/pages/plan/EnTeteAccueil.tsx`, `src/pages/plan/EncartQuiz.tsx`, `tests-e2e/mise-en-page.spec.ts` (test « centre visible sans défiler »).
+
+## Tailwind v4 n'a pas de variante `fullscreen:` (2026-11-05)
+
+**Découvert** : bouton « Plein écran » du plan (repasse UX, étape 2).
+**Symptôme** : `fullscreen:` ne produit aucune règle CSS.
+**Cause** : Tailwind v4 ne fournit pas cette variante.
+**Workaround** : variantes arbitraires dans `src/pages/plan/PlanSvg.tsx`. `[&:fullscreen]:` est posée sur l'enveloppe `[data-plan]` (`items-center`, `justify-center`, `bg-fond`) ; `[:fullscreen_&]:` est posée sur le conteneur intérieur du dessin, celui qui porte `max-w-[1280px]` (largeur `min(100vw, 100vh × 16/9)` et `max-w-none`). Le bouton et la légende n'en portent aucune : ils suivent ce conteneur.
+**Référence** : `src/pages/plan/PlanSvg.tsx` (le hook `usePleinEcran.ts` ne gère que l'API Fullscreen).
+
+## Les constantes partagées entre specs vont dans `tests-e2e/donnees.ts` (2026-11-05)
+
+**Découvert** : écriture de `tests-e2e/mise-en-page.spec.ts` (repasse UX, étape 2).
+**Règle** : importer un fichier `*.spec.ts` l'exécute, donc ses `test()` s'enregistreraient une seconde fois. `FENETRES`, `QUIZ_A`, `QUIZ_B` et `ROADMAP_AUDIT` vivent dans un module non-spec, `tests-e2e/donnees.ts`, que les specs importent ; une spec n'exporte jamais rien.
+**Référence** : `tests-e2e/donnees.ts`, `tests-e2e/mise-en-page.spec.ts`.

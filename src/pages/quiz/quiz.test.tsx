@@ -19,7 +19,9 @@ const INDEX: Record<string, number> = { a: 0, b: 1, c: 2, d: 3 }
 async function repondreTout(user: ReturnType<typeof userEvent.setup>, lettre: string) {
   for (let i = 0; i < questions.length; i++) {
     await user.click(screen.getAllByRole('radio')[INDEX[lettre]])
-    await user.click(screen.getByRole('button', { name: i === 15 ? 'Voir mon résultat' : 'Question suivante' }))
+    await user.click(
+      screen.getByRole('button', { name: i === 15 ? 'Voir mon résultat' : 'Question suivante' }),
+    )
   }
 }
 
@@ -36,12 +38,17 @@ describe('Quiz', () => {
     ).toBeInTheDocument()
     expect(document.title).toBe('Tes 3 lignes de départ · constellation')
     expect(document.activeElement).toBe(screen.getByRole('heading', { level: 1 }))
-    const rangs = screen.getAllByText(/^[123](er|e) choix$/).map((n) => n.closest('li')?.textContent)
+    const rangs = screen
+      .getAllByText(/^[123](er|e) choix$/)
+      .map((n) => n.closest('li')?.textContent)
     expect(rangs[0]).toMatch(/Infra & cloud.*1er choix/)
     expect(rangs[1]).toMatch(/Management.*2e choix/)
     expect(rangs[2]).toMatch(/Développement.*3e choix/)
     expect(screen.queryByText(/\d+ points?/)).toBeNull()
-    expect(screen.getByRole('link', { name: 'Voir mes lignes sur le plan' })).toHaveAttribute('href', '/')
+    expect(screen.getByRole('link', { name: 'Voir mes lignes sur le plan' })).toHaveAttribute(
+      'href',
+      '/',
+    )
     expect(screen.getByText('Résultat gardé dans ce navigateur.')).toBeInTheDocument()
   })
 
@@ -53,7 +60,9 @@ describe('Quiz', () => {
     expect(screen.getByText('Question 1 sur 16', { selector: '[aria-live]' })).toBeInTheDocument()
     await user.click(screen.getAllByRole('radio')[2])
     await user.click(screen.getByRole('button', { name: 'Question suivante' }))
-    expect(screen.getAllByRole('radio').every((r) => r.getAttribute('aria-checked') === 'false')).toBe(true)
+    expect(
+      screen.getAllByRole('radio').every((r) => r.getAttribute('aria-checked') === 'false'),
+    ).toBe(true)
     await user.click(screen.getByRole('button', { name: '← Question précédente' }))
     expect(screen.getAllByRole('radio')[2]).toBeChecked()
   })
@@ -120,7 +129,9 @@ describe('Quiz', () => {
     const user = userEvent.setup()
     monter()
     await repondreTout(user, 'a')
-    expect(screen.getByRole('heading', { level: 1, name: 'Une dernière question' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Une dernière question' }),
+    ).toBeInTheDocument()
     expect(
       screen.getByText('Ces lignes sont à égalité pour tes 2 dernières places : choisis-en 2.'),
     ).toBeInTheDocument()
@@ -138,7 +149,9 @@ describe('Quiz', () => {
     expect(screen.getByRole('checkbox', { name: /Développement/ })).toBeDisabled()
     await user.click(voir)
     expect(screen.getByRole('heading', { level: 1, name: 'Tes 3 lignes de départ' })).toHaveFocus()
-    const rangs = screen.getAllByText(/^[123](er|e) choix$/).map((n) => n.closest('li')?.textContent)
+    const rangs = screen
+      .getAllByText(/^[123](er|e) choix$/)
+      .map((n) => n.closest('li')?.textContent)
     expect(rangs[0]).toMatch(/Relation & transmission.*1er choix/)
     expect(rangs[1]).toMatch(/Qualité & architecture.*2e choix/)
     expect(rangs[2]).toMatch(/Produit & design.*3e choix/)
@@ -169,11 +182,35 @@ describe('Quiz', () => {
     vi.restoreAllMocks()
   })
 
-  it('exemplesDeLigne renvoie 3 titres de métiers d’entrée', () => {
+  it('exemplesDeLigne : ligne avec métiers d’entrée, inchangée', () => {
     const ex = exemplesDeLigne('developpement')
-    expect(ex).toHaveLength(3)
-    for (const t of ex) {
+    expect(ex.apresQuelquesAnnees).toBe(false)
+    expect(ex.titres).toHaveLength(3)
+    for (const t of ex.titres) {
       expect(metiers.find((m) => m.titre === t)?.type).toBe('entree')
     }
+  })
+
+  it('exemplesDeLigne : Management se replie sur les métiers d’évolution', () => {
+    expect(exemplesDeLigne('management')).toEqual({
+      titres: [
+        'CTO (directeur·rice technique)',
+        'Chief data officer',
+        "DSI (directeur·rice des systèmes d'information)",
+      ],
+      apresQuelquesAnnees: true,
+    })
+  })
+
+  it('le résultat affiche « après quelques années » pour Management', () => {
+    // Quiz terminé tout en b : top 3 Infra & cloud, Management, Développement.
+    const reponses = Object.fromEntries(questions.map((q) => [q.id, 'b']))
+    localStorage.setItem(
+      CLES.quiz,
+      JSON.stringify({ version: 1, reponses, question: 15, departage: [], termine: true }),
+    )
+    monter()
+    expect(screen.getByText('Par exemple, après quelques années :')).toBeInTheDocument()
+    expect(screen.getAllByText('Par exemple :')).toHaveLength(2)
   })
 })

@@ -13,7 +13,7 @@ const buttonVariants = cva(
         default: 'bg-primary text-primary-foreground hover:bg-primaire-survol',
         secondary: 'bg-surface-muted text-encre hover:bg-trait',
         outline: 'border-trait-fort bg-surface text-encre hover:bg-surface-muted',
-        ghost: 'bg-transparent text-encre hover:bg-surface-muted',
+        ghost: 'bg-transparent text-encre hover:bg-surface-muted disabled:bg-transparent disabled:border-transparent disabled:text-encre-douce',
         link: 'h-auto bg-transparent p-0 text-primaire underline underline-offset-[3px]',
       },
       size: {

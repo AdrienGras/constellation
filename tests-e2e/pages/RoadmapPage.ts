@@ -23,6 +23,11 @@ export class RoadmapPage extends AppPage {
     await this.allerA('/roadmap')
   }
 
+  /** Colonne des compétences de la fiche (à droite de la frise, à partir de `lg`). */
+  get colonneCompetences(): Locator {
+    return this.page.locator('[data-competences]')
+  }
+
   // --- Métier visé ---
 
   get champRecherche(): Locator {
