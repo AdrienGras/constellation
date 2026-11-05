@@ -54,6 +54,17 @@ export class QuizPage extends AppPage {
     }
   }
 
+  /** Départage à plusieurs places : focus sur la 1re case, puis Tab jusqu'à la dernière, en attendant chaque arrivée. */
+  async tabulerJusquAuDerniereCase() {
+    const cases = this.page.getByRole('checkbox')
+    const total = await cases.count()
+    await cases.first().focus()
+    for (let i = 1; i < total; i++) {
+      await this.page.keyboard.press('Tab')
+      await expect(cases.nth(i)).toBeFocused()
+    }
+  }
+
   get titreResultat(): Locator {
     return this.page.getByRole('heading', { level: 1, name: 'Tes 3 lignes de départ' })
   }

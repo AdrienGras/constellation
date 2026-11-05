@@ -115,5 +115,14 @@ for (const [nom, fenetre] of [
       await quiz.poserStockage('constellation.quiz.v1', QUIZ_A)
       expect((await quiz.rectEcran(quiz.boutonAvancer)).bas).toBeLessThanOrEqual(await quiz.hauteurFenetre())
     })
+
+    test('départage au clavier : la dernière ligne n’est pas masquée par la barre', async ({ quiz }) => {
+      await quiz.ouvrir()
+      await quiz.poserStockage('constellation.quiz.v1', QUIZ_A)
+      await quiz.defilerA(0)
+      await quiz.tabulerJusquAuDerniereCase()
+      const barre = await quiz.rectEcran(quiz.barreNavigation)
+      expect((await quiz.rectEcran(quiz.dernierChoix)).bas).toBeLessThanOrEqual(barre.haut)
+    })
   })
 }

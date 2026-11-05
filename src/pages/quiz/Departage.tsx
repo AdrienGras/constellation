@@ -67,14 +67,14 @@ export function Departage() {
               return (
                 <label
                   key={id}
-                  className="flex min-h-11 scroll-mb-28 cursor-pointer items-center gap-3 rounded-lg border-2 border-trait bg-surface px-6 py-4 text-[18px] leading-[26px] hover:border-trait-fort has-[:checked]:border-primaire has-[:checked]:shadow-[inset_0_0_0_1px_var(--primaire)] has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-60 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--focus)]"
+                  className="flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border-2 border-trait bg-surface px-6 py-4 text-[18px] leading-[26px] hover:border-trait-fort has-[:checked]:border-primaire has-[:checked]:shadow-[inset_0_0_0_1px_var(--primaire)] has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-60 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--focus)]"
                 >
                   <input
                     type="checkbox"
                     checked={coche}
                     disabled={!coche && complet}
                     onChange={() => bascule(id)}
-                    className="size-[22px] shrink-0 cursor-pointer accent-[var(--primaire)] focus-visible:outline-none disabled:cursor-not-allowed"
+                    className="size-[22px] shrink-0 scroll-mb-40 cursor-pointer accent-[var(--primaire)] focus-visible:outline-none disabled:cursor-not-allowed"
                   />
                   <Details id={id} />
                 </label>
