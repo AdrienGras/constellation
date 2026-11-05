@@ -20,6 +20,49 @@ export class AppPage {
     await this.page.evaluate(() => window.localStorage.clear())
   }
 
+  /** Écrit une valeur JSON dans le localStorage (la page doit être chargée), recharge et attend l'app. */
+  async poserStockage(cle: string, valeur: unknown) {
+    await this.page.evaluate(([k, v]) => window.localStorage.setItem(k, v), [cle, JSON.stringify(valeur)] as const)
+    await this.page.reload()
+    await this.attendreChargement()
+  }
+
+  /** Rectangle de `cible` en coordonnées de fenêtre. */
+  async rectEcran(cible: Locator): Promise<{ haut: number; bas: number; gauche: number; droite: number }> {
+    return cible.evaluate((el) => {
+      const r = el.getBoundingClientRect()
+      return { haut: r.top, bas: r.bottom, gauche: r.left, droite: r.right }
+    })
+  }
+
+  /** Haut de `cible` en coordonnées de page (indépendant du défilement). */
+  async hautDansLaPage(cible: Locator): Promise<number> {
+    return cible.evaluate((el) => el.getBoundingClientRect().top + window.scrollY)
+  }
+
+  async defilerA(y: number) {
+    await this.page.evaluate((valeur) => window.scrollTo(0, valeur), y)
+  }
+
+  async hauteurFenetre(): Promise<number> {
+    return this.page.evaluate(() => window.innerHeight)
+  }
+
+  /** Nombre de lignes de texte de `cible` : centres verticaux distincts des rectangles du contenu (tolérance 7 px). */
+  async nombreDeLignes(cible: Locator): Promise<number> {
+    return cible.evaluate((el) => {
+      const plage = document.createRange()
+      plage.selectNodeContents(el)
+      const centres: number[] = []
+      for (const r of plage.getClientRects()) {
+        if (r.width === 0 || r.height === 0) continue
+        const centre = r.top + r.height / 2
+        if (!centres.some((c) => Math.abs(c - centre) <= 7)) centres.push(centre)
+      }
+      return centres.length
+    })
+  }
+
   get barre(): Locator {
     return this.page.getByRole('navigation', { name: 'Navigation principale' })
   }

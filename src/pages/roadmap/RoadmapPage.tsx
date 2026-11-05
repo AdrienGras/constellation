@@ -121,7 +121,7 @@ export function RoadmapPage() {
             />
           ))}
         </div>
-        <div className="lg:flex-1">
+        <div className="lg:sticky lg:top-6 lg:max-h-[calc(100dvh-3rem)] lg:flex-1 lg:self-start lg:overflow-y-auto">
           <Competences cible={etat.cible} />
         </div>
       </div>
