@@ -9,15 +9,27 @@ import { stockageDisponible } from '@/logique/stockage'
 import { usePageTitre } from '../usePageTitre'
 import { categoriesDeLigne } from './categories'
 
-// Export imposé par le plan (tâche 14).
-/** Titres des `n` premiers métiers d’entrée de la ligne. */
+/**
+ * Titres des `n` premiers métiers d’entrée de la ligne ; sans métier d’entrée
+ * (Management), on se replie sur ses métiers d’évolution.
+ */
 // eslint-disable-next-line react-refresh/only-export-components
-export function exemplesDeLigne(id: LigneId, n = 3): string[] {
-  return stationsDeLigne(id)
-    .map((s) => metierParId(s))
-    .filter((m) => m?.type === 'entree')
-    .slice(0, n)
-    .map((m) => m!.titre)
+export function exemplesDeLigne(
+  id: LigneId,
+  n = 3,
+): { titres: string[]; apresQuelquesAnnees: boolean } {
+  const metiersDeLigne = stationsDeLigne(id).flatMap((s) => metierParId(s) ?? [])
+  const entree = metiersDeLigne.filter((m) => m.type === 'entree')
+  const apresQuelquesAnnees = entree.length === 0
+  const retenus = apresQuelquesAnnees
+    ? metiersDeLigne.filter((m) => m.type === 'evolution')
+    : entree
+  return { titres: retenus.slice(0, n).map((m) => m.titre), apresQuelquesAnnees }
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function libelleExemples(e: { apresQuelquesAnnees: boolean }): string {
+  return e.apresQuelquesAnnees ? 'Par exemple, après quelques années :' : 'Par exemple :'
 }
 
 export function Resultat({ top3 }: { top3: LigneId[] }) {
@@ -37,19 +49,22 @@ export function Resultat({ top3 }: { top3: LigneId[] }) {
         Tes 3 lignes de départ
       </h1>
       <ol className="m-0 flex list-none flex-col gap-3 p-0">
-        {top3.map((id, i) => (
-          <li key={id} className="flex flex-col gap-2 rounded-md bg-surface p-5 shadow-carte">
-            <PastilleLigne ligne={id} taille="lg" rang={(i + 1) as 1 | 2 | 3} />
-            <p className="m-0 text-encre-douce">{categoriesDeLigne(id)}</p>
-            <p className="m-0 text-[16px] leading-6">
-              <strong>Par exemple :</strong> {exemplesDeLigne(id).join(', ')}
-            </p>
-          </li>
-        ))}
+        {top3.map((id, i) => {
+          const ex = exemplesDeLigne(id)
+          return (
+            <li key={id} className="flex flex-col gap-2 rounded-md bg-surface p-5 shadow-carte">
+              <PastilleLigne ligne={id} taille="lg" rang={(i + 1) as 1 | 2 | 3} />
+              <p className="m-0 text-encre-douce">{categoriesDeLigne(id)}</p>
+              <p className="m-0 text-[16px] leading-6">
+                <strong>{libelleExemples(ex)}</strong> {ex.titres.join(', ')}
+              </p>
+            </li>
+          )
+        })}
       </ol>
       <p className="m-0 text-[17px] leading-[26px]">
-        Un point de départ, pas un verdict. Ce matin, tu vas justement explorer ailleurs : 3
-        métiers hors de ces lignes.
+        Un point de départ, pas un verdict. Ce matin, tu vas justement explorer ailleurs : 3 métiers
+        hors de ces lignes.
       </p>
       <div className="flex flex-wrap gap-3">
         <Button asChild>
@@ -60,7 +75,9 @@ export function Resultat({ top3 }: { top3: LigneId[] }) {
         </Button>
       </div>
       <div className="flex flex-col gap-1 text-[15px] leading-[22px] text-encre-douce">
-        <p className="m-0">Tu peux refaire le quiz quand tu veux ; seul le dernier résultat compte.</p>
+        <p className="m-0">
+          Tu peux refaire le quiz quand tu veux ; seul le dernier résultat compte.
+        </p>
         <p className="m-0">
           {gardé
             ? 'Résultat gardé dans ce navigateur.'

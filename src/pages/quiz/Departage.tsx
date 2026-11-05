@@ -6,15 +6,16 @@ import type { LigneId } from '@/donnees/types'
 import { useQuiz } from '@/etat/QuizContext'
 import { usePageTitre } from '../usePageTitre'
 import { categoriesDeLigne } from './categories'
-import { exemplesDeLigne } from './Resultat'
+import { exemplesDeLigne, libelleExemples } from './Resultat'
 
 function Details({ id }: { id: LigneId }) {
+  const ex = exemplesDeLigne(id)
   return (
     <span className="flex flex-col gap-1">
       <PastilleLigne ligne={id} />
       <span className="text-[16px] leading-6 text-encre-douce">{categoriesDeLigne(id)}</span>
       <span className="text-[16px] leading-6">
-        <strong>Par exemple :</strong> {exemplesDeLigne(id).join(', ')}
+        <strong>{libelleExemples(ex)}</strong> {ex.titres.join(', ')}
       </span>
     </span>
   )
