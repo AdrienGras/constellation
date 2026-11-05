@@ -19,6 +19,9 @@ const etatQuiz = (lettre: 'a' | 'b') => ({
   termine: true,
 })
 
+/** Station la plus à gauche de la ligne 6 (Produit & design), sous la carte de légende. */
+const STATION_LIGNE_6 = 'UX designer'
+
 export const QUIZ_A = etatQuiz('a')
 export const QUIZ_B = etatQuiz('b')
 
@@ -143,9 +146,27 @@ for (const [nom, fenetre] of [
       const b = await plan.rectEcran(plan.boutonPleinEcran)
       const croise = l.gauche < b.droite && l.droite > b.gauche && l.haut < b.bas && l.bas > b.haut
       expect(croise).toBe(false)
+      const d = await plan.rectEcran(plan.dessin)
+      for (const r of [l, b]) {
+        expect(r.gauche).toBeGreaterThanOrEqual(d.gauche - 1)
+        expect(r.droite).toBeLessThanOrEqual(d.droite + 1)
+        expect(r.haut).toBeGreaterThanOrEqual(d.haut - 1)
+        expect(r.bas).toBeLessThanOrEqual(d.bas + 1)
+      }
     })
   })
 }
+
+test.describe('plan : bulle au-dessus de la légende (1280×590)', () => {
+  test.use({ viewport: FENETRES.w1280 })
+
+  test('la bulle d’une station du coin haut gauche reste entièrement visible', async ({ plan }) => {
+    await plan.ouvrir()
+    await plan.survolerStation(STATION_LIGNE_6)
+    await expect(plan.bulle).toBeVisible()
+    expect(await plan.bulleEntierementVisible()).toBe(true)
+  })
+})
 
 test.describe('plan : plein écran', () => {
   test.use({ viewport: FENETRES.w1366 })

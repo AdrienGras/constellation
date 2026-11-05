@@ -13,9 +13,10 @@ export function usePleinEcran(cible: RefObject<HTMLElement | null>) {
 
   const basculer = useCallback(() => {
     if (document.fullscreenElement) {
-      void document.exitFullscreen()
+      // Un refus du navigateur (geste absent, politique) ne doit pas remonter en rejet non géré.
+      document.exitFullscreen().catch(() => {})
     } else {
-      void cible.current?.requestFullscreen()
+      cible.current?.requestFullscreen()?.catch(() => {})
     }
   }, [cible])
 

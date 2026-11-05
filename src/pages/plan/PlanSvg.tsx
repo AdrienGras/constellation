@@ -56,8 +56,9 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
     <div
       ref={enveloppe}
       data-plan
-      className="relative flex flex-col gap-3 [&:fullscreen]:items-center [&:fullscreen]:justify-center [&:fullscreen]:bg-fond"
+      className="relative flex flex-col [&:fullscreen]:items-center [&:fullscreen]:justify-center [&:fullscreen]:bg-fond"
     >
+      <div className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-3 [:fullscreen_&]:w-[min(100vw,calc(100vh*16/9))] [:fullscreen_&]:max-w-none">
       <LegendeLignes className="flex flex-wrap gap-x-3 gap-y-1.5 xl:absolute xl:top-3 xl:left-4 xl:z-[6] xl:flex-col xl:flex-nowrap xl:gap-y-2 xl:rounded-md xl:bg-surface xl:px-3 xl:py-3 xl:shadow-carte" />
       {pleinEcran.disponible ? (
         <Button
@@ -76,7 +77,7 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
       ) : null}
       <div
         data-plan-dessin
-        className="relative mx-auto aspect-[1280/720] w-full max-w-[1280px] [:fullscreen_&]:max-w-none [:fullscreen_&]:w-[min(100vw,calc(100vh*16/9))]"
+        className="relative aspect-[1280/720] w-full"
       >
       <svg viewBox={`0 0 ${L} ${H}`} aria-hidden="true" className="absolute inset-0 block size-full">
         {plan.lignes.map((l) =>
@@ -216,7 +217,7 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
           role="tooltip"
           onMouseEnter={annulerFermeture}
           onMouseLeave={fermerPlusTard}
-          className="absolute z-[5] max-w-[300px] rounded-sm bg-encre px-3.5 py-2.5 text-[14px] leading-5 text-fond shadow-flottante"
+          className="absolute z-[7] max-w-[300px] rounded-sm bg-encre px-3.5 py-2.5 text-[14px] leading-5 text-fond shadow-flottante"
           style={{
             left: `${(courante.x / L) * 100}%`,
             top: `${(courante.y / H) * 100}%`,
@@ -246,6 +247,7 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
             <line x1={4} y1={17} x2={56} y2={17} stroke="var(--ligne-cybersecurite)" strokeWidth={3} strokeDasharray="1 7" strokeLinecap="round" />
           </Legende>
         ) : null}
+      </div>
       </div>
       </div>
     </div>

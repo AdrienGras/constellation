@@ -65,4 +65,29 @@ export class PlanPage extends AppPage {
         .map((a) => a.getAttribute('aria-label') ?? '')
     }, handle)
   }
+
+  get bulle(): Locator {
+    return this.page.locator('#plan-bulle')
+  }
+
+  async survolerStation(titre: string) {
+    await this.station(titre).hover()
+  }
+
+  /** Vrai si l'élément au centre de chaque coin de la bulle appartient à la bulle. */
+  async bulleEntierementVisible(): Promise<boolean> {
+    return this.page.locator('#plan-bulle').evaluate((bulle) => {
+      const r = bulle.getBoundingClientRect()
+      const coins = [
+        [r.left + 2, r.top + 2],
+        [r.right - 2, r.top + 2],
+        [r.left + 2, r.bottom - 2],
+        [r.right - 2, r.bottom - 2],
+      ]
+      return coins.every(([x, y]) => {
+        const e = document.elementFromPoint(x, y)
+        return e !== null && bulle.contains(e)
+      })
+    })
+  }
 }
