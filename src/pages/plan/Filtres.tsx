@@ -28,7 +28,18 @@ const TYPES: { valeur: ValeurFiltres['type']; libelle: string }[] = [
   { valeur: 'evolution', libelle: 'Évolution' },
 ]
 
-export function Filtres() {
+/** Légende des 8 lignes, posée dans le plan (une colonne) ou dans le flux de la page. */
+export function LegendeLignes({ className }: { className?: string }) {
+  return (
+    <div role="group" aria-label="Légende des lignes" className={className}>
+      {lignes.map((l) => (
+        <PastilleLigne key={l.id} ligne={l.id} taille="sm" />
+      ))}
+    </div>
+  )
+}
+
+export function Filtres({ legende = true }: { legende?: boolean }) {
   const { filtres, setFiltres } = useFiltres()
   const selectCategorie = useRef<HTMLSelectElement>(null)
   const actif = filtres.categories.length > 0 || filtres.type !== 'tous'
@@ -83,15 +94,9 @@ export function Filtres() {
           Effacer les filtres
         </Button>
       ) : null}
-      <div
-        role="group"
-        aria-label="Légende des lignes"
-        className="flex flex-1 flex-wrap justify-end gap-x-3 gap-y-1.5 pb-1"
-      >
-        {lignes.map((l) => (
-          <PastilleLigne key={l.id} ligne={l.id} taille="sm" />
-        ))}
-      </div>
+      {legende ? (
+        <LegendeLignes className="flex flex-1 flex-wrap justify-end gap-x-3 gap-y-1.5 pb-1" />
+      ) : null}
     </div>
   )
 }

@@ -193,4 +193,57 @@ describe('PlanPage', () => {
     expect(screen.getByRole('link', { name: 'Finir le quiz' })).toHaveAttribute('href', '/quiz')
     expect(screen.queryByRole('link', { name: 'Commencer le quiz' })).toBeNull()
   })
+
+  it('sans API plein écran, pas de bouton', () => {
+    monter()
+    expect(screen.queryByRole('button', { name: /Plein écran/ })).toBeNull()
+  })
+
+  it('avec API plein écran : bouton, bascule et retour du libellé', async () => {
+    const proto = HTMLElement.prototype as { requestFullscreen?: unknown }
+    const ancien = proto.requestFullscreen
+    const demander = vi.fn()
+    Object.defineProperty(document, 'fullscreenEnabled', { value: true, configurable: true })
+    proto.requestFullscreen = demander
+    try {
+      monter()
+      await userEvent.click(screen.getByRole('button', { name: 'Plein écran' }))
+      expect(demander).toHaveBeenCalledTimes(1)
+
+      const enveloppe = document.querySelector('[data-plan]')
+      Object.defineProperty(document, 'fullscreenElement', { value: enveloppe, configurable: true })
+      act(() => {
+        document.dispatchEvent(new Event('fullscreenchange'))
+      })
+      expect(screen.getByRole('button', { name: 'Quitter le plein écran' })).toBeInTheDocument()
+
+      Object.defineProperty(document, 'fullscreenElement', { value: null, configurable: true })
+      act(() => {
+        document.dispatchEvent(new Event('fullscreenchange'))
+      })
+      expect(screen.getByRole('button', { name: 'Plein écran' })).toBeInTheDocument()
+    } finally {
+      Reflect.deleteProperty(document, 'fullscreenEnabled')
+      Reflect.deleteProperty(document, 'fullscreenElement')
+      proto.requestFullscreen = ancien
+    }
+  })
+
+  it('le bouton plein écran précède les stations dans l’ordre du document', () => {
+    Object.defineProperty(document, 'fullscreenEnabled', { value: true, configurable: true })
+    try {
+      monter()
+      const bouton = screen.getByRole('button', { name: 'Plein écran' })
+      expect(bouton.compareDocumentPosition(stations()[0]) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    } finally {
+      Reflect.deleteProperty(document, 'fullscreenEnabled')
+    }
+  })
+
+  it('une seule légende des lignes, dans l’enveloppe du plan', () => {
+    monter()
+    const groupes = screen.getAllByRole('group', { name: 'Légende des lignes' })
+    expect(groupes).toHaveLength(1)
+    expect(groupes[0].closest('[data-plan]')).not.toBeNull()
+  })
 })

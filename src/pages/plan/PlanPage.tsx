@@ -51,7 +51,7 @@ export function PlanPage() {
         </div>
       </div>
       <div className="pb-4">
-        <Filtres />
+        <Filtres legende={false} />
       </div>
       <Link
         to="/liste"

@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { Maximize, Minimize } from 'lucide-react'
 import { Link } from 'react-router'
 import { Station } from '@/components/metier/Station'
+import { Button } from '@/components/ui/button'
 import { categorieParId, ligneParId, plan, stationsDeLigne } from '@/donnees'
 import type { LigneId } from '@/donnees/types'
 import { correspondFiltre, type Filtres } from '@/logique/filtres'
+import { LegendeLignes } from './Filtres'
+import { usePleinEcran } from './usePleinEcran'
 
 const L = 1280
 const H = 720
@@ -41,12 +45,39 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
     return () => document.removeEventListener('keydown', fermer)
   }, [ouvert])
 
+  const enveloppe = useRef<HTMLDivElement>(null)
+  const pleinEcran = usePleinEcran(enveloppe)
+
   const courante = actif ? plan.stations[actif.id] : null
   const voisins = courante ? courante.voisins.filter((id) => plan.stations[id]) : []
   const etatLigne = (id: LigneId) => (top3 ? (top3.includes(id) ? 'top' : 'exploration') : undefined)
 
   return (
-    <div className="relative mx-auto aspect-[1280/720] w-full max-w-[1280px]">
+    <div
+      ref={enveloppe}
+      data-plan
+      className="relative flex flex-col gap-3 [&:fullscreen]:items-center [&:fullscreen]:justify-center [&:fullscreen]:bg-fond"
+    >
+      <LegendeLignes className="flex flex-wrap gap-x-3 gap-y-1.5 xl:absolute xl:top-3 xl:left-4 xl:z-[6] xl:flex-col xl:flex-nowrap xl:gap-y-2 xl:rounded-md xl:bg-surface xl:px-3 xl:py-3 xl:shadow-carte" />
+      {pleinEcran.disponible ? (
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={pleinEcran.basculer}
+          className="max-xl:self-end xl:absolute xl:top-3 xl:right-4 xl:z-[6]"
+        >
+          {pleinEcran.actif ? (
+            <Minimize aria-hidden="true" />
+          ) : (
+            <Maximize aria-hidden="true" />
+          )}
+          {pleinEcran.actif ? 'Quitter le plein écran' : 'Plein écran'}
+        </Button>
+      ) : null}
+      <div
+        data-plan-dessin
+        className="relative mx-auto aspect-[1280/720] w-full max-w-[1280px] [:fullscreen_&]:max-w-none [:fullscreen_&]:w-[min(100vw,calc(100vh*16/9))]"
+      >
       <svg viewBox={`0 0 ${L} ${H}`} aria-hidden="true" className="absolute inset-0 block size-full">
         {plan.lignes.map((l) =>
           l.quartiers.map((q) => (
@@ -215,6 +246,7 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
             <line x1={4} y1={17} x2={56} y2={17} stroke="var(--ligne-cybersecurite)" strokeWidth={3} strokeDasharray="1 7" strokeLinecap="round" />
           </Legende>
         ) : null}
+      </div>
       </div>
     </div>
   )

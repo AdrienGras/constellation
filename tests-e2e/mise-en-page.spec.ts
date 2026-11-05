@@ -126,3 +126,43 @@ for (const [nom, fenetre] of [
     })
   })
 }
+
+for (const [nom, fenetre] of [
+  ['1280×590', FENETRES.w1280],
+  ['1536×731', FENETRES.w1536],
+] as const) {
+  test.describe(`plan : légende et bouton plein écran (${nom})`, () => {
+    test.use({ viewport: fenetre })
+
+    test('la légende et le bouton ne recouvrent aucune station', async ({ plan }) => {
+      await plan.ouvrir()
+      await expect(plan.boutonPleinEcran).toBeVisible()
+      expect(await plan.stationsRecouvertesPar(plan.legende)).toEqual([])
+      expect(await plan.stationsRecouvertesPar(plan.boutonPleinEcran)).toEqual([])
+      const l = await plan.rectEcran(plan.legende)
+      const b = await plan.rectEcran(plan.boutonPleinEcran)
+      const croise = l.gauche < b.droite && l.droite > b.gauche && l.haut < b.bas && l.bas > b.haut
+      expect(croise).toBe(false)
+    })
+  })
+}
+
+test.describe('plan : plein écran', () => {
+  test.use({ viewport: FENETRES.w1366 })
+
+  test('entrer puis sortir', async ({ plan }) => {
+    await plan.ouvrir()
+    expect(await plan.pleinEcranDisponible(), 'API Fullscreen indisponible dans ce Chromium').toBe(true)
+    await plan.boutonPleinEcran.click()
+    await expect.poll(() => plan.pleinEcranActif()).toBe(true)
+    await expect(plan.boutonPleinEcran).toHaveText('Quitter le plein écran')
+    const d = await plan.rectEcran(plan.dessin)
+    const h = await plan.hauteurFenetre()
+    expect(d.haut).toBeGreaterThanOrEqual(-1)
+    expect(d.bas).toBeLessThanOrEqual(h + 1)
+    expect(d.gauche).toBeGreaterThanOrEqual(-1)
+    await plan.boutonPleinEcran.click()
+    await expect.poll(() => plan.pleinEcranActif()).toBe(false)
+    await expect(plan.boutonPleinEcran).toHaveText('Plein écran')
+  })
+})
