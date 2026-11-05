@@ -6,3 +6,10 @@ afterEach(() => {
   cleanup()
   localStorage.clear()
 })
+
+// jsdom n’a pas ResizeObserver : Radix (radio dans un formulaire) en a besoin.
+globalThis.ResizeObserver ??= class {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}

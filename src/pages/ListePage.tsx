@@ -9,14 +9,10 @@ import type { Ligne, Metier } from '@/donnees/types'
 import { useFiltres } from '@/etat/FiltresContext'
 import { useQuiz } from '@/etat/QuizContext'
 import { correspondFiltre } from '@/logique/filtres'
+import { normaliser } from '@/logique/texte'
 import { EncartQuiz } from './plan/EncartQuiz'
 import { BasculeVue, Filtres } from './plan/Filtres'
 import { usePageTitre } from './usePageTitre'
-
-// Sans accent, sans casse, sans point médian : « developpeur » trouve « Développeur·se ».
-function normaliser(texte: string): string {
-  return texte.normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/·/g, '').toLowerCase()
-}
 
 // Ouvert à partir de 768 px, replié en dessous ; sans matchMedia, ouvert.
 function ouvertParDefaut(): boolean {
