@@ -63,13 +63,14 @@ export function importerRoadmap(texte: string, idsMetiers: ReadonlySet<string>):
       if (
         !estObjet(it) ||
         (it.type !== 'projet' && it.type !== 'notion') ||
-        typeof it.titre !== 'string'
+        typeof it.titre !== 'string' ||
+        it.titre.trim() === ''
       ) {
         return echec(
           `L’élément n° ${i + 1} de ${cle} est incomplet : il lui faut un type (projet ou notion) et un titre.`,
         )
       }
-      const url = typeof it.url === 'string' ? it.url : ''
+      const url = typeof it.url === 'string' ? it.url.trim() : ''
       if (!urlAcceptable(url)) {
         return echec(
           `L’élément n° ${i + 1} de ${cle} a une adresse qui ne commence pas par http:// ou https://.`,
@@ -81,9 +82,9 @@ export function importerRoadmap(texte: string, idsMetiers: ReadonlySet<string>):
       items.push({
         id,
         type: it.type,
-        titre: it.titre,
+        titre: it.titre.trim(),
         url,
-        note: typeof it.note === 'string' ? it.note : '',
+        note: typeof it.note === 'string' ? it.note.trim() : '',
       })
     }
     roadmap.annees[`${annee}`] = items

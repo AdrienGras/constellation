@@ -95,9 +95,33 @@ describe('importerRoadmap', () => {
     if (!r.ok) return
     const [a, b] = r.roadmap.annees['2027']
     expect(a.id).not.toBe('')
-    expect(a).toEqual({ id: a.id, type: 'projet', titre: '  Espacé  ', url: '', note: '' })
+    expect(a).toEqual({ id: a.id, type: 'projet', titre: 'Espacé', url: '', note: '' })
     expect(b.id).toBe('z')
     expect(r.roadmap.annees['2028']).toEqual([])
+  })
+
+  it('refuse un titre vide après trim (item mal formé)', () => {
+    const annees = { '2027': [{ type: 'projet', titre: '   ' }] }
+    expect(importerRoadmap(fichier({ annees }), ids)).toEqual({
+      ok: false,
+      erreur:
+        'L’élément n° 1 de 2027 est incomplet : il lui faut un type (projet ou notion) et un titre.',
+    })
+  })
+
+  it('nettoie titre, url et note avec trim ; une url d’espaces devient vide', () => {
+    const annees = {
+      '2027': [
+        { type: 'projet', titre: ' T ', url: ' https://a.fr ', note: '  n  ' },
+        { type: 'notion', titre: 'U', url: '   ', note: '' },
+      ],
+    }
+    const r = importerRoadmap(fichier({ annees }), ids)
+    expect(r.ok).toBe(true)
+    if (!r.ok) return
+    const [a, b] = r.roadmap.annees['2027']
+    expect(a).toMatchObject({ titre: 'T', url: 'https://a.fr', note: 'n' })
+    expect(b.url).toBe('')
   })
 
   it('refuse une url dangereuse', () => {
