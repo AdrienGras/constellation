@@ -10,7 +10,7 @@ import {
 import { usePageTitre } from './usePageTitre'
 
 export const LICENCE_TEXTES =
-  'Licence des textes propres à constellation : à décider (CC BY 4.0 proposée).'
+  'Textes propres à constellation (fiches rédigées par CODA, quiz, interface) : licence CC BY 4.0. Les passages adaptés du Cigref et les données de salaires restent soumis aux conditions de leurs sources. Code : licence MIT.'
 
 const COLONNES = ['Source', 'Éditeur', 'Date', 'Ce qu’on en tire', 'Licence']
 

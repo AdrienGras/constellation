@@ -124,7 +124,7 @@ Le nuage, les fiches et la roadmap peuvent être développés dès maintenant. L
 | Regrouper les 17 catégories en macro-branches pour le quiz ; la règle « hors top 3 » porte sur ces macro-branches | Validé (8 branches) | Rien |
 | Questions et pondérations du quiz | Relues et validées (16 questions) | Rien |
 | Pile technique | Validé (React + Vite + Tailwind + shadcn/ui, 05/11/2026) | Rien |
-| Licence des textes propres (CC BY 4.0 proposée) | À décider | Mise en ligne |
+| Licence des textes propres | Validé : CC BY 4.0 pour les textes propres (fiches rédigées par CODA, quiz, interface) ; passages adaptés du Cigref et données de salaires sous les conditions de leurs sources ; code sous MIT (05/11/2026) | Rien |
 | Liens roadmap.sh par fiche (`roadmap_url`) | Remplis pour 29 fiches sur 68 | Rien, affichage conditionnel |
 | Seuil de 12 élèves (article 8) et absence du groupe B2-I : question à Yoan | À poser | Maintien de la session |
 | Relecture des 36 fiches marquées `a_relire` (`relecture.md`) | Faite (02/11/2026) | Rien |

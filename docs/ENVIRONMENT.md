@@ -37,7 +37,7 @@ Carte des paths, services, accès, commandes. À jour au fil des découvertes.
 | `recherche/` | Trace des recherches (Apec, Silkhom, ROME/parcours, roadmap.sh) ; historique, plus appliqué |
 | `scripts/`, `tests/` | Validateur et script de fusion |
 | `src/`, `tests-e2e/` | App React (donnees, logique, etat, pages, composants) et e2e Playwright |
-| `.github/workflows/pages.yml` | Build, tests et publication sur GitHub Pages |
+| `.github/workflows/pages.yml` | Build et tests sur chaque PR vers `main` ; build, tests et publication sur GitHub Pages à chaque push sur `main` |
 | `docs/superpowers/specs/`, `plans/` | Design et plan de la phase données |
 
 ## Services

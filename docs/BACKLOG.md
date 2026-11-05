@@ -13,7 +13,7 @@ Organise les entrées par thème (`## <Thème>`), chaque idée étant une case �
 
 ## Décisions ouvertes (PRD)
 
-- [ ] Licence des textes propres (CC BY 4.0 proposée).
+- [x] Licence des textes propres : CC BY 4.0 (code MIT ; Cigref et salaires sous les conditions de leurs sources), validée par Adrien le 05/11/2026.
 - [ ] Question à Yoan : seuil de 12 élèves (article 8) et absence du groupe B2-I.
 - [ ] Configurer GitHub Pages (Settings > Pages > source « GitHub Actions ») ; envoyer le lien à scolarite-orleans@coda.school avant le 21/05/2027.
 

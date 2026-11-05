@@ -39,8 +39,11 @@ describe('SourcesPage', () => {
 
   it('affiche la licence des textes et la version des données', () => {
     rendre()
-    expect(LICENCE_TEXTES).toBe('Licence des textes propres à constellation : à décider (CC BY 4.0 proposée).')
-    expect(screen.getByText(/Licence des textes propres à constellation/)).toBeInTheDocument()
+    expect(LICENCE_TEXTES).toBe(
+      'Textes propres à constellation (fiches rédigées par CODA, quiz, interface) : licence CC BY 4.0. Les passages adaptés du Cigref et les données de salaires restent soumis aux conditions de leurs sources. Code : licence MIT.',
+    )
+    expect(screen.getByText(/Textes propres à constellation .* licence CC BY 4\.0\./)).toBeInTheDocument()
+    expect(screen.queryByText(/à décider/)).not.toBeInTheDocument()
     expect(screen.getByText(/Données relevées le 2026-11-02, version 1\.1\./)).toBeInTheDocument()
   })
 })
