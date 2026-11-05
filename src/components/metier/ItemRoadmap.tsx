@@ -36,14 +36,16 @@ export function ItemRoadmap({
       aria-label={`${libelleType} : ${item.titre}`}
       className="flex min-w-0 items-start gap-3 rounded-md bg-surface p-4 shadow-carte"
     >
-      {poignee ?? (
-        <span aria-hidden="true" className="cursor-grab pt-0.5 text-encre-douce">
-          <GripVertical />
-        </span>
-      )}
+      <div data-poignee className="contents">
+        {poignee ?? (
+          <span aria-hidden="true" className="cursor-grab pt-0.5 text-encre-douce">
+            <GripVertical />
+          </span>
+        )}
+      </div>
       <div className="flex min-w-0 flex-1 flex-col gap-1.5">
         <span>
-          <span className="inline-flex items-center gap-1.5 rounded-sm bg-surface-muted px-2.5 py-[3px] text-[14px] leading-5 font-bold text-encre">
+          <span data-type className="inline-flex items-center gap-1.5 rounded-sm bg-surface-muted px-2.5 py-[3px] text-[14px] leading-5 font-bold text-encre">
             <Icone aria-hidden="true" className="size-3.5" />
             {libelleType}
           </span>
@@ -51,6 +53,7 @@ export function ItemRoadmap({
         <p className="m-0 text-[17px] leading-6 font-bold">{item.titre}</p>
         {item.url && urlAcceptable(item.url) ? (
           <a
+            data-lien-ecran
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
@@ -59,9 +62,14 @@ export function ItemRoadmap({
             {item.url.replace(/^https?:\/\//, '')}
           </a>
         ) : null}
+        {item.url && urlAcceptable(item.url) ? (
+          <span data-url-imprimee className="hidden font-mono [overflow-wrap:anywhere]">
+            {item.url}
+          </span>
+        ) : null}
         {item.note ? <p className="m-0 text-[15px] leading-[22px] text-encre-douce">{item.note}</p> : null}
       </div>
-      <div className="flex flex-col gap-0.5">
+      <div data-actions-item className="flex flex-col gap-0.5">
         {actions.map(({ Icone: I, verbe, onClick, desactive }) => (
           <Button
             key={verbe}

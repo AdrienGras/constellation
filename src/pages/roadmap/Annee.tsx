@@ -150,7 +150,12 @@ export function Annee({
         {annee}
       </h2>
       {items.length === 0 ? (
-        <p className="m-0 text-encre-douce">
+        <p data-vide-imprime className="hidden m-0">
+          Rien de prévu pour {annee}.
+        </p>
+      ) : null}
+      {items.length === 0 ? (
+        <p data-vide-ecran className="m-0 text-encre-douce">
           Rien pour {annee} pour l’instant. Ajoute un projet à réaliser ou une notion à apprendre.
         </p>
       ) : (

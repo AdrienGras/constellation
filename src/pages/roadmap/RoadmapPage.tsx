@@ -20,6 +20,7 @@ import { ChoixCible } from './ChoixCible'
 import { Competences } from './Competences'
 import { DialogItem } from './DialogItem'
 import { useRetourFocus } from './useRetourFocus'
+import '@/styles/impression.css'
 
 type Edition = { annee: AnneeId; item?: Item }
 type Suppression = { annee: AnneeId; item: Item }
@@ -33,6 +34,11 @@ export function RoadmapPage() {
   const titre = useRef<HTMLHeadingElement>(null)
   const [fermetures, setFermetures] = useState(0)
 
+  const dateImpression = new Date().toLocaleDateString('fr-FR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
   const metier = etat.cible ? metierParId(etat.cible) : undefined
   const couleur = metier ? `var(--ligne-${ligneDuMetier(metier)})` : 'var(--trait-fort)'
 
@@ -43,8 +49,12 @@ export function RoadmapPage() {
   }, [fermetures])
 
   return (
-    <div className="flex flex-col gap-8 px-6 pt-6 pb-16 lg:px-12">
-      <header className="flex flex-col gap-3">
+    <div data-page-roadmap className="flex flex-col gap-8 px-6 pt-6 pb-16 lg:px-12">
+      <div data-impression className="hidden">
+        <p>Ma roadmap 2027 → 2031 · {metier ? metier.titre : 'métier visé : n.d.'}</p>
+        <p>Imprimée le {dateImpression}</p>
+      </div>
+      <header data-ecran className="flex flex-col gap-3">
         <p className="etiquette m-0">Ma roadmap · 2027 → 2031</p>
         <h1 ref={titre} tabIndex={-1} className="titre-affiche m-0">
           {metier ? `Cap sur ${metier.titre}` : 'Quel métier vises-tu ?'}
