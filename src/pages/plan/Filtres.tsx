@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { ToggleGroup, ToggleGroupItem, ToggleLiens } from '@/components/ui/toggle-group'
 import { PastilleLigne } from '@/components/metier/PastilleLigne'
@@ -29,6 +30,7 @@ const TYPES: { valeur: ValeurFiltres['type']; libelle: string }[] = [
 
 export function Filtres() {
   const { filtres, setFiltres } = useFiltres()
+  const selectCategorie = useRef<HTMLSelectElement>(null)
   const actif = filtres.categories.length > 0 || filtres.type !== 'tous'
 
   return (
@@ -36,6 +38,7 @@ export function Filtres() {
       <label className="flex w-[240px] max-w-full flex-col gap-1.5">
         <span className="text-[15px] leading-5 font-bold">Catégorie</span>
         <select
+          ref={selectCategorie}
           className={cn(styleChamp, 'cursor-pointer')}
           value={filtres.categories[0] ?? ''}
           onChange={(e) =>
@@ -72,7 +75,11 @@ export function Filtres() {
         </ToggleGroup>
       </div>
       {actif ? (
-        <Button variant="link" className="mb-2.5" onClick={() => setFiltres(FILTRES_VIDES)}>
+        <Button variant="link" className="mb-2.5" onClick={() => {
+            setFiltres(FILTRES_VIDES)
+            // Le bouton se démonte avec les filtres : le focus passe au premier champ.
+            selectCategorie.current?.focus()
+          }}>
           Effacer les filtres
         </Button>
       ) : null}

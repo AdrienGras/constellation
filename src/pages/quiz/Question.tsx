@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type RefObject } from 'react'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { RadioCarte, RadioGroup } from '@/components/ui/radio-group'
@@ -8,7 +8,14 @@ import { usePageTitre } from '../usePageTitre'
 
 const LETTRES = ['A', 'B', 'C', 'D', 'E', 'F']
 
-export function Question({ index }: { index: number }) {
+export function Question({
+  index,
+  pageDejaAffichee,
+}: {
+  index: number
+  /** Vrai une fois la page montée : la question vient alors de remplacer un autre écran. */
+  pageDejaAffichee?: RefObject<boolean>
+}) {
   usePageTitre('Quiz')
   const { etat, repondre, allerA, terminer } = useQuiz()
   const q = questions[index]
@@ -18,6 +25,15 @@ export function Question({ index }: { index: number }) {
   const reponse = etat.reponses[q.id]
   const h1 = useRef<HTMLHeadingElement>(null)
   const precedent = useRef(index)
+
+  // Montage après « Refaire le quiz » ou « Revenir aux questions » : le focus est retombé sur body.
+  useEffect(() => {
+    const actif = document.activeElement
+    if (pageDejaAffichee?.current && (actif === null || actif === document.body))
+      h1.current?.focus()
+    // Au montage seulement.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // La route ne change pas entre deux questions : le focus passe au titre à la main.
   useEffect(() => {
@@ -61,10 +77,7 @@ export function Question({ index }: { index: number }) {
         <Button variant="outline" disabled={index === 0} onClick={() => allerA(index - 1)}>
           ← Question précédente
         </Button>
-        <Button
-          disabled={!reponse}
-          onClick={() => (derniere ? terminer() : allerA(index + 1))}
-        >
+        <Button disabled={!reponse} onClick={() => (derniere ? terminer() : allerA(index + 1))}>
           {derniere ? 'Voir mon résultat' : 'Question suivante'}
         </Button>
       </div>

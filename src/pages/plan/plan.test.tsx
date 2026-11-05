@@ -122,6 +122,8 @@ describe('PlanPage', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Effacer les filtres' }))
     expect(stations().filter((s) => s.dataset.attenue === 'true')).toHaveLength(0)
     expect(screen.queryByRole('button', { name: 'Effacer les filtres' })).toBeNull()
+    // Le bouton a disparu : le focus passe au sélecteur de catégorie.
+    expect(screen.getByRole('combobox', { name: 'Catégorie' })).toHaveFocus()
   })
 
   it('avant le quiz : encart d’invitation et aucune ligne en exploration', () => {

@@ -66,6 +66,29 @@ describe('Quiz', () => {
     expect(screen.getByText('Question 2 sur 16', { selector: '[aria-live]' })).toBeInTheDocument()
   })
 
+  it('ne vole pas le focus au premier chargement de la route', () => {
+    monter()
+    expect(screen.getByRole('heading', { level: 1 })).not.toHaveFocus()
+  })
+
+  it('« Refaire le quiz » rend le focus au titre de la question 1', async () => {
+    const user = userEvent.setup()
+    monter()
+    await repondreTout(user, 'b')
+    await user.click(screen.getByRole('button', { name: 'Refaire le quiz' }))
+    const h1 = screen.getByRole('heading', { level: 1, name: questions[0].intitule })
+    expect(h1).toHaveFocus()
+  })
+
+  it('« Revenir aux questions » rend le focus au titre de la dernière question', async () => {
+    const user = userEvent.setup()
+    monter()
+    await repondreTout(user, 'a')
+    await user.click(screen.getByRole('button', { name: /Revenir aux questions/ }))
+    const h1 = screen.getByRole('heading', { level: 1, name: questions[15].intitule })
+    expect(h1).toHaveFocus()
+  })
+
   it('reprend à la question stockée', () => {
     localStorage.setItem(
       CLES.quiz,
