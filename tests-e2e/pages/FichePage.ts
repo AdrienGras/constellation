@@ -16,4 +16,9 @@ export class FichePage extends AppPage {
   get boutonViser(): Locator {
     return this.page.getByRole('button', { name: 'Viser ce métier dans ma roadmap' })
   }
+
+  /** Quand une autre cible est déjà visée, une confirmation demande de valider le changement. */
+  async confirmerViser(titre: string) {
+    await this.page.getByRole('dialog').getByRole('button', { name: `Viser ${titre}` }).click()
+  }
 }

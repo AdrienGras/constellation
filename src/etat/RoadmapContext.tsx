@@ -2,6 +2,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -36,12 +37,25 @@ interface ValeurRoadmap {
 
 const RoadmapContext = createContext<ValeurRoadmap | null>(null)
 
-function charger(): { etat: EtatRoadmap; cibleOubliee: boolean } {
-  const stocke = lire(CLES.roadmap, estEtatRoadmap) ?? roadmapVide()
+interface Charge {
+  etat: EtatRoadmap
+  cibleOubliee: boolean
+}
+
+function normaliser(stocke: EtatRoadmap): Charge {
   if (stocke.cible !== null && !metierParId(stocke.cible)) {
     return { etat: { ...stocke, cible: null }, cibleOubliee: true }
   }
   return { etat: stocke, cibleOubliee: false }
+}
+
+function relire(): Charge | null {
+  const stocke = lire(CLES.roadmap, estEtatRoadmap)
+  return stocke ? normaliser(stocke) : null
+}
+
+function charger(): Charge {
+  return relire() ?? { etat: roadmapVide(), cibleOubliee: false }
 }
 
 export function RoadmapProvider({ children }: { children: ReactNode }) {
@@ -51,6 +65,20 @@ export function RoadmapProvider({ children }: { children: ReactNode }) {
   const [enregistre, setEnregistre] = useState(true)
   const courant = useRef(etat)
 
+  // Écriture depuis un autre onglet : on adopte l’état stocké s’il est valide, sinon on l’ignore.
+  useEffect(() => {
+    function surStockage(e: StorageEvent) {
+      if (e.key !== null && e.key !== CLES.roadmap) return
+      const distant = relire()
+      if (!distant) return
+      courant.current = distant.etat
+      setEtat(distant.etat)
+      setCibleOubliee(distant.cibleOubliee)
+    }
+    window.addEventListener('storage', surStockage)
+    return () => window.removeEventListener('storage', surStockage)
+  }, [])
+
   const poser = useCallback((suivant: EtatRoadmap) => {
     courant.current = suivant
     setEtat(suivant)
@@ -59,8 +87,15 @@ export function RoadmapProvider({ children }: { children: ReactNode }) {
 
   const modifierEtat = useCallback(
     (fn: (e: EtatRoadmap) => EtatRoadmap) => {
-      const suivant = fn(courant.current)
-      if (suivant === courant.current) return
+      // Un autre onglet a pu écrire depuis : on repart de la valeur stockée quand elle est valide.
+      const distant = relire()
+      const base = distant?.etat ?? courant.current
+      if (distant) {
+        courant.current = distant.etat
+        setEtat(distant.etat)
+      }
+      const suivant = fn(base)
+      if (suivant === base) return
       poser({ ...suivant, modifie_le: new Date().toISOString() })
     },
     [poser],

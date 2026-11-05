@@ -2,6 +2,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -39,9 +40,13 @@ const DERNIERE = questions.length - 1
 const borner = (i: number) => Math.min(Math.max(i, 0), DERNIERE)
 const ORDRE: LigneId[] = lignes.map((l) => l.id)
 
-function etatInitial(): EtatQuiz {
+function relire(): EtatQuiz | null {
   const stocke = lire(CLES.quiz, estEtatQuiz)
-  return stocke ? { ...stocke, question: borner(stocke.question) } : etatQuizInitial()
+  return stocke ? { ...stocke, question: borner(stocke.question) } : null
+}
+
+function etatInitial(): EtatQuiz {
+  return relire() ?? etatQuizInitial()
 }
 
 export function QuizProvider({ children }: { children: ReactNode }) {
@@ -49,12 +54,31 @@ export function QuizProvider({ children }: { children: ReactNode }) {
   // Référence synchrone : plusieurs actions dans le même tour voient l’état le plus récent.
   const courant = useRef(etat)
 
+  // Un autre onglet a pu écrire depuis : on repart de la valeur stockée quand elle est valide.
   const appliquer = useCallback((fn: (e: EtatQuiz) => EtatQuiz) => {
-    const suivant = fn(courant.current)
-    if (suivant === courant.current) return
+    const base = relire() ?? courant.current
+    courant.current = base
+    const suivant = fn(base)
+    if (suivant === base) {
+      setEtat(base)
+      return
+    }
     courant.current = suivant
     setEtat(suivant)
     ecrire(CLES.quiz, suivant)
+  }, [])
+
+  // Écriture depuis un autre onglet : on adopte l’état stocké s’il est valide, sinon on l’ignore.
+  useEffect(() => {
+    function surStockage(e: StorageEvent) {
+      if (e.key !== null && e.key !== CLES.quiz) return
+      const distant = relire()
+      if (!distant) return
+      courant.current = distant
+      setEtat(distant)
+    }
+    window.addEventListener('storage', surStockage)
+    return () => window.removeEventListener('storage', surStockage)
   }, [])
 
   const actions = useMemo(

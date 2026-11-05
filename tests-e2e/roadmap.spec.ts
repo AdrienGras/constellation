@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { expect, test } from './fixtures'
 
 const CIBLE = 'Développeur·se back-end'
+const DSI = 'DSI (directeur·rice des systèmes d\'information)'
 const A = { titre: 'API REST', url: 'https://example.org/api', note: 'Avec tests' }
 const B = { titre: 'Notions de SQL', type: 'notion' as const }
 const C = { titre: 'Projet fil rouge' }
@@ -32,6 +33,29 @@ test.describe('roadmap', () => {
     await page.reload()
     await expect(roadmap.titre).toHaveText(`Cap sur ${CIBLE}`)
     await expect(roadmap.titresDeLAnnee(2027)).toHaveText([C.titre, B.titre, A.titre])
+  })
+
+  test('deux onglets : la modification de l’un ne perd pas celle de l’autre', async ({
+    roadmap,
+    page,
+    ficheAutreOnglet: fiche,
+  }) => {
+    await roadmap.ouvrir()
+    await roadmap.choisirCible(CIBLE)
+
+    // L'onglet B charge sa fiche alors que la roadmap n'a pas encore d'élément.
+    await fiche.ouvrir('dsi')
+    await expect(fiche.boutonViser).toBeVisible()
+
+    await roadmap.ajouterElement(2027, A)
+    await expect(roadmap.titresDeLAnnee(2027)).toHaveText([A.titre])
+
+    await fiche.boutonViser.click()
+    await fiche.confirmerViser(DSI)
+
+    await page.reload()
+    await expect(roadmap.titresDeLAnnee(2027)).toHaveText([A.titre])
+    await expect(roadmap.titre).toHaveText(`Cap sur ${DSI}`)
   })
 
   test('export, stockage vidé, import : mêmes éléments', async ({ roadmap, page }) => {

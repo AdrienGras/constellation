@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { questions } from '../donnees'
 import { CLES } from '../logique/stockage'
 import { etatQuizInitial } from '../logique/quiz'
-import { roadmapVide } from '../logique/roadmap'
+import { ajouterItem, roadmapVide } from '../logique/roadmap'
 import { QuizProvider, useQuiz } from './QuizContext'
 import { RoadmapProvider, useRoadmap } from './RoadmapContext'
 import { FiltresProvider, useFiltres } from './FiltresContext'
@@ -140,6 +140,89 @@ describe('RoadmapProvider', () => {
     const { result } = renderHook(() => useRoadmap(), { wrapper: enveloppeRoadmap })
     expect(result.current.etat.cible).toBe('dev-backend')
     expect(result.current.cibleOubliee).toBe(false)
+  })
+})
+
+describe('synchronisation entre onglets', () => {
+  function ecrireAilleurs(cle: string, valeur: unknown) {
+    const nouvelle = JSON.stringify(valeur)
+    localStorage.setItem(cle, nouvelle)
+    window.dispatchEvent(new StorageEvent('storage', { key: cle, newValue: nouvelle }))
+  }
+
+  it('roadmap : un événement storage met à jour l’état', () => {
+    const { result } = renderHook(() => useRoadmap(), { wrapper: enveloppeRoadmap })
+    const externe = { ...roadmapVide(), cible: 'dev-backend' }
+    act(() => ecrireAilleurs(CLES.roadmap, externe))
+    expect(result.current.etat.cible).toBe('dev-backend')
+  })
+
+  it('roadmap : une valeur invalide est ignorée', () => {
+    const { result } = renderHook(() => useRoadmap(), { wrapper: enveloppeRoadmap })
+    act(() => result.current.choisirCible('dsi'))
+    act(() => ecrireAilleurs(CLES.roadmap, { n: 'importe quoi' }))
+    expect(result.current.etat.cible).toBe('dsi')
+  })
+
+  it('roadmap : une cible inconnue relue est oubliée', () => {
+    const { result } = renderHook(() => useRoadmap(), { wrapper: enveloppeRoadmap })
+    act(() => ecrireAilleurs(CLES.roadmap, { ...roadmapVide(), cible: 'metier-disparu' }))
+    expect(result.current.etat.cible).toBeNull()
+    expect(result.current.cibleOubliee).toBe(true)
+  })
+
+  it('roadmap : une modification part de la valeur du stockage, pas de l’état périmé', () => {
+    const { result } = renderHook(() => useRoadmap(), { wrapper: enveloppeRoadmap })
+    // Écriture externe sans événement : l’autre onglet a ajouté un élément.
+    const externe = ajouterItem(roadmapVide(), 2027, { type: 'notion', titre: 'SQL', url: '', note: '' })
+    localStorage.setItem(CLES.roadmap, JSON.stringify(externe))
+    act(() => result.current.choisirCible('dev-backend'))
+    expect(result.current.etat.annees['2027']).toHaveLength(1)
+    expect(result.current.etat.cible).toBe('dev-backend')
+    expect(JSON.parse(localStorage.getItem(CLES.roadmap)!).annees['2027']).toHaveLength(1)
+  })
+
+  it('quiz : un événement storage met à jour l’état', () => {
+    const { result } = renderHook(() => useQuiz(), { wrapper: enveloppeQuiz })
+    act(() =>
+      ecrireAilleurs(CLES.quiz, { version: 1, reponses: { q01: 'a' }, question: 2, departage: [], termine: false }),
+    )
+    expect(result.current.etat.reponses).toEqual({ q01: 'a' })
+    expect(result.current.etat.question).toBe(2)
+  })
+
+  it('quiz : une modification part de la valeur du stockage', () => {
+    const { result } = renderHook(() => useQuiz(), { wrapper: enveloppeQuiz })
+    localStorage.setItem(
+      CLES.quiz,
+      JSON.stringify({ version: 1, reponses: { q01: 'a' }, question: 0, departage: [], termine: false }),
+    )
+    act(() => result.current.repondre('q02', 'b'))
+    expect(result.current.etat.reponses).toEqual({ q01: 'a', q02: 'b' })
+  })
+
+  it('quiz : un événement sans clé (clear) relit le stockage', () => {
+    const { result } = renderHook(() => useQuiz(), { wrapper: enveloppeQuiz })
+    localStorage.setItem(
+      CLES.quiz,
+      JSON.stringify({ version: 1, reponses: { q03: 'b' }, question: 0, departage: [], termine: false }),
+    )
+    act(() => {
+      window.dispatchEvent(new StorageEvent('storage', { key: null }))
+    })
+    expect(result.current.etat.reponses).toEqual({ q03: 'b' })
+  })
+
+  it('quiz : une clé étrangère est ignorée', () => {
+    const { result } = renderHook(() => useQuiz(), { wrapper: enveloppeQuiz })
+    localStorage.setItem(
+      CLES.quiz,
+      JSON.stringify({ version: 1, reponses: { q03: 'b' }, question: 0, departage: [], termine: false }),
+    )
+    act(() => {
+      window.dispatchEvent(new StorageEvent('storage', { key: 'autre' }))
+    })
+    expect(result.current.etat.reponses).toEqual({})
   })
 })
 

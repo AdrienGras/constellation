@@ -13,6 +13,8 @@ interface Fixtures {
   quiz: QuizPage
   roadmap: RoadmapPage
   sources: SourcesPage
+  /** Fiche ouverte dans un second onglet du même contexte navigateur (stockage partagé). */
+  ficheAutreOnglet: FichePage
 }
 
 export const test = base.extend<Fixtures>({
@@ -22,6 +24,7 @@ export const test = base.extend<Fixtures>({
   quiz: async ({ page }, use) => use(new QuizPage(page)),
   roadmap: async ({ page }, use) => use(new RoadmapPage(page)),
   sources: async ({ page }, use) => use(new SourcesPage(page)),
+  ficheAutreOnglet: async ({ context }, use) => use(new FichePage(await context.newPage())),
 })
 
 export { expect }
