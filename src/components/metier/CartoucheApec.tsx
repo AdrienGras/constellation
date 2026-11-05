@@ -69,7 +69,7 @@ function LignePopulation({ libelle, v }: { libelle: string; v: ValeursApec | nul
     )
   return (
     <TableRow>
-      <TableHead scope="row" className="bg-transparent text-[16px] leading-[22px] font-bold tracking-normal text-encre normal-case">
+      <TableHead scope="row" className="border-b border-trait bg-transparent text-[16px] leading-[22px] font-bold tracking-normal text-encre normal-case">
         {libelle}
       </TableHead>
       <TableCell className={cellule}>{valeur(v?.mediane)}</TableCell>
