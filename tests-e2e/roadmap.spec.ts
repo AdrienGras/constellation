@@ -35,6 +35,23 @@ test.describe('roadmap', () => {
     await expect(roadmap.titresDeLAnnee(2027)).toHaveText([C.titre, B.titre, A.titre])
   })
 
+  test('réordonnancement à la souris : la poignée dépose l’élément à sa nouvelle place', async ({
+    roadmap,
+    page,
+  }) => {
+    await roadmap.ouvrir()
+    await roadmap.choisirCible(CIBLE)
+    await roadmap.ajouterElement(2027, A)
+    await roadmap.ajouterElement(2027, B)
+    await roadmap.ajouterElement(2027, C)
+
+    await roadmap.deplacerALaSouris(A.titre, C.titre)
+    await expect(roadmap.titresDeLAnnee(2027)).toHaveText([B.titre, C.titre, A.titre])
+
+    await page.reload()
+    await expect(roadmap.titresDeLAnnee(2027)).toHaveText([B.titre, C.titre, A.titre])
+  })
+
   test('deux onglets : la modification de l’un ne perd pas celle de l’autre', async ({
     roadmap,
     page,

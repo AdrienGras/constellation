@@ -126,6 +126,22 @@ export class RoadmapPage extends AppPage {
     await this.page.keyboard.press('Space')
   }
 
+  /**
+   * Réordonnancement à la souris (dnd-kit, capteur pointeur) : on saisit la poignée de `titre`
+   * et on la dépose sur l'élément `cible`, en plusieurs pas pour franchir le seuil d'activation.
+   */
+  async deplacerALaSouris(titre: string, cible: string) {
+    const depart = await this.poignee(titre).boundingBox()
+    const arrivee = await this.poignee(cible).boundingBox()
+    if (!depart || !arrivee) throw new Error('Poignée introuvable à l’écran.')
+    const { mouse } = this.page
+    await mouse.move(depart.x + depart.width / 2, depart.y + depart.height / 2)
+    await mouse.down()
+    await mouse.move(depart.x + depart.width / 2, depart.y + depart.height / 2 + 10, { steps: 5 })
+    await mouse.move(arrivee.x + arrivee.width / 2, arrivee.y + arrivee.height / 2 + 4, { steps: 15 })
+    await mouse.up()
+  }
+
   // --- Export, import, impression ---
 
   /** Télécharge l'export JSON et renvoie le chemin du fichier enregistré. */
