@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { expect, test } from './fixtures'
+import { ROADMAP_AUDIT } from './donnees'
 
 const CIBLE = 'Développeur·se back-end'
 const DSI = 'DSI (directeur·rice des systèmes d\'information)'
@@ -127,5 +128,22 @@ test.describe('roadmap', () => {
     await roadmap.choisirCible(CIBLE)
     await roadmap.ajouterElement(2027, A)
     await expect(roadmap.titresDeLAnnee(2027)).toHaveText([A.titre])
+  })
+})
+
+test.describe('roadmap : carte d’élément sur mobile', () => {
+  // eslint-disable-next-line no-empty-pattern
+  test.beforeEach(({}, info) => {
+    test.skip(info.project.name !== 'mobile', 'Disposition propre à l’écran étroit.')
+  })
+
+  test('les actions passent sous le titre, qui garde sa largeur', async ({ roadmap }) => {
+    await roadmap.ouvrir()
+    await roadmap.poserStockage('constellation.roadmap.v1', ROADMAP_AUDIT)
+    const titre = 'API REST de gestion de bibliothèque en Node.js'
+    const t = await roadmap.rectEcran(roadmap.titreElement(titre))
+    // Avant : 166 px (actions empilées à droite) ; la largeur utile de la carte en 390 px est de 214 px.
+    expect(t.droite - t.gauche).toBeGreaterThanOrEqual(200)
+    for (const a of await roadmap.rectsActions(titre)) expect(a.haut).toBeGreaterThanOrEqual(t.bas)
   })
 })

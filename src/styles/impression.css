@@ -9,6 +9,12 @@
     margin: 15mm;
   }
 
+  /* La meta `color-scheme: dark` d'index.html fait peindre la marge @page avec le fond sombre du
+     canevas quand les arrière-plans sont imprimés : le papier repasse en schéma clair. */
+  :root {
+    color-scheme: light;
+  }
+
   html,
   body {
     background: #fff !important;

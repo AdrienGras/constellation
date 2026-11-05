@@ -158,7 +158,7 @@ describe('PlanPage', () => {
     expect(screen.getAllByText('Métiers voisins (au survol)')).toHaveLength(1)
   })
 
-  it('après le quiz : 3 lignes allumées, 5 en exploration, rien d’atténué', async () => {
+  it('après le quiz : 3 lignes allumées, 5 estompées, aucune station atténuée', async () => {
     stockerQuizTermine('b')
     const { container } = monter()
     const encart = screen.getByRole('region', { name: 'Ton résultat de quiz' })
@@ -167,14 +167,21 @@ describe('PlanPage', () => {
       expect(within(encart).getByText(rang)).toBeInTheDocument()
     }
     expect(
-      within(encart).getByText(/zone d’exploration : les lignes en pointillés \(5 lignes, \d+ métiers\)/),
+      within(encart).getByText(/zone d’exploration : les lignes estompées \(5 lignes, \d+ métiers\)/),
     ).toBeInTheDocument()
     expect(within(encart).getByText(/point de départ, pas un verdict/)).toBeInTheDocument()
     expect(within(encart).getByRole('button', { name: 'Refaire le quiz' })).toBeInTheDocument()
     for (const id of ['infra-cloud', 'management', 'developpement']) {
       expect(container.querySelector(`[data-trace="${id}"]`)).toHaveAttribute('data-etat', 'top')
     }
-    expect(container.querySelectorAll('[data-trace][data-etat="exploration"]')).toHaveLength(5)
+    const exploration = container.querySelectorAll('[data-trace][data-etat="exploration"]')
+    expect(exploration).toHaveLength(5)
+    // Zone d’exploration estompée par ses tracés seulement : plus de pointillé, top 3 à pleine opacité.
+    for (const t of exploration) expect(t).toHaveAttribute('opacity', '0.4')
+    for (const t of container.querySelectorAll('[data-trace][data-etat="top"]')) {
+      expect(t).not.toHaveAttribute('opacity')
+    }
+    expect(container.querySelectorAll('path[stroke-dasharray="1 7"]')).toHaveLength(0)
     expect(stations().filter((s) => s.dataset.attenue === 'true')).toHaveLength(0)
     expect(screen.getByText('Zone d’exploration')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: `${LIEN_BACKEND}, ligne de ton top 3` })).toBeInTheDocument()
@@ -190,6 +197,17 @@ describe('PlanPage', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Refaire le quiz' }))
     expect(router.state.location.pathname).toBe('/quiz')
     expect(JSON.parse(localStorage.getItem(CLES.quiz) ?? '{}').termine).toBe(false)
+  })
+
+  it('après le quiz, un filtre atténue toujours les stations hors filtre, même sur une ligne estompée', async () => {
+    stockerQuizTermine('b')
+    monter()
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Catégorie' }), 'Back-end')
+    expect(stations().filter((s) => s.dataset.attenue === 'true')).toHaveLength(63)
+    expect(screen.getByRole('link', { name: `${LIEN_BACKEND}, ligne de ton top 3` })).not.toHaveAttribute(
+      'data-attenue',
+      'true',
+    )
   })
 
   it('quiz terminé mais départage non résolu : propose de le finir', () => {

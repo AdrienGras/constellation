@@ -32,8 +32,10 @@ export function PlanPage() {
   }, [navigate])
 
   return (
-    <div className="flex flex-col px-6 pb-6 md:px-12">
-      <div className="pt-4 pb-2">
+    // Le plan prend toute la largeur, comme dans la maquette : seuls l’en-tête et le lien d’évitement ont la marge de page.
+    // `pt-3` : les 4 px repris compensent la hauteur gagnée par le plan (centre visible en 1366×633).
+    <div className="flex flex-col pb-6">
+      <div className="px-6 pt-3 pb-2 md:px-12">
         <EnTeteAccueil
           titre="Le plan des métiers du numérique"
           chapeau="68 métiers sur 8 lignes. Survole une station pour voir le métier, clique pour ouvrir sa fiche."
@@ -42,7 +44,7 @@ export function PlanPage() {
       </div>
       <Link
         to="/liste"
-        className="sr-only focus:not-sr-only focus:self-start focus:rounded-sm focus:bg-surface focus:px-3 focus:py-2"
+        className="sr-only focus:not-sr-only focus:mx-6 focus:self-start md:focus:mx-12 focus:rounded-sm focus:bg-surface focus:px-3 focus:py-2"
       >
         Passer à la vue liste
       </Link>

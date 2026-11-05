@@ -60,7 +60,7 @@ export function SourcesPage() {
                     </a>
                   </th>
                   <TableCell>{s.editeur}</TableCell>
-                  <TableCell className="font-mono">{s.date}</TableCell>
+                  <TableCell className="font-mono whitespace-nowrap">{s.date}</TableCell>
                   <TableCell>{s.usage}</TableCell>
                   <TableCell className="text-encre-douce">{s.licence}</TableCell>
                 </TableRow>

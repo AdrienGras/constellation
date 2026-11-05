@@ -38,8 +38,11 @@ export function Competences({ cible }: { cible: string | null }) {
               </p>
               <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
                 {metier.competences.map((c) => (
-                  <li key={c}>
-                    <Badge variant="outline">{c}</Badge>
+                  <li key={c} className="max-w-full">
+                    {/* Une compétence longue passe à la ligne au lieu de déborder de la carte. */}
+                    <Badge variant="outline" className="max-w-full whitespace-normal">
+                      {c}
+                    </Badge>
                   </li>
                 ))}
               </ul>

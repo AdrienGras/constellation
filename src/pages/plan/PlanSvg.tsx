@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { Maximize, Minimize } from 'lucide-react'
 import { Link } from 'react-router'
 import { Station } from '@/components/metier/Station'
@@ -12,6 +12,7 @@ import { usePleinEcran } from './usePleinEcran'
 const L = 1280
 const H = 720
 const TEXTE = { fontFamily: 'var(--font-sans)', fontSize: 12, fontWeight: 700, letterSpacing: '0.06em' }
+const OPACITE_EXPLORATION = 0.4
 const NUM = { fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 800, fill: 'var(--fond)' }
 
 const libelleType = (t: string) => (t === 'entree' ? 'métier d’entrée' : 'métier d’évolution')
@@ -48,6 +49,17 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
   const enveloppe = useRef<HTMLDivElement>(null)
   const pleinEcran = usePleinEcran(enveloppe)
 
+  // La bulle s'affiche au-dessus de sa station, sauf si elle sortirait alors par le haut de la fenêtre :
+  // elle passe dessous. Mesuré avant affichage, et remis à « dessus » à chaque ouverture : le côté est lié à
+  // l’objet `actif`, recréé à chaque survol ou focus (une station resurvolée plus bas repasse dessus).
+  const bulle = useRef<HTMLDivElement>(null)
+  const [cote, setCote] = useState<{ ouverture: Actif; cote: 'dessus' | 'dessous' } | null>(null)
+  const coteBulle = cote && cote.ouverture === actif ? cote.cote : 'dessus'
+  useLayoutEffect(() => {
+    if (!actif || coteBulle !== 'dessus' || !bulle.current) return
+    if (bulle.current.getBoundingClientRect().top < 8) setCote({ ouverture: actif, cote: 'dessous' })
+  }, [actif, coteBulle])
+
   const courante = actif ? plan.stations[actif.id] : null
   const voisins = courante ? courante.voisins.filter((id) => plan.stations[id]) : []
   const etatLigne = (id: LigneId) => (top3 ? (top3.includes(id) ? 'top' : 'exploration') : undefined)
@@ -59,13 +71,13 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
       className="relative flex flex-col [&:fullscreen]:items-center [&:fullscreen]:justify-center [&:fullscreen]:bg-fond"
     >
       <div className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-3 [:fullscreen_&]:w-[min(100vw,calc(100vh*16/9))] [:fullscreen_&]:max-w-none">
-        <LegendeLignes className="flex flex-wrap gap-x-3 gap-y-1.5 xl:absolute xl:top-3 xl:left-4 xl:z-[6] xl:flex-col xl:flex-nowrap xl:gap-y-2 xl:rounded-md xl:bg-surface xl:px-3 xl:py-3 xl:shadow-carte" />
+        <LegendeLignes className="flex flex-wrap gap-x-4 gap-y-2 max-xl:mx-6 md:max-xl:mx-12 xl:absolute xl:top-3 xl:left-4 xl:z-[6] xl:flex-col xl:flex-nowrap xl:gap-y-2 xl:rounded-md xl:bg-surface xl:px-3 xl:py-3 xl:shadow-carte" />
         {pleinEcran.disponible ? (
           <Button
             variant="outline"
             size="sm"
             onClick={pleinEcran.basculer}
-            className="max-xl:self-end xl:absolute xl:top-3 xl:right-4 xl:z-[6]"
+            className="max-xl:mr-6 max-xl:self-end md:max-xl:mr-12 xl:absolute xl:top-3 xl:right-4 xl:z-[6]"
           >
             {pleinEcran.actif ? <Minimize aria-hidden="true" /> : <Maximize aria-hidden="true" />}
             {pleinEcran.actif ? 'Quitter le plein écran' : 'Plein écran'}
@@ -73,23 +85,20 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
         ) : null}
         <div data-plan-dessin className="relative aspect-[1280/720] w-full">
           <svg viewBox={`0 0 ${L} ${H}`} aria-hidden="true" className="absolute inset-0 block size-full">
+            {/* Après le quiz, la zone d’exploration est estompée par ses tracés (fond des quartiers et trait) ;
+                ses stations et ses libellés gardent leur plein contraste : on doit pouvoir y explorer. */}
             {plan.lignes.map((l) =>
               l.quartiers.map((q) => (
-                <g key={`${l.id}-${q.cat}`}>
-                  <path d={q.d} fill="none" stroke={l.fond} strokeWidth={44} strokeLinecap="round" strokeLinejoin="round" />
-                  {etatLigne(l.id) === 'exploration' ? (
-                    <path
-                      d={q.d}
-                      fill="none"
-                      stroke={l.couleur}
-                      strokeWidth={52}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeDasharray="1 7"
-                      strokeOpacity={0.9}
-                    />
-                  ) : null}
-                </g>
+                <path
+                  key={`${l.id}-${q.cat}`}
+                  d={q.d}
+                  fill="none"
+                  stroke={l.fond}
+                  strokeWidth={44}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  opacity={etatLigne(l.id) === 'exploration' ? OPACITE_EXPLORATION : undefined}
+                />
               )),
             )}
             {plan.lignes.map((l) => {
@@ -103,6 +112,7 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
                   fill="none"
                   stroke={l.couleur}
                   strokeWidth={etat === 'top' ? 12 : 8}
+                  opacity={etat === 'exploration' ? OPACITE_EXPLORATION : undefined}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   style={etat === 'top' ? { filter: `drop-shadow(0 0 6px ${l.couleur})` } : undefined}
@@ -116,7 +126,8 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
                 </text>
               )),
             )}
-            <circle cx={640} cy={360} r={30} fill="var(--encre)" />
+            {/* Rayon 34 : à 30, « FORMATION » touchait le bord du disque. La station la plus proche est à 78. */}
+            <circle data-disque cx={640} cy={360} r={34} fill="var(--encre)" />
             <text x={640} y={356} textAnchor="middle" style={{ ...NUM, fontSize: 12 }}>
               TA
             </text>
@@ -167,6 +178,10 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
                       : 'attenue'
                 const rangQuiz = top3 ? (top3.includes(s.ligne) ? ', ligne de ton top 3' : ', zone d’exploration') : ''
                 return (
+                  // Cible ronde dont le diamètre suit la largeur du plan (34 px au plus, 24 au moins, WCAG 2.5.8) :
+                  // les centres les plus proches sont à 35,9 / 1280 de la largeur, donc pas de chevauchement au-dessus de 856 px.
+                  // Le dessin de la station suit la taille du lien (sinon ses 34 px fixes imposent la hauteur du lien et
+                  // le décentrent) et ne prend pas le pointeur : la zone de clic reste le disque du lien.
                   <Link
                     key={id}
                     to={`/fiche/${id}`}
@@ -183,7 +198,7 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
                       setActif({ id, clavier: true })
                     }}
                     onBlur={() => setActif(null)}
-                    className="absolute grid size-[34px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full"
+                    className="absolute grid aspect-square w-[clamp(24px,2.75%,34px)] -translate-x-1/2 [&>svg]:pointer-events-none [&>svg]:size-full -translate-y-1/2 place-items-center rounded-full"
                     style={{ left: `${(s.x / L) * 100}%`, top: `${(s.y / H) * 100}%`, zIndex: courant ? 3 : 2 }}
                   >
                     <Station ligne={s.ligne} type={s.type} etat={etat} />
@@ -195,15 +210,17 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
 
           {courante ? (
             <div
+              ref={bulle}
               id="plan-bulle"
               role="tooltip"
+              data-cote={coteBulle}
               onMouseEnter={annulerFermeture}
               onMouseLeave={fermerPlusTard}
               className="absolute z-[7] max-w-[300px] rounded-sm bg-encre px-3.5 py-2.5 text-[14px] leading-5 text-fond shadow-flottante"
               style={{
                 left: `${(courante.x / L) * 100}%`,
                 top: `${(courante.y / H) * 100}%`,
-                transform: `translate(${courante.x < 160 ? '-10%' : courante.x > 1120 ? '-90%' : '-50%'}, calc(-100% - 24px))`,
+                transform: `translate(${courante.x < 160 ? '-10%' : courante.x > 1120 ? '-90%' : '-50%'}, ${coteBulle === 'dessus' ? 'calc(-100% - 24px)' : '24px'})`,
               }}
             >
               <strong className="block text-base leading-[22px]">{courante.titre}</strong>
@@ -232,9 +249,9 @@ export function PlanSvg({ filtres, top3 }: { filtres: Filtres; top3: LigneId[] |
                   x2={56}
                   y2={17}
                   stroke="var(--ligne-cybersecurite)"
-                  strokeWidth={3}
-                  strokeDasharray="1 7"
+                  strokeWidth={8}
                   strokeLinecap="round"
+                  opacity={OPACITE_EXPLORATION}
                 />
               </Legende>
             ) : null}
