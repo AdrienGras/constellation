@@ -1,0 +1,99 @@
+/* Impression A4, surtout pour la roadmap. Importé par RoadmapPage, mais le bundle est unique :
+   ces règles valent pour toute l'app, d'où les sélecteurs ciblés (data-barre, data-bandeau)
+   plutôt que header ou [role=status], qui toucheraient aussi l'en-tête d'une fiche.
+   Tout est sous @media print. Le noir #000 et le blanc #fff sont les seules couleurs en dur
+   du projet : elles sont propres au papier. */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+  }
+
+  /* Barre de navigation (avec le lien d'évitement) et bandeau de stockage. */
+  [data-barre],
+  [data-bandeau],
+  [data-radix-popper-content-wrapper],
+  [role='dialog'],
+  [data-slot='dialog-overlay'] {
+    display: none !important;
+  }
+
+  [data-page-roadmap] {
+    display: block;
+    padding: 0;
+  }
+
+  [data-page-roadmap] [data-ecran],
+  [data-page-roadmap] [data-actions],
+  [data-page-roadmap] [data-competences],
+  [data-page-roadmap] [data-actions-item],
+  [data-page-roadmap] [data-poignee],
+  [data-page-roadmap] [data-lien-ecran],
+  [data-page-roadmap] [data-vide-ecran],
+  [data-page-roadmap] [data-ajouter],
+  [data-page-roadmap] [aria-hidden='true'] {
+    display: none !important;
+  }
+
+  [data-page-roadmap] [data-impression] {
+    display: block;
+    margin-bottom: 8mm;
+    font-weight: 700;
+  }
+
+  [data-page-roadmap] [data-impression] p {
+    margin: 0 0 2mm;
+  }
+
+  [data-page-roadmap] section {
+    break-inside: avoid;
+    padding: 0 0 6mm;
+  }
+
+  [data-page-roadmap] h2 {
+    margin: 0 0 2mm;
+    font-size: 14pt;
+  }
+
+  [data-page-roadmap] [data-vide-imprime] {
+    display: block;
+    margin: 0;
+  }
+
+  [data-page-roadmap] article {
+    display: block;
+    padding: 0 0 3mm;
+    break-inside: avoid;
+  }
+
+  [data-page-roadmap] article p,
+  [data-page-roadmap] [data-type] {
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  [data-page-roadmap] [data-type] {
+    padding: 0;
+    font-weight: 700;
+  }
+
+  [data-page-roadmap] [data-url-imprimee] {
+    display: block;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10pt;
+    overflow-wrap: anywhere;
+  }
+}

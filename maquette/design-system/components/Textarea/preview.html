@@ -1,0 +1,14 @@
+<!-- @dsCard group="Formulaires" height=190 subtitle="texte libre, facultatif" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Textarea — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo-col"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Textarea, { label: 'Note', optional: true, placeholder: 'Pourquoi cet item, avec qui, quand…', hint: 'Visible dans ta roadmap et à l’impression.' })
+));
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- @dsCard group="Salaires" height=1080 width=900 subtitle="mlops (rapprochement) · integrateur-web (n.d.)" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>CartoucheApec — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo-col"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h('div', { style: { display: 'grid', gap: '24px' } },
+    h(C.CartoucheApec, { apec: {"famille": "Big Data", "mediane": 54, "d1": 40, "d9": 98, "idf": {"mediane": 58, "d1": 42, "d9": 112}, "autres_regions": {"mediane": 48, "d1": 36, "d9": 70}, "moins_35_ans": {"mediane": 48}, "rapprochement": {"de": "Big Data", "raison": "Pas de famille Apec pour le MLOps : on reprend celle du Big Data, qui inclut les data engineers, les plus proches de ce métier."}} }),
+    h(C.CartoucheApec, { apec: null, raisonAbsence: "poste souvent non cadre, donc sans salaire Apec ; salaire Silkhom rapproché du développeur frontend, faute de ligne intégrateur web" }))
+));
+</script>
+</body>
+</html>

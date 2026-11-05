@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Sources et mentions</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/constellation/tokens.css">
+<link rel="stylesheet" href="ds/constellation/components/bundle.css">
+<script src="ds/constellation/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#eef2f7}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 1400px; background: var(--fond); color: var(--encre); font-family: var(--font-sans); font-size: 17px; line-height: 26px">
+<x-import component-from-global-scope="Constellation.BarreNavigation" actif="sources" routes="{{routes}}"></x-import>
+<main id="contenu" style="max-width: 1100px; padding: 40px 48px 64px; display: flex; flex-direction: column; gap: 28px">
+<div><p class="etiquette" style="margin: 0; color: var(--encre-douce)">Sources et mentions</p><h1 class="titre-1" style="margin: 4px 0 0">D’où viennent ces informations</h1></div>
+<section style="background: var(--surface); border-radius: var(--rayon-md); box-shadow: var(--ombre-carte); padding: 24px 28px; display: flex; flex-direction: column; gap: 12px">
+<h2 class="titre-3" style="margin: 0">Mentions</h2>
+<p style="margin: 0; max-width: 900px">Fiches métiers rédigées pour le module « Construire son avenir dans le numérique » (CODA Dijon). Une partie des descriptions est adaptée de la Nomenclature des profils métiers du SI du Cigref (version 2025). Salaires : baromètres Silkhom 2026 (brut annuel fixe, hors primes) et Apec, « Les rémunérations des cadres dans 111 familles de métiers », édition 2025 (médiane fixe + variable, cadres du privé). Ces deux sources ne mesurent pas la même chose et ne doivent pas être comparées directement. Ce sont des salaires cibles, pas des salaires de sortie d&#x27;études : la médiane Apec porte sur des cadres de toutes expériences, et dans les grilles Silkhom seule la première tranche en régions, quand elle commence à 0 an, approche un premier emploi ; les autres métiers ne s&#x27;ouvrent qu&#x27;après quelques années d&#x27;expérience. Les rubriques « à éviter si » sont des repères pédagogiques, pas des règles. Chiffres relevés en novembre 2026.</p>
+<p style="margin: 0; font-size: 15px; color: var(--encre-douce)">Licence des textes propres à constellation : à décider (CC BY 4.0 proposée). Données relevées le 2026-11-02, version 1.1.</p>
+</section>
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 class="titre-2" style="margin: 0">Les 6 sources</h2>
+<div style="overflow-x: auto; background: var(--surface); border-radius: var(--rayon-md); box-shadow: var(--ombre-carte)">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; line-height: 22px">
+<thead><tr><th scope="col" class="etiquette" style="text-align: left; padding: 12px; background: var(--surface-muted); color: var(--encre-douce)">Source</th><th scope="col" class="etiquette" style="text-align: left; padding: 12px; background: var(--surface-muted); color: var(--encre-douce)">Éditeur</th><th scope="col" class="etiquette" style="text-align: left; padding: 12px; background: var(--surface-muted); color: var(--encre-douce)">Date</th><th scope="col" class="etiquette" style="text-align: left; padding: 12px; background: var(--surface-muted); color: var(--encre-douce)">Ce qu’on en tire</th><th scope="col" class="etiquette" style="text-align: left; padding: 12px; background: var(--surface-muted); color: var(--encre-douce)">Licence</th></tr></thead>
+<tbody><tr><th scope="row" style="text-align: left; padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top"><a href="https://www.cigref.fr/wp/wp-content/uploads/2025/10/Cigref_Nomenclature_des_profils_metiers_SI-octobre-2025.pdf">Nomenclature des profils métiers du SI, version 2025</a></th><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Cigref</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; font-family: var(--font-mono)">2025-10</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Missions, parcours et évolutions de 33 fiches, paraphrasés.</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; color: var(--encre-douce)">Pas de licence ouverte identifiée : paraphrase et citation.</td></tr><tr><th scope="row" style="text-align: left; padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top"><a href="https://www.data.gouv.fr/datasets/repertoire-operationnel-des-metiers-et-des-emplois-rome">Répertoire opérationnel des métiers et des emplois (ROME 4.0)</a></th><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">France Travail</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; font-family: var(--font-mono)">2026</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Codes ROME et rattachement des métiers.</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; color: var(--encre-douce)">Licence Ouverte / Etalab 2.0</td></tr><tr><th scope="row" style="text-align: left; padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top"><a href="https://www.silkhom.com/les-salaires-informatique-et-electronique/">Baromètre des salaires 2026 : informatique, digital, électronique</a></th><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Silkhom</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; font-family: var(--font-mono)">2026-06-30</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Grilles de salaires bruts fixes par zone et par expérience, relevées le 02/11/2026.</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; color: var(--encre-douce)">Tous droits réservés : chiffres cités avec la source.</td></tr><tr><th scope="row" style="text-align: left; padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top"><a href="https://www.silkhom.com/les-salaires-ia-et-ml/">Baromètre des salaires IA et ML 2026</a></th><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Silkhom</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; font-family: var(--font-mono)">2026</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Grilles et moyennes des métiers de l&#x27;IA, relevées le 02/11/2026.</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; color: var(--encre-douce)">Tous droits réservés : chiffres cités avec la source.</td></tr><tr><th scope="row" style="text-align: left; padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top"><a href="https://corporate.apec.fr/files/live/sites/corporate/files/Nos%20etudes/PDF/Les%20remunerations%20des%20cadres%20dans%20111%20familles%20de%20metiers%202025.pdf">Les rémunérations des cadres dans 111 familles de métiers, édition 2025</a></th><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Apec</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; font-family: var(--font-mono)">2025-12</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Médianes fixe + variable des cadres du privé, par famille, Île-de-France / autres régions.</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; color: var(--encre-douce)">Pas de licence ouverte identifiée : chiffres cités avec la source.</td></tr><tr><th scope="row" style="text-align: left; padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top"><a href="https://www.blogdumoderateur.com/salaires-informatique-digital-remunerations-2026/">Salaires dans l&#x27;informatique et le digital : les rémunérations en 2026</a></th><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Blog du Modérateur</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; font-family: var(--font-mono)">2026-07-07</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top">Moyennes annuelles Silkhom reprises par la presse.</td><td style="padding: 14px 12px; border-top: 1px solid var(--trait); vertical-align: top; color: var(--encre-douce)">Article de presse : chiffres cités avec la source.</td></tr></tbody>
+</table>
+</div>
+</section>
+<x-import component-from-global-scope="Constellation.Alert" variant="info" title="Aucun compte, aucun suivi.">Ton résultat de quiz et ta roadmap restent dans ton navigateur ; rien n’est envoyé nulle part.</x-import>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1400}}'>
+class Component extends DCLogic {
+renderVals() { return { routes: {"nuage": "Main.dc.html", "quiz": "quiz-question.dc.html", "roadmap": "roadmap.dc.html", "sources": "sources.dc.html"}, }; }
+}
+</script>
+</body>
+</html>

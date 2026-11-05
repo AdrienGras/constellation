@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Roadmap vide</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/constellation/tokens.css">
+<link rel="stylesheet" href="ds/constellation/components/bundle.css">
+<script src="ds/constellation/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#eef2f7}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 1500px; background: var(--fond); color: var(--encre); font-family: var(--font-sans); font-size: 17px; line-height: 26px">
+<x-import component-from-global-scope="Constellation.BarreNavigation" actif="roadmap" routes="{{routes}}" fin="Enregistré dans ce navigateur"></x-import>
+<main id="contenu" style="padding: 32px 48px 64px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p class="etiquette" style="margin: 0; color: var(--encre-douce)">Ma roadmap · 2027 → 2031</p>
+<h1 class="titre-1" style="margin: 0">Quel métier vises-tu ?</h1>
+<p style="margin: 0; color: var(--encre-douce); max-width: 760px">Choisis-le parmi les 68 métiers. Ce matin t’a peut-être fait changer d’avis : c’est prévu, tu pourras en changer à tout moment.</p>
+</div>
+<div style="display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap">
+<x-import component-from-global-scope="Constellation.Input" label="Métier visé" icone="recherche" default-value="back" placeholder="Ex. : DevOps, data, sécurité…" style="width: 420px"></x-import>
+<x-import component-from-global-scope="Constellation.Button" variant="ghost">Importer un JSON</x-import>
+</div>
+<ul role="listbox" aria-label="Métiers correspondants" style="list-style: none; margin: -12px 0 0; padding: 8px; width: 420px; box-sizing: border-box; background: var(--surface); border-radius: var(--rayon-md); box-shadow: var(--ombre-flottante)">
+<li role="option" aria-selected="true" style="display: flex; gap: 10px; align-items: center; padding: 8px 10px; border-radius: var(--rayon-sm); background: var(--surface-muted)"><x-import component-from-global-scope="Constellation.Station" ligne="developpement" categorie="backend" type="entree"></x-import><a href="roadmap.dc.html" style="color: var(--encre); font-weight: 700; text-decoration: none">Développeur·se back-end</a></li>
+<li role="option" aria-selected="false" style="display: flex; gap: 10px; align-items: center; padding: 8px 10px"><x-import component-from-global-scope="Constellation.Station" ligne="developpement" categorie="backend" type="entree"></x-import><span>Développeur·se full-stack</span></li>
+<li role="option" aria-selected="false" style="display: flex; gap: 10px; align-items: center; padding: 8px 10px"><x-import component-from-global-scope="Constellation.Station" ligne="developpement" categorie="backend" type="entree"></x-import><span>Développeur·se base de données</span></li>
+</ul>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+<div style="flex: 1; min-width: 0"><div style="position: relative; display: flex; flex-direction: column; gap: 8px">
+<div aria-hidden="true" style="position: absolute; left: 25px; top: 24px; bottom: 24px; width: 8px; border-radius: 4px; background: var(--ligne-developpement)"></div>
+<sc-for list="{{annees}}" as="a" hint-placeholder-count="5">
+<section aria-label="{{a.an}}" style="position: relative; display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 12px 0">
+<div style="display: flex; align-items: flex-start; gap: 14px">
+<svg width="58" height="58" viewBox="0 0 58 58" aria-hidden="true" style="flex: none"><circle cx="29" cy="29" r="20" fill="var(--fond)" stroke="var(--ligne-developpement)" stroke-width="6"></circle><circle cx="29" cy="29" r="8" fill="var(--ligne-developpement)"></circle></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<h2 style="margin: 12px 0 0; font-family: var(--font-mono); font-size: 28px; line-height: 34px; font-weight: 600">{{a.an}}</h2>
+<p style="margin: 0; padding: 16px; border: 2px dashed var(--trait-fort); border-radius: var(--rayon-md); color: var(--encre-douce)">Rien pour {{a.an}}. Ajoute un projet à réaliser ou une notion à apprendre.</p>
+<x-import component-from-global-scope="Constellation.Button" variant="ghost" icone="plus" on-click="{{a.ajouter}}" style="align-self: flex-start">Ajouter à {{a.an}}</x-import>
+</div>
+</section>
+</sc-for>
+</div></div>
+<aside style="width: 340px; flex: none; background: var(--surface); border-radius: var(--rayon-md); box-shadow: var(--ombre-carte); padding: 24px; color: var(--encre-douce)"><p class="etiquette" style="margin: 0 0 8px">Compétences de la fiche</p><p style="margin: 0">Elles s’afficheront ici dès que tu auras choisi un métier.</p></aside>
+</div>
+</main>
+<sc-if value="{{dialogue}}" hint-placeholder-val="{{false}}">
+<x-import component-from-global-scope="Constellation.Dialog" open="{{dialogue}}" title="{{titreDialogue}}" description="Un projet à réaliser ou une notion à apprendre." on-close="{{fermer}}">
+<x-import component-from-global-scope="Constellation.RadioGroup" legend="Type d’item" name="type-item" options="{{typesItem}}" default-value="{{brouillon.type}}" on-value-change="{{choisirType}}"></x-import>
+<x-import component-from-global-scope="Constellation.Input" label="Titre" value="{{brouillon.titre}}" on-change="{{saisirTitre}}" placeholder="Ex. : API REST avec Symfony"></x-import>
+<x-import component-from-global-scope="Constellation.Input" label="Ressource (URL)" type="url" value="{{brouillon.url}}" on-change="{{saisirUrl}}" placeholder="https://"></x-import>
+<x-import component-from-global-scope="Constellation.Textarea" label="Note" optional="{{oui}}" value="{{brouillon.note}}" on-change="{{saisirNote}}"></x-import>
+<div class="cs-dialog-footer">
+<x-import component-from-global-scope="Constellation.Button" variant="ghost" on-click="{{fermer}}">Annuler</x-import>
+<x-import component-from-global-scope="Constellation.Button" on-click="{{valider}}" disabled="{{titreVide}}">{{libelleValider}}</x-import>
+</div>
+</x-import>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1500}}'>
+class Component extends DCLogic {
+constructor(props) { super(props); this.state = { annees: [{"an": 2027, "items": []}, {"an": 2028, "items": []}, {"an": 2029, "items": []}, {"an": 2030, "items": []}, {"an": 2031, "items": []}], dialogue: null, brouillon: { type: 'projet', titre: '', url: '', note: '' }, edition: null, message: '' }; }
+maj(an, f) { this.setState({ annees: this.state.annees.map((a) => a.an === an ? Object.assign({}, a, { items: f(a.items.slice()) }) : a) }); }
+renderVals() {
+const st = this.state;
+const annees = st.annees.map((a) => ({ an: a.an, vide: a.items.length === 0,
+  ajouter: () => this.setState({ dialogue: a.an, edition: null, brouillon: { type: 'projet', titre: '', url: '', note: '' } }),
+  items: a.items.map((it, k) => Object.assign({}, it, { premier: k === 0, dernier: k === a.items.length - 1,
+    monter: () => this.maj(a.an, (xs) => { if (k > 0) { const t = xs[k - 1]; xs[k - 1] = xs[k]; xs[k] = t; } return xs; }),
+    descendre: () => this.maj(a.an, (xs) => { if (k < xs.length - 1) { const t = xs[k + 1]; xs[k + 1] = xs[k]; xs[k] = t; } return xs; }),
+    supprimer: () => this.maj(a.an, (xs) => { xs.splice(k, 1); return xs; }),
+    modifier: () => this.setState({ dialogue: a.an, edition: k, brouillon: Object.assign({}, it) }) })) }));
+const b = st.brouillon;
+const champ = (nom) => (e) => this.setState({ brouillon: Object.assign({}, this.state.brouillon, { [nom]: e.target.value }) });
+return { routes: {"nuage": "Main.dc.html", "quiz": "quiz-question.dc.html", "roadmap": "roadmap.dc.html", "sources": "sources.dc.html"}, 
+  annees: annees, oui: true, competences: [{"t": "Java/Spring, PHP/Symfony, Python, Node/NestJS ou C#/.NET"}, {"t": "SQL et NoSQL"}, {"t": "Git"}, {"t": "Docker"}, {"t": "sécurité applicative"}], message: st.message, aMessage: !!st.message,
+  dialogue: st.dialogue !== null, titreDialogue: (st.edition === null ? 'Ajouter un item à ' : 'Modifier un item de ') + st.dialogue,
+  libelleValider: st.edition === null ? 'Ajouter' : 'Enregistrer', brouillon: b, titreVide: !b.titre.trim(),
+  typesItem: [{ value: 'projet', label: 'Projet à réaliser', description: 'Quelque chose que tu construis.' }, { value: 'notion', label: 'Notion à apprendre', description: 'Un sujet à comprendre.' }],
+  choisirType: (v) => this.setState({ brouillon: Object.assign({}, this.state.brouillon, { type: v }) }),
+  saisirTitre: champ('titre'), saisirUrl: champ('url'), saisirNote: champ('note'),
+  fermer: () => this.setState({ dialogue: null }),
+  valider: () => { const an = st.dialogue, ed = st.edition, it = Object.assign({}, this.state.brouillon); this.maj(an, (xs) => { if (ed === null) xs.push(it); else xs[ed] = it; return xs; }); this.setState({ dialogue: null }); },
+  exporter: () => this.setState({ message: 'constellation-roadmap.json est prêt (dans la maquette, rien n’est téléchargé).' })
+};
+}
+}
+</script>
+</body>
+</html>

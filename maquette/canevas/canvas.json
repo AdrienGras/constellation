@@ -1,0 +1,382 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-04T16:10:00Z"
+ },
+ "title": "constellation — maquettes",
+ "launch": {
+  "view": "canvas",
+  "page": "ecrans"
+ },
+ "pages": [
+  {
+   "id": "ecrans",
+   "name": "Écrans desktop"
+  },
+  {
+   "id": "mobile",
+   "name": "Mobile"
+  },
+  {
+   "id": "references",
+   "name": "Références"
+  }
+ ],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1280,
+   "h": 1060,
+   "title": "E1 · Nuage, première visite",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "nuage-apres-quiz.dc.html": {
+   "x": 1360,
+   "y": 0,
+   "w": 1280,
+   "h": 1100,
+   "title": "E2 · Nuage après le quiz",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "nuage-liste.dc.html": {
+   "x": 2720,
+   "y": 0,
+   "w": 1280,
+   "h": 2720,
+   "title": "E3 · Nuage, vue liste",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "fiche-dev-backend.dc.html": {
+   "x": 0,
+   "y": 3100,
+   "w": 1280,
+   "h": 2360,
+   "title": "E4 · Fiche Développeur·se back-end",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "fiche-dsi.dc.html": {
+   "x": 1360,
+   "y": 3100,
+   "w": 1280,
+   "h": 2160,
+   "title": "E5 · Fiche DSI",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "fiche-integrateur-web.dc.html": {
+   "x": 2720,
+   "y": 3100,
+   "w": 1280,
+   "h": 2000,
+   "title": "E6 · Fiche Intégrateur·rice web",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "fiche-mlops.dc.html": {
+   "x": 4080,
+   "y": 3100,
+   "w": 1280,
+   "h": 2280,
+   "title": "E7 · Fiche Ingénieur·e MLOps",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "quiz-question.dc.html": {
+   "x": 0,
+   "y": 5880,
+   "w": 1280,
+   "h": 960,
+   "title": "E8 · Quiz, une question (jouable)",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "quiz-resultat.dc.html": {
+   "x": 1360,
+   "y": 5880,
+   "w": 1280,
+   "h": 1060,
+   "title": "E9 · Quiz, résultat",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "roadmap-vide.dc.html": {
+   "x": 0,
+   "y": 7300,
+   "w": 1280,
+   "h": 1500,
+   "title": "E10 · Roadmap vide, choix du métier",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "roadmap.dc.html": {
+   "x": 1360,
+   "y": 7300,
+   "w": 1280,
+   "h": 2000,
+   "title": "E11 · Roadmap remplie (jouable)",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "roadmap-impression.dc.html": {
+   "x": 2720,
+   "y": 7300,
+   "w": 794,
+   "h": 1123,
+   "title": "E12 · Roadmap, aperçu A4",
+   "page": "ecrans"
+  },
+  "sources.dc.html": {
+   "x": 0,
+   "y": 9700,
+   "w": 1280,
+   "h": 1400,
+   "title": "E13 · Sources et mentions",
+   "page": "ecrans",
+   "is_interactive": true
+  },
+  "m-nuage.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 1500,
+   "title": "M1 · Nuage en liste",
+   "page": "mobile",
+   "is_interactive": true
+  },
+  "m-fiche.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 3000,
+   "title": "M2 · Fiche Développeur·se back-end",
+   "page": "mobile",
+   "is_interactive": true
+  },
+  "m-roadmap.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 1700,
+   "title": "M3 · Roadmap",
+   "page": "mobile",
+   "is_interactive": true
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "nuage-apres-quiz.dc.html",
+  "nuage-liste.dc.html",
+  "fiche-dev-backend.dc.html",
+  "fiche-dsi.dc.html",
+  "fiche-integrateur-web.dc.html",
+  "fiche-mlops.dc.html",
+  "quiz-question.dc.html",
+  "quiz-resultat.dc.html",
+  "roadmap-vide.dc.html",
+  "roadmap.dc.html",
+  "roadmap-impression.dc.html",
+  "sources.dc.html",
+  "m-nuage.dc.html",
+  "m-fiche.dc.html",
+  "m-roadmap.dc.html"
+ ],
+ "notes": {
+  "row-nuage": {
+   "x": 0,
+   "y": -300,
+   "text": "Nuage (accueil)",
+   "kind": "title1",
+   "maxW": 4000,
+   "page": "ecrans"
+  },
+  "n-plan": {
+   "x": 0,
+   "y": 1180,
+   "w": 600,
+   "fill": "blue",
+   "size": "m",
+   "page": "ecrans",
+   "text": "Le plan\n\n8 lignes partent de « ta formation ». Les métiers d’entrée sont près du centre, les métiers d’évolution vers les terminus. Les bandes colorées sont les 17 catégories (quartiers), toujours à la même place. Les liens « voisin » n’apparaissent qu’au survol ou au focus d’une station."
+  },
+  "n-explo": {
+   "x": 1360,
+   "y": 1180,
+   "w": 600,
+   "fill": "orange",
+   "size": "m",
+   "page": "ecrans",
+   "text": "Écart avec le document de conception\n\nLe reste du plan n’est pas atténué : c’est justement là que l’étudiant·e doit explorer. Les 3 lignes de départ sont épaissies et lumineuses ; les 5 autres gardent leurs couleurs et reçoivent un liseré pointillé « zone d’exploration »."
+  },
+  "row-fiches": {
+   "x": 0,
+   "y": 2800,
+   "text": "Fiches métier",
+   "kind": "title1",
+   "maxW": 5360,
+   "page": "ecrans"
+  },
+  "n-fiche-ordre": {
+   "x": 5440,
+   "y": 3100,
+   "w": 560,
+   "fill": "orange",
+   "size": "m",
+   "page": "ecrans",
+   "text": "Écart avec le document de conception\n\nLes salaires viennent après le contenu (missions, compétences, à éviter si, parcours) au lieu d’être juste sous le brief : on découvre d’abord le métier, puis ce qu’on peut viser plus tard."
+  },
+  "n-fiche-cas": {
+   "x": 5440,
+   "y": 3900,
+   "w": 560,
+   "fill": "blue",
+   "size": "m",
+   "page": "ecrans",
+   "text": "Les 4 fiches exercent les cas difficiles\n\n• dev-backend : 5 profils Silkhom en onglets, badge « premier emploi », moyenne n.d., lien roadmap.sh.\n• dsi : pas de premier emploi direct (6 ans), tranches 6 ans et plus / 15 ans et plus.\n• integrateur-web : rapprochement Silkhom, Apec n.d., pas de roadmap.sh.\n• mlops : métier d’évolution (phrase à la place du badge), rapprochement Apec."
+  },
+  "n-liste": {
+   "x": 4080,
+   "y": 0,
+   "w": 520,
+   "fill": "teal",
+   "size": "m",
+   "page": "ecrans",
+   "text": "Vue liste\n\nMêmes filtres, même ordre que le plan : ligne, puis catégorie, puis métiers d’entrée avant métiers d’évolution. Chaque nom est un lien vers la fiche."
+  },
+  "row-quiz": {
+   "x": 0,
+   "y": 5580,
+   "text": "Quiz",
+   "kind": "title1",
+   "maxW": 2640,
+   "page": "ecrans"
+  },
+  "n-quiz": {
+   "x": 2720,
+   "y": 5880,
+   "w": 560,
+   "fill": "teal",
+   "size": "m",
+   "page": "ecrans",
+   "text": "Jouable\n\nLes 16 vraies questions et le vrai calcul du top 3 (pondérations de metiers.json ; en cas d’égalité, l’ordre des lignes départage). On peut revenir en arrière et refaire le quiz. Aucun score chiffré n’est affiché, pour ne pas ressembler à une note."
+  },
+  "row-roadmap": {
+   "x": 0,
+   "y": 7000,
+   "text": "Roadmap",
+   "kind": "title1",
+   "maxW": 3514,
+   "page": "ecrans"
+  },
+  "n-roadmap": {
+   "x": 3594,
+   "y": 7300,
+   "w": 560,
+   "fill": "teal",
+   "size": "m",
+   "page": "ecrans",
+   "text": "Jouable (E11)\n\nAjouter, modifier, monter, descendre, supprimer un item. « Imprimer en PDF » mène à l’aperçu A4 ; « Exporter en JSON » affiche un message, rien n’est téléchargé dans la maquette.\n\nAperçu A4 : papier blanc, sans fond ni navigation, une année par bloc, URL écrites en entier."
+  },
+  "row-sources": {
+   "x": 0,
+   "y": 9400,
+   "text": "Sources et mentions",
+   "kind": "title1",
+   "maxW": 1280,
+   "page": "ecrans"
+  },
+  "row-mobile": {
+   "x": 0,
+   "y": -300,
+   "text": "Mobile (390 px)",
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "mobile"
+  },
+  "n-mobile": {
+   "x": 1410,
+   "y": 0,
+   "w": 520,
+   "fill": "blue",
+   "size": "m",
+   "page": "mobile",
+   "text": "Mobile\n\nLe plan s’ouvre en liste (le graphe reste accessible). Les sections de la fiche s’empilent, les cartouches de salaires restent l’un sous l’autre. Dans la roadmap, les compétences passent dans un volet repliable."
+  },
+  "row-refs": {
+   "x": 0,
+   "y": -300,
+   "text": "Références retenues",
+   "kind": "title1",
+   "maxW": 3320,
+   "page": "references"
+  },
+  "ref0": {
+   "x": 0,
+   "y": 0,
+   "w": 600,
+   "fill": "purple",
+   "size": "m",
+   "page": "references",
+   "text": "16 — Forward Subway Map (Feral Creative)\n\nLa métaphore centrale : les lignes de métro, les métiers en stations.\n\nhttps://dribbble.com/shots/5473642"
+  },
+  "ref1": {
+   "x": 680,
+   "y": 0,
+   "w": 600,
+   "fill": "blue",
+   "size": "m",
+   "page": "references",
+   "text": "02 — Knowledge Graph clusters (DΞNYS SΞRGUSHKIN®)\n\nChaque catégorie forme un quartier ancré et légendé ; bascule Graphe / Liste.\n\nhttps://dribbble.com/shots/27796641"
+  },
+  "ref2": {
+   "x": 1360,
+   "y": 0,
+   "w": 600,
+   "fill": "teal",
+   "size": "m",
+   "page": "references",
+   "text": "05 — Routed, AI Career Path Explorer (Jaspreet Singh)\n\nDes parcours qui partent de « toi » vers les métiers.\n\nhttps://dribbble.com/shots/27589484"
+  },
+  "ref3": {
+   "x": 0,
+   "y": 720,
+   "w": 600,
+   "fill": "green",
+   "size": "m",
+   "page": "references",
+   "text": "18 — Fives, Career Skill Tree (Nick Theodorou)\n\nLe chemin recommandé : la roadmap se lit comme un trajet. Le thème sombre a fini par l’emporter.\n\nhttps://dribbble.com/shots/20164209"
+  },
+  "ref4": {
+   "x": 680,
+   "y": 720,
+   "w": 600,
+   "fill": "orange",
+   "size": "m",
+   "page": "references",
+   "text": "10 — SellerCrowd Compensation report (Sankalp Sinha)\n\nLa source et le contexte avant les chiffres ; un cartouche par source.\n\nhttps://dribbble.com/shots/6607539"
+  },
+  "n-jouable": {
+   "x": -680,
+   "y": 0,
+   "w": 600,
+   "fill": "green",
+   "size": "m",
+   "page": "ecrans",
+   "text": "Comment jouer la maquette\n\nOuvre E1 et lance Play.\n• Barre du haut : Nuage, Quiz, Roadmap et Sources mènent aux bons écrans, partout.\n• Plan : survole ou parcours au clavier les 68 stations (infobulle, liens voisins). Les 4 fiches modélisées s’ouvrent au clic : back-end, intégrateur·rice web, MLOps, DSI.\n• Filtres catégorie et type : actifs sur le plan et sur la liste. Graphe / Liste change de vue.\n• Quiz : les 16 questions, ton vrai top 3, puis « Voir mes lignes sur le plan ».\n• Roadmap : ajoute, déplace, supprime des items ; « choisir un autre métier » change la cible en direct.\n• Mobile : menu, accordéons par ligne, recherche."
+  }
+ },
+ "designSystems": [
+  {
+   "title": "constellation",
+   "namespace": "constellation",
+   "artifact": "https://claude.ai/artifact/VHX2ssXV1wRTpzDimUkkge",
+   "version": "1793866892-e51d",
+   "copiedAt": "2026-11-05T09:45:00Z"
+  }
+ ]
+}

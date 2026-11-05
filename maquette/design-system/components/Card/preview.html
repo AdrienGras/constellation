@@ -1,0 +1,17 @@
+<!-- @dsCard group="Affichage" height=220 subtitle="en-tête, contenu, pied" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Card — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Card, { className: 'demo' },
+    h(C.CardHeader, null, h(C.CardTitle, null, 'Missions'), h(C.CardDescription, null, 'Ce que tu fais au quotidien')),
+    h(C.CardContent, null, 'Définir des objectifs de fiabilité (SLO), mettre en place la supervision et les alertes, automatiser les tâches répétitives.'),
+    h(C.CardFooter, null, h(C.Button, { variant: 'link', as: 'a', href: '#' }, 'Voir les métiers voisins')))
+));
+</script>
+</body>
+</html>

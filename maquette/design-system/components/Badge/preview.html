@@ -1,0 +1,20 @@
+<!-- @dsCard group="Affichage" height=90 subtitle="secondary · outline · default · succes · attention · danger · neutre" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Badge — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.Badge, null, 'Back-end'),
+  h(C.Badge, { variant: 'outline' }, 'ROME M1805'),
+  h(C.Badge, { variant: 'default' }, 'Nouveau'),
+  h(C.Badge, { variant: 'succes', icone: 'check' }, 'Enregistré'),
+  h(C.Badge, { variant: 'attention', icone: 'alerte' }, 'Stockage indisponible'),
+  h(C.Badge, { variant: 'danger', icone: 'alerte' }, 'Lien invalide'),
+  h(C.Badge, { variant: 'neutre' }, 'n.d.')
+));
+</script>
+</body>
+</html>

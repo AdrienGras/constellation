@@ -1,0 +1,18 @@
+<!-- @dsCard group="Plan de métro" height=170 subtitle="numéro fixe, nom, rang du quiz" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>PastilleLigne — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h('div', { style: { display: 'flex', flexDirection: 'column', gap: '12px' } },
+    h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '16px' } }, C.LIGNES.map(function (l) { return h(C.PastilleLigne, { key: l.id, ligne: l.id }); })),
+    h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'center' } },
+      h(C.PastilleLigne, { ligne: 'developpement', taille: 'lg', rang: 1 }), h(C.PastilleLigne, { ligne: 'infra-cloud', taille: 'lg', rang: 2 }), h(C.PastilleLigne, { ligne: 'data-ia', taille: 'lg', rang: 3 }),
+      h(C.PastilleLigne, { ligne: 'cybersecurite', taille: 'sm', sansNom: true })))
+));
+</script>
+</body>
+</html>

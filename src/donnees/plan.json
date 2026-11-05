@@ -1,0 +1,1371 @@
+{
+"lignes": [
+{
+"id": "developpement",
+"num": 1,
+"nom": "Développement",
+"couleur": "#3fbbff",
+"fond": "#004266",
+"d": "M 670 360 L 718 360 L 754 360 L 790 360 L 826 360 L 862 360 L 898 360 L 934 360 L 970 360 L 1006 360 L 1042 360 L 1078 360 L 1114 360 L 1150 360 L 1186 360 L 1220 360",
+"terminus": [
+1220,
+360
+],
+"quartiers": [
+{
+"cat": "backend",
+"libelle": "Back-end",
+"d": "M 718 360 L 754 360 L 790 360 L 826 360 L 862 360",
+"x": 718,
+"y": 360,
+"xf": 862,
+"yf": 360,
+"lx": 790.0,
+"ly": 330.0,
+"la": "middle"
+},
+{
+"cat": "frontend",
+"libelle": "Front-end",
+"d": "M 898 360 L 934 360",
+"x": 898,
+"y": 360,
+"xf": 934,
+"yf": 360,
+"lx": 916.0,
+"ly": 330.0,
+"la": "middle"
+},
+{
+"cat": "mobile-jeu",
+"libelle": "Mobile & jeu",
+"d": "M 970 360 L 1006 360 L 1042 360 L 1078 360",
+"x": 970,
+"y": 360,
+"xf": 1078,
+"yf": 360,
+"lx": 1024.0,
+"ly": 330.0,
+"la": "middle"
+},
+{
+"cat": "embarque",
+"libelle": "Embarqué & industriel",
+"d": "M 1114 360 L 1150 360 L 1186 360",
+"x": 1114,
+"y": 360,
+"xf": 1186,
+"yf": 360,
+"lx": 1150.0,
+"ly": 398.4,
+"la": "middle"
+}
+]
+},
+{
+"id": "infra-cloud",
+"num": 2,
+"nom": "Infra & cloud",
+"couleur": "#40ef7c",
+"fond": "#0d4a22",
+"d": "M 610 360 L 562 360 L 526 360 L 490 360 L 454 360 L 418 360 L 382 360 L 346 360 L 310 360 L 274 360 L 238 360 L 202 360 L 166 360 L 132 360",
+"terminus": [
+132,
+360
+],
+"quartiers": [
+{
+"cat": "infra",
+"libelle": "Infrastructure & réseaux",
+"d": "M 562 360 L 526 360 L 490 360 L 454 360 L 418 360 L 382 360",
+"x": 562,
+"y": 360,
+"xf": 382,
+"yf": 360,
+"lx": 382,
+"ly": 330,
+"la": "middle"
+},
+{
+"cat": "devops-cloud",
+"libelle": "DevOps, cloud & SRE",
+"d": "M 346 360 L 310 360 L 274 360 L 238 360 L 202 360 L 166 360",
+"x": 346,
+"y": 360,
+"xf": 166,
+"yf": 360,
+"lx": 256.0,
+"ly": 398.4,
+"la": "middle"
+}
+]
+},
+{
+"id": "cybersecurite",
+"num": 3,
+"nom": "Cybersécurité",
+"couleur": "#ff4b57",
+"fond": "#490c11",
+"d": "M 640 330 L 640 282 L 640 246 L 640 210 L 640 174 L 640 138 L 640 102 L 640 68",
+"terminus": [
+640,
+68
+],
+"quartiers": [
+{
+"cat": "secu",
+"libelle": "Cybersécurité",
+"d": "M 640 282 L 640 246 L 640 210 L 640 174 L 640 138 L 640 102",
+"x": 640,
+"y": 282,
+"xf": 640,
+"yf": 102,
+"lx": 640,
+"ly": 30,
+"la": "middle"
+}
+]
+},
+{
+"id": "data-ia",
+"num": 4,
+"nom": "Data & IA",
+"couleur": "#a65aff",
+"fond": "#230b3d",
+"d": "M 661.2 338.8 L 695.2 304.8 L 720.6 279.4 L 746.1 253.9 L 771.5 228.5 L 797 203 L 833 203 L 869 203 L 905 203 L 941 203 L 975 203",
+"terminus": [
+975.0,
+203.0
+],
+"quartiers": [
+{
+"cat": "data",
+"libelle": "Data",
+"d": "M 695.2 304.8 L 720.6 279.4 L 746.1 253.9 L 771.5 228.5 L 797 203",
+"x": 695.2,
+"y": 304.8,
+"xf": 797.0,
+"yf": 203.0,
+"lx": 797.0,
+"ly": 173.0,
+"la": "middle"
+},
+{
+"cat": "ia",
+"libelle": "Intelligence artificielle",
+"d": "M 833 203 L 869 203 L 905 203 L 941 203",
+"x": 833.0,
+"y": 203.0,
+"xf": 941.0,
+"yf": 203.0,
+"lx": 941.0,
+"ly": 173.0,
+"la": "middle"
+}
+]
+},
+{
+"id": "qualite-archi",
+"num": 5,
+"nom": "Qualité & architecture",
+"couleur": "#ff9010",
+"fond": "#5e2f00",
+"d": "M 640 390 L 640 438 L 640 474 L 640 510 L 640 546 L 640 582 L 640 618 L 640 652",
+"terminus": [
+640,
+652
+],
+"quartiers": [
+{
+"cat": "qa",
+"libelle": "Qualité & test",
+"d": "M 640 438 L 640 474 L 640 510",
+"x": 640,
+"y": 438,
+"xf": 640,
+"yf": 510,
+"lx": 670.0,
+"ly": 478.0,
+"la": "start"
+},
+{
+"cat": "archi",
+"libelle": "Architecture & lead",
+"d": "M 640 546 L 640 582 L 640 618",
+"x": 640,
+"y": 546,
+"xf": 640,
+"yf": 618,
+"lx": 670.0,
+"ly": 586.0,
+"la": "start"
+}
+]
+},
+{
+"id": "produit-design",
+"num": 6,
+"nom": "Produit & design",
+"couleur": "#ff65ca",
+"fond": "#562244",
+"d": "M 618.8 338.8 L 584.8 304.8 L 559.4 279.4 L 533.9 253.9 L 508.5 228.5 L 483 203 L 447 203 L 411 203 L 375 203 L 341 203",
+"terminus": [
+341.0,
+203.0
+],
+"quartiers": [
+{
+"cat": "produit-projet",
+"libelle": "Produit & projet",
+"d": "M 584.8 304.8 L 559.4 279.4 L 533.9 253.9 L 508.5 228.5 L 483 203 L 447 203",
+"x": 584.8,
+"y": 304.8,
+"xf": 447.0,
+"yf": 203.0,
+"lx": 447.0,
+"ly": 173.0,
+"la": "middle"
+},
+{
+"cat": "design",
+"libelle": "Design UX/UI",
+"d": "M 411 203 L 375 203",
+"x": 411.0,
+"y": 203.0,
+"xf": 375.0,
+"yf": 203.0,
+"lx": 393.0,
+"ly": 241.4,
+"la": "middle"
+}
+]
+},
+{
+"id": "relation-transmission",
+"num": 7,
+"nom": "Relation & transmission",
+"couleur": "#ffe919",
+"fond": "#473e00",
+"d": "M 618.8 381.2 L 584.8 415.2 L 559.4 440.6 L 533.9 466.1 L 508.5 491.5 L 483 517 L 447 517 L 411 517 L 375 517 L 339 517 L 305 517",
+"terminus": [
+305.0,
+517.0
+],
+"quartiers": [
+{
+"cat": "support",
+"libelle": "Support",
+"d": "M 584.8 415.2 L 559.4 440.6 L 533.9 466.1",
+"x": 584.8,
+"y": 415.2,
+"xf": 533.9,
+"yf": 466.1,
+"lx": 503.3,
+"ly": 444.6,
+"la": "end"
+},
+{
+"cat": "conseil-vente",
+"libelle": "Conseil & vente",
+"d": "M 508.5 491.5 L 483 517 L 447 517",
+"x": 508.5,
+"y": 491.5,
+"xf": 447.0,
+"yf": 517.0,
+"lx": 447.0,
+"ly": 555.0,
+"la": "middle"
+},
+{
+"cat": "transmission",
+"libelle": "Transmission",
+"d": "M 411 517 L 375 517 L 339 517",
+"x": 411.0,
+"y": 517.0,
+"xf": 339.0,
+"yf": 517.0,
+"lx": 375.0,
+"ly": 487.0,
+"la": "middle"
+}
+]
+},
+{
+"id": "management",
+"num": 8,
+"nom": "Management",
+"couleur": "#00ecff",
+"fond": "#004953",
+"d": "M 661.2 381.2 L 695.2 415.2 L 720.6 440.6 L 756.6 440.6 L 792.6 440.6 L 826.6 440.6",
+"terminus": [
+826.6,
+440.6
+],
+"quartiers": [
+{
+"cat": "management",
+"libelle": "Management",
+"d": "M 695.2 415.2 L 720.6 440.6 L 756.6 440.6 L 792.6 440.6",
+"x": 695.2,
+"y": 415.2,
+"xf": 792.6,
+"yf": 440.6,
+"lx": 792.6,
+"ly": 410.6,
+"la": "middle"
+}
+]
+}
+],
+"stations": {
+"dev-legacy-cobol": {
+"x": 718,
+"y": 360,
+"titre": "Développeur·se Cobol / mainframe",
+"type": "entree",
+"cat": "backend",
+"ligne": "developpement",
+"couleur": "#3fbbff",
+"voisins": [
+"dev-backend",
+"dev-bdd",
+"consultant-erp",
+"business-analyst-amoa",
+"ingenieur-production"
+]
+},
+"dev-rust-systeme": {
+"x": 754,
+"y": 360,
+"titre": "Développeur·se Rust / Go",
+"type": "entree",
+"cat": "backend",
+"ligne": "developpement",
+"couleur": "#3fbbff",
+"voisins": [
+"dev-backend",
+"dev-embarque",
+"sre",
+"platform-engineer",
+"pentester"
+]
+},
+"dev-backend": {
+"x": 790,
+"y": 360,
+"titre": "Développeur·se back-end",
+"type": "entree",
+"cat": "backend",
+"ligne": "developpement",
+"couleur": "#3fbbff",
+"voisins": [
+"dev-fullstack",
+"dev-bdd",
+"dev-rust-systeme",
+"dev-legacy-cobol",
+"ingenieur-devops",
+"data-engineer",
+"lead-developer",
+"ingenieur-qa-automatisation"
+]
+},
+"dev-bdd": {
+"x": 826,
+"y": 360,
+"titre": "Développeur·se base de données",
+"type": "entree",
+"cat": "backend",
+"ligne": "developpement",
+"couleur": "#3fbbff",
+"voisins": [
+"dev-backend",
+"dev-legacy-cobol",
+"dba",
+"data-engineer",
+"dev-bi"
+]
+},
+"dev-fullstack": {
+"x": 862,
+"y": 360,
+"titre": "Développeur·se full-stack",
+"type": "entree",
+"cat": "backend",
+"ligne": "developpement",
+"couleur": "#3fbbff",
+"voisins": [
+"dev-backend",
+"dev-bdd",
+"dev-frontend",
+"dev-mobile-multiplateforme",
+"product-owner"
+]
+},
+"dev-frontend": {
+"x": 898,
+"y": 360,
+"titre": "Développeur·se front-end",
+"type": "entree",
+"cat": "frontend",
+"ligne": "developpement",
+"couleur": "#75d0ff",
+"voisins": [
+"integrateur-web",
+"dev-fullstack",
+"ui-designer",
+"ux-designer"
+]
+},
+"integrateur-web": {
+"x": 934,
+"y": 360,
+"titre": "Intégrateur·rice web / accessibilité",
+"type": "entree",
+"cat": "frontend",
+"ligne": "developpement",
+"couleur": "#75d0ff",
+"voisins": [
+"dev-frontend",
+"ui-designer",
+"technical-writer"
+]
+},
+"dev-android": {
+"x": 970,
+"y": 360,
+"titre": "Développeur·se Android",
+"type": "entree",
+"cat": "mobile-jeu",
+"ligne": "developpement",
+"couleur": "#a1e6ff",
+"voisins": [
+"dev-ios",
+"dev-mobile-multiplateforme",
+"dev-backend",
+"ui-designer"
+]
+},
+"dev-mobile-multiplateforme": {
+"x": 1006,
+"y": 360,
+"titre": "Développeur·se Flutter / React Native",
+"type": "entree",
+"cat": "mobile-jeu",
+"ligne": "developpement",
+"couleur": "#a1e6ff",
+"voisins": [
+"dev-android",
+"dev-ios",
+"dev-fullstack",
+"dev-frontend"
+]
+},
+"dev-ios": {
+"x": 1042,
+"y": 360,
+"titre": "Développeur·se iOS",
+"type": "entree",
+"cat": "mobile-jeu",
+"ligne": "developpement",
+"couleur": "#a1e6ff",
+"voisins": [
+"dev-android",
+"dev-mobile-multiplateforme",
+"ui-designer",
+"dev-frontend"
+]
+},
+"dev-jeu-video": {
+"x": 1078,
+"y": 360,
+"titre": "Développeur·se jeu vidéo (Unity)",
+"type": "entree",
+"cat": "mobile-jeu",
+"ligne": "developpement",
+"couleur": "#a1e6ff",
+"voisins": [
+"dev-mobile-multiplateforme",
+"ingenieur-computer-vision",
+"dev-embarque"
+]
+},
+"dev-embarque": {
+"x": 1114,
+"y": 360,
+"titre": "Développeur·se logiciel embarqué",
+"type": "entree",
+"cat": "embarque",
+"ligne": "developpement",
+"couleur": "#c5f6ff",
+"voisins": [
+"ingenieur-informatique-industrielle",
+"dev-ia-embarquee",
+"dev-rust-systeme",
+"ingenieur-qa-automatisation"
+]
+},
+"ingenieur-informatique-industrielle": {
+"x": 1150,
+"y": 360,
+"titre": "Ingénieur·e informatique industrielle (automatisme, MES)",
+"type": "entree",
+"cat": "embarque",
+"ligne": "developpement",
+"couleur": "#c5f6ff",
+"voisins": [
+"dev-embarque",
+"ingenieur-reseaux",
+"consultant-erp"
+]
+},
+"dev-ia-embarquee": {
+"x": 1186,
+"y": 360,
+"titre": "Développeur·se IA embarquée",
+"type": "evolution",
+"cat": "embarque",
+"ligne": "developpement",
+"couleur": "#c5f6ff",
+"voisins": [
+"dev-embarque",
+"ml-engineer",
+"ingenieur-computer-vision"
+]
+},
+"dba": {
+"x": 562,
+"y": 360,
+"titre": "Administrateur·rice de bases de données (DBA)",
+"type": "entree",
+"cat": "infra",
+"ligne": "infra-cloud",
+"couleur": "#40ef7c",
+"voisins": [
+"ingenieur-systemes-linux",
+"ingenieur-production",
+"dev-bdd",
+"data-engineer"
+]
+},
+"admin-systemes-reseaux": {
+"x": 526,
+"y": 360,
+"titre": "Administrateur·rice systèmes et réseaux",
+"type": "entree",
+"cat": "infra",
+"ligne": "infra-cloud",
+"couleur": "#40ef7c",
+"voisins": [
+"technicien-systemes-reseaux",
+"ingenieur-systemes-linux",
+"ingenieur-reseaux",
+"ingenieur-devops",
+"analyste-soc"
+]
+},
+"ingenieur-production": {
+"x": 490,
+"y": 360,
+"titre": "Ingénieur·e de production / exploitation",
+"type": "entree",
+"cat": "infra",
+"ligne": "infra-cloud",
+"couleur": "#40ef7c",
+"voisins": [
+"ingenieur-systemes-linux",
+"dba",
+"sre",
+"ingenieur-support-applicatif"
+]
+},
+"ingenieur-reseaux": {
+"x": 454,
+"y": 360,
+"titre": "Ingénieur·e réseaux et télécoms",
+"type": "entree",
+"cat": "infra",
+"ligne": "infra-cloud",
+"couleur": "#40ef7c",
+"voisins": [
+"admin-systemes-reseaux",
+"ingenieur-production",
+"ingenieur-cybersecurite",
+"ingenieur-informatique-industrielle"
+]
+},
+"ingenieur-systemes-linux": {
+"x": 418,
+"y": 360,
+"titre": "Ingénieur·e systèmes Linux",
+"type": "entree",
+"cat": "infra",
+"ligne": "infra-cloud",
+"couleur": "#40ef7c",
+"voisins": [
+"admin-systemes-reseaux",
+"ingenieur-production",
+"ingenieur-devops",
+"ingenieur-cloud"
+]
+},
+"technicien-systemes-reseaux": {
+"x": 382,
+"y": 360,
+"titre": "Technicien·ne systèmes et réseaux",
+"type": "entree",
+"cat": "infra",
+"ligne": "infra-cloud",
+"couleur": "#40ef7c",
+"voisins": [
+"admin-systemes-reseaux",
+"technicien-support",
+"analyste-soc"
+]
+},
+"ingenieur-devops": {
+"x": 346,
+"y": 360,
+"titre": "Ingénieur·e DevOps",
+"type": "entree",
+"cat": "devops-cloud",
+"ligne": "infra-cloud",
+"couleur": "#83ffa3",
+"voisins": [
+"sre",
+"ingenieur-cloud",
+"platform-engineer",
+"dev-backend",
+"admin-systemes-reseaux",
+"devsecops",
+"mlops"
+]
+},
+"ingenieur-cloud": {
+"x": 310,
+"y": 360,
+"titre": "Ingénieur·e cloud",
+"type": "entree",
+"cat": "devops-cloud",
+"ligne": "infra-cloud",
+"couleur": "#83ffa3",
+"voisins": [
+"ingenieur-devops",
+"cloud-finops",
+"architecte-cloud",
+"platform-engineer",
+"ingenieur-systemes-linux",
+"ingenieur-iam"
+]
+},
+"architecte-cloud": {
+"x": 274,
+"y": 360,
+"titre": "Architecte cloud",
+"type": "evolution",
+"cat": "devops-cloud",
+"ligne": "infra-cloud",
+"couleur": "#83ffa3",
+"voisins": [
+"ingenieur-cloud",
+"cloud-finops",
+"architecte-logiciel",
+"rssi"
+]
+},
+"cloud-finops": {
+"x": 238,
+"y": 360,
+"titre": "Cloud FinOps",
+"type": "evolution",
+"cat": "devops-cloud",
+"ligne": "infra-cloud",
+"couleur": "#83ffa3",
+"voisins": [
+"ingenieur-cloud",
+"data-analyst",
+"product-manager"
+]
+},
+"platform-engineer": {
+"x": 202,
+"y": 360,
+"titre": "Platform engineer / ingénieur·e Kubernetes",
+"type": "evolution",
+"cat": "devops-cloud",
+"ligne": "infra-cloud",
+"couleur": "#83ffa3",
+"voisins": [
+"ingenieur-devops",
+"sre",
+"architecte-logiciel",
+"devsecops"
+]
+},
+"sre": {
+"x": 166,
+"y": 360,
+"titre": "Site Reliability Engineer (SRE)",
+"type": "evolution",
+"cat": "devops-cloud",
+"ligne": "infra-cloud",
+"couleur": "#83ffa3",
+"voisins": [
+"ingenieur-devops",
+"platform-engineer",
+"ingenieur-production",
+"dev-rust-systeme"
+]
+},
+"analyste-soc": {
+"x": 640,
+"y": 282,
+"titre": "Analyste SOC",
+"type": "entree",
+"cat": "secu",
+"ligne": "cybersecurite",
+"couleur": "#ff4b57",
+"voisins": [
+"ingenieur-cybersecurite",
+"pentester",
+"admin-systemes-reseaux",
+"technicien-support"
+]
+},
+"ingenieur-iam": {
+"x": 640,
+"y": 246,
+"titre": "Ingénieur·e IAM (gestion des identités et des accès)",
+"type": "entree",
+"cat": "secu",
+"ligne": "cybersecurite",
+"couleur": "#ff4b57",
+"voisins": [
+"ingenieur-cybersecurite",
+"rssi",
+"ingenieur-cloud",
+"dev-backend"
+]
+},
+"ingenieur-cybersecurite": {
+"x": 640,
+"y": 210,
+"titre": "Ingénieur·e cybersécurité",
+"type": "entree",
+"cat": "secu",
+"ligne": "cybersecurite",
+"couleur": "#ff4b57",
+"voisins": [
+"analyste-soc",
+"pentester",
+"devsecops",
+"ingenieur-iam",
+"rssi",
+"ingenieur-reseaux",
+"architecte-cloud"
+]
+},
+"pentester": {
+"x": 640,
+"y": 174,
+"titre": "Pentester (auditeur·rice tests d'intrusion)",
+"type": "entree",
+"cat": "secu",
+"ligne": "cybersecurite",
+"couleur": "#ff4b57",
+"voisins": [
+"analyste-soc",
+"ingenieur-cybersecurite",
+"devsecops",
+"dev-backend",
+"dev-rust-systeme"
+]
+},
+"devsecops": {
+"x": 640,
+"y": 138,
+"titre": "Ingénieur·e DevSecOps",
+"type": "evolution",
+"cat": "secu",
+"ligne": "cybersecurite",
+"couleur": "#ff4b57",
+"voisins": [
+"ingenieur-cybersecurite",
+"pentester",
+"ingenieur-devops",
+"ingenieur-qa-automatisation",
+"platform-engineer"
+]
+},
+"rssi": {
+"x": 640,
+"y": 102,
+"titre": "RSSI (responsable de la sécurité des SI)",
+"type": "evolution",
+"cat": "secu",
+"ligne": "cybersecurite",
+"couleur": "#ff4b57",
+"voisins": [
+"ingenieur-cybersecurite",
+"ingenieur-iam",
+"dsi",
+"architecte-entreprise"
+]
+},
+"analytics-engineer": {
+"x": 695.2,
+"y": 304.8,
+"titre": "Analytics engineer",
+"type": "entree",
+"cat": "data",
+"ligne": "data-ia",
+"couleur": "#a65aff",
+"voisins": [
+"data-engineer",
+"data-analyst",
+"dev-bi",
+"dev-bdd"
+]
+},
+"data-analyst": {
+"x": 720.6,
+"y": 279.4,
+"titre": "Data analyst",
+"type": "entree",
+"cat": "data",
+"ligne": "data-ia",
+"couleur": "#a65aff",
+"voisins": [
+"dev-bi",
+"data-engineer",
+"analytics-engineer",
+"data-scientist",
+"business-analyst-amoa",
+"product-owner",
+"cloud-finops"
+]
+},
+"data-engineer": {
+"x": 746.1,
+"y": 253.9,
+"titre": "Data engineer",
+"type": "entree",
+"cat": "data",
+"ligne": "data-ia",
+"couleur": "#a65aff",
+"voisins": [
+"data-analyst",
+"dev-bi",
+"analytics-engineer",
+"data-scientist",
+"dev-backend",
+"mlops",
+"dba",
+"ingenieur-cloud"
+]
+},
+"data-scientist": {
+"x": 771.5,
+"y": 228.5,
+"titre": "Data scientist",
+"type": "entree",
+"cat": "data",
+"ligne": "data-ia",
+"couleur": "#a65aff",
+"voisins": [
+"data-analyst",
+"data-engineer",
+"ml-engineer",
+"ingenieur-ia-generative"
+]
+},
+"dev-bi": {
+"x": 797.0,
+"y": 203.0,
+"titre": "Développeur·se BI / décisionnel",
+"type": "entree",
+"cat": "data",
+"ligne": "data-ia",
+"couleur": "#a65aff",
+"voisins": [
+"data-analyst",
+"data-engineer",
+"analytics-engineer",
+"dev-bdd",
+"consultant-erp"
+]
+},
+"ingenieur-ia-generative": {
+"x": 833.0,
+"y": 203.0,
+"titre": "Ingénieur·e IA générative (LLM, RAG)",
+"type": "entree",
+"cat": "ia",
+"ligne": "data-ia",
+"couleur": "#b67eff",
+"voisins": [
+"ml-engineer",
+"mlops",
+"dev-backend",
+"dev-fullstack",
+"data-scientist"
+]
+},
+"ml-engineer": {
+"x": 869.0,
+"y": 203.0,
+"titre": "Ingénieur·e machine learning",
+"type": "entree",
+"cat": "ia",
+"ligne": "data-ia",
+"couleur": "#b67eff",
+"voisins": [
+"mlops",
+"ingenieur-ia-generative",
+"ingenieur-computer-vision",
+"data-scientist",
+"dev-backend",
+"dev-ia-embarquee"
+]
+},
+"ingenieur-computer-vision": {
+"x": 905.0,
+"y": 203.0,
+"titre": "Ingénieur·e vision par ordinateur",
+"type": "entree",
+"cat": "ia",
+"ligne": "data-ia",
+"couleur": "#b67eff",
+"voisins": [
+"ml-engineer",
+"dev-ia-embarquee",
+"dev-embarque",
+"dev-jeu-video"
+]
+},
+"mlops": {
+"x": 941.0,
+"y": 203.0,
+"titre": "Ingénieur·e MLOps",
+"type": "evolution",
+"cat": "ia",
+"ligne": "data-ia",
+"couleur": "#b67eff",
+"voisins": [
+"ml-engineer",
+"ingenieur-ia-generative",
+"ingenieur-devops",
+"data-engineer",
+"platform-engineer"
+]
+},
+"ingenieur-qa-automatisation": {
+"x": 640,
+"y": 438,
+"titre": "Ingénieur·e QA / automatisation des tests",
+"type": "entree",
+"cat": "qa",
+"ligne": "qualite-archi",
+"couleur": "#ff9010",
+"voisins": [
+"testeur-fonctionnel",
+"test-manager",
+"dev-backend",
+"ingenieur-devops",
+"devsecops"
+]
+},
+"testeur-fonctionnel": {
+"x": 640,
+"y": 474,
+"titre": "Testeur·se fonctionnel·le",
+"type": "entree",
+"cat": "qa",
+"ligne": "qualite-archi",
+"couleur": "#ff9010",
+"voisins": [
+"ingenieur-qa-automatisation",
+"test-manager",
+"business-analyst-amoa",
+"technicien-support"
+]
+},
+"test-manager": {
+"x": 640,
+"y": 510,
+"titre": "Test manager / lead QA",
+"type": "evolution",
+"cat": "qa",
+"ligne": "qualite-archi",
+"couleur": "#ff9010",
+"voisins": [
+"ingenieur-qa-automatisation",
+"testeur-fonctionnel",
+"chef-projet-technique",
+"engineering-manager"
+]
+},
+"architecte-entreprise": {
+"x": 640,
+"y": 546,
+"titre": "Architecte d'entreprise / urbaniste SI",
+"type": "evolution",
+"cat": "archi",
+"ligne": "qualite-archi",
+"couleur": "#ffae5f",
+"voisins": [
+"architecte-logiciel",
+"rssi",
+"dsi",
+"business-analyst-amoa"
+]
+},
+"architecte-logiciel": {
+"x": 640,
+"y": 582,
+"titre": "Architecte logiciel / technique",
+"type": "evolution",
+"cat": "archi",
+"ligne": "qualite-archi",
+"couleur": "#ffae5f",
+"voisins": [
+"lead-developer",
+"architecte-entreprise",
+"architecte-cloud",
+"platform-engineer",
+"cto"
+]
+},
+"lead-developer": {
+"x": 640,
+"y": 618,
+"titre": "Lead developer",
+"type": "evolution",
+"cat": "archi",
+"ligne": "qualite-archi",
+"couleur": "#ffae5f",
+"voisins": [
+"architecte-logiciel",
+"dev-backend",
+"dev-fullstack",
+"engineering-manager"
+]
+},
+"business-analyst-amoa": {
+"x": 584.8,
+"y": 304.8,
+"titre": "Business analyst / chef·fe de projet MOA",
+"type": "entree",
+"cat": "produit-projet",
+"ligne": "produit-design",
+"couleur": "#ff65ca",
+"voisins": [
+"product-owner",
+"chef-projet-technique",
+"data-analyst",
+"testeur-fonctionnel",
+"consultant-erp"
+]
+},
+"chef-projet-technique": {
+"x": 559.4,
+"y": 279.4,
+"titre": "Chef·fe de projet technique (MOE)",
+"type": "entree",
+"cat": "produit-projet",
+"ligne": "produit-design",
+"couleur": "#ff65ca",
+"voisins": [
+"directeur-projet",
+"scrum-master",
+"business-analyst-amoa",
+"lead-developer",
+"test-manager"
+]
+},
+"product-owner": {
+"x": 533.9,
+"y": 253.9,
+"titre": "Product owner",
+"type": "entree",
+"cat": "produit-projet",
+"ligne": "produit-design",
+"couleur": "#ff65ca",
+"voisins": [
+"product-manager",
+"scrum-master",
+"business-analyst-amoa",
+"ux-designer",
+"dev-fullstack"
+]
+},
+"directeur-projet": {
+"x": 508.5,
+"y": 228.5,
+"titre": "Directeur·rice de projets",
+"type": "evolution",
+"cat": "produit-projet",
+"ligne": "produit-design",
+"couleur": "#ff65ca",
+"voisins": [
+"chef-projet-technique",
+"dsi",
+"engineering-manager"
+]
+},
+"product-manager": {
+"x": 483.0,
+"y": 203.0,
+"titre": "Product manager",
+"type": "evolution",
+"cat": "produit-projet",
+"ligne": "produit-design",
+"couleur": "#ff65ca",
+"voisins": [
+"product-owner",
+"ux-designer",
+"cloud-finops",
+"cto"
+]
+},
+"scrum-master": {
+"x": 447.0,
+"y": 203.0,
+"titre": "Scrum master / coach agile",
+"type": "evolution",
+"cat": "produit-projet",
+"ligne": "produit-design",
+"couleur": "#ff65ca",
+"voisins": [
+"product-owner",
+"chef-projet-technique",
+"engineering-manager",
+"formateur-informatique"
+]
+},
+"ui-designer": {
+"x": 411.0,
+"y": 203.0,
+"titre": "UI designer",
+"type": "entree",
+"cat": "design",
+"ligne": "produit-design",
+"couleur": "#ff8cdb",
+"voisins": [
+"ux-designer",
+"dev-frontend",
+"integrateur-web",
+"dev-mobile-multiplateforme"
+]
+},
+"ux-designer": {
+"x": 375.0,
+"y": 203.0,
+"titre": "UX designer",
+"type": "entree",
+"cat": "design",
+"ligne": "produit-design",
+"couleur": "#ff8cdb",
+"voisins": [
+"ui-designer",
+"dev-frontend",
+"product-owner",
+"product-manager"
+]
+},
+"ingenieur-support-applicatif": {
+"x": 584.8,
+"y": 415.2,
+"titre": "Ingénieur·e support applicatif",
+"type": "entree",
+"cat": "support",
+"ligne": "relation-transmission",
+"couleur": "#ffe919",
+"voisins": [
+"technicien-support",
+"responsable-support-it",
+"ingenieur-production",
+"testeur-fonctionnel",
+"consultant-erp"
+]
+},
+"technicien-support": {
+"x": 559.4,
+"y": 440.6,
+"titre": "Technicien·ne support utilisateurs (helpdesk)",
+"type": "entree",
+"cat": "support",
+"ligne": "relation-transmission",
+"couleur": "#ffe919",
+"voisins": [
+"ingenieur-support-applicatif",
+"responsable-support-it",
+"technicien-systemes-reseaux",
+"analyste-soc",
+"testeur-fonctionnel"
+]
+},
+"responsable-support-it": {
+"x": 533.9,
+"y": 466.1,
+"titre": "Responsable support IT",
+"type": "evolution",
+"cat": "support",
+"ligne": "relation-transmission",
+"couleur": "#ffe919",
+"voisins": [
+"technicien-support",
+"ingenieur-support-applicatif",
+"engineering-manager",
+"ingenieur-production"
+]
+},
+"consultant-erp": {
+"x": 508.5,
+"y": 491.5,
+"titre": "Consultant·e ERP / CRM",
+"type": "entree",
+"cat": "conseil-vente",
+"ligne": "relation-transmission",
+"couleur": "#fff26a",
+"voisins": [
+"ingenieur-avant-vente",
+"business-analyst-amoa",
+"dev-legacy-cobol",
+"dev-bi"
+]
+},
+"ingenieur-affaires-it": {
+"x": 483.0,
+"y": 517.0,
+"titre": "Ingénieur·e d'affaires IT",
+"type": "entree",
+"cat": "conseil-vente",
+"ligne": "relation-transmission",
+"couleur": "#fff26a",
+"voisins": [
+"ingenieur-avant-vente",
+"product-manager"
+]
+},
+"ingenieur-avant-vente": {
+"x": 447.0,
+"y": 517.0,
+"titre": "Ingénieur·e avant-vente",
+"type": "evolution",
+"cat": "conseil-vente",
+"ligne": "relation-transmission",
+"couleur": "#fff26a",
+"voisins": [
+"consultant-erp",
+"ingenieur-affaires-it",
+"architecte-cloud",
+"devrel"
+]
+},
+"technical-writer": {
+"x": 411.0,
+"y": 517.0,
+"titre": "Rédacteur·rice technique (technical writer)",
+"type": "entree",
+"cat": "transmission",
+"ligne": "relation-transmission",
+"couleur": "#fef28e",
+"voisins": [
+"formateur-informatique",
+"devrel",
+"integrateur-web",
+"dev-backend"
+]
+},
+"devrel": {
+"x": 375.0,
+"y": 517.0,
+"titre": "Developer advocate (DevRel)",
+"type": "evolution",
+"cat": "transmission",
+"ligne": "relation-transmission",
+"couleur": "#fef28e",
+"voisins": [
+"technical-writer",
+"formateur-informatique",
+"ingenieur-avant-vente",
+"product-manager"
+]
+},
+"formateur-informatique": {
+"x": 339.0,
+"y": 517.0,
+"titre": "Formateur·rice en informatique",
+"type": "evolution",
+"cat": "transmission",
+"ligne": "relation-transmission",
+"couleur": "#fef28e",
+"voisins": [
+"technical-writer",
+"devrel",
+"scrum-master",
+"lead-developer"
+]
+},
+"cto": {
+"x": 695.2,
+"y": 415.2,
+"titre": "CTO (directeur·rice technique)",
+"type": "evolution",
+"cat": "management",
+"ligne": "management",
+"couleur": "#00ecff",
+"voisins": [
+"engineering-manager",
+"dsi",
+"architecte-logiciel",
+"product-manager"
+]
+},
+"chief-data-officer": {
+"x": 720.6,
+"y": 440.6,
+"titre": "Chief data officer",
+"type": "evolution",
+"cat": "management",
+"ligne": "management",
+"couleur": "#00ecff",
+"voisins": [
+"dsi",
+"data-scientist",
+"data-engineer"
+]
+},
+"dsi": {
+"x": 756.6,
+"y": 440.6,
+"titre": "DSI (directeur·rice des systèmes d'information)",
+"type": "evolution",
+"cat": "management",
+"ligne": "management",
+"couleur": "#00ecff",
+"voisins": [
+"cto",
+"chief-data-officer",
+"rssi",
+"directeur-projet",
+"architecte-entreprise"
+]
+},
+"engineering-manager": {
+"x": 792.6,
+"y": 440.6,
+"titre": "Engineering manager",
+"type": "evolution",
+"cat": "management",
+"ligne": "management",
+"couleur": "#00ecff",
+"voisins": [
+"cto",
+"lead-developer",
+"scrum-master",
+"responsable-support-it"
+]
+}
+}
+}

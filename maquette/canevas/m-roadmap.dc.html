@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mobile, roadmap</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/constellation/tokens.css">
+<link rel="stylesheet" href="ds/constellation/components/bundle.css">
+<script src="ds/constellation/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#eef2f7}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 1700px; background: var(--fond); color: var(--encre); font-family: var(--font-sans); font-size: 17px; line-height: 26px">
+<header style="display: flex; justify-content: space-between; align-items: center; height: 60px; padding: 0 16px; background: var(--surface); box-shadow: 0 1px 0 var(--trait)">
+<a href="m-nuage.dc.html" class="cs-logo" style="font-size: 20px">constellation</a>
+<x-import component-from-global-scope="Constellation.Button" variant="ghost" size="sm" aria-expanded="{{menuOuvert}}" on-click="{{basculerMenu}}">{{libelleMenu}}</x-import>
+</header>
+<sc-if value="{{menuOuvert}}" hint-placeholder-val="{{false}}">
+<nav aria-label="Navigation principale" style="background: var(--surface); box-shadow: var(--ombre-flottante); padding: 8px 16px 16px">
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<li><a href="m-nuage.dc.html" style="display: flex; align-items: center; min-height: 48px; font-weight: 700; color: var(--encre); text-decoration: none; border-bottom: 1px solid var(--trait)">Nuage</a></li>
+<li><a href="quiz-question.dc.html" style="display: flex; align-items: center; min-height: 48px; font-weight: 700; color: var(--encre); text-decoration: none; border-bottom: 1px solid var(--trait)">Quiz</a></li>
+<li><a href="m-roadmap.dc.html" style="display: flex; align-items: center; min-height: 48px; font-weight: 700; color: var(--encre); text-decoration: none; border-bottom: 1px solid var(--trait)">Roadmap</a></li>
+<li><a href="sources.dc.html" style="display: flex; align-items: center; min-height: 48px; font-weight: 700; color: var(--encre); text-decoration: none">Sources</a></li>
+</ul>
+</nav>
+</sc-if>
+<main id="contenu" style="padding: 20px 16px 40px; display: flex; flex-direction: column; gap: 20px">
+<div><p class="etiquette" style="margin: 0; color: var(--encre-douce)">Ma roadmap · 2027 → 2031</p><h1 class="titre-2" style="margin: 2px 0 0">Cap sur Développeur·se back-end</h1></div>
+<details style="background: var(--surface); border-radius: var(--rayon-md); box-shadow: var(--ombre-carte); padding: 12px 16px"><summary style="font-weight: 700; min-height: 32px; cursor: pointer">Compétences de la fiche (5)</summary><div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 8px"><sc-for list="{{competences}}" as="c" hint-placeholder-count="5"><x-import component-from-global-scope="Constellation.Badge">{{c.t}}</x-import></sc-for></div></details>
+<sc-for list="{{annees}}" as="a" hint-placeholder-count="3"><section style="display: flex; flex-direction: column; gap: 10px; padding-left: 16px; border-left: 6px solid var(--ligne-developpement)"><h2 style="margin: 0; font-family: var(--font-mono); font-size: 24px">{{a.an}}</h2>
+<sc-for list="{{a.items}}" as="it" hint-placeholder-count="2"><x-import component-from-global-scope="Constellation.ItemRoadmap" type="{{it.type}}" titre="{{it.titre}}" url="{{it.url}}" premier="{{it.premier}}" dernier="{{it.dernier}}"></x-import></sc-for>
+<x-import component-from-global-scope="Constellation.Button" variant="ghost" icone="plus" style="align-self: flex-start">Ajouter à {{a.an}}</x-import></section></sc-for>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><x-import component-from-global-scope="Constellation.Button" variant="outline" size="sm">Exporter en JSON</x-import><x-import component-from-global-scope="Constellation.Button" variant="ghost" size="sm">Importer</x-import></div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1700}}'>
+class Component extends DCLogic {
+constructor(props) { super(props); this.state = { menu: false }; }
+renderVals() { return { menuOuvert: !!this.state.menu, libelleMenu: this.state.menu ? 'Fermer' : 'Menu', basculerMenu: () => this.setState({ menu: !this.state.menu }), "competences": [{"t": "Java/Spring, PHP/Symfony, Python, Node/NestJS ou C#/.NET"}, {"t": "SQL et NoSQL"}, {"t": "Git"}, {"t": "Docker"}, {"t": "sécurité applicative"}], "annees": [{"an": 2027, "items": [{"type": "projet", "titre": "API REST de gestion de bibliothèque avec Symfony", "url": "https://symfony.com/doc/current/index.html", "premier": true, "dernier": false}, {"type": "notion", "titre": "Index et plans d’exécution en SQL", "url": "https://use-the-index-luke.com/fr", "premier": false, "dernier": true}]}, {"an": 2028, "items": [{"type": "notion", "titre": "Docker et Docker Compose", "url": "https://docs.docker.com/get-started/", "premier": true, "dernier": true}]}, {"an": 2029, "items": []}]}; }
+}
+</script>
+</body>
+</html>

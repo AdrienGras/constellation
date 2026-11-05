@@ -1,0 +1,16 @@
+<!-- @dsCard group="Formulaires" height=90 subtitle="choix exclusif court, état aria-pressed" -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>ToggleGroup — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.ToggleGroup, { label: 'Zone géographique', defaultValue: 'regions', items: [ { value: 'paris', label: 'Paris' }, { value: 'grandes_villes', label: 'Grandes villes' }, { value: 'regions', label: 'Régions (Dijon)' } ] }),
+  h(C.ToggleGroup, { label: 'Type de métier', defaultValue: 'tous', items: [ { value: 'tous', label: 'Tous' }, { value: 'entree', label: 'Entrée' }, { value: 'evolution', label: 'Évolution' } ] }),
+  h(C.ToggleGroup, { label: 'Affichage', defaultValue: 'graphe', items: [ { value: 'graphe', label: 'Graphe' }, { value: 'liste', label: 'Liste' } ] })
+));
+</script>
+</body>
+</html>

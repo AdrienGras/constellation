@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mobile, fiche Développeur·se back-end</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/constellation/tokens.css">
+<link rel="stylesheet" href="ds/constellation/components/bundle.css">
+<script src="ds/constellation/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#eef2f7}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 3000px; background: var(--fond); color: var(--encre); font-family: var(--font-sans); font-size: 17px; line-height: 26px">
+<header style="display: flex; justify-content: space-between; align-items: center; height: 60px; padding: 0 16px; background: var(--surface); box-shadow: 0 1px 0 var(--trait)">
+<a href="m-nuage.dc.html" class="cs-logo" style="font-size: 20px">constellation</a>
+<x-import component-from-global-scope="Constellation.Button" variant="ghost" size="sm" aria-expanded="{{menuOuvert}}" on-click="{{basculerMenu}}">{{libelleMenu}}</x-import>
+</header>
+<sc-if value="{{menuOuvert}}" hint-placeholder-val="{{false}}">
+<nav aria-label="Navigation principale" style="background: var(--surface); box-shadow: var(--ombre-flottante); padding: 8px 16px 16px">
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<li><a href="m-nuage.dc.html" style="display: flex; align-items: center; min-height: 48px; font-weight: 700; color: var(--encre); text-decoration: none; border-bottom: 1px solid var(--trait)">Nuage</a></li>
+<li><a href="quiz-question.dc.html" style="display: flex; align-items: center; min-height: 48px; font-weight: 700; color: var(--encre); text-decoration: none; border-bottom: 1px solid var(--trait)">Quiz</a></li>
+<li><a href="m-roadmap.dc.html" style="display: flex; align-items: center; min-height: 48px; font-weight: 700; color: var(--encre); text-decoration: none; border-bottom: 1px solid var(--trait)">Roadmap</a></li>
+<li><a href="sources.dc.html" style="display: flex; align-items: center; min-height: 48px; font-weight: 700; color: var(--encre); text-decoration: none">Sources</a></li>
+</ul>
+</nav>
+</sc-if>
+<main id="contenu" style="padding: 20px 16px 40px; display: flex; flex-direction: column; gap: 20px">
+<a href="m-nuage.dc.html" style="font-size: 15px; font-weight: 700; color: var(--encre-douce); text-decoration: none">← Retour aux métiers</a>
+<header style="display: flex; flex-direction: column; gap: 10px">
+<x-import component-from-global-scope="Constellation.PastilleLigne" ligne="developpement" taille="sm"></x-import>
+<h1 class="titre-1" style="margin: 0; font-size: 32px; line-height: 36px">Développeur·se back-end</h1>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><x-import component-from-global-scope="Constellation.BadgeType" type="entree"></x-import><x-import component-from-global-scope="Constellation.BadgeFiabilite" niveau="moyenne"></x-import></div>
+<p style="margin: 0; font-size: 18px; line-height: 27px">Conçoit la partie serveur d&#x27;une application : API, logique métier, données.</p>
+</header>
+<section><h2 class="titre-3" style="margin: 0 0 6px">Missions</h2><p style="margin: 0">Développer des API REST ou GraphQL, modéliser et interroger la base de données, écrire des tests, faire et recevoir des revues de code, mettre en production. En ESN, chez un éditeur ou dans une DSI, souvent en hybride.</p></section>
+<section><h2 class="titre-3" style="margin: 0 0 8px">Compétences</h2><div style="display: flex; flex-wrap: wrap; gap: 8px"><sc-for list="{{competences}}" as="c" hint-placeholder-count="5"><x-import component-from-global-scope="Constellation.Badge">{{c.t}}</x-import></sc-for></div></section>
+<section><h2 class="titre-3" style="margin: 0 0 6px">À éviter si</h2><x-import component-from-global-scope="Constellation.Alert" variant="neutre" icone="info" title="Tu veux un résultat visuel immédiat, ou maintenir le code des autres te rebute."></x-import></section>
+<section><h2 class="titre-3" style="margin: 0 0 6px">Parcours</h2><p style="margin: 0">ROME : bac+3 à bac+5 (licence pro, master ou diplôme d&#x27;ingénieur) ; Cigref : bac+2/3 ou ingénieur pour le profil Concepteur / développeur.</p></section>
+<section style="display: flex; flex-direction: column; gap: 12px"><h2 class="titre-2" style="margin: 0">Salaires cibles</h2>
+<p style="margin: 0; font-size: 15px; line-height: 22px; color: var(--encre-douce)">Ce que tu peux viser après quelques années, pas un salaire de sortie d’études. Les deux sources ne se comparent pas.</p>
+<x-import component-from-global-scope="Constellation.CartoucheSilkhom" silkhom="{{silkhom}}" type="entree" ligne="developpement"></x-import>
+<x-import component-from-global-scope="Constellation.CartoucheApec" apec="{{apec}}"></x-import></section>
+<a href="m-roadmap.dc.html" class="cs-btn cs-btn-default">Viser ce métier dans ma roadmap</a>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3000}}'>
+class Component extends DCLogic {
+constructor(props) { super(props); this.state = { menu: false }; }
+renderVals() { return { menuOuvert: !!this.state.menu, libelleMenu: this.state.menu ? 'Fermer' : 'Menu', basculerMenu: () => this.setState({ menu: !this.state.menu }), "competences": [{"t": "Java/Spring, PHP/Symfony, Python, Node/NestJS ou C#/.NET"}, {"t": "SQL et NoSQL"}, {"t": "Git"}, {"t": "Docker"}, {"t": "sécurité applicative"}], "silkhom": {"grilles": [{"ligne": "Java", "niveaux": [{"annees_min": 0, "annees_max": 2, "paris": [38, 43], "grandes_villes": [32, 38], "regions": [30, 35]}, {"annees_min": 2, "annees_max": 5, "paris": [43, 58], "grandes_villes": [38, 45], "regions": [35, 45]}]}, {"ligne": "Python", "niveaux": [{"annees_min": 0, "annees_max": 2, "paris": [38, 43], "grandes_villes": [32, 38], "regions": [30, 35]}, {"annees_min": 2, "annees_max": 5, "paris": [45, 60], "grandes_villes": [38, 45], "regions": [35, 45]}]}, {"ligne": "PHP", "niveaux": [{"annees_min": 0, "annees_max": 2, "paris": [38, 45], "grandes_villes": [32, 36], "regions": [28, 34]}, {"annees_min": 2, "annees_max": 5, "paris": [45, 52], "grandes_villes": [36, 48], "regions": [34, 42]}]}, {"ligne": "Net", "niveaux": [{"annees_min": 0, "annees_max": 2, "paris": [38, 45], "grandes_villes": [32, 38], "regions": [30, 35]}, {"annees_min": 2, "annees_max": 5, "paris": [45, 55], "grandes_villes": [38, 45], "regions": [35, 42]}]}, {"ligne": "Backend JS", "niveaux": [{"annees_min": 0, "annees_max": 2, "paris": [38, 45], "grandes_villes": [32, 38], "regions": [30, 38]}, {"annees_min": 2, "annees_max": 5, "paris": [45, 55], "grandes_villes": [38, 48], "regions": [38, 45]}]}], "moyenne_keur": null, "rapprochement": null}, "apec": {"famille": "Développement informatique", "mediane": 50, "d1": 38, "d9": 74, "idf": {"mediane": 55, "d1": 43, "d9": 77}, "autres_regions": {"mediane": 46, "d1": 36, "d9": 67}, "moins_35_ans": {"mediane": 44}, "rapprochement": null}}; }
+}
+</script>
+</body>
+</html>

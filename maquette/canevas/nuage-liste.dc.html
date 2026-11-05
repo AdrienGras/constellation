@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Nuage, vue liste</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/constellation/tokens.css">
+<link rel="stylesheet" href="ds/constellation/components/bundle.css">
+<script src="ds/constellation/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#eef2f7}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 2720px; background: var(--fond); color: var(--encre); font-family: var(--font-sans); font-size: 17px; line-height: 26px">
+<x-import component-from-global-scope="Constellation.BarreNavigation" actif="nuage" routes="{{routes}}"></x-import>
+<main id="contenu" style="display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding: 32px 48px 20px">
+<div>
+<p class="etiquette" style="margin: 0; color: var(--encre-douce)">Accueil · vue liste</p>
+<h1 class="titre-1" style="margin: 4px 0 0">Les 68 métiers, ligne par ligne</h1>
+<p style="margin: 8px 0 0; color: var(--encre-douce); max-width: 760px">La même chose que le plan, au clavier ou au lecteur d’écran. Chaque nom ouvre la fiche du métier.</p>
+</div>
+<x-import component-from-global-scope="Constellation.ToggleGroup" label="Affichage" items="{{vues}}" value="liste"></x-import>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 24px; padding: 0 48px 16px">
+<x-import component-from-global-scope="Constellation.Select" label="Catégorie" options="{{categories}}" on-change="{{choisirCat}}" style="width: 280px"></x-import>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 15px; font-weight: 700; line-height: 20px">Type de métier</span>
+<x-import component-from-global-scope="Constellation.ToggleGroup" label="Type de métier" items="{{types}}" default-value="tous" on-value-change="{{choisirType}}"></x-import>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; flex: 1; justify-content: flex-end; padding-bottom: 8px" aria-label="Légende des lignes">
+<sc-for list="{{lignes}}" as="l" hint-placeholder-count="8">
+<x-import component-from-global-scope="Constellation.PastilleLigne" ligne="{{l.id}}" taille="sm"></x-import>
+</sc-for>
+</div>
+</div>
+<p role="status" style="margin: 0; padding: 0 48px 8px; color: var(--encre-douce)">{{resume}}</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 8px 48px 48px; align-items: start">
+<sc-for list="{{groupes}}" as="g" hint-placeholder-count="8">
+<section style="background: var(--surface); border-radius: var(--rayon-md); box-shadow: var(--ombre-carte); padding: 20px 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 17px">
+<x-import component-from-global-scope="Constellation.PastilleLigne" ligne="{{g.id}}" taille="lg"></x-import>
+<span style="font-size: 14px; font-weight: 400; color: var(--encre-douce)">{{g.compte}}</span>
+</h2>
+<sc-for list="{{g.cats}}" as="c" hint-placeholder-count="2">
+<div>
+<h3 class="etiquette" style="margin: 8px 0 4px; color: var(--encre-douce)">{{c.libelle}}</h3>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<sc-for list="{{c.metiers}}" as="m" hint-placeholder-count="4">
+<li style="display: flex; align-items: center; gap: 10px; min-height: 40px; border-top: 1px solid var(--trait)">
+<x-import component-from-global-scope="Constellation.Station" ligne="{{m.ligne}}" categorie="{{m.cat}}" type="{{m.type}}"></x-import>
+<a href="{{m.lien}}" style="flex: 1; font-weight: 700; text-decoration: none; color: var(--encre)">{{m.titre}}</a>
+<x-import component-from-global-scope="Constellation.BadgeType" type="{{m.type}}"></x-import>
+</li>
+</sc-for>
+</ul>
+</div>
+</sc-for>
+</section>
+</sc-for>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":2720}}'>
+class Component extends DCLogic {
+constructor(props) { super(props); this.state = { cat: 'toutes', type: 'tous' }; }
+renderVals() {
+const G = [{"id": "developpement", "n": 14, "cats": [{"id": "backend", "libelle": "Back-end", "metiers": [{"titre": "Développeur·se Cobol / mainframe", "type": "entree", "cat": "backend", "ligne": "developpement", "lien": "#"}, {"titre": "Développeur·se Rust / Go", "type": "entree", "cat": "backend", "ligne": "developpement", "lien": "#"}, {"titre": "Développeur·se back-end", "type": "entree", "cat": "backend", "ligne": "developpement", "lien": "fiche-dev-backend.dc.html"}, {"titre": "Développeur·se base de données", "type": "entree", "cat": "backend", "ligne": "developpement", "lien": "#"}, {"titre": "Développeur·se full-stack", "type": "entree", "cat": "backend", "ligne": "developpement", "lien": "#"}]}, {"id": "frontend", "libelle": "Front-end", "metiers": [{"titre": "Développeur·se front-end", "type": "entree", "cat": "frontend", "ligne": "developpement", "lien": "#"}, {"titre": "Intégrateur·rice web / accessibilité", "type": "entree", "cat": "frontend", "ligne": "developpement", "lien": "fiche-integrateur-web.dc.html"}]}, {"id": "mobile-jeu", "libelle": "Mobile & jeu", "metiers": [{"titre": "Développeur·se Android", "type": "entree", "cat": "mobile-jeu", "ligne": "developpement", "lien": "#"}, {"titre": "Développeur·se Flutter / React Native", "type": "entree", "cat": "mobile-jeu", "ligne": "developpement", "lien": "#"}, {"titre": "Développeur·se iOS", "type": "entree", "cat": "mobile-jeu", "ligne": "developpement", "lien": "#"}, {"titre": "Développeur·se jeu vidéo (Unity)", "type": "entree", "cat": "mobile-jeu", "ligne": "developpement", "lien": "#"}]}, {"id": "embarque", "libelle": "Embarqué & industriel", "metiers": [{"titre": "Développeur·se logiciel embarqué", "type": "entree", "cat": "embarque", "ligne": "developpement", "lien": "#"}, {"titre": "Ingénieur·e informatique industrielle (automatisme, MES)", "type": "entree", "cat": "embarque", "ligne": "developpement", "lien": "#"}, {"titre": "Développeur·se IA embarquée", "type": "evolution", "cat": "embarque", "ligne": "developpement", "lien": "#"}]}]}, {"id": "infra-cloud", "n": 12, "cats": [{"id": "infra", "libelle": "Infrastructure & réseaux", "metiers": [{"titre": "Administrateur·rice de bases de données (DBA)", "type": "entree", "cat": "infra", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Administrateur·rice systèmes et réseaux", "type": "entree", "cat": "infra", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Ingénieur·e de production / exploitation", "type": "entree", "cat": "infra", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Ingénieur·e réseaux et télécoms", "type": "entree", "cat": "infra", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Ingénieur·e systèmes Linux", "type": "entree", "cat": "infra", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Technicien·ne systèmes et réseaux", "type": "entree", "cat": "infra", "ligne": "infra-cloud", "lien": "#"}]}, {"id": "devops-cloud", "libelle": "DevOps, cloud & SRE", "metiers": [{"titre": "Ingénieur·e DevOps", "type": "entree", "cat": "devops-cloud", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Ingénieur·e cloud", "type": "entree", "cat": "devops-cloud", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Architecte cloud", "type": "evolution", "cat": "devops-cloud", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Cloud FinOps", "type": "evolution", "cat": "devops-cloud", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Platform engineer / ingénieur·e Kubernetes", "type": "evolution", "cat": "devops-cloud", "ligne": "infra-cloud", "lien": "#"}, {"titre": "Site Reliability Engineer (SRE)", "type": "evolution", "cat": "devops-cloud", "ligne": "infra-cloud", "lien": "#"}]}]}, {"id": "cybersecurite", "n": 6, "cats": [{"id": "secu", "libelle": "Cybersécurité", "metiers": [{"titre": "Analyste SOC", "type": "entree", "cat": "secu", "ligne": "cybersecurite", "lien": "#"}, {"titre": "Ingénieur·e IAM (gestion des identités et des accès)", "type": "entree", "cat": "secu", "ligne": "cybersecurite", "lien": "#"}, {"titre": "Ingénieur·e cybersécurité", "type": "entree", "cat": "secu", "ligne": "cybersecurite", "lien": "#"}, {"titre": "Pentester (auditeur·rice tests d'intrusion)", "type": "entree", "cat": "secu", "ligne": "cybersecurite", "lien": "#"}, {"titre": "Ingénieur·e DevSecOps", "type": "evolution", "cat": "secu", "ligne": "cybersecurite", "lien": "#"}, {"titre": "RSSI (responsable de la sécurité des SI)", "type": "evolution", "cat": "secu", "ligne": "cybersecurite", "lien": "#"}]}]}, {"id": "data-ia", "n": 9, "cats": [{"id": "data", "libelle": "Data", "metiers": [{"titre": "Analytics engineer", "type": "entree", "cat": "data", "ligne": "data-ia", "lien": "#"}, {"titre": "Data analyst", "type": "entree", "cat": "data", "ligne": "data-ia", "lien": "#"}, {"titre": "Data engineer", "type": "entree", "cat": "data", "ligne": "data-ia", "lien": "#"}, {"titre": "Data scientist", "type": "entree", "cat": "data", "ligne": "data-ia", "lien": "#"}, {"titre": "Développeur·se BI / décisionnel", "type": "entree", "cat": "data", "ligne": "data-ia", "lien": "#"}]}, {"id": "ia", "libelle": "Intelligence artificielle", "metiers": [{"titre": "Ingénieur·e IA générative (LLM, RAG)", "type": "entree", "cat": "ia", "ligne": "data-ia", "lien": "#"}, {"titre": "Ingénieur·e machine learning", "type": "entree", "cat": "ia", "ligne": "data-ia", "lien": "#"}, {"titre": "Ingénieur·e vision par ordinateur", "type": "entree", "cat": "ia", "ligne": "data-ia", "lien": "#"}, {"titre": "Ingénieur·e MLOps", "type": "evolution", "cat": "ia", "ligne": "data-ia", "lien": "fiche-mlops.dc.html"}]}]}, {"id": "qualite-archi", "n": 6, "cats": [{"id": "qa", "libelle": "Qualité & test", "metiers": [{"titre": "Ingénieur·e QA / automatisation des tests", "type": "entree", "cat": "qa", "ligne": "qualite-archi", "lien": "#"}, {"titre": "Testeur·se fonctionnel·le", "type": "entree", "cat": "qa", "ligne": "qualite-archi", "lien": "#"}, {"titre": "Test manager / lead QA", "type": "evolution", "cat": "qa", "ligne": "qualite-archi", "lien": "#"}]}, {"id": "archi", "libelle": "Architecture & lead", "metiers": [{"titre": "Architecte d'entreprise / urbaniste SI", "type": "evolution", "cat": "archi", "ligne": "qualite-archi", "lien": "#"}, {"titre": "Architecte logiciel / technique", "type": "evolution", "cat": "archi", "ligne": "qualite-archi", "lien": "#"}, {"titre": "Lead developer", "type": "evolution", "cat": "archi", "ligne": "qualite-archi", "lien": "#"}]}]}, {"id": "produit-design", "n": 8, "cats": [{"id": "produit-projet", "libelle": "Produit & projet", "metiers": [{"titre": "Business analyst / chef·fe de projet MOA", "type": "entree", "cat": "produit-projet", "ligne": "produit-design", "lien": "#"}, {"titre": "Chef·fe de projet technique (MOE)", "type": "entree", "cat": "produit-projet", "ligne": "produit-design", "lien": "#"}, {"titre": "Product owner", "type": "entree", "cat": "produit-projet", "ligne": "produit-design", "lien": "#"}, {"titre": "Directeur·rice de projets", "type": "evolution", "cat": "produit-projet", "ligne": "produit-design", "lien": "#"}, {"titre": "Product manager", "type": "evolution", "cat": "produit-projet", "ligne": "produit-design", "lien": "#"}, {"titre": "Scrum master / coach agile", "type": "evolution", "cat": "produit-projet", "ligne": "produit-design", "lien": "#"}]}, {"id": "design", "libelle": "Design UX/UI", "metiers": [{"titre": "UI designer", "type": "entree", "cat": "design", "ligne": "produit-design", "lien": "#"}, {"titre": "UX designer", "type": "entree", "cat": "design", "ligne": "produit-design", "lien": "#"}]}]}, {"id": "relation-transmission", "n": 9, "cats": [{"id": "support", "libelle": "Support", "metiers": [{"titre": "Ingénieur·e support applicatif", "type": "entree", "cat": "support", "ligne": "relation-transmission", "lien": "#"}, {"titre": "Technicien·ne support utilisateurs (helpdesk)", "type": "entree", "cat": "support", "ligne": "relation-transmission", "lien": "#"}, {"titre": "Responsable support IT", "type": "evolution", "cat": "support", "ligne": "relation-transmission", "lien": "#"}]}, {"id": "conseil-vente", "libelle": "Conseil & vente", "metiers": [{"titre": "Consultant·e ERP / CRM", "type": "entree", "cat": "conseil-vente", "ligne": "relation-transmission", "lien": "#"}, {"titre": "Ingénieur·e d'affaires IT", "type": "entree", "cat": "conseil-vente", "ligne": "relation-transmission", "lien": "#"}, {"titre": "Ingénieur·e avant-vente", "type": "evolution", "cat": "conseil-vente", "ligne": "relation-transmission", "lien": "#"}]}, {"id": "transmission", "libelle": "Transmission", "metiers": [{"titre": "Rédacteur·rice technique (technical writer)", "type": "entree", "cat": "transmission", "ligne": "relation-transmission", "lien": "#"}, {"titre": "Developer advocate (DevRel)", "type": "evolution", "cat": "transmission", "ligne": "relation-transmission", "lien": "#"}, {"titre": "Formateur·rice en informatique", "type": "evolution", "cat": "transmission", "ligne": "relation-transmission", "lien": "#"}]}]}, {"id": "management", "n": 4, "cats": [{"id": "management", "libelle": "Management", "metiers": [{"titre": "CTO (directeur·rice technique)", "type": "evolution", "cat": "management", "ligne": "management", "lien": "#"}, {"titre": "Chief data officer", "type": "evolution", "cat": "management", "ligne": "management", "lien": "#"}, {"titre": "DSI (directeur·rice des systèmes d'information)", "type": "evolution", "cat": "management", "ligne": "management", "lien": "fiche-dsi.dc.html"}, {"titre": "Engineering manager", "type": "evolution", "cat": "management", "ligne": "management", "lien": "#"}]}]}];
+const st = this.state;
+const ok = (m) => (st.cat === 'toutes' || m.cat === st.cat) && (st.type === 'tous' || m.type === st.type);
+const groupes = G.map((g) => { const cats = g.cats.map((c) => Object.assign({}, c, { metiers: c.metiers.filter(ok) })).filter((c) => c.metiers.length); const n = cats.reduce((s, c) => s + c.metiers.length, 0); return Object.assign({}, g, { cats: cats, n: n, compte: n + (n > 1 ? ' métiers' : ' métier') }); }).filter((g) => g.n);
+const total = groupes.reduce((s, g) => s + g.n, 0);
+return {
+  routes: {"nuage": "Main.dc.html", "quiz": "quiz-question.dc.html", "roadmap": "roadmap.dc.html", "sources": "sources.dc.html"}, groupes: groupes, resume: total === 68 ? 'Les 68 métiers.' : total + ' métier' + (total > 1 ? 's' : '') + ' sur 68 avec ces filtres.',
+  categories: [{"value": "toutes", "label": "Toutes les catégories (17)"}, {"value": "backend", "label": "Back-end (5)"}, {"value": "frontend", "label": "Front-end (2)"}, {"value": "mobile-jeu", "label": "Mobile & jeu (4)"}, {"value": "embarque", "label": "Embarqué & industriel (3)"}, {"value": "qa", "label": "Qualité & test (3)"}, {"value": "devops-cloud", "label": "DevOps, cloud & SRE (6)"}, {"value": "infra", "label": "Infrastructure & réseaux (6)"}, {"value": "secu", "label": "Cybersécurité (6)"}, {"value": "data", "label": "Data (5)"}, {"value": "ia", "label": "Intelligence artificielle (4)"}, {"value": "archi", "label": "Architecture & lead (3)"}, {"value": "produit-projet", "label": "Produit & projet (6)"}, {"value": "design", "label": "Design UX/UI (2)"}, {"value": "support", "label": "Support (3)"}, {"value": "conseil-vente", "label": "Conseil & vente (3)"}, {"value": "transmission", "label": "Transmission (3)"}, {"value": "management", "label": "Management (4)"}],
+  types: [{ value: 'tous', label: 'Tous' }, { value: 'entree', label: 'Entrée' }, { value: 'evolution', label: 'Évolution' }],
+  vues: [{ value: 'graphe', label: 'Graphe', href: 'Main.dc.html' }, { value: 'liste', label: 'Liste', href: 'nuage-liste.dc.html' }],
+  choisirCat: (e) => this.setState({ cat: e.target.value }), choisirType: (v) => this.setState({ type: v }),
+  lignes: [{ id: 'developpement' }, { id: 'infra-cloud' }, { id: 'cybersecurite' }, { id: 'data-ia' }, { id: 'qualite-archi' }, { id: 'produit-design' }, { id: 'relation-transmission' }, { id: 'management' }]
+};
+}
+}
+</script>
+</body>
+</html>

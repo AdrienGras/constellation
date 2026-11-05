@@ -1,0 +1,14 @@
+<!-- @dsCard group="Plan de métro" height=90 subtitle="bonne · moyenne · faible · n.d." -->
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>BadgeFiabilite — aperçu</title></head>
+<body>
+<div id="root" class="cs-demo"></div>
+<script>
+var C = window.Constellation, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+  h(C.BadgeFiabilite, { niveau: 'bonne' }), h(C.BadgeFiabilite, { niveau: 'moyenne', note: 'salaire Apec rapproché de la famille « Big Data »' }), h(C.BadgeFiabilite, { niveau: 'faible' }), h(C.BadgeFiabilite, { niveau: 'nd' })
+));
+</script>
+</body>
+</html>
