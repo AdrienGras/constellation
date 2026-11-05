@@ -33,6 +33,26 @@ describe('BarreNavigation', () => {
     expect(screen.getByRole('link', { name: /constellation/ })).toHaveAttribute('href', '/')
   })
 
+  it('le bouton Menu déplie la navigation (aria-expanded, aria-controls) et un lien la referme', async () => {
+    render(
+      <MemoryRouter>
+        <BarreNavigation actif="nuage" />
+      </MemoryRouter>,
+    )
+    const menu = screen.getByRole('button', { name: 'Menu' })
+    const liste = document.getElementById(menu.getAttribute('aria-controls')!)!
+    expect(menu).toHaveAttribute('aria-expanded', 'false')
+    expect(liste).toContainElement(screen.getByRole('link', { name: 'Quiz' }))
+    expect(liste).toHaveClass('hidden')
+
+    await userEvent.click(menu)
+    expect(screen.getByRole('button', { name: 'Fermer' })).toHaveAttribute('aria-expanded', 'true')
+    expect(liste).not.toHaveClass('hidden')
+
+    await userEvent.click(screen.getByRole('link', { name: 'Quiz' }))
+    expect(screen.getByRole('button', { name: 'Menu' })).toHaveAttribute('aria-expanded', 'false')
+  })
+
   it('le lien d’évitement donne le focus à #contenu sans changer la route', async () => {
     render(
       <MemoryRouter initialEntries={['/quiz']}>

@@ -141,6 +141,7 @@ export function CartoucheSilkhom({
         <ToggleGroup
           type="single"
           aria-label="Zone géographique"
+          className="max-w-full flex-wrap"
           value={zone}
           onValueChange={(v) => {
             if (v) setZone(v as Zone)

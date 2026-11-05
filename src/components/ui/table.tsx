@@ -13,7 +13,7 @@ function Table({
       role="region"
       aria-label={label}
       tabIndex={0}
-      className="w-full overflow-x-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
+      className="relative w-full overflow-x-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
     >
       <table
         data-slot="table"

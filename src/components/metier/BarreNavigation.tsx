@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react'
+import { useId, useState, type ReactNode } from 'react'
 import { Link } from 'react-router'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Logo } from './Logo'
 
@@ -13,8 +14,11 @@ const PAGES: { id: PageActive; libelle: string; chemin: string }[] = [
 ]
 
 export function BarreNavigation({ actif, fin }: { actif: PageActive | null; fin?: ReactNode }) {
+  // Sous `md`, les liens sont repliés derrière le bouton Menu (maquette M1).
+  const [ouvert, setOuvert] = useState(false)
+  const idListe = useId()
   return (
-    <header className="relative">
+    <header data-barre className="relative">
       {/* L’ancre est prise par le routeur : on déplace le focus à la main. */}
       <a
         href="#contenu"
@@ -28,7 +32,7 @@ export function BarreNavigation({ actif, fin }: { actif: PageActive | null; fin?
       </a>
       <nav
         aria-label="Navigation principale"
-        className="flex h-[68px] items-center gap-6 bg-surface px-6 shadow-[0_1px_0_var(--trait)]"
+        className="flex min-h-[60px] flex-wrap items-center justify-between gap-x-6 bg-surface px-4 py-2 shadow-[0_1px_0_var(--trait)] md:h-[68px] md:flex-nowrap md:justify-start md:px-6 md:py-0"
       >
         <Link
           to="/"
@@ -37,14 +41,30 @@ export function BarreNavigation({ actif, fin }: { actif: PageActive | null; fin?
           <Logo />
           constellation
         </Link>
-        <ul className="m-0 flex list-none gap-1 p-0">
+        <Button
+          variant="ghost"
+          aria-expanded={ouvert}
+          aria-controls={idListe}
+          onClick={() => setOuvert((o) => !o)}
+          className="md:hidden"
+        >
+          {ouvert ? 'Fermer' : 'Menu'}
+        </Button>
+        <ul
+          id={idListe}
+          className={cn(
+            'm-0 w-full list-none flex-col border-t border-trait p-0 pt-1 md:flex md:w-auto md:flex-row md:gap-1 md:border-t-0 md:pt-0',
+            ouvert ? 'flex' : 'hidden',
+          )}
+        >
           {PAGES.map((p) => (
             <li key={p.id}>
               <Link
                 to={p.chemin}
+                onClick={() => setOuvert(false)}
                 aria-current={actif === p.id ? 'page' : undefined}
                 className={cn(
-                  'inline-flex h-11 items-center rounded-sm px-4 text-base font-bold text-encre no-underline hover:bg-surface-muted',
+                  'flex min-h-12 items-center rounded-sm px-2 md:inline-flex md:h-11 md:min-h-0 md:px-4 text-base font-bold text-encre no-underline hover:bg-surface-muted',
                   'aria-[current=page]:bg-primaire aria-[current=page]:text-sur-primaire',
                 )}
               >
@@ -54,7 +74,9 @@ export function BarreNavigation({ actif, fin }: { actif: PageActive | null; fin?
           ))}
         </ul>
         {fin ? (
-          <div className="ml-auto flex items-center gap-1.5 text-[14px] text-encre-douce">{fin}</div>
+          <div className="ml-auto flex items-center gap-1.5 text-[14px] text-encre-douce">
+            {fin}
+          </div>
         ) : null}
       </nav>
     </header>

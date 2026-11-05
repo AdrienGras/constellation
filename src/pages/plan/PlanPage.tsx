@@ -39,15 +39,13 @@ export function PlanPage() {
           <p className="m-0 text-[13px] leading-5 font-bold tracking-[0.06em] text-encre-douce uppercase">
             Accueil
           </p>
-          <h1 className="titre-1 mt-1 mb-0">
-            Le plan des métiers du numérique
-          </h1>
+          <h1 className="titre-1 mt-1 mb-0">Le plan des métiers du numérique</h1>
           <p className="mt-2 mb-0 max-w-[760px] text-encre-douce">
             68 métiers sur 8 lignes, qui partent toutes de ta formation. Survole une station pour
             voir le métier, clique pour ouvrir sa fiche.
           </p>
         </div>
-        <div className="flex flex-none flex-wrap items-center gap-4">
+        <div className="flex w-full min-w-0 flex-wrap items-center gap-4 md:w-auto md:flex-none">
           <EncartQuiz />
           <BasculeVue actif="graphe" />
         </div>

@@ -49,7 +49,7 @@ function ListeLiens({ titre, ids }: { titre: string; ids: string[] }) {
 function Introuvable() {
   usePageTitre('Métier introuvable')
   return (
-    <div className="flex max-w-[900px] flex-col items-start gap-4 px-12 pt-10 pb-16">
+    <div className="flex max-w-[900px] flex-col items-start gap-4 px-6 pt-10 md:px-12 pb-16">
       <h1 className="titre-1 m-0">Métier introuvable</h1>
       <p className="m-0">Ce métier n’existe pas ou plus dans constellation.</p>
       <Button asChild>
@@ -119,8 +119,10 @@ function Fiche({ metier }: { metier: Metier }) {
             <h2 className="titre-2 mt-0 mb-3">Compétences</h2>
             <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
               {metier.competences.map((c) => (
-                <li key={c}>
-                  <Badge variant="outline">{c}</Badge>
+                <li key={c} className="max-w-full min-w-0">
+                  <Badge variant="outline" className="max-w-full whitespace-normal">
+                    {c}
+                  </Badge>
                 </li>
               ))}
             </ul>
@@ -150,14 +152,20 @@ function Fiche({ metier }: { metier: Metier }) {
           <ListeLiens titre="Métiers voisins, même catégorie" ids={metier.voisins_meme_categorie} />
           <ListeLiens titre="Voisins dans d’autres lignes" ids={metier.voisins_autres_categories} />
           {metier.roadmap_url ? (
-            <Button asChild variant="outline" className="self-start">
+            <Button
+              asChild
+              variant="outline"
+              className="h-auto min-h-11 max-w-full self-start py-2 whitespace-normal"
+            >
               <a href={metier.roadmap_url} target="_blank" rel="noopener noreferrer">
-                Voir la roadmap sur roadmap.sh ↗
-                <span className="sr-only"> (nouvel onglet)</span>
+                Voir la roadmap sur roadmap.sh ↗<span className="sr-only"> (nouvel onglet)</span>
               </a>
             </Button>
           ) : null}
-          <Button className="self-start" onClick={demanderViser}>
+          <Button
+            className="h-auto min-h-11 max-w-full self-start py-2 whitespace-normal"
+            onClick={demanderViser}
+          >
             Viser ce métier dans ma roadmap
           </Button>
           <div className="flex flex-col gap-1 border-t border-trait pt-3 text-[16px] leading-6 text-encre-douce">
@@ -166,7 +174,9 @@ function Fiche({ metier }: { metier: Metier }) {
                 ? 'Texte : Cigref, nomenclature des profils métiers du SI (2025).'
                 : 'Texte : Rédaction CODA, relue par Adrien Gras.'}
             </p>
-            {metier.fiabilite_note ? <p className="m-0">Fiabilité : {metier.fiabilite_note}.</p> : null}
+            {metier.fiabilite_note ? (
+              <p className="m-0">Fiabilité : {metier.fiabilite_note}.</p>
+            ) : null}
           </div>
         </aside>
       </div>

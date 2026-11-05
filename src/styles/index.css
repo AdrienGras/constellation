@@ -131,3 +131,15 @@ body {
     transition: none !important;
   }
 }
+
+/* Reflow (WCAG 1.4.10) : sur téléphone, le titre d’affichage de 56 px ne tient pas dans 320 px. */
+@media (max-width: 767px) {
+  .titre-affiche {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+.titre-affiche,
+.titre-1 {
+  overflow-wrap: anywhere;
+}

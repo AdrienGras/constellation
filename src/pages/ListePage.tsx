@@ -33,7 +33,9 @@ function groupesDeLigne(ligne: Ligne, visibles: Set<string>): GroupeCategorie[] 
   })
   return ligne.categories.flatMap((c) => {
     const liste = dansOrdre.filter((m) => m.categorie === c)
-    return liste.length > 0 ? [{ id: c, libelle: categorieParId(c)?.libelle ?? c, metiers: liste }] : []
+    return liste.length > 0
+      ? [{ id: c, libelle: categorieParId(c)?.libelle ?? c, metiers: liste }]
+      : []
   })
 }
 
@@ -71,7 +73,7 @@ export function ListePage() {
             du métier.
           </p>
         </div>
-        <div className="flex flex-none flex-wrap items-center gap-4">
+        <div className="flex w-full min-w-0 flex-wrap items-center gap-4 md:w-auto md:flex-none">
           <EncartQuiz />
           <BasculeVue actif="liste" />
         </div>

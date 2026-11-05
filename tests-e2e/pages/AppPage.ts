@@ -28,6 +28,23 @@ export class AppPage {
     return this.barre.getByRole('link', { name: nom, exact: true })
   }
 
+  /** Bouton qui déplie la navigation sur écran étroit (absent au-dessus du point de rupture `md`). */
+  get boutonMenu(): Locator {
+    return this.barre.getByRole('button', { name: /^(Menu|Fermer)$/ })
+  }
+
+  async ouvrirMenu() {
+    await this.boutonMenu.click()
+  }
+
+  /** Largeurs du document : au-delà de la fenêtre, la page défile horizontalement (WCAG 1.4.10). */
+  async largeursDocument(): Promise<{ contenu: number; fenetre: number }> {
+    return this.page.evaluate(() => ({
+      contenu: document.documentElement.scrollWidth,
+      fenetre: document.documentElement.clientWidth,
+    }))
+  }
+
   get lienEvitement(): Locator {
     return this.page.getByRole('link', { name: 'Aller au contenu' })
   }
