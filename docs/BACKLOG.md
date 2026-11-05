@@ -40,7 +40,7 @@ Organise les entrées par thème (`## <Thème>`), chaque idée étant une case �
 - [ ] Workflow Pages : `actions/deploy-pages@v4` cible Node 20, déprécié sur les runners (avertissement au run du 05/11/2026) ; passer à la version majeure suivante quand elle sortira.
 
 - [ ] Premier run du workflow `.github/workflows/pages.yml` à surveiller après l'activation de Pages (jamais exécuté sur GitHub).
-- [ ] Passe visuelle avec Adrien : textes secondaires à 13-15 px repris de la maquette (à trancher). Le haut du plan est traité par la repasse UX, étape 2 (258 / 298 px) ; l'écart d'en-tête et de légende est validé (05/11/2026) ; reste à lui montrer le rendu réel (passe visuelle) et à faire valider le déplacement de « Effacer les filtres ».
+- [ ] Passe visuelle avec Adrien : textes secondaires à 13-15 px repris de la maquette (à trancher). Le haut du plan est traité par la repasse UX, étape 2 (258 / 298 px)  ; l'écart d'en-tête et de légende, la passe visuelle et le déplacement de « Effacer les filtres » sont validés (05/11/2026), publiés par la PR #3.
 - [ ] Repasse UX, suites : barre du quiz sur 2 lignes en mobile (environ 130 px), plus haute que les marges de défilement `scroll-mb-32` / `scroll-mb-40`.
 - [ ] Repasse UX, suites : bouton « Plein écran » sur sa propre rangée sous 1280 px (aujourd'hui masqué avec la légende posée, absent du flux étroit).
 - [ ] Repasse UX, suites : ni capture ni test du rendu réel en plein écran (ratio du plan, légende, bulle).
