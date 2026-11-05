@@ -211,12 +211,12 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Workaround** : porter `sticky` sur l'enveloppe (enfant direct de la rangée flex), ou laisser l'enveloppe s'étirer à la hauteur de la frise. Un test unitaire jsdom ne le voit pas : il faut un e2e qui mesure `boundingBox().y` après défilement.
 **Référence** : `src/pages/roadmap/RoadmapPage.tsx:104` et `:124`, `src/pages/roadmap/Competences.tsx:27`, `docs/ux/repasse-2026-11/rapport.md` (n° 3).
 
-## `color-scheme: dark` noircit les marges du PDF imprimé (à confirmer) (2026-11-05)
+## `color-scheme: dark` noircit les marges du PDF imprimé (2026-11-05)
 
 **Découvert** : audit des résolutions, `page.pdf({ printBackground: true })` de la roadmap.
 **Symptôme** : le contenu A4 est blanc, mais les marges `@page` de 15 mm sont noires.
-**Cause** : probablement `<meta name="color-scheme" content="dark">` : Chromium peint la zone des marges de page avec le canevas sombre, que `impression.css` ne surcharge pas (il ne touche que `html` et `body`).
-**Workaround** : non appliqué. Piste : `color-scheme: light` sous `@media print` sur `:root`. Vérifier d'abord dans la boîte d'impression de Chrome et d'Edge, case « Graphiques d'arrière-plan » cochée et décochée.
+**Cause** : confirmée le 05/11/2026 : `<meta name="color-scheme" content="dark">` fait peindre la zone des marges de page avec le canevas sombre (pixel de marge `rgb(18,18,18)` avec `printBackground: true`) ; `impression.css` ne touchait que `html` et `body`. La meta ne passe pas par la propriété CSS : `getComputedStyle(:root).colorScheme` vaut `normal`, pas `dark`.
+**Workaround** : `:root { color-scheme: light }` sous `@media print` (`src/styles/impression.css`) : marge en `rgb(255,255,255)`. Test : `RoadmapPage.schemaDeCouleursImprime()` dans `tests-e2e/mise-en-page.spec.ts`. Reste à voir à l'œil dans la boîte d'impression de Chrome et d'Edge.
 **Référence** : `index.html:6`, `src/styles/impression.css`, `docs/ux/repasse-2026-11/rapport.md` (n° 13).
 
 ## `scroll-margin` ne joue que sur l'élément qui reçoit le focus (2026-11-05)
@@ -239,7 +239,7 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 
 **Découvert** : mesures de la repasse UX, étape 2 (tâche 7), puis relecture finale.
 **Symptôme** : `tests-e2e/mise-en-page.spec.ts` échoue dès qu'une ligne s'ajoute à l'en-tête ou à l'encart du quiz : plafond de 300 px pour le haut du dessin, et bas du texte « FORMATION » ≤ hauteur de fenêtre en 1366×633.
-**Cause** : haut du dessin à 258 px avant le quiz et 260 px après (288 px en 1280 de large) ; le centre du plan finit à 628 px avant le quiz, 630 px après, pour 633 px de fenêtre.
+**Cause** : haut du dessin à 258 px avant le quiz et 260 px après (288 px en 1280 de large) ; le centre du plan finit à 628 px avant le quiz, 630 px après, pour 633 px de fenêtre. Depuis la repasse cosmétique (plan pleine largeur, 720 px de haut au lieu de 714, en-tête `pt-3`) : haut à 254 / 256 px (284 en 1280), centre à 627 / 629 px ; le test exige désormais 2 px de marge.
 **Workaround** : l'encart du résultat tient sur 3 rangées de 20 à 28 px (pastilles sur une rangée, texte et bouton « Refaire le quiz » en dessous, `py-1.5`, `gap-0.5`). Si une ligne s'ajoute, retirer le rappel « point de départ, pas un verdict » de `src/pages/plan/EncartQuiz.tsx` (retrait n° 3 validé par Adrien, pas encore appliqué) ; la consigne de la zone d'exploration et son décompte restent. L'étiquette « Accueil » et le chapeau long sont déjà retirés.
 **Référence** : `src/pages/plan/EnTeteAccueil.tsx`, `src/pages/plan/EncartQuiz.tsx`, `tests-e2e/mise-en-page.spec.ts` (test « centre visible sans défiler »).
 
@@ -256,3 +256,27 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Découvert** : écriture de `tests-e2e/mise-en-page.spec.ts` (repasse UX, étape 2).
 **Règle** : importer un fichier `*.spec.ts` l'exécute, donc ses `test()` s'enregistreraient une seconde fois. `FENETRES`, `QUIZ_A`, `QUIZ_B` et `ROADMAP_AUDIT` vivent dans un module non-spec, `tests-e2e/donnees.ts`, que les specs importent ; une spec n'exporte jamais rien.
 **Référence** : `tests-e2e/donnees.ts`, `tests-e2e/mise-en-page.spec.ts`.
+
+## `aspect-square` cède au contenu : un enfant plus grand impose sa hauteur (2026-11-05)
+
+**Découvert** : cibles des stations du plan rendues proportionnelles (`w-[clamp(24px,2.75%,34px)] aspect-square`), repasse cosmétique.
+**Symptôme** : en 1024 px, le lien fait 28 × 34 px au lieu de 28 × 28, et le dessin de la station est décalé de 3 px à droite.
+**Cause** : avec `aspect-ratio`, la hauteur minimale automatique est celle du contenu ; le `<svg>` de `Station` a 34 px fixes. En grille, la piste prend aussi les 34 px et part du bord gauche.
+**Workaround** : `[&>svg]:size-full` sur le lien (le dessin suit la cible). Autre voie : `min-h-0` et centrage flex.
+**Référence** : `src/pages/plan/PlanSvg.tsx` (lien de station).
+
+## La zone de clic d'une station est celle de son dessin, pas du disque du lien (2026-11-05)
+
+**Découvert** : relecture finale de la repasse cosmétique.
+**Symptôme** : le test des cibles (rectangles des `<a>`) passait alors qu'un clic dans le coin du dessin ouvrait la station voisine.
+**Cause** : le `<svg>` de `Station` est une boîte CSS carrée qui reçoit le pointeur ; elle déborde du lien arrondi (`rounded-full`, dont le hit-test suit bien le disque).
+**Workaround** : `[&>svg]:pointer-events-none` sur le lien. Le test mesure la zone réelle : `PlanPage.pointsQuiOuvrentUneStationPlusLointaine()` (`elementFromPoint` aux coins du dessin et à 16 px du centre, la station touchée doit être la plus proche).
+**Référence** : `src/pages/plan/PlanSvg.tsx`, `tests-e2e/pages/PlanPage.ts`.
+
+## `npm run e2e` réutilise un `vite preview` déjà lancé : il sert l'ancien `dist/` (2026-11-05)
+
+**Découvert** : repasse cosmétique (serveur d'aperçu laissé ouvert sur le port 4173).
+**Symptôme** : un correctif ne change rien aux tests e2e.
+**Cause** : `reuseExistingServer: !process.env.CI` dans `playwright.config.ts` : si le port 4173 répond, Playwright ne relance pas `npm run build`.
+**Workaround** : `npm run build` avant chaque `npx playwright test` tant qu'un aperçu tourne (l'aperçu relit `dist/` à chaque requête), ou arrêter l'aperçu.
+**Référence** : `playwright.config.ts` (`webServer`).

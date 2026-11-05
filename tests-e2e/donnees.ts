@@ -4,6 +4,8 @@ export const FENETRES = {
   w1280: { width: 1280, height: 590 },
   w1536: { width: 1536, height: 731 },
   w1280x800: { width: 1280, height: 800 },
+  /** Sous 1280 px : légende et bouton « Plein écran » dans le flux de la page. */
+  w1024: { width: 1024, height: 700 },
 }
 
 /** Quiz terminé, les 16 réponses identiques : « a » donne le départage en attente, « b » le résultat Infra & cloud / Management / Développement. */

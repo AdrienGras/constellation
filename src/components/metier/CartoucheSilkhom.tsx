@@ -72,8 +72,14 @@ function GrilleTranches({
               <TableCell className="w-px font-mono text-[17px] whitespace-nowrap tabular-nums">
                 {p ? fourchette(p) : ND}
               </TableCell>
-              <TableCell className="w-3/5 align-middle">
-                {p ? <PlageSalaire min={p[0]} max={p[1]} echelle={echelle} couleur={couleur} /> : null}
+              <TableCell className="w-full">
+                {/* Piste plafonnée : au-delà, la fourchette s'éloignerait de sa barre (≈ sa largeur en 1280).
+                    Calée sur la 1re ligne de la fourchette (22 px), même quand le badge rend la ligne plus haute. */}
+                {p ? (
+                  <div className="flex h-[22px] max-w-[640px] items-center [&>*]:flex-1">
+                    <PlageSalaire min={p[0]} max={p[1]} echelle={echelle} couleur={couleur} />
+                  </div>
+                ) : null}
               </TableCell>
             </TableRow>
           )

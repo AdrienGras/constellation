@@ -29,7 +29,7 @@ export function EncartQuiz() {
         <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
           <p className="m-0 min-w-0 flex-1 basis-[360px] text-[15px] leading-[18px] text-encre-douce">
             Un point de départ, pas un verdict. Ce matin, choisis 3 métiers dans ta zone
-            d’exploration : les lignes en pointillés ({exploration} lignes, {metiers} métiers).
+            d’exploration : les lignes estompées ({exploration} lignes, {metiers} métiers).
           </p>
           <Button
             variant="secondary"

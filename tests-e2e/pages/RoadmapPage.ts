@@ -30,6 +30,20 @@ export class RoadmapPage extends AppPage {
 
   // --- Métier visé ---
 
+  /** Pastilles de la carte des compétences qui dépassent de la carte (à droite). */
+  async pastillesQuiDebordent(attendues: number): Promise<string[]> {
+    const { total, debordent } = await this.colonneCompetences.evaluate((aside) => {
+      const carte = aside.querySelector('details')!.getBoundingClientRect()
+      const pastilles = Array.from(aside.querySelectorAll('li'))
+      return {
+        total: pastilles.length,
+        debordent: pastilles.filter((li) => li.getBoundingClientRect().right > carte.right + 0.5).map((li) => li.textContent ?? ''),
+      }
+    })
+    if (total !== attendues) throw new Error(`${total} pastilles trouvées au lieu de ${attendues} : sélecteur cassé ?`)
+    return debordent
+  }
+
   get champRecherche(): Locator {
     return this.page.getByRole('textbox', { name: 'Chercher un métier' })
   }
@@ -51,6 +65,24 @@ export class RoadmapPage extends AppPage {
   /** Section d'une année (2027 à 2031). */
   annee(annee: number): Locator {
     return this.page.getByRole('region', { name: String(annee), exact: true })
+  }
+
+  /** Carte d'un élément (son nom accessible finit par « : <titre> »). */
+  carteElement(titre: string): Locator {
+    return this.page.getByRole('article', { name: new RegExp(`: ${echapper(titre)}$`) })
+  }
+
+  titreElement(titre: string): Locator {
+    return this.carteElement(titre).locator('[data-titre-element]')
+  }
+
+  /** Rectangles des 4 actions de la carte (Monter, Descendre, Modifier, Supprimer), dans l'ordre. */
+  async rectsActions(titre: string) {
+    const verbes = ['Monter', 'Descendre', 'Modifier', 'Supprimer'] as const
+    const boutons = this.carteElement(titre).getByRole('button', { name: new RegExp(`^(${verbes.join('|')}) « `) })
+    const nombre = await boutons.count()
+    if (nombre !== 4) throw new Error(`${nombre} actions trouvées au lieu de 4 : sélecteur cassé ?`)
+    return Promise.all(verbes.map((v) => this.rectEcran(this.bouton(v, titre))))
   }
 
   /** Titres des éléments d'une année, dans l'ordre affiché. */
@@ -176,6 +208,16 @@ export class RoadmapPage extends AppPage {
 
   get blocImpression(): Locator {
     return this.page.locator('[data-impression]')
+  }
+
+  /** `color-scheme` calculé de la racine en média `print` (la marge `@page` en dépend), puis retour à l'écran. */
+  async schemaDeCouleursImprime(): Promise<string> {
+    await this.page.emulateMedia({ media: 'print' })
+    try {
+      return await this.page.evaluate(() => getComputedStyle(document.documentElement).colorScheme)
+    } finally {
+      await this.page.emulateMedia({ media: 'screen' })
+    }
   }
 
   urlImprimee(url: string): Locator {

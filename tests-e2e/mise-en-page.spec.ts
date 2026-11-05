@@ -154,7 +154,8 @@ for (const [etat, quiz] of ETATS_QUIZ) {
     test('le bas du centre « TA FORMATION » tient dans la fenêtre', async ({ plan }) => {
       await plan.ouvrir()
       if (quiz) await plan.poserStockage('constellation.quiz.v1', quiz)
-      expect((await plan.rectEcran(plan.centre)).bas).toBeLessThanOrEqual(await plan.hauteurFenetre())
+      // 2 px de marge au moins : le plan pleine largeur rend 3 px de hauteur, repris sur l'en-tête.
+      expect((await plan.rectEcran(plan.centre)).bas).toBeLessThanOrEqual((await plan.hauteurFenetre()) - 2)
     })
   })
 }
@@ -219,5 +220,166 @@ test.describe('plan : plein écran', () => {
         )
       })
       .toBeLessThanOrEqual(1)
+  })
+})
+
+test.describe('impression : marges du PDF', () => {
+  test('le schéma de couleurs imprimé est clair (marges @page blanches)', async ({ roadmap }) => {
+    await roadmap.ouvrir()
+    await roadmap.poserStockage('constellation.roadmap.v1', ROADMAP_AUDIT)
+    expect(await roadmap.schemaDeCouleursImprime()).toBe('light')
+  })
+})
+
+test.describe('sources : dates (1366×633)', () => {
+  test.use({ viewport: FENETRES.w1366 })
+
+  test('chaque date du tableau tient sur une ligne', async ({ sources }) => {
+    await sources.ouvrir()
+    for (const cellule of await sources.datesDuTableau()) {
+      expect(await sources.nombreDeLignes(cellule)).toBe(1)
+    }
+  })
+})
+
+test.describe('fiche : fourchette alignée sur sa barre (1280×800)', () => {
+  test.use({ viewport: FENETRES.w1280x800 })
+
+  test('la barre est à la hauteur de la ligne de sa fourchette, badge compris', async ({ fiche }) => {
+    await fiche.ouvrir('dev-backend')
+    for (const decalage of await fiche.decalagesFourchettePiste()) {
+      expect(decalage).toBeLessThanOrEqual(1)
+    }
+  })
+})
+
+test.describe('roadmap : pastilles des compétences (1280×720)', () => {
+  test.use({ viewport: { width: 1280, height: 720 } })
+
+  test('aucune pastille ne dépasse de la carte', async ({ roadmap }) => {
+    await roadmap.ouvrir()
+    await roadmap.poserStockage('constellation.roadmap.v1', ROADMAP_AUDIT)
+    // `dev-backend` a 5 compétences dans metiers.json.
+    expect(await roadmap.pastillesQuiDebordent(5)).toEqual([])
+  })
+})
+
+test.describe('fiche : barres Silkhom (1536×731)', () => {
+  test.use({ viewport: FENETRES.w1536 })
+
+  test('la piste des barres ne dépasse pas 640 px', async ({ fiche }) => {
+    await fiche.ouvrir('dev-backend')
+    for (const largeur of await fiche.largeursPistesSilkhom()) {
+      expect(largeur).toBeLessThanOrEqual(640)
+    }
+    // La place libérée reste à droite de la barre : la piste suit la fourchette (marges des deux cellules).
+    for (const ecart of await fiche.ecartsFourchettePiste()) {
+      expect(ecart).toBeLessThanOrEqual(32)
+    }
+  })
+})
+
+test.describe('roadmap : cartes d’élément (1280×800)', () => {
+  test.use({ viewport: FENETRES.w1280x800 })
+
+  test('une carte au titre d’une ligne fait au plus 110 px, actions sur une rangée', async ({ roadmap }) => {
+    await roadmap.ouvrir()
+    await roadmap.poserStockage('constellation.roadmap.v1', ROADMAP_AUDIT)
+    const titre = 'Git avancé : rebase, bisect, hooks'
+    const carte = await roadmap.rectEcran(roadmap.carteElement(titre))
+    expect(carte.bas - carte.haut).toBeLessThanOrEqual(110)
+    const actions = await roadmap.rectsActions(titre)
+    for (const a of actions) expect(Math.abs(a.haut - actions[0].haut)).toBeLessThanOrEqual(1)
+  })
+})
+
+test.describe('plan : pleine largeur (1280×800)', () => {
+  test.use({ viewport: FENETRES.w1280x800 })
+
+  test('le dessin du plan prend toute la largeur de la fenêtre', async ({ plan }) => {
+    await plan.ouvrir()
+    const d = await plan.rectEcran(plan.dessin)
+    const { contenu, fenetre } = await plan.largeursDocument()
+    expect(d.droite - d.gauche).toBeGreaterThanOrEqual(fenetre - 1)
+    expect(contenu).toBeLessThanOrEqual(fenetre)
+  })
+})
+
+test.describe('plan : légende dans le flux (1024×700)', () => {
+  test.use({ viewport: FENETRES.w1024 })
+
+  test('la légende reste alignée sur l’en-tête', async ({ plan }) => {
+    await plan.ouvrir()
+    expect((await plan.rectEcran(plan.legende)).gauche).toBeGreaterThanOrEqual(47)
+    expect((await plan.rectEcran(plan.boutonPleinEcran)).droite).toBeLessThanOrEqual(1024 - 47)
+  })
+})
+
+for (const [nom, fenetre] of [
+  ['1280×800', FENETRES.w1280x800],
+  ['1366×633', FENETRES.w1366],
+  ['1024×700', FENETRES.w1024],
+] as const) {
+  test.describe(`plan : cibles des stations (${nom})`, () => {
+    test.use({ viewport: fenetre })
+
+    test('les cibles rondes ne se chevauchent pas et font au moins 24 px', async ({ plan }) => {
+      await plan.ouvrir()
+      expect(await plan.ciblesQuiSeChevauchent()).toEqual([])
+      // Zone de clic réelle (dessin de la station compris) : jamais une station plus lointaine que la plus proche.
+      expect(await plan.pointsQuiOuvrentUneStationPlusLointaine()).toEqual([])
+      expect(await plan.diametreMinimalDesCibles()).toBeGreaterThanOrEqual(24)
+    })
+  })
+}
+
+test.describe('plan : disque central (1280×800)', () => {
+  test.use({ viewport: FENETRES.w1280x800 })
+
+  test('« FORMATION » tient dans le disque', async ({ plan }) => {
+    await plan.ouvrir()
+    expect(await plan.centreDansLeDisque()).toBe(true)
+  })
+})
+
+test.describe('plan : bulle dans la fenêtre (1280×590, après le quiz)', () => {
+  test.use({ viewport: FENETRES.w1280 })
+
+  test('station en haut de la fenêtre : la bulle passe dessous, entière', async ({ plan }) => {
+    await plan.ouvrir()
+    await plan.poserStockage('constellation.quiz.v1', QUIZ_B)
+    const titre = 'RSSI (responsable de la sécurité des SI)'
+    await plan.amenerStationA(titre, 60)
+    await plan.survolerStation(titre)
+    await expect(plan.bulle).toBeVisible()
+    expect(await plan.bulleEntierementVisible()).toBe(true)
+    expect(await plan.stationVisibleSousLaBulle(titre)).toBe(true)
+    expect(await plan.coteDeLaBulle()).toBe('dessous')
+  })
+
+  test('la même station resurvolée plus bas : la bulle repasse dessus', async ({ plan }) => {
+    await plan.ouvrir()
+    await plan.poserStockage('constellation.quiz.v1', QUIZ_B)
+    const titre = 'RSSI (responsable de la sécurité des SI)'
+    await plan.amenerStationA(titre, 60)
+    await plan.survolerStation(titre)
+    expect(await plan.coteDeLaBulle()).toBe('dessous')
+    await plan.quitterSurvol()
+    await plan.amenerStationA(titre, (await plan.hauteurFenetre()) - 60)
+    await plan.survolerStation(titre)
+    expect(await plan.coteDeLaBulle()).toBe('dessus')
+    expect(await plan.bulleEntierementVisible()).toBe(true)
+  })
+
+  test('station en bas de la fenêtre : la bulle reste dessus, entière', async ({ plan }) => {
+    await plan.ouvrir()
+    await plan.poserStockage('constellation.quiz.v1', QUIZ_B)
+    const titre = 'Lead developer'
+    await plan.amenerStationA(titre, (await plan.hauteurFenetre()) - 60)
+    await plan.survolerStation(titre)
+    await expect(plan.bulle).toBeVisible()
+    expect(await plan.bulleEntierementVisible()).toBe(true)
+    expect(await plan.stationVisibleSousLaBulle(titre)).toBe(true)
+    expect(await plan.coteDeLaBulle()).toBe('dessus')
   })
 })

@@ -34,7 +34,7 @@ export function ItemRoadmap({
   return (
     <article
       aria-label={`${libelleType} : ${item.titre}`}
-      className="flex min-w-0 items-start gap-3 rounded-md bg-surface p-4 shadow-carte"
+      className="flex min-w-0 flex-wrap items-start gap-3 rounded-md bg-surface p-4 shadow-carte sm:flex-nowrap"
     >
       <div data-poignee className="contents">
         {poignee ?? (
@@ -70,7 +70,9 @@ export function ItemRoadmap({
         ) : null}
         {item.note ? <p className="m-0 text-[15px] leading-[22px] text-encre-douce">{item.note}</p> : null}
       </div>
-      <div data-actions-item className="flex flex-col gap-0.5">
+      {/* Actions sur une rangée : empilées, elles imposaient 150 px de haut à chaque carte. Sous `sm`, la rangée
+          passe sous le contenu pour laisser la largeur au titre. */}
+      <div data-actions-item className="flex gap-0.5 max-sm:basis-full max-sm:justify-end">
         {actions.map(({ Icone: I, verbe, onClick, desactive }) => (
           <Button
             key={verbe}
