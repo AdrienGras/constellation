@@ -152,8 +152,8 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Découvert** : tests de composants Radix et de la liste (tâches 12 et 15).
 **Symptôme** : `window.matchMedia is not a function` ou `ResizeObserver is not defined`.
 **Cause** : jsdom n'implémente pas ces API.
-**Workaround** : `ResizeObserver` est stubé dans `src/test/setup.ts` ; `matchMedia` est stubé dans le test qui en a besoin (`ListePage.test.tsx`), et le code tolère son absence (ouvert par défaut).
-**Référence** : `src/test/setup.ts`, `src/pages/ListePage.tsx`.
+**Workaround** : `ResizeObserver` est stubé dans `src/test/setup.ts` ; `matchMedia` est stubé dans les tests qui en ont besoin, et le code tolère son absence (ouvert par défaut ; pas de redirection mobile).
+**Référence** : `src/test/setup.ts` ; tolérance à l'absence de `matchMedia` dans `src/pages/ListePage.tsx`, `src/pages/plan/PlanPage.tsx` et `src/pages/roadmap/Competences.tsx`.
 
 ## Le glisser-déposer dnd-kit n'est pas testable en jsdom (2026-11-05)
 
@@ -186,3 +186,11 @@ Corps attendu pour chaque entrée : `**Découvert**` (contexte de la découverte
 **Cause** : chemin absolu vers le dépôt principal.
 **Workaround** : travailler dans le dépôt lui-même, ou remplacer le chemin par la racine du worktree courant.
 **Référence** : `docs/CONVENTIONS.md`, section « Modification de metiers.json ».
+
+## Un `sr-only` dans un tableau défilable fait défiler la page (2026-11-05)
+
+**Découvert** : correctifs de la revue finale (reflow à 390 et 320 px).
+**Symptôme** : `scrollWidth` du document dépasse `clientWidth` alors que le tableau est dans un conteneur `overflow-x-auto`.
+**Cause** : un élément `position: absolute` (`sr-only` de `TableCaption`, en-tête « Visualisation ») dont l'ancêtre positionné est hors du conteneur n'est pas rogné par son `overflow`.
+**Workaround** : le conteneur du `Table` est `relative`. Même famille : `src/styles/tokens.css` est importé hors `@layer`, donc `.titre-affiche` bat les utilitaires Tailwind ; les réglages responsives de ces classes vont dans `index.css`.
+**Référence** : `src/components/ui/table.tsx`, `src/styles/index.css`, `tests-e2e/accessibilite.spec.ts` (reflow).

@@ -20,6 +20,16 @@ corps, sans distinction entre ce qui est fait, en suspens, ou à creuser.
 
 ---
 
+## 2026-11-05 — Correctifs de la revue finale de la branche `app` (vague unique)
+
+**Dernière chose faite** : les 11 points de la revue finale. Roadmap et quiz relisent le stockage (événement `storage` et base relue avant chaque modification : plus de perte avec deux onglets) ; menu mobile sous `md` et fin du défilement horizontal à 390 et 320 px ; focus rendu après « Refaire le quiz », « Revenir aux questions » et « Effacer les filtres » ; impression ciblée par `data-barre` et `data-bandeau` ; plus de « Profil Silkhom null » (`ligne: string | null`) ; choix de l'année dans le dialogue ouvert depuis « Ajouter » ; plan (groupe nommé, rang après le quiz, bulle survolable) ; import nettoyé par `trim` ; petits points (favicon, `aria-expanded`, révocation du blob différée) ; e2e souris et deux onglets ; docs corrigées.
+
+**Trucs en suspens** : la passe visuelle avec Adrien (textes 13-15 px, haut du plan à 390 px) ; la phrase « ne les compare pas entre elles » reste à ses deux emplacements (décision du contrôleur) ; activation de GitHub Pages inchangée.
+
+**Prochaine chose à creuser** : sur demande d'Adrien, pousser `app` et fusionner dans `main`. Mineur non traité : une valeur illisible du stockage est écrasée à la première modification (voir `docs/BACKLOG.md`).
+
+**Notes pour future Claude** : la barre de navigation est un seul `<nav>` dont la liste est repliée sous `md` (`hidden md:flex`) ; ne pas dupliquer la navigation. La relecture du stockage vit dans `RoadmapContext` et `QuizContext` (`relire`) ; toute nouvelle action doit passer par `modifierEtat` / `appliquer`. Piège du `sr-only` dans un tableau : `docs/QUIRKS.md`.
+
 ## 2026-11-05 — App constellation livrée sur la branche `app` (18 tâches)
 
 **Dernière chose faite** : implémentation complète de l'app (spec `docs/superpowers/specs/2026-11-05-implementation-app-design.md`, plan `docs/superpowers/plans/2026-11-05-implementation-app.md`) par exécution en sous-agents, une relecture par tâche : types et données, logique pure (quiz, salaires, roadmap, import / export, stockage), composants shadcn et métier, contextes, plan avec filtres, liste, fiches, quiz, roadmap (glisser-déposer, impression A4), sources, e2e Playwright en Page Object Model avec axe, workflow GitHub Pages. Vérification finale : lint propre, 200 tests Vitest (22 fichiers), build, 44 e2e Playwright (39 passés, 5 ignorés car le plan est remplacé par la liste sur mobile), `valider.py` OK, 56 tests Python OK. Mémoire projet mise à jour (CLAUDE, INDEX, ENVIRONMENT, CONVENTIONS, QUIRKS, BACKLOG, PRD, README). Commits locaux sur `app`, rien de poussé.

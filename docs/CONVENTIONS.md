@@ -65,7 +65,7 @@ describe('correspondFiltre', () => {
 
 - La logique métier (filtres, quiz, salaires, roadmap, import / export) vit dans `src/logique/`, pure et testée ; les composants ne font que la brancher.
 - **Couleurs uniquement par les tokens** (classes issues de `tokens.css` / `index.css`) : seules exceptions, `plan.json` pour le SVG et `#000` / `#fff` dans la feuille d'impression.
-- Imports via l'alias `@/` pour `components/` et `donnees/` ; textes d'interface en français, inclusifs, tutoiement.
+- Imports via l'alias `@/` (= `src/`) pour `components/` et `donnees/` ; textes d'interface en français, inclusifs, tutoiement.
 
 ## Page avec `usePageTitre` — squelette
 
