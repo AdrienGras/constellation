@@ -49,7 +49,8 @@ export function ActionsRoadmap({ onAjouter }: { onAjouter: () => void }) {
     document.body.appendChild(lien)
     lien.click()
     lien.remove()
-    URL.revokeObjectURL(url)
+    // Le navigateur lit le blob après le clic : on ne le révoque qu’au tour suivant.
+    setTimeout(() => URL.revokeObjectURL(url), 0)
   }
 
   function appliquer(roadmap: EtatRoadmap, inconnue: boolean) {

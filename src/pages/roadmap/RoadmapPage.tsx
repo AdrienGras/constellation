@@ -62,7 +62,13 @@ export function RoadmapPage() {
         {metier ? (
           <div className="flex flex-wrap items-center gap-3">
             <p className="m-0 text-encre-douce">Le métier visé peut changer.</p>
-            <Button type="button" variant="outline" size="sm" onClick={() => setChangement((c) => !c)}>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              aria-expanded={changement}
+              onClick={() => setChangement((c) => !c)}
+            >
               Changer
             </Button>
           </div>

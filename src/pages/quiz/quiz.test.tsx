@@ -1,11 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { RouterProvider, createMemoryRouter } from 'react-router'
+import { MemoryRouter, RouterProvider, createMemoryRouter } from 'react-router'
+import { QuizProvider } from '../../etat/QuizContext'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { metiers, questions } from '../../donnees'
 import { CLES } from '../../logique/stockage'
 import { routes } from '../../routes'
-import { exemplesDeLigne } from './Resultat'
+import { Resultat, exemplesDeLigne } from './Resultat'
 
 function monter() {
   window.scrollTo = vi.fn()
@@ -87,6 +88,23 @@ describe('Quiz', () => {
     await user.click(screen.getByRole('button', { name: /Revenir aux questions/ }))
     const h1 = screen.getByRole('heading', { level: 1, name: questions[15].intitule })
     expect(h1).toHaveFocus()
+  })
+
+  it('le résultat ne relance pas la sonde de stockage à chaque rendu', () => {
+    const sonde = vi.spyOn(Storage.prototype, 'setItem')
+    // Chaque appel crée un nouvel arbre : React refait le rendu de Resultat.
+    const arbre = () => (
+      <MemoryRouter>
+        <QuizProvider>
+          <Resultat top3={['developpement', 'management', 'infra-cloud']} />
+        </QuizProvider>
+      </MemoryRouter>
+    )
+    const { rerender } = render(arbre())
+    rerender(arbre())
+    rerender(arbre())
+    expect(sonde.mock.calls.filter(([cle]) => cle === 'constellation.sonde')).toHaveLength(1)
+    sonde.mockRestore()
   })
 
   it('reprend à la question stockée', () => {

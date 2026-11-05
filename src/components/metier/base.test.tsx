@@ -167,6 +167,14 @@ describe('ItemRoadmap', () => {
     expect(screen.getByText('Une note')).toBeInTheDocument()
   })
 
+  it('le lien de ressource annonce le nouvel onglet', () => {
+    render(<ItemRoadmap item={item} premier={false} dernier={false} {...actions()} />)
+    expect(screen.getByRole('link', { name: /^exemple\.fr\/page\s*\(nouvel onglet\)$/ })).toHaveAttribute(
+      'target',
+      '_blank',
+    )
+  })
+
   it('premier désactive Monter, dernier désactive Descendre', () => {
     render(<ItemRoadmap item={item} premier dernier {...actions()} />)
     expect(screen.getByRole('button', { name: 'Monter « X »' })).toBeDisabled()
@@ -176,7 +184,7 @@ describe('ItemRoadmap', () => {
 
   it('affiche l’URL sans https:// dans un lien externe sûr', () => {
     render(<ItemRoadmap item={item} premier={false} dernier={false} {...actions()} />)
-    const lien = screen.getByRole('link', { name: 'exemple.fr/page' })
+    const lien = screen.getByRole('link', { name: /^exemple\.fr\/page/ })
     expect(lien).toHaveAttribute('href', 'https://exemple.fr/page')
     expect(lien).toHaveAttribute('target', '_blank')
     expect(lien).toHaveAttribute('rel', 'noopener noreferrer')

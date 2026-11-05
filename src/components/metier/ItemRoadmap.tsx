@@ -60,6 +60,7 @@ export function ItemRoadmap({
             className="rounded-sm font-mono text-[14px] leading-5 [overflow-wrap:anywhere] text-info underline"
           >
             {item.url.replace(/^https?:\/\//, '')}
+            <span className="sr-only"> (nouvel onglet)</span>
           </a>
         ) : null}
         {item.url && urlAcceptable(item.url) ? (

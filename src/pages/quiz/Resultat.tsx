@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { Button } from '@/components/ui/button'
 import { PastilleLigne } from '@/components/metier/PastilleLigne'
@@ -26,7 +26,7 @@ export function Resultat({ top3 }: { top3: LigneId[] }) {
   const h1 = useRef<HTMLHeadingElement>(null)
   // Le bouton cliqué a disparu avec l’écran précédent : le focus va au titre.
   useEffect(() => h1.current?.focus(), [])
-  const gardé = stockageDisponible()
+  const [gardé] = useState(stockageDisponible)
 
   return (
     <div className="mx-auto flex w-full max-w-[720px] flex-col gap-6 px-6 py-8">

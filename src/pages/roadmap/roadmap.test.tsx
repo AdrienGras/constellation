@@ -44,6 +44,7 @@ beforeEach(() => {
 })
 
 afterEach(() => {
+  vi.useRealTimers()
   vi.restoreAllMocks()
 })
 
@@ -86,11 +87,13 @@ describe('RoadmapPage : métier visé', () => {
     expect(stockee().cible).toBe('dev-backend')
   })
 
-  it('Changer rouvre le choix', async () => {
+  it('Changer rouvre le choix et porte aria-expanded', async () => {
     const user = userEvent.setup()
     stocker('dev-backend')
     monter()
+    expect(screen.getByRole('button', { name: 'Changer' })).toHaveAttribute('aria-expanded', 'false')
     await user.click(screen.getByRole('button', { name: 'Changer' }))
+    expect(screen.getByRole('button', { name: 'Changer' })).toHaveAttribute('aria-expanded', 'true')
     expect(within(screen.getByRole('list', { name: 'Métiers' })).getAllByRole('button')).toHaveLength(68)
   })
 
@@ -267,7 +270,7 @@ describe('RoadmapPage : export et import', () => {
   })
 
   it('exporte un fichier constellation-roadmap-…', async () => {
-    const user = userEvent.setup()
+    vi.useFakeTimers({ shouldAdvanceTime: true })
     const creer = vi.fn(() => 'blob:test')
     const revoquer = vi.fn()
     URL.createObjectURL = creer
@@ -278,9 +281,16 @@ describe('RoadmapPage : export et import', () => {
     })
     stocker('dev-backend', { '2027': [item('A')] })
     monter()
-    await user.click(screen.getByRole('button', { name: 'Exporter en JSON' }))
+    await act(async () => {
+      screen.getByRole('button', { name: 'Exporter en JSON' }).click()
+    })
     expect(creer).toHaveBeenCalledTimes(1)
     expect(nom).toMatch(/^constellation-roadmap-/)
+    // Le navigateur lit le blob après le clic : la révocation est différée d’un tour.
+    expect(revoquer).not.toHaveBeenCalled()
+    await act(async () => {
+      vi.runAllTimers()
+    })
     expect(revoquer).toHaveBeenCalledWith('blob:test')
     expect(document.querySelector('a[download]')).toBeNull()
   })
